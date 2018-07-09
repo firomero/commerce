@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-945.000000, -279.000000)" fill="#FFFFFF">
+            <g id="Group-5" transform="translate(945.000000, 279.000000)">
+                <path d="M6.165,8.8875 C3.61125,8.22375 2.79,7.5375 2.79,6.46875 C2.79,5.2425 3.92625,4.3875 5.8275,4.3875 C7.83,4.3875 8.5725,5.34375 8.64,6.75 L11.12625,6.75 C11.0475,4.815 9.86625,3.0375 7.515,2.46375 L7.515,0 L4.14,0 L4.14,2.43 C1.9575,2.9025 0.2025,4.32 0.2025,6.49125 C0.2025,9.09 2.35125,10.38375 5.49,11.1375 C8.3025,11.8125 8.865,12.8025 8.865,13.84875 C8.865,14.625 8.31375,15.8625 5.8275,15.8625 C3.51,15.8625 2.59875,14.8275 2.475,13.5 L0,13.5 C0.135,15.96375 1.98,17.3475 4.14,17.80875 L4.14,20.25 L7.515,20.25 L7.515,17.83125 C9.70875,17.415 11.4525,16.14375 11.4525,13.8375 C11.4525,10.6425 8.71875,9.55125 6.165,8.8875 Z" id="Shape"></path>
+                <text id="+" font-family=".HelveticaNeueDeskInterface-Regular, .Helvetica Neue DeskInterface" font-size="10" font-weight="normal" letter-spacing="0.119999997">
+                    <tspan x="14.3912195" y="12">+</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
