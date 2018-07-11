@@ -1,5 +1,5 @@
 // for loading styles we need to load main scss file
-import styles from './styles/styles.scss';
+import styles from './assets/styles.scss';
 
 // loading shared module
 import './core/core.module';
@@ -8,6 +8,8 @@ import './components/component.module';
 
 const appModule = angular
 	.module('app', [
+		'ngMaterial',
+		'mgo-angular-wizard',
 		'ngResource',
 		// shared module
 		'app.core',

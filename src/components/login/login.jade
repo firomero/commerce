@@ -1,21 +1,53 @@
 section.cso-login(cso-auto-height)
   .cso-wrapper
     .cso-login__videobackground
-      video(autoplay="" loop="" muted="" poster="assets/images/loginvideo-poster.png")
-        source(src="assets/videos/loginvideo.mp4")
+      img.video(src="assets/images/login-background.png")
     .cso-login__wrapper
-      img.cso-login__brand(src="assets/images/isologo-normal.png")
-      .cso-login__wizard
-        form.cso-form-glass(name="loginStep1" ng-if="$ctrl.getWizardStep() == 1" ng-submit="$ctrl.submitWizard(1)")
-          div.cso-form-glass__wrapper
-            h3.cso-form-glass__title Ingresa tu nombre
-            div.cso-form-glass__input-wrapper(input-focus="")
-              i.material-icons.cso-form-glass__input-icon perm_identity
-              label.cso-form-glass__label(for="login-name") Nombre
-              input.cso-form-glass__input(name="login-name" type="text" ng-model="vm.model.userName" 
-                                                                           cso-autofocus required="required" id="login-name")
-            button.cso-button.cso-button--expand.cso-button--raised(ladda="vm.state.pendingRequest" ng-disabled="loginStep1.$invalid") Siguiente
-  
+      div.label-top BTN DE PAGA, SOLO DEMOSTRATIVO
+      img.cso-login__brand(src="assets/images/logos/logoBanco100.png")
+      div.label-subtitle the all-new online banking experience is  here.
+      wizard(on-finish="finishedWizard()" hide-indicators="true")
+
+        wz-step(canexit="exitValidation")
+          div.cso-login__wizard
+            div.cso-form-glass__wrapper
+              h3.title-form Ingrese su nombre
+              div.custom-input(input-focus)
+                i.material-icons.cso-form-glass__input-icon perm_identity
+                label.cso-form-glass__label(for="login-name") Nombre
+                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+
+        wz-step(canexit="exitValidation")
+          div.cso-login__wizard
+            div.cso-form-glass__wrapper
+              h3.title-form Ingrese su nombre 1
+              div.custom-input(input-focus)
+                i.material-icons.cso-form-glass__input-icon perm_identity
+                label.cso-form-glass__label(for="login-name") Nombre
+                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+
+        wz-step(canexit="exitValidation")
+          div.cso-login__wizard
+            div.cso-form-glass__wrapper
+              h3.title-form Ingrese su nombre 2
+              div.custom-input(input-focus)
+                i.material-icons.cso-form-glass__input-icon perm_identity
+                label.cso-form-glass__label(for="login-name") Nombre
+                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+
+        wz-step(canexit="exitValidation")
+          div.cso-login__wizard
+            div.cso-form-glass__wrapper
+              h3.title-form Ingrese su nombre 3
+              div.custom-input(input-focus)
+                i.material-icons.cso-form-glass__input-icon perm_identity
+                label.cso-form-glass__label(for="login-name") Nombre
+                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+        
       .cso-wrapper
         .cso-login__alternative-links
           ul.cso-link-list
@@ -25,15 +57,9 @@ section.cso-login(cso-auto-height)
               a(ng-click="$crtl.lostPassword()") ¿Olvidaste tu clave?
             li.cso-link-list__item.cso-link-list__item--centered(ng-if="$crtl.getWizardStep() == 3")
               a(ng-click="$crtl.reset()") Ingresar con otro usuario
-      .cso-wrapper
-        ul.cso-link-list.cso-login__help-links
-          li.cso-link-list__item.cso-link-list__item--centered.cso-link-list__item--plain
-            a(ng-click="$ctrl.emergency()")
-              i.material-icons.cso-login__help-icon warning
-              | Emergencias Bancarias
+      
       footer.cso-login__footer
-        .cso-wrapper
-          p.cso-footer__legal.cso-footer__legal--light
-            img(src="assets/images/isologo-normal.png")
-            | Infórmate sobre la garantía estatal de los depósitos en tu Banco o en www.sbif.cl | 2017 Banco Consorcio. Todos los derechos reservados.
-            | Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 10 o superior.
+        .cso-wrapper.refactor
+          p.cso-footer__legal.cso-footer__legal Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.
+          p.cso-footer__legal.cso-footer__legal Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior.
+          

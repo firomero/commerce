@@ -75,7 +75,7 @@ const config = {
 			$: 'jquery',
 			jquery: 'jquery'
 		}),
-		new ExtractTextWebpackPlugin('styles/styles.css'),
+		new ExtractTextWebpackPlugin('assets/styles.css'),
 		new OptimizeCssAssetsWebpackPlugin()
 	],
 	devServer: {

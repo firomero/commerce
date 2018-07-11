@@ -1,0 +1,304 @@
+section.cso-login {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    background-position: center center;
+  
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+        background-image: linear-gradient(0deg, #0B2C4D 0%, rgba(11, 44, 77, 0.14000000059604645) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#140b2c4d', endColorstr='#0b2c4d',GradientType=0 );
+    }
+  
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background-color: #AFD4EF;
+        height: 5px;
+        z-index: 2;
+    }
+
+    .label-top {
+        display: block;
+        text-align: center;
+        color: $c-white;
+        padding: 5em 0;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: -0.03px;
+        line-height: 17px;
+    }
+    .label-subtitle {
+        display: block;
+        text-align: center;
+        color: $c-blue-light;
+        padding-bottom: 40px;
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -0.96px;
+        line-height: 48px;
+    }
+    .title-form {
+        margin: 0 0 40px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: -0.48px;
+        line-height: 24px;
+        color: $c-white;
+    }
+
+    .custom-input {
+        border-radius: 5px;
+        background-color: $c-white;
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 15px;
+        height: 47px;
+        width: 345px;
+        text-align: right;
+        font-weight: 500;
+        transition: .2s ease-in-out all;
+    }
+
+
+
+
+    .cso-login__wrapper {
+        position: relative;
+        z-index: 1;
+        overflow-y: auto;
+    }
+    .cso-login__videobackground {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 0;
+    }
+    .cso-login__videobackground > .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .cso-login__brand {
+        display: block;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: 0 auto;
+        max-width: 40%;
+    }
+    .cso-form-glass {
+        color: $c-white;
+    }
+    
+    
+    .cso-form-glass__input-icon {
+        padding: 0 0 0 10px;
+        display: block;
+        width: auto;
+        color: $c-white;
+        font-size: 20px;
+    }
+    .cso-form-glass__label {
+        padding: 0 0 0 10px;
+        font-weight: normal;
+        color: inherit;
+        text-align: left;
+        cursor: pointer;
+        font-size: 13px;
+        color: $c-white;
+    }
+    .cso-form-glass__input {
+        margin: 0;
+        min-height: 50px;
+        border: none;
+        background: transparent;
+        color: inherit;
+        text-align: right;
+        padding: 10px;
+        width: 100%;
+        min-width: 10px;
+        font-size: 13px;
+        font-weight: normal;
+        color: $c-white;
+    }
+    
+    .cso-button {
+        text-transform: uppercase;
+        background-color: $c-green;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25999999046325684), 0 2px 10px 0 rgba(0, 0, 0, 0.1599999964237213);
+        border-radius: 3px;
+        border: none;
+        width: 345px;
+        height: 50px;
+        color: $c-white;
+        padding: 16px 128.83px 18px 128px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.03px;
+        line-height: 17px;
+    }
+    .cso-button[disabled] {
+        opacity: .4;
+        pointer-events: none;
+    }
+    .cso-button:last-child {
+        margin-right: 0;
+    }
+    .cso-button--raised {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .cso-button--expand {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cso-link-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .cso-link-list__item--centered {
+        text-align: center;
+    }
+    .cso-link-list__item {
+        display: inline-block;
+        padding-right: 21px;
+        padding-left: 16px;
+        color: $c-white;
+    }
+    .cso-link-list__item a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: -0.36px;
+        line-height: 18px;
+    }
+    .cso-link-list__item--plain {
+        border: none !important;
+    }
+    .cso-login__help-icon {
+        padding-top: 4px;
+        display: inline-block;
+        margin-right: 8px;
+    }
+    .cso-login__footer {
+        margin-top: 30px;
+        width: 100%;
+        position: relative;
+    }
+    .cso-footer__legal {
+        text-align: center;
+        color: $c-white;
+        padding-top: 10px;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: -0.24px;
+        line-height: 12px;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    .cso-form-glass__input-wrapper:focus,
+    .cso-form-glass__input:focus{
+        outline: none;
+    }
+    .cso-form-glass__input-wrapper.is-focused {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        outline: none;
+    }
+    .cso-wrapper {
+        height: inherit;
+    }
+    .cso-link-list__item.link {
+        font-size: 16px;
+    }
+    @media only screen and (min-width: 1025px) {
+        .cso-wrapper {
+            width: 100%;
+            max-width: 1270px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+        .cso-wrapper.refactor {
+            padding: 0px 40px;
+        }
+    }
+    @media (min-aspect-ratio: 16/9) {
+        .cso-login__videobackground > .video {
+            height: 300%;
+            top: -100%;
+        }
+    }
+    
+    @media only screen and (min-width: 1025px) {
+        .cso-login__brand {
+            padding-top: 40px;
+            max-width: 30%;
+            padding-bottom: 40px;
+        }
+        .cso-login__wizard {
+            width: 345px;
+            margin: 0 auto;
+        }
+        .cso-wrapper {
+            width: 100%;
+            max-width: 1270px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+        .cso-wrapper.refactor {
+            padding: 0 40px;
+        }
+        .cso-login__alternative-links {
+            display: table;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .cso-link-list__item:first-child {
+            padding-left: 0;
+        }
+        .cso-link-list__item:not(:last-child) {
+            border-right: 1px solid white;
+        }
+        .cso-login__help-links {
+            float: right;
+            margin-top: 40px;
+        }
+        .cso-login__help-links::before, .cso-login__help-links::after {
+            content: ' ';
+            display: table;
+        }
+        .cso-login__help-links::after {
+            clear: both;
+        }
+        .cso-login__footer {
+            margin-top: 10%;
+        }
+    }
+}

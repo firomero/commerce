@@ -1,0 +1,19 @@
+// for loading font-awesome icons
+$fa-font-path: '~font-awesome/fonts/';
+
+@import '~font-awesome/scss/font-awesome';
+
+/*===========================================
+========= Loading Bootstrap Styles ==========
+=============================================*/
+@import '~bootstrap/scss/bootstrap';
+@import '~angular-material/angular-material';
+
+/*===========================================
+========= Loading Customize Styles ==========
+=============================================*/
+// loading blocks
+@import 'vars/colors';
+
+// loading blocks
+@import 'blocks/login';
