@@ -1,65 +1,154 @@
-section.cso-login(cso-auto-height)
-  .cso-wrapper
-    .cso-login__videobackground
-      img.video(src="assets/images/login-background.png")
-    .cso-login__wrapper
-      div.label-top BTN DE PAGA, SOLO DEMOSTRATIVO
-      img.cso-login__brand(src="assets/images/logos/logoBanco100.png")
-      div.label-subtitle the all-new online banking experience is  here.
+video.fullscreen(preload="none" allowfullscreen autoplay loop)
+  source(src="assets/video/login.mp4" type="video/mp4")
+div.backdrop
+div.container.login
+  div.row
+    div.col-12
+      img(src="assets/images/logos/logoBanco100.png")
+    div.col-12.title.mt-5.mb-5
+      h3 the all-new online banking experience is here.
+
+    div.col-12
       wizard(on-finish="finishedWizard()" hide-indicators="true")
-
         wz-step(canexit="exitValidation")
-          div.cso-login__wizard
-            div.cso-form-glass__wrapper
-              h3.title-form Ingrese su nombre
-              div.custom-input(input-focus)
+          h3.title-form.mb-5 Ingrese su nombre
+          div.row
+            div.input-form.offset-4.col-lg-4.col-md-4.col-sm-6(input-focus=".form-element input")
+              div.form-text
                 i.material-icons.cso-form-glass__input-icon perm_identity
-                label.cso-form-glass__label(for="login-name") Nombre
-                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
-              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
-
-        wz-step(canexit="exitValidation")
-          div.cso-login__wizard
-            div.cso-form-glass__wrapper
-              h3.title-form Ingrese su nombre 1
-              div.custom-input(input-focus)
-                i.material-icons.cso-form-glass__input-icon perm_identity
-                label.cso-form-glass__label(for="login-name") Nombre
-                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
-              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
-
-        wz-step(canexit="exitValidation")
-          div.cso-login__wizard
-            div.cso-form-glass__wrapper
-              h3.title-form Ingrese su nombre 2
-              div.custom-input(input-focus)
-                i.material-icons.cso-form-glass__input-icon perm_identity
-                label.cso-form-glass__label(for="login-name") Nombre
-                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
-              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
-
-        wz-step(canexit="exitValidation")
-          div.cso-login__wizard
-            div.cso-form-glass__wrapper
-              h3.title-form Ingrese su nombre 3
-              div.custom-input(input-focus)
-                i.material-icons.cso-form-glass__input-icon perm_identity
-                label.cso-form-glass__label(for="login-name") Nombre
-                input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
-              input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
-        
-      .cso-wrapper
-        .cso-login__alternative-links
-          ul.cso-link-list
-            li.cso-link-list__item.cso-link-list__item--centered
-              a(ng-click="$crtl.becomeClient()") Hazte cliente
-            li.cso-link-list__item.cso-link-list__item--centered
-              a(ng-click="$crtl.lostPassword()") ¿Olvidaste tu clave?
-            li.cso-link-list__item.cso-link-list__item--centered(ng-if="$crtl.getWizardStep() == 3")
-              a(ng-click="$crtl.reset()") Ingresar con otro usuario
-      
-      footer.cso-login__footer
-        .cso-wrapper.refactor
-          p.cso-footer__legal.cso-footer__legal Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.
-          p.cso-footer__legal.cso-footer__legal Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior.
+                label.ml-2 Nombre
+              div.form-element
+                input(name="username" type="text" ng-model="$ctrl.model.username" required="required")
+          div.row
+            input.form-submit.offset-4.col-lg-4.col-md-4.col-sm-6(type="submit" wz-next value="Siguiente")
           
+          ul.my-5
+            li.extra-link
+              a(href="/login") Hazte Cliente
+            li.extra-link
+              a(href="/login") ¿Olvidaste tu clave?
+
+        wz-step(canexit="exitValidation")
+          h3.title-form.mb-5 Ingrese Su Rut
+          div.row
+            div.input-form.offset-4.col-lg-4.col-md-4.col-sm-6(input-focus=".form-element input")
+              div.form-text
+                i.material-icons.cso-form-glass__input-icon perm_identity
+                label.ml-2 Rut
+              div.form-element
+                input(name="rut" type="text" ng-model="$ctrl.model.rut" required="required")
+          div.row
+            input.form-submit.offset-4.col-lg-4.col-md-4.col-sm-6(type="submit" wz-next value="Siguiente")
+
+          ul.my-5
+            li.extra-link
+              a(href="/login") Hazte Cliente
+            li.extra-link
+              a(href="/login") ¿Olvidaste tu clave?
+            li.extra-link
+              a(href="/login") Ingresar con otro usuario
+
+        wz-step(canexit="exitValidation")
+          h3.title-form.mb-5 Bienvenido {{$ctrl.model.username}}
+          div.row
+            div.input-form.offset-4.col-lg-4.col-md-4.col-sm-6(input-focus=".form-element input")
+              div.form-text
+                i.material-icons.cso-form-glass__input-icon https
+                label.ml-2 Clave
+              div.form-element
+                input(name="rut" type="password" ng-model="$ctrl.model.password" required="required")
+          div.row
+            input.form-submit.offset-4.col-lg-4.col-md-4.col-sm-6(type="submit" wz-next value="Siguiente")
+
+          ul.my-5
+            li.extra-link
+              a(href="/login") ¿Olvidaste tu clave?
+            li.extra-link
+              a(href="/login") Ingresar con otro usuario
+
+        wz-step(canexit="exitValidation")
+          h3.title-form.mb-4 {{$ctrl.model.username}} Selecciona Tu Empresa
+          div.row
+            div.offset-4.col-lg-4.col-md-4.col-sm-6.radio-content(perfect-scroll)
+              md-radio-group.row.pl-2.pr-2(ng-model="$ctrl.model.currentCompany")
+                md-radio-button.input-form.md-primary(ng-value="company.nameID" ng-repeat="company in $ctrl.companies") {{company.name}}
+          div.row
+            input.form-submit(type="submit" wz-next value="Siguiente")
+
+          ul.my-5
+            li.extra-link
+              a(href="/login") Ingresar con otro usuario
+
+  div.col-12.footer
+    p Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.
+    p Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior.
+//- section.cso-login(cso-auto-height)
+//-   .cso-wrapper
+//-     .cso-login__videobackground
+//-       img.video(src="assets/images/login-background.png")
+//-     .cso-login__wrapper
+//-       div.label-top BTN DE PAGA, SOLO DEMOSTRATIVO
+//-       img.cso-login__brand(src="assets/images/logos/logoBanco100.png")
+//-       div.label-subtitle the all-new online banking experience is  here.
+//-       wizard(on-finish="finishedWizard()" hide-indicators="true")
+
+//-         wz-step(canexit="exitValidation")
+//-           div.cso-login__wizard
+//-             div.cso-form-glass__wrapper
+//-               h3.title-form Ingrese su nombre
+//-               div.input-form(input-focus)
+//-                 div.form-text
+//-                   i.material-icons.cso-form-glass__input-icon perm_identity
+//-                   label Nombre
+//-                 div.form-element
+//-                   input(name="username" type="text" ng-model="$ctrl.model.userName" required="required")
+//-                 //- i.material-icons.cso-form-glass__input-icon perm_identity
+//-                 //- label.cso-form-glass__label(for="login-name") Nombre
+//-                 //- input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+//-               input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+
+//-         wz-step(canexit="exitValidation")
+//-           div.cso-login__wizard
+//-             div.cso-form-glass__wrapper
+//-               h3.title-form Ingrese su nombre 1
+//-               div.custom-input(input-focus)
+//-                 i.material-icons.cso-form-glass__input-icon perm_identity
+//-                 label.cso-form-glass__label(for="login-name") Nombre
+//-                 input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+//-               input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+
+//-         wz-step(canexit="exitValidation")
+//-           div.cso-login__wizard
+//-             div.cso-form-glass__wrapper
+//-               h3.title-form Ingrese su nombre 2
+//-               div.custom-input(input-focus)
+//-                 i.material-icons.cso-form-glass__input-icon perm_identity
+//-                 label.cso-form-glass__label(for="login-name") Nombre
+//-                 input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+//-               input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+
+//-         wz-step(canexit="exitValidation")
+//-           div.cso-login__wizard
+//-             div.cso-form-glass__wrapper
+//-               h3.title-form Ingrese su nombre 3
+//-               div.custom-input(input-focus)
+//-                 i.material-icons.cso-form-glass__input-icon perm_identity
+//-                 label.cso-form-glass__label(for="login-name") Nombre
+//-                 input.cso-form-glass__input(name="login-name" type="text" ng-model="$ctrl.model.userName" required="required")
+//-               input.cso-button.cso-button--expand.cso-button--raised(type="submit" wz-next value="Siguiente")
+
+//-       .cso-wrapper
+//-         .cso-login__alternative-links
+//-           ul.cso-link-list
+//-             li.cso-link-list__item.cso-link-list__item--centered
+//-               a(ng-click="$crtl.becomeClient()") Hazte cliente
+//-             li.cso-link-list__item.cso-link-list__item--centered
+//-               a(ng-click="$crtl.lostPassword()") ¿Olvidaste tu clave?
+//-             li.cso-link-list__item.cso-link-list__item--centered(ng-if="$crtl.getWizardStep() == 3")
+//-               a(ng-click="$crtl.reset()") Ingresar con otro usuario
+
+//-       footer.cso-login__footer
+//-         .cso-wrapper.refactor
+//-           p.cso-footer__legal.cso-footer__legal Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.
+//-           p.cso-footer__legal.cso-footer__legal Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior.
+

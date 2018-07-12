@@ -3,11 +3,25 @@ $fa-font-path: '~font-awesome/fonts/';
 
 @import '~font-awesome/scss/font-awesome';
 
+@font-face {
+    font-family: Roboto;
+    src: url('fonts/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: SFNSText;
+    src: url('fonts/San-Francisco-Regular.ttf');
+}
+@font-face {
+  font-family: HelveticaNeue;
+  src: url('fonts/HelveticaNeue.ttf');
+}
+
 /*===========================================
 ========= Loading Bootstrap Styles ==========
 =============================================*/
 @import '~bootstrap/scss/bootstrap';
 @import '~angular-material/angular-material';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
 
 /*===========================================
 ========= Loading Customize Styles ==========
@@ -17,3 +31,10 @@ $fa-font-path: '~font-awesome/fonts/';
 
 // loading blocks
 @import 'blocks/login';
+
+.is-focused {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+}

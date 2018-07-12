@@ -1,14 +1,14 @@
 export default class LoginController {
-	constructor(_path, UserService) {
+	constructor(_path, UserService, CompanyService) {
 		'ngInject';
 		this.UserService = UserService;
+		this.CompanyService = CompanyService;
 	}
 
 	$onInit = () => {
-		this.heading = 'Welcome to AngularJS ES6 Starter-Kit';
-		this.model = {
-			userName: 'Juan Pablos Rojas'
-		};
+
+		this.model = this.UserService.login();
+		this.companies = this.CompanyService.getCompanies();
 	};
 
 	getWizardStep = () => {
