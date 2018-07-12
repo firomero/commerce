@@ -44,13 +44,13 @@ div.container.login
             botton.form-submit.spinner.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
 
-          ul.my-5
+          ul.mt-5.mb-8
             li.extra-link
               a(href="/login") Hazte Cliente
             li.extra-link
               a(href="/login") ¿Olvidaste tu clave?
             li.extra-link
-              a(href="/login") Ingresar con otro usuario
+              a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 Bienvenido {{$ctrl.model.username}}
@@ -66,11 +66,11 @@ div.container.login
             botton.form-submit.spinner.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
 
-          ul.my-5
+          ul.mt-5.mb-8
             li.extra-link
               a(href="/login") ¿Olvidaste tu clave?
             li.extra-link
-              a(href="/login") Ingresar con otro usuario
+              a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 {{$ctrl.model.username}} Selecciona Tu Empresa
@@ -81,9 +81,9 @@ div.container.login
           div.row
             input.col-xl-4.col-lg-4.col-md-6.col-sm-6.offset-2.col-7.form-submit.last-child(type="submit" wz-next value="Siguiente")
 
-          ul.my-5
+          ul.mt-5.mb-8
             li.extra-link
-              a(href="/login") Ingresar con otro usuario
+              a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
   div.col-12.footer
     p Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.
