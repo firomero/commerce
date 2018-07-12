@@ -8,6 +8,14 @@ $fa-font-path: '~font-awesome/fonts/';
     src: url('fonts/Roboto-Regular.ttf');
 }
 @font-face {
+    font-family: Roboto-Bold;
+    src: url('fonts/Roboto-Bold.ttf');
+}
+@font-face {
+    font-family: Roboto-Medium;
+    src: url('fonts/Roboto-Medium.ttf');
+}
+@font-face {
     font-family: SFNSText;
     src: url('fonts/San-Francisco-Regular.ttf');
 }
@@ -31,6 +39,7 @@ $fa-font-path: '~font-awesome/fonts/';
 
 // loading blocks
 @import 'blocks/login';
+@import 'blocks/extra-layout';
 
 .is-focused {
     border: 1px solid rgba(255, 255, 255, 0.3);

@@ -1,8 +1,14 @@
 export default class LoginController {
-	constructor(_path, UserService, CompanyService) {
+
+	saving = false;
+
+	constructor(_path, $timeout, $q, WizardHandler, UserService, CompanyService) {
 		'ngInject';
+		this.$timeout = $timeout;
+		this.$q = $q;
+		this.WizardHandler = WizardHandler;
 		this.UserService = UserService;
-		this.CompanyService = CompanyService;
+		this.CompanyService = CompanyService;		
 	}
 
 	$onInit = () => {
@@ -11,12 +17,14 @@ export default class LoginController {
 		this.companies = this.CompanyService.getCompanies();
 	};
 
-	getWizardStep = () => {
-  
-		return 1;
-	}
+	setLoadingStep() {
 
-	becomeClient = () => {
+		var _this = this;
+		_this.saving = true;
+		_this.$timeout(1000).then(function() {
 
+			_this.saving = false;
+			_this.WizardHandler.wizard().next();		
+		});
 	}
 }
