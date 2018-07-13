@@ -95,7 +95,7 @@ div.backdrop {
       font-stretch: normal;
       font-weight: 400;
       letter-spacing: -0.36px;
-      line-height: 27px;
+      line-height: 30px;
       color: $c-white;
       display: inline-block;
       vertical-align: top;
@@ -129,7 +129,7 @@ div.backdrop {
     // INPUT END
 
     .radio-content {
-        max-height: 180px;
+        max-height: 160px;
         overflow-x: hidden;
         overflow-y: auto;
         display: -webkit-inline-box;
@@ -186,11 +186,6 @@ div.backdrop {
         font-weight: 500;
         letter-spacing: -0.03px;
         line-height: 17px;
-    }
-
-    .form-submit:last-child {
-        margin: 0 auto;
-        width: 31%;
     }
 
     .form-submit[disabled] {
@@ -259,9 +254,18 @@ div.backdrop {
 }
 
 /*MEDIA SCREEN*/
-@media (max-width: 575px) {//col
+@media (max-width: 767px) {//col-xs
 
     .login {
+
+        .row.custom { padding-left: 3.5%; }
+        .form-submit.last-child {
+            margin: 0 auto;
+            float: none;
+        }
+        .form-submit.last-child.col-xs-8 {
+            width: 65.5%;
+        }
 
         .title { padding: 0px 2rem!important; }
 
@@ -287,48 +291,17 @@ div.backdrop {
         .footer { padding: 0px 2rem 2rem 2rem!important; }
     }
 }
-@media (min-width: 576px) and (max-width: 767px)  {//col-sm
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
     
     .login {
 
-        .title { padding: 0px 1rem!important; }
-
+        .row.custom { padding-left: 3%; }
         .form-submit.last-child {
             margin: 0 auto;
-            flex: 0 0 46%;
-            max-width: 46%;
+            float: none;
         }
-
-        ul {
-
-            padding-left: 0px;
-            margin-top: 4rem!important;
-            margin-bottom: 7rem!important;
-
-            li {
-                display: block;
-                list-style: none;
-                padding: 0 0px;
-                text-align: center;
-            }
-
-            li+li {
-                border-left: none;
-                margin-top: 10px;
-            }
-        }
-
-        .footer { padding: 0px 1rem 1rem 1rem!important; }
-    }
-}
-@media (min-width: 768px) and (max-width: 991px)  {//col-md
-    
-    .login {
-
-        .form-submit.last-child {
-            margin: 0 auto;
-            flex: 0 0 46%;
-            max-width: 46%;
+        .form-submit.last-child.col-sm-6 {
+            width: 48%;
         }
 
         ul {
@@ -351,25 +324,31 @@ div.backdrop {
         }
     }
 }
-@media (min-width: 992px) and (max-width: 1199px)  {//col-lg
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
     
     .login {
 
+        .row.custom { padding-left: 2%; }
         .form-submit.last-child {
             margin: 0 auto;
-            flex: 0 0 31%;
-            max-width: 31%;
+            float: none;
+        }
+        .form-submit.last-child.col-md-4 {
+            width: 32%;
         }
     }
 }
-@media (min-width: 1200px) {//col-xl
+@media (min-width: 1200px) {//col-lg
     
     .login {
 
+        .row.custom { padding-left: 2%; }
         .form-submit.last-child {
             margin: 0 auto;
-            flex: 0 0 31%;
-            max-width: 31%;
+            float: none;
+        }
+        .form-submit.last-child.col-lg-4 {
+            width: 32.33333333%;
         }
     }
 }
