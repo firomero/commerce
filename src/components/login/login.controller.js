@@ -36,14 +36,11 @@ export default class LoginController {
 			template: require('../modals/forgot/forgot.jade')(),
 			controller: 'ForgotController',
 			controllerAs: '$ctrl',
-			size: 'lg'
+			size: 'lg',
+			windowClass: 'fullscreen'
 		});
 	  
-		modalInstance.result.then(function (selectedItem) {
-			alert('Modal close');
-		}, function () {
-			alert('Modal dismissed at: ' + new Date());
-		});
+		modalInstance.result.then(function (selectedItem) {});
 	}
 
 	reset() {

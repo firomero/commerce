@@ -4,13 +4,15 @@ export default class ForgotController {
     stepProgress = 1;
     maxStep = 3;
 
-	constructor($timeout) {
+	constructor($timeout, $uibModalInstance) {
 		'ngInject';
 		this.$timeout = $timeout;
+		this.$uibModalInstance = $uibModalInstance;
 	}
 
 	$onInit = () => {
 
+		this.asdas = 'asdasdasdasd';
 		this.stepData = [
 			{ step: 1, completed: false, active: false, optional: false, data: {} },
 			{ step: 2, completed: false, active: false, optional: false, data: {} },
@@ -53,7 +55,7 @@ export default class ForgotController {
         if (!stepData.completed) {
 
 			var _this = this;
-            _this.$timeout(1000).then(function() {
+            _this.$timeout(500).then(function() {
                 _this.showBusyText = false;
                 stepData.completed = true;
                 _this.enableNextStep();
@@ -62,5 +64,10 @@ export default class ForgotController {
             this.showBusyText = false;
             this.enableNextStep();
         }
-    }
+	}
+	
+	close() {
+
+		this.$uibModalInstance.close();
+	}
 }
