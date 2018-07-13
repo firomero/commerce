@@ -27,4 +27,11 @@ export default class LoginController {
 			_this.WizardHandler.wizard().next();		
 		});
 	}
+
+	reset() {
+
+		var _this = this;
+		_this.$onInit();
+		_this.saving = false;
+	}
 }
