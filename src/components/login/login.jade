@@ -50,7 +50,7 @@ div.container.login
             li.extra-link
               a(ui-sref="forgot") ¿Olvidaste tu clave?
             li.extra-link
-              a(href="/login") Ingresar con otro usuario
+              a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 Bienvenido {{$ctrl.model.username}}
@@ -70,7 +70,7 @@ div.container.login
             li.extra-link
               a(ui-sref="forgot") ¿Olvidaste tu clave?
             li.extra-link
-              a(href="/login") Ingresar con otro usuario
+              a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 {{$ctrl.model.username}} Selecciona Tu Empresa
@@ -83,7 +83,7 @@ div.container.login
 
           ul.mt-5.mb-8
             li.extra-link
-              a(href="/login") Ingresar con otro usuario
+              a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
   div.col-12.footer
     p Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.

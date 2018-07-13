@@ -28,7 +28,7 @@ export default class LoginController {
 		});
 	}
 
-	forgot() {
+	forgotPassword() {
 
 		var modalInstance = this.$uibModal.open({
 			ariaLabelledBy: 'modal-title',
@@ -44,5 +44,12 @@ export default class LoginController {
 		}, function () {
 			alert('Modal dismissed at: ' + new Date());
 		});
+	}
+
+	reset() {
+
+		var _this = this;
+		_this.$onInit();
+		_this.saving = false;
 	}
 }

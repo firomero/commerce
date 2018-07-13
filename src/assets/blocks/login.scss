@@ -223,8 +223,9 @@ div.backdrop {
             padding: 0px 16px;
 
             a {
-                color: $c-white;
-                text-decoration: none;
+                color: $c-white !important;
+                text-decoration: none !important;
+                cursor: pointer !important;
                 font-family: SFNSText;
                 font-size: 15px;
                 font-weight: 400;
