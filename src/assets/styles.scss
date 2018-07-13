@@ -27,7 +27,7 @@ $fa-font-path: '~font-awesome/fonts/';
 /*===========================================
 ========= Loading Bootstrap Styles ==========
 =============================================*/
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~angular-material/angular-material';
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
 @import '~md-steppers/dist/md-steppers.min.css';
