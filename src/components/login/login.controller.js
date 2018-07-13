@@ -2,10 +2,10 @@ export default class LoginController {
 
 	saving = false;
 
-	constructor(_path, $timeout, $q, WizardHandler, UserService, CompanyService) {
+	constructor($timeout, $uibModal, WizardHandler, UserService, CompanyService) {
 		'ngInject';
 		this.$timeout = $timeout;
-		this.$q = $q;
+		this.$uibModal = $uibModal;
 		this.WizardHandler = WizardHandler;
 		this.UserService = UserService;
 		this.CompanyService = CompanyService;		
@@ -25,6 +25,24 @@ export default class LoginController {
 
 			_this.saving = false;
 			_this.WizardHandler.wizard().next();		
+		});
+	}
+
+	forgot() {
+
+		var modalInstance = this.$uibModal.open({
+			ariaLabelledBy: 'modal-title',
+			ariaDescribedBy: 'modal-body',
+			template: require('../modals/forgot/forgot.jade')(),
+			controller: 'ForgotController',
+			controllerAs: '$ctrl',
+			size: 'lg'
+		});
+	  
+		modalInstance.result.then(function (selectedItem) {
+			alert('Modal close');
+		}, function () {
+			alert('Modal dismissed at: ' + new Date());
 		});
 	}
 }

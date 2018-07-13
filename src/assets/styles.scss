@@ -30,6 +30,7 @@ $fa-font-path: '~font-awesome/fonts/';
 @import '~bootstrap/scss/bootstrap';
 @import '~angular-material/angular-material';
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~md-steppers/dist/md-steppers.min.css';
 
 /*===========================================
 ========= Loading Customize Styles ==========
@@ -39,6 +40,7 @@ $fa-font-path: '~font-awesome/fonts/';
 
 // loading blocks
 @import 'blocks/login';
+@import 'blocks/forgot';
 @import 'blocks/extra-layout';
 
 .is-focused {

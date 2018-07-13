@@ -10,6 +10,8 @@ const appModule = angular
 	.module('app', [
 		'ngMaterial',
 		'mgo-angular-wizard',
+		'md-steppers',
+		'ui.bootstrap',
 		'ngResource',
 		// shared module
 		'app.core',

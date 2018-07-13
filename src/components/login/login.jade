@@ -28,7 +28,7 @@ div.container.login
             li.extra-link
               a(href="/login") Hazte Cliente
             li.extra-link
-              a(href="/login") ¿Olvidaste tu clave?
+              a(ng-click="$ctrl.forgot()") ¿Olvidaste tu clave?
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 Ingrese Su Rut
@@ -48,7 +48,7 @@ div.container.login
             li.extra-link
               a(href="/login") Hazte Cliente
             li.extra-link
-              a(href="/login") ¿Olvidaste tu clave?
+              a(ui-sref="forgot") ¿Olvidaste tu clave?
             li.extra-link
               a(href="/login") Ingresar con otro usuario
 
@@ -68,7 +68,7 @@ div.container.login
 
           ul.mt-5.mb-8
             li.extra-link
-              a(href="/login") ¿Olvidaste tu clave?
+              a(ui-sref="forgot") ¿Olvidaste tu clave?
             li.extra-link
               a(href="/login") Ingresar con otro usuario
 
