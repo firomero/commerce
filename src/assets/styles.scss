@@ -39,6 +39,7 @@ $fa-font-path: '~font-awesome/fonts/';
 @import 'vars/colors';
 
 // loading blocks
+@import 'blocks/button';
 @import 'blocks/login';
 @import 'blocks/forgot';
 @import 'blocks/extra-layout';

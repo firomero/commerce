@@ -174,26 +174,6 @@ login {
         }
     }
 
-    .form-submit {
-        height: 50px;
-        border-radius: 3px;
-        background-color: $c-green;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
-        text-transform: uppercase;
-        display: -webkit-inline-box;
-        color: $c-white;
-        border: none;
-        font-size: 14px;
-        font-family: Roboto-Medium;
-        font-weight: 500;
-        letter-spacing: -0.03px;
-        line-height: 17px;
-    }
-
-    .form-submit[disabled] {
-        background-color: $c-green-disabled;
-    }
-
     .spinner, .spinner-custom {
 
         img {
@@ -261,11 +241,11 @@ login {
     .login {
 
         .row.custom { padding-left: 3.5%; }
-        .form-submit.last-child {
+        .button-success.last-child {
             margin: 0 auto;
             float: none;
         }
-        .form-submit.last-child.col-xs-8 {
+        .button-success.last-child.col-xs-8 {
             width: 65.5%;
         }
 
@@ -298,11 +278,11 @@ login {
     .login {
 
         .row.custom { padding-left: 3%; }
-        .form-submit.last-child {
+        .button-success.last-child {
             margin: 0 auto;
             float: none;
         }
-        .form-submit.last-child.col-sm-6 {
+        .button-success.last-child.col-sm-6 {
             width: 48%;
         }
 
@@ -331,11 +311,11 @@ login {
     .login {
 
         .row.custom { padding-left: 2%; }
-        .form-submit.last-child {
+        .button-success.last-child {
             margin: 0 auto;
             float: none;
         }
-        .form-submit.last-child.col-md-4 {
+        .button-success.last-child.col-md-4 {
             width: 32%;
         }
     }
@@ -345,11 +325,11 @@ login {
     .login {
 
         .row.custom { padding-left: 2%; }
-        .form-submit.last-child {
+        .button-success.last-child {
             margin: 0 auto;
             float: none;
         }
-        .form-submit.last-child.col-lg-4 {
+        .button-success.last-child.col-lg-4 {
             width: 32.33333333%;
         }
     }

@@ -21,8 +21,8 @@ div.container.login
               div.form-element
                 input(name="username" type="text" ng-model="$ctrl.model.username" required="required")
           div.row
-            input.form-submit.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
-            button.form-submit.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
+            input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
+            button.button-success.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
           
           ul.mt-5.mb-8
@@ -41,8 +41,8 @@ div.container.login
               div.form-element
                 input(name="rut" type="text" ng-model="$ctrl.model.rut" required="required")
           div.row
-            input.form-submit.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
-            botton.form-submit.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
+            input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
+            botton.button-success.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
 
           ul.mt-5.mb-8
@@ -63,8 +63,8 @@ div.container.login
               div.form-element
                 input(name="rut" type="password" ng-model="$ctrl.model.password" required="required")
           div.row
-            input.form-submit.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
-            botton.form-submit.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
+            input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
+            botton.button-success.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
 
           ul.mt-5.mb-8
@@ -80,7 +80,7 @@ div.container.login
               md-radio-group.row.pl-2.pr-2(ng-model="$ctrl.model.currentCompany")
                 md-radio-button.input-form.md-primary(ng-value="company.nameID" ng-repeat="company in $ctrl.companies") {{company.name}}
           div.row.custom
-            input.col-lg-4.col-md-4.col-sm-6.col-xs-8.form-submit.last-child(type="submit" wz-next value="Siguiente")
+            input.col-lg-4.col-md-4.col-sm-6.col-xs-8.button-success.last-child(type="submit" wz-next value="Siguiente")
 
           ul.mt-5.mb-8
             li.extra-link
