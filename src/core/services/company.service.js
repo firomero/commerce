@@ -23,10 +23,12 @@ export default class CompanyService {
             name: 'Homy',
             nameID: 'HOMY'
         }];
+
+        localStorage.setItem('companies', JSON.stringify(this.companies));
 	}
     
-    getCompanies = () => {
+    getCompanies() {
 
-        return this.companies;
+        return JSON.parse(localStorage.getItem('companies'))
     };
 }
