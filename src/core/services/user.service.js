@@ -22,11 +22,13 @@ export default class UserService {
                     rol: '',
                     nameID: 'COCACOLA'
             }]
-		};
+        };
+        
+        localStorage.setItem('user', JSON.stringify(this.user));
 	}
     
-    login = () => {
+    login() {
 
-        return this.user;
+        return JSON.parse(localStorage.getItem('user'))
     };
 }
