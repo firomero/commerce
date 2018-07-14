@@ -49,7 +49,7 @@ div.container.login
             li.extra-link
               a(href="/login") Hazte Cliente
             li.extra-link
-              a(ui-sref="forgot") ¿Olvidaste tu clave?
+              a(ng-click="$ctrl.forgotPassword()") ¿Olvidaste tu clave?
             li.extra-link
               a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
@@ -69,7 +69,7 @@ div.container.login
 
           ul.mt-5.mb-8
             li.extra-link
-              a(ui-sref="forgot") ¿Olvidaste tu clave?
+              a(ng-click="$ctrl.forgotPassword()") ¿Olvidaste tu clave?
             li.extra-link
               a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 

@@ -4,6 +4,8 @@ import CompanyService from './services/company.service';
 import inputFocusDirective from './directives/input-focus/input-focus.directive';
 import perfectScrollDirective from './directives/perfect-scroll/perfect-scroll.directive';
 
+import MessageConfirmController from './components/message-confirm/message-confirm.controller';
+
 const coreModule = angular.module('app.core', [
 	'ui.router'
 ]);
@@ -17,5 +19,7 @@ coreModule.service('CompanyService', CompanyService);
 
 coreModule.directive('inputFocus', inputFocusDirective);
 coreModule.directive('perfectScroll', perfectScrollDirective);
+
+coreModule.controller('MessageConfirmController', MessageConfirmController);
 
 export default coreModule;
