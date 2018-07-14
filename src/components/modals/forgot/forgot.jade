@@ -8,19 +8,24 @@ div.container.forgot
   div.title.mb-3 
     h3 Recuperar Clave
 
-  div.row.step-indicators
-    div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator.pending
-      span.icon(ng-if="!$ctrl.stepData[0].completed") 1
-      span.icon(ng-if="$ctrl.stepData[0].completed") x  
-      span.sub-title Ingrese su rut
-    div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[0].completed}")
-      span.icon(ng-if="!$ctrl.stepData[1].completed") 2
-      span.icon(ng-if="$ctrl.stepData[1].completed") x
-      span.sub-title Pregunta Secreta
-    div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[1].completed}")
-      span.icon(ng-if="!$ctrl.stepData[2].completed") 3
-      span.icon(ng-if="$ctrl.stepData[2].completed") x
-      span.sub-title Clave de recuperación
+  div.indicator-container
+    div.row.step-strip
+      div.strip.col-lg-offset-2.col-lg-4.col-mg-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-offset-2.col-xs-4(ng-class="{'pending': $ctrl.stepData[0].completed}")
+      div.strip.col-lg-4.col-md-4.col-sm-4.col-xs-4(ng-class="{'pending': $ctrl.stepData[1].completed}")
+
+    div.row.step-indicators
+      div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator.pending
+        span.icon(ng-if="!$ctrl.stepData[0].completed") 1
+        span.icon(ng-if="$ctrl.stepData[0].completed") x  
+        span.sub-title Ingrese su rut
+      div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[0].completed}")
+        span.icon(ng-if="!$ctrl.stepData[1].completed") 2
+        span.icon(ng-if="$ctrl.stepData[1].completed") x
+        span.sub-title Pregunta Secreta
+      div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[1].completed}")
+        span.icon(ng-if="!$ctrl.stepData[2].completed") 3
+        span.icon(ng-if="$ctrl.stepData[2].completed") x
+        span.sub-title Clave de recuperación
 
   div.row.mb-6
     div.col-lg-12
@@ -47,13 +52,13 @@ div.container.forgot
             form.row.input.mb-3(name="step2")
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text
-                  label.ml-2 ¿Ciudad donde nació?
+                  label ¿Ciudad donde nació?
                 div.form-element
                   input(name="question1" type="password" ng-model="$ctrl.stepData[1].data.question1" required="required")
 
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text.custom
-                  label.ml-2 ¿Nombre de tu primera mascota?
+                  label ¿Nombre de tu primera mascota?
                 div.form-element
                   input(name="question2" type="password" ng-model="$ctrl.stepData[1].data.question2" required="required")
 
@@ -67,19 +72,19 @@ div.container.forgot
             form.row.input.mb-3(name="step3")
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text
-                  label.ml-2 Clave de recuperación
+                  label Clave de recuperación
                 div.form-element
                   input(name="password1" type="password" ng-model="$ctrl.stepData[2].data.recuperacion" required="required")
 
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text
-                  label.ml-2 Nueva Clave
+                  label Nueva Clave
                 div.form-element
                   input(name="password2" type="password" ng-model="$ctrl.stepData[2].data.password" required="required")
 
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text
-                  label.ml-2 Confirmar Clave
+                  label Confirmar Clave
                 div.form-element
                   input(name="password3" type="password" ng-model="$ctrl.stepData[2].data.repassword" required="required")
 

@@ -2,7 +2,8 @@ export default class ForgotController {
 
 	selectedStep = 0;
     stepProgress = 1;
-    maxStep = 3;
+	maxStep = 3;
+	confirmationInfo = false;
 
 	constructor($timeout, $uibModal, $uibModalInstance) {
 		'ngInject';
@@ -44,7 +45,7 @@ export default class ForgotController {
 		var _this = this;
 		_this.$timeout(function() {
 
-			if (_this.selectedStep == 1) {
+			if (_this.selectedStep == 1 && !_this.confirmationInfo) {
 
 				var confirmInstance = _this.$uibModal.open({
 					ariaDescribedBy: 'modal-body',
@@ -61,7 +62,10 @@ export default class ForgotController {
 			  
 				confirmInstance.result.then(function (response) {
 
-					if (response.success) _this.enableNextStep();				
+					if (response.success) {
+						_this.confirmationInfo = true;
+						_this.enableNextStep();
+					}
 				});
 			} else {
 
