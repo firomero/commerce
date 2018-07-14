@@ -49,7 +49,7 @@ export default class ForgotController {
 
 				var confirmInstance = _this.$uibModal.open({
 					ariaDescribedBy: 'modal-body',
-					template: require('../message-confirm/message-confirm.jade')(),
+					template: require('../../../core/components/message-confirm/message-confirm.jade')(),
 					controller: 'MessageConfirmController',
 					controllerAs: '$ctrl',
 					size: 'lg',
@@ -77,5 +77,10 @@ export default class ForgotController {
 	close() {
 
 		this.$uibModalInstance.close();
+	}
+
+	finish() {
+		
+		this.$uibModalInstance.close({success: true});
 	}
 }

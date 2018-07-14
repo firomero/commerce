@@ -30,6 +30,7 @@ export default class LoginController {
 
 	forgotPassword() {
 
+		var _this = this;
 		var modalInstance = this.$uibModal.open({
 			ariaLabelledBy: 'modal-title',
 			ariaDescribedBy: 'modal-body',
@@ -40,7 +41,12 @@ export default class LoginController {
 			windowClass: 'fullscreen'
 		});
 	  
-		modalInstance.result.then(function (selectedItem) {});
+		modalInstance.result.then(function (response) {
+			
+			if (response.success) {
+				_this.WizardHandler.wizard().reset();
+			}
+		});
 	}
 
 	reset() {
