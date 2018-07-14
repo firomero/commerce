@@ -69,23 +69,6 @@
                 color: $c-blue-light;
             }
         }
-
-        // div.indicator.pending.complete {
-            
-        //     span.icon {
-        //         background-color: $c-blue-light;
-        //         color: $c-white;                
-        //     }            
-
-        //     span.sub-title {
-        //         color: $c-blue-light;
-        //     }
-
-        //     span.icon.pending {
-        //         color: rgba(255, 255, 255, 0.8);
-        //         background-color: $c-gray;
-        //     }
-        // }
     }
 
     md-steppers:not(.md-no-step-content):not(.md-dynamic-height) {
