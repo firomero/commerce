@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
 	entry: {
@@ -40,10 +40,17 @@ const config = {
 				})
 			},
 			{
-				test: /\.(eot|ttf|svg|woff|woff2)$/i,
+				test: /\.(png|jpg|jpeg|gif)$/,
+				loader: 'url-loader?limit=10000',
+				options: {
+					name: './assets/images/[name].[ext]'
+				}
+			},
+			{
+				test: /\.(eot|ttf|svg|woff|woff2)$/,
 				loader: 'file-loader',
 				options: {
-					name: './assets/fonts/[name].[ext]'
+					name: 'fonts/[name].[ext]'
 				}
 			},
 			{ test: /\.html$/, loader: 'html-loader' },
@@ -69,20 +76,21 @@ const config = {
 			jquery: 'jquery'
 		}),
 		new ExtractTextWebpackPlugin('assets/styles.css'),
-		new OptimizeCssAssetsWebpackPlugin(),
-		new CopyWebpackPlugin([{
-			from: 'src/assets/images/*.png',
-			to: 'assets/images/',
-			flatten: true
-		},{
-			from: 'src/assets/images/*.gif',
-			to: 'assets/images/',
-			flatten: true
-		},{
-			from: 'src/assets/video/*.mp4',
-			to: 'assets/video/',
-			flatten: true
-		}])
+		new OptimizeCssAssetsWebpackPlugin()
+		// ,
+		// new CopyWebpackPlugin([{
+		// 	from: 'src/assets/images/*.png',
+		// 	to: 'assets/images/',
+		// 	flatten: true
+		// },{
+		// 	from: 'src/assets/images/*.gif',
+		// 	to: 'assets/images/',
+		// 	flatten: true
+		// },{
+		// 	from: 'src/assets/video/*.mp4',
+		// 	to: 'assets/video/',
+		// 	flatten: true
+		// }])
 	],
 	devServer: {
 		port: 3000,
