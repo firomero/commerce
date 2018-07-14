@@ -10,6 +10,27 @@
     }
 }
 
+.modal.bottom-confirm {
+
+    .modal-dialog.modal-lg { 
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        margin: 0px;
+
+        .modal-content { 
+            border-radius: 0px;
+            padding: 2rem;
+            background-color: $c-green-light;
+
+            .message {
+                line-height: 51px;
+                color: $c-white;
+            }
+        }
+    }
+}
+
 @media (max-width: 767px) {//col-xs
     
     .modal.fullscreen {

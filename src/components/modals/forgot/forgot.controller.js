@@ -4,9 +4,10 @@ export default class ForgotController {
     stepProgress = 1;
     maxStep = 3;
 
-	constructor($timeout, $uibModalInstance) {
+	constructor($timeout, $uibModal, $uibModalInstance) {
 		'ngInject';
 		this.$timeout = $timeout;
+		this.$uibModal = $uibModal;
 		this.$uibModalInstance = $uibModalInstance;
 	}
 
@@ -41,9 +42,32 @@ export default class ForgotController {
 	submitCurrentStep(stepData) {
 		
 		var _this = this;
-		_this.$timeout(500).then(function() {
-			_this.enableNextStep();
-		});
+		_this.$timeout(function() {
+
+			if (_this.selectedStep == 1) {
+
+				var confirmInstance = _this.$uibModal.open({
+					ariaDescribedBy: 'modal-body',
+					template: require('../message-confirm/message-confirm.jade')(),
+					controller: 'MessageConfirmController',
+					controllerAs: '$ctrl',
+					size: 'lg',
+					backdrop: false,
+					resolve: {
+						message: () => 'asdasdasdasd'
+					},
+					windowClass: 'bottom-confirm'
+				});
+			  
+				confirmInstance.result.then(function (response) {
+
+					if (response.success) _this.enableNextStep();				
+				});
+			} else {
+
+				_this.enableNextStep();
+			}
+		}, 500);
 	}
 	
 	close() {
