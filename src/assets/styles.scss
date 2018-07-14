@@ -27,9 +27,10 @@ $fa-font-path: '~font-awesome/fonts/';
 /*===========================================
 ========= Loading Bootstrap Styles ==========
 =============================================*/
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~angular-material/angular-material';
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~md-steppers/dist/md-steppers.min.css';
 
 /*===========================================
 ========= Loading Customize Styles ==========
@@ -39,7 +40,9 @@ $fa-font-path: '~font-awesome/fonts/';
 
 // loading blocks
 @import 'blocks/login';
+@import 'blocks/forgot';
 @import 'blocks/extra-layout';
+@import 'blocks/modals';
 
 .is-focused {
     border: 1px solid rgba(255, 255, 255, 0.3);

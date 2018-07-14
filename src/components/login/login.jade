@@ -3,88 +3,89 @@ video.fullscreen(preload="none" allowfullscreen autoplay loop)
 div.backdrop
 div.container.login
   div.row
-    div.col-12
+
+    div.col-lg-12
       img.logo(src="assets/images/logoBanco100.png")
-    div.col-12.title.mt-5.mb-4
+    div.col-lg-12.title.mt-5.mb-4
       h3 the all-new online banking experience is here.
 
-    div.col-12
+    div.col-lg-12
       wizard(on-finish="finishedWizard()" hide-indicators="true")
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 Ingrese Su Nombre
           div.row
-            div.input-form.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.offset-sm-3.col-sm-6.offset-2.col-8(input-focus=".form-element input")
+            div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
               div.form-text
                 i.material-icons.cso-form-glass__input-icon perm_identity
                 label.ml-2 Nombre
               div.form-element
                 input(name="username" type="text" ng-model="$ctrl.model.username" required="required")
           div.row
-            input.form-submit.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
-            button.form-submit.spinner-custom.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(ng-if="$ctrl.saving")
+            input.form-submit.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
+            button.form-submit.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
           
           ul.mt-5.mb-8
             li.extra-link
               a(href="/login") Hazte Cliente
             li.extra-link
-              a(href="/login") ¿Olvidaste tu clave?
+              a(ng-click="$ctrl.forgotPassword()") ¿Olvidaste tu clave?
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 Ingrese Su Rut
           div.row
-            div.input-form.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.offset-sm-3.col-sm-6.offset-2.col-8(input-focus=".form-element input")
+            div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
               div.form-text
                 i.material-icons.cso-form-glass__input-icon perm_identity
                 label.ml-2 Rut
               div.form-element
                 input(name="rut" type="text" ng-model="$ctrl.model.rut" required="required")
           div.row
-            input.form-submit.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
-            botton.form-submit.spinner.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(ng-if="$ctrl.saving")
+            input.form-submit.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
+            botton.form-submit.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
 
           ul.mt-5.mb-8
             li.extra-link
               a(href="/login") Hazte Cliente
             li.extra-link
-              a(href="/login") ¿Olvidaste tu clave?
+              a(ui-sref="forgot") ¿Olvidaste tu clave?
             li.extra-link
               a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 Bienvenido {{$ctrl.model.username}}
           div.row
-            div.input-form.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.offset-sm-3.col-sm-6.offset-2.col-8(input-focus=".form-element input")
+            div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
               div.form-text
                 i.material-icons.cso-form-glass__input-icon https
                 label.ml-2 Clave
               div.form-element
                 input(name="rut" type="password" ng-model="$ctrl.model.password" required="required")
           div.row
-            input.form-submit.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
-            botton.form-submit.spinner.col-xl-4.offset-lg-4.col-lg-4.offset-md-4.col-md-4.col-sm-6.offset-2.col-8(ng-if="$ctrl.saving")
+            input.form-submit.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="$ctrl.setLoadingStep()" value="Siguiente" ng-if="!$ctrl.saving")
+            botton.form-submit.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="$ctrl.saving")
               img(src="assets/images/spinner.gif")
 
           ul.mt-5.mb-8
             li.extra-link
-              a(href="/login") ¿Olvidaste tu clave?
+              a(ui-sref="forgot") ¿Olvidaste tu clave?
             li.extra-link
               a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 {{$ctrl.model.username}} Selecciona Tu Empresa
           div.row
-            div.col-xl-4.offset-lg-4.col-lg-4.offset-md-3.col-md-6.offset-sm-3.col-sm-6.offset-2.col-8.radio-content(perfect-scroll)
+            div.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8.radio-content(perfect-scroll)
               md-radio-group.row.pl-2.pr-2(ng-model="$ctrl.model.currentCompany")
                 md-radio-button.input-form.md-primary(ng-value="company.nameID" ng-repeat="company in $ctrl.companies") {{company.name}}
-          div.row
-            input.col-xl-4.col-lg-4.col-md-6.col-sm-6.offset-2.col-7.form-submit.last-child(type="submit" wz-next value="Siguiente")
+          div.row.custom
+            input.col-lg-4.col-md-4.col-sm-6.col-xs-8.form-submit.last-child(type="submit" wz-next value="Siguiente")
 
           ul.mt-5.mb-8
             li.extra-link
               a(wz-reset="$ctrl.reset()") Ingresar con otro usuario
 
-  div.col-12.footer
+  div.col-lg-12.footer
     p Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.
     p Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior.

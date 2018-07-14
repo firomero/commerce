@@ -1,0 +1,27 @@
+.modal.fullscreen {
+
+    .modal-dialog {
+        width: 100%;
+        margin: 0px auto;
+
+        .modal-content {
+            height: 100%;
+        }
+    }
+}
+
+@media (max-width: 767px) {//col-xs
+    
+    
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    
+    
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    
+}
+@media (min-width: 1200px) {//col-lg
+    
+    
+}

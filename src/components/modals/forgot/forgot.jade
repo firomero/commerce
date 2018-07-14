@@ -1,0 +1,92 @@
+div.container.forgot
+  div.row.mt-4.mb-4
+    div.col-lg-6.logo
+      img.logo(src="assets/images/isologo-premium-modal.png")
+    div.col-lg-6.text-right.close
+      i.material-icons(ng-click="$ctrl.close()") close
+
+  div.title.mb-3 
+    h3 Recuperar Clave
+
+  div.row.step-indicators
+    div.col-lg-4.indicator.complete
+      span.icon(ng-if="!$ctrl.stepData[0].active") 1
+      span.icon(ng-if="$ctrl.stepData[0].completed && $ctrl.stepData[0].active") x  
+      span.sub-title Ingrese su rut
+    div.col-lg-4.indicator(ng-class="{'pending': !$ctrl.stepData[1].active, 'complete': $ctrl.stepData[1].active}")
+      span.icon(ng-if="!$ctrl.stepData[1].completed") 2
+      span.icon(ng-if="$ctrl.stepData[1].completed && $ctrl.stepData[1].active") x
+      span.sub-title Pregunta Secreta
+    div.col-lg-4.indicator(ng-class="{'pending': !$ctrl.stepData[2].active, 'complete': $ctrl.stepData[2].active}")
+      span.icon(ng-if="!$ctrl.stepData[2].completed") 3
+      span.icon(ng-if="$ctrl.stepData[2].completed && $ctrl.stepData[2].active") x
+      span.sub-title Clave de recuperación
+
+  div.row.mb-6
+    div.col-lg-12
+      md-steppers(md-selected="$ctrl.selectedStep")
+
+        md-step(label="step1" md-complete="$ctrl.stepData[0].completed"  ng-disabled="$ctrl.stepProgress < 1")
+          md-content
+            label.title.mb-8.mt-4 Estimado Usuario, para recuperar su Clave ingrese su RUT.
+            form.row.input.mb-3(name="step1")
+              div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
+                div.form-text
+                  i.material-icons perm_identity
+                  label.ml-2 Rut
+                div.form-element
+                  input(name="rut" type="password" ng-model="$ctrl.stepData[0].data.password" required="required")
+
+            div.row.m-0.pb-2
+              button.form-submit-default.col-lg-offset-4.col-lg-2.col-md-offset-3.col-md-3.col-sm-offset-2.col-sm-4.col-xs-offset-2.col-xs-4(ng-click="$ctrl.close()") CANCELAR
+              button.form-submit.col-lg-2.col-md-3.col-sm-4.col-xs-4(ng-click="$ctrl.submitCurrentStep($ctrl.stepData[0])") SIGUIENTE
+
+        md-step(label="step2" md-complete="$ctrl.stepData[1].completed"  ng-disabled="$ctrl.stepProgress < 2")
+          md-content
+            label.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
+            form.row.input.mb-3(name="step2")
+              div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
+                div.form-text
+                  label.ml-2 ¿Ciudad donde nació?
+                div.form-element
+                  input(name="question1" type="password" ng-model="$ctrl.stepData[1].data.question1" required="required")
+
+              div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
+                div.form-text.custom
+                  label.ml-2 ¿Nombre de tu primera mascota?
+                div.form-element
+                  input(name="question2" type="password" ng-model="$ctrl.stepData[1].data.question2" required="required")
+
+            div.row.m-0.pb-2
+              button.form-submit-default.offset-lg-4.col-lg-2.offset-md-3.col-md-3.offset-sm-2.col-sm-4.offset-2.col-4(ng-click="$ctrl.moveToPreviousStep()") VOLVER
+              button.form-submit.col-lg-2.col-md-3.col-sm-4.col-4(ng-click="$ctrl.submitCurrentStep($ctrl.stepData[1])") RECUPERAR
+
+        md-step(label="step3" md-complete="$ctrl.stepData[2].completed"  ng-disabled="$ctrl.stepProgress < 3")
+          md-content
+            label.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
+            form.row.input.mb-3(name="step3")
+              div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
+                div.form-text
+                  label.ml-2 Clave de recuperación
+                div.form-element
+                  input(name="password1" type="password" ng-model="$ctrl.stepData[2].data.recuperacion" required="required")
+
+              div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
+                div.form-text
+                  label.ml-2 Nueva Clave
+                div.form-element
+                  input(name="password2" type="password" ng-model="$ctrl.stepData[2].data.password" required="required")
+
+              div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
+                div.form-text
+                  label.ml-2 Confirmar Clave
+                div.form-element
+                  input(name="password3" type="password" ng-model="$ctrl.stepData[2].data.repassword" required="required")
+
+            div.row.m-0.pb-2
+              button.form-submit-default.offset-lg-4.col-lg-2.offset-md-3.col-md-3.offset-sm-2.col-sm-4.offset-2.col-4(ng-click="$ctrl.moveToPreviousStep()") VOLVER
+              button.form-submit.col-lg-2.col-md-3.col-sm-4.col-4(ng-click="$ctrl.submitCurrentStep($ctrl.stepData[2])") RECUPERAR
+
+  div.footer
+    p.mb-2 Si tienes Problemas para recuperar tu clave contacte con nuestros ejecutivos.
+    label.m-0 600 221 2000            
