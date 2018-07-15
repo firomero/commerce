@@ -2,9 +2,10 @@ export default class LoginController {
 
 	saving = false;
 
-	constructor($timeout, $uibModal, WizardHandler, UserService, CompanyService) {
+	constructor($timeout, $location, $uibModal, WizardHandler, UserService, CompanyService) {
 		'ngInject';
 		this.$timeout = $timeout;
+		this.$location = $location;
 		this.$uibModal = $uibModal;
 		this.WizardHandler = WizardHandler;
 		this.UserService = UserService;
@@ -45,8 +46,15 @@ export default class LoginController {
 			
 			if (response.success) {
 				_this.WizardHandler.wizard().reset();
+				_this.reset();
 			}
 		});
+	}
+
+	finishedWizard() {
+		localStorage.setItem('userLogin', JSON.stringify(this.model));
+		localStorage.removeItem('user');
+		this.$location.path('/dashboard')
 	}
 
 	reset() {

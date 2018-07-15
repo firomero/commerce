@@ -1,0 +1,152 @@
+dashboard {
+
+    md-sidenav.md-sidenav-right {
+        background-color: $c-blue;
+    }
+
+    header {
+
+        md-toolbar {
+            height: 100px;
+
+            .md-toolbar-tools {
+                height: 100px;
+                max-height: 100px;
+                background-color: $c-blue;            
+            }
+
+            .links {
+                padding: 0px;
+                margin-bottom: 0px;
+                text-align: center;
+                line-height: 100px;
+
+                li {
+                    list-style: none;
+                    display: inline-block;
+                    vertical-align: top;
+                    padding: 0px 1rem;
+                }
+            }
+
+            .user-login {
+
+                img.user-logo {
+                    border-radius: 50%;
+                    width: 70px;
+                    margin: 15px 0px;
+                }
+                .company-selector-container {
+
+                    margin: 25px 0px;
+
+                    .user-fullname {
+                        font-size: 16px;
+                        text-transform: uppercase;
+                        margin-bottom: 0px;
+                    }
+
+                    .company-selector {
+
+                        span:last-child {
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        .marketina-container {
+            height: 48px;
+            position: relative;
+
+            .background {
+                height: 48px;
+                background-color: $c-white;
+                opacity: .2;
+            }
+
+            .toggle-price {
+                position: absolute;
+                color: $c-white;
+                background-color: $c-blue-tabs;
+                padding-bottom: 5px;
+                padding-left: 15px;
+                padding-right: 15px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                padding-top: 15px;
+                bottom: -40px;
+                width: 160px;
+                right: 80;
+            }
+
+            .prices {
+                position: absolute;
+                top: 0;
+
+                md-tabs {                
+
+                    .md-tab {
+                        padding: 0px 24px;
+                    }
+                    md-ink-bar {
+                        color: transparent;
+                        background: transparent;
+                    }
+                    md-tabs-canvas { height: 35px; }
+                    md-tab-item > div {
+                        
+                        color: $c-black;
+                        font-weight: 700;
+                        line-height: 18px;
+        
+                        .percent { color: $c-green; }
+                    }
+                }
+            }
+        }        
+    }
+
+    .poster {
+        position: relative;
+
+        .action-container {
+            position: absolute;
+            right: 0;
+
+            .md-button.md-fab, .md-button.md-fab:not([disabled]):hover { background-color: $c-blue; }
+            .md-button.md-fab.success, .md-button.md-fab.success:not([disabled]):hover { background-color: $c-green; }
+        }
+    }
+
+    md-tabs {
+
+        md-tabs-content-wrapper {
+
+            md-tab-content {
+
+                md-content {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .account-list md-tabs-canvas {
+            
+        margin-left: 25rem;
+        height: 40px;
+
+        md-pagination-wrapper { height: 35px; }
+        md-ink-bar {
+            color: $c-blue-tabs;
+            background: $c-blue-tabs;
+        }
+        md-tab-item {
+
+            padding: 6px 0px;
+            margin: 0px 20px;
+        }
+    }    
+}
