@@ -16,15 +16,20 @@ div.container.forgot
     div.row.step-indicators
       div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator.pending
         span.icon(ng-if="!$ctrl.stepData[0].completed") 1
-        span.icon(ng-if="$ctrl.stepData[0].completed") x  
+        span.icon(ng-if="$ctrl.stepData[0].completed")
+          i.material-icons check  
         span.sub-title Ingrese su rut
+
       div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[0].completed}")
         span.icon(ng-if="!$ctrl.stepData[1].completed") 2
-        span.icon(ng-if="$ctrl.stepData[1].completed") x
+        span.icon(ng-if="$ctrl.stepData[1].completed")
+          i.material-icons check
         span.sub-title Pregunta Secreta
+
       div.col-lg-4.col-md-4.col-sm-4.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[1].completed}")
         span.icon(ng-if="!$ctrl.stepData[2].completed") 3
-        span.icon(ng-if="$ctrl.stepData[2].completed") x
+        span.icon(ng-if="$ctrl.stepData[2].completed")
+          i.material-icons check
         span.sub-title Clave de recuperación
 
   div.row.mb-6
@@ -33,12 +38,12 @@ div.container.forgot
 
         md-step(label="step1" md-complete="$ctrl.stepData[0].completed")
           md-content
-            label.title.mb-8.mt-4 Estimado Usuario, para recuperar su Clave ingrese su RUT.
+            h4.title.mb-8.mt-4 Estimado Usuario, para recuperar su Clave ingrese su RUT.
             form.row.input.mb-3(name="step1")
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text
                   i.material-icons perm_identity
-                  label.ml-2 Rut
+                  label.rut.ml-2 Rut
                 div.form-element
                   input(name="rut" type="password" ng-model="$ctrl.stepData[0].data.password" required="required")
 
@@ -48,7 +53,7 @@ div.container.forgot
 
         md-step(label="step2" md-complete="$ctrl.stepData[1].completed")
           md-content
-            label.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
+            h4.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
             form.row.input.mb-3(name="step2")
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text
@@ -68,7 +73,7 @@ div.container.forgot
 
         md-step(label="step3" md-complete="$ctrl.stepData[2].completed")
           md-content
-            label.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
+            h4.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
             form.row.input.mb-3(name="step3")
               div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10(input-focus=".form-element input")
                 div.form-text

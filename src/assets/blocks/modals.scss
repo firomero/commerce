@@ -21,7 +21,7 @@
         .modal-content { 
             border-radius: 0px;
             padding: 2rem;
-            background-color: $c-green-light;
+            background-color: #88DE48;
 
             .message {
                 line-height: 51px;
@@ -44,6 +44,9 @@
             }
         }
     }
+
+    .modal.bottom-confirm .message label { line-height: 18px; }
+    .modal.bottom-confirm.finish .message label { line-height: 50px; }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     
@@ -58,6 +61,9 @@
             }
         }
     }
+
+    .modal.bottom-confirm .message label { line-height: 18px; }
+    .modal.bottom-confirm.finish .message label { line-height: 50px; }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     

@@ -3,7 +3,7 @@ export default class ForgotController {
 	selectedStep = 0;
     stepProgress = 1;
 	maxStep = 3;
-	confirmationInfo = false;
+	confirmationInfoEmail = false;
 
 	constructor($timeout, $uibModal, $uibModalInstance) {
 		'ngInject';
@@ -45,8 +45,9 @@ export default class ForgotController {
 		var _this = this;
 		_this.$timeout(function() {
 
-			if (_this.selectedStep == 1 && !_this.confirmationInfo) {
+			if (_this.selectedStep == 1 && !_this.confirmationInfoEmail) {
 
+				var message = "Estimado Marcelo tú clave de recuperación ha sido enviada exitosamente a tú correo jpr******@gmail.com"; 
 				var confirmInstance = _this.$uibModal.open({
 					ariaDescribedBy: 'modal-body',
 					template: require('../../../core/components/message-confirm/message-confirm.jade')(),
@@ -55,7 +56,7 @@ export default class ForgotController {
 					size: 'lg',
 					backdrop: false,
 					resolve: {
-						message: () => 'asdasdasdasd'
+						message: () => message
 					},
 					windowClass: 'bottom-confirm'
 				});
@@ -63,7 +64,7 @@ export default class ForgotController {
 				confirmInstance.result.then(function (response) {
 
 					if (response.success) {
-						_this.confirmationInfo = true;
+						_this.confirmationInfoEmail = true;
 						_this.enableNextStep();
 					}
 				});
@@ -81,6 +82,27 @@ export default class ForgotController {
 
 	finish() {
 		
-		this.$uibModalInstance.close({success: true});
+		var _this = this;
+		var message = "Estimado Marcelo tú clave fue modificada exitosamente"; 
+		var confirmInstance = this.$uibModal.open({
+			ariaDescribedBy: 'modal-body',
+			template: require('../../../core/components/message-confirm/message-confirm.jade')(),
+			controller: 'MessageConfirmController',
+			controllerAs: '$ctrl',
+			size: 'lg',
+			backdrop: false,
+			resolve: {
+				message: () => message
+			},
+			windowClass: 'bottom-confirm finish'
+		});
+	  
+		confirmInstance.result.then(function (response) {
+
+			if (response.success) {
+				_this.$uibModalInstance.close({success: true});
+			}
+		});
+		
 	}
 }

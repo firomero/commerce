@@ -2,6 +2,7 @@
 
     .title {
         text-align: center;
+        color: $c-black-light;
     }
 
     .header {
@@ -37,7 +38,7 @@
             .strip {
 
                 height: 18px;
-                border-bottom: 2px solid $c-gray;
+                border-bottom: 1px solid $c-gray;
                 padding: 0px;
             }
 
@@ -62,6 +63,10 @@
                 border-radius: 50%;
                 margin: 0 auto;
                 font-size: 18px;
+
+                i {
+                    line-height: 35px;
+                }
             }
 
             span.sub-title {
@@ -216,6 +221,9 @@
     
     .forgot md-steppers md-content .input .input-form .form-text label {
         line-height: 18px;
+    }
+    .forgot md-steppers md-content .input .input-form .form-text label.rut {
+        line-height: 33px;
     }
     .forgot md-steppers md-content .input .input-form .form-text {
         width: 20%;
