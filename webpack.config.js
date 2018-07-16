@@ -75,7 +75,7 @@ const config = {
 			$: 'jquery',
 			jquery: 'jquery'
 		}),
-		new ExtractTextWebpackPlugin('assets/styles.css'),
+		new ExtractTextWebpackPlugin('styles.css'),
 		new OptimizeCssAssetsWebpackPlugin()
 		,
 		new CopyWebpackPlugin([{
@@ -89,6 +89,22 @@ const config = {
 		},{
 			from: 'src/assets/video/*.mp4',
 			to: 'video/',
+			flatten: true
+		},{
+			from: 'src/assets/fonts/*.eot',
+			to: 'fonts/',
+			flatten: true
+		},{
+			from: 'src/assets/fonts/*.svg',
+			to: 'fonts/',
+			flatten: true
+		},{
+			from: 'src/assets/fonts/*.woff',
+			to: 'fonts/',
+			flatten: true
+		},{
+			from: 'src/assets/fonts/*.woff2',
+			to: 'fonts/',
 			flatten: true
 		}])
 	],
