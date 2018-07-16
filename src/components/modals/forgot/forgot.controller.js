@@ -15,7 +15,7 @@ export default class ForgotController {
 	$onInit = () => {
 
 		this.stepData = [
-			{ step: 1, completed: false, data: {} },
+			{ step: 1, completed: false, data: {password: '10.456.789-0'} },
 			{ step: 2, completed: false, data: {} },
 			{ step: 3, completed: false, data: {} },
 		];

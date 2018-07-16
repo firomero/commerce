@@ -144,9 +144,7 @@ login {
             -webkit-tap-highlight-color: transparent;
             font-family: Roboto,"Helvetica Neue",sans-serif;
             margin-bottom: 5px;
-            margin-left: 20px;
-            margin-right: 20px;
-            width: 100%;
+            width: 95%;
 
             .md-container {
                 margin: 0px 1rem;
@@ -161,9 +159,13 @@ login {
             }
             
             .md-label {
-                margin-left: 3rem;
+                margin-left: 4rem;
                 line-height: 37px;
             }
+        }
+
+        md-radio-button:first-child {
+            margin-top: 5px;
         }
 
         md-radio-button.input-form:not([disabled]).md-primary .md-on {
@@ -241,13 +243,12 @@ login {
 
     .login {
 
-        .row.custom { padding-left: 4%; }
         .button-success.last-child {
             margin: 0 auto;
             float: none;
         }
         .button-success.last-child.col-xs-8 {
-            width: 65.5%;
+            width: 63.5%;
         }
 
         .title { padding: 0px 2rem!important; }
@@ -278,13 +279,12 @@ login {
     
     .login {
 
-        .row.custom { padding-left: 3%; }
         .button-success.last-child {
             margin: 0 auto;
             float: none;
         }
         .button-success.last-child.col-sm-6 {
-            width: 49%;
+            width: 47.5%;
         }
 
         ul {
@@ -311,7 +311,6 @@ login {
     
     .login {
 
-        .row.custom { padding-left: 2%; }
         .button-success.last-child {
             margin: 0 auto;
             float: none;
@@ -325,13 +324,12 @@ login {
     
     .login {
 
-        .row.custom { padding-left: 2%; }
         .button-success.last-child {
             margin: 0 auto;
             float: none;
         }
         .button-success.last-child.col-lg-4 {
-            width: 32.33333333%;
+            width: 31.5%;
         }
     }
 }
