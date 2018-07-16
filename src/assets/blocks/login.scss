@@ -70,16 +70,15 @@ login {
         display: -webkit-inline-box;
         padding: 5px;
         margin-bottom: 15px;
-        // min-width: 345px;
+        position: relative;
     }
 
     .input-form .form-text {
-        text-align: left;
-        width: 35%;
         opacity: 1;
         border-radius: 0px;
         background: none;
         border: none;
+        position: absolute;
     }
 
     .input-form .form-text i {
@@ -102,11 +101,13 @@ login {
       display: inline-block;
       vertical-align: top;
       font-family: Roboto;
+      margin-left: 1rem;
+      margin-bottom: 0px;
     }
 
     .input-form .form-element {
         text-align: right;
-        width: 60%;
+        width: 100%;
     }
 
     .input-form .form-element input {

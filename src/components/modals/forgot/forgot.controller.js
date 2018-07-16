@@ -47,6 +47,7 @@ export default class ForgotController {
 
 			if (_this.selectedStep == 1 && !_this.confirmationInfoEmail) {
 
+				_this.confirmationInfoEmail = true;
 				var message = "Estimado Marcelo tú clave de recuperación ha sido enviada exitosamente a tú correo jpr******@gmail.com"; 
 				var confirmInstance = _this.$uibModal.open({
 					ariaDescribedBy: 'modal-body',
@@ -64,8 +65,7 @@ export default class ForgotController {
 			  
 				confirmInstance.result.then(function (response) {
 
-					if (response.success) {
-						_this.confirmationInfoEmail = true;
+					if (response != undefined  && response.success) {
 						_this.enableNextStep();
 					}
 				});
@@ -101,7 +101,7 @@ export default class ForgotController {
 	  
 		confirmInstance.result.then(function (response) {
 
-			if (response.success) {
+			if (response != undefined  && response.success) {
 				_this.$uibModalInstance.close({success: true});
 			}
 		});
