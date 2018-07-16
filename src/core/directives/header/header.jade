@@ -1,0 +1,62 @@
+md-toolbar.md-hue-2
+  div.md-toolbar-tools
+    div.row.w-100.m-0
+      div.col-lg-6.col-md-6.pl-0
+        img(src="assets/images/logoBanco100.png")
+      div.col-lg-6.col-md-6.pr-0
+        div.row
+          div.col-lg-4.col-md-4
+            ul.links
+              li 
+                a Ayuda
+              li 
+                a FAQ
+              li 
+                a Contacto
+          div.col-lg-8.col-md-8
+            div.row.user-login
+              //user login start
+              div.col-lg-8.col-md-8
+                div.row
+                  div.pl-0.pr-0.col-lg-3.col-md-3.col-sm-1.col-xs-1
+                    img.user-logo(src="assets/images/user.png" ng-click="$ctrl.openToggle()")
+                  div.col-lg-9.col-md-9.col-sm-11.col-xs-11.pl-0.pr-0.company-selector-container
+                    label.user-fullname {{$ctrl.userLogin.fullName}}
+                    md-menu
+                      div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                        span {{$ctrl.currentCompany.name}}
+                        span
+                          i x
+                      md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
+                        md-menu-item(ng-repeat="item in $ctrl.userCompanies" ng-class="{'selected': item.nameID == $ctrl.currentCompany.nameID}")
+                          a(ng-click="$mdMenu.close();$ctrl.selectCompany(item);") {{item.name}}
+              div.col-lg-4.col-md-4                   
+              //user login end    
+
+    
+//menu start 
+div.menu
+  div.container
+    md-tabs
+        md-tab(ng-repeat="item in ['INICIO', 'TRANSFERENCIAS', 'PRODUCTOS', 'DOCUMENTOS']")
+          md-tab-label
+            label {{item}}
+//menu end
+
+
+//marketina start
+div.marketina-container
+  div.background
+  div.toggle-price
+    span Indicadores
+    span.pull-right +
+    span.pull-right -
+  div.prices.pl-0.pr-0.pt-1.pb-1.w-100
+    md-tabs
+      md-tab(ng-repeat="change in $ctrl.moneyChange")
+        md-tab-label
+          div
+            span.mr-1 {{change.text}}
+            span.percent {{change.porcent}}%
+          div.text-left {{change.cash | currency }}
+//marketina end

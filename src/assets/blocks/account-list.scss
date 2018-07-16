@@ -1,0 +1,84 @@
+account-list { 
+    
+    md-content {
+        min-height: 350px;
+        overflow: initial;
+    }
+    
+    md-tabs-canvas {
+        
+        margin-left: 25rem;
+        height: 40px;
+
+        md-pagination-wrapper { height: 35px; }
+        md-ink-bar {
+            color: $c-blue-tabs;
+            background: $c-blue-tabs;
+            height: 3px !important;
+        }
+        
+    }
+
+    md-tab-item {
+        
+        padding: 6px 0px !important;
+        margin: 0px 20px;
+    }
+
+    small.card-text {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #4a4a4a;
+    }
+    div.price {
+        font-family: Roboto;
+        font-size: 30px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #4a4a4a;
+    }
+    div.price-green {
+        font-family: Roboto;
+        font-size: 30px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+    span.tag {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+
+    .tag-text {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        color: #4a4a4a;
+    }
+      
+    .tag-value {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        color: #4a4a4a;
+    }
+}

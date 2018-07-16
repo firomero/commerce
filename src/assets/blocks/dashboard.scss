@@ -30,30 +30,5 @@ dashboard {
                 }
             }
         }
-    }
-
-    .account-list { 
-        
-        md-content {
-            min-height: 350px;
-            overflow: initial;
-        }
-        
-        md-tabs-canvas {
-            
-            margin-left: 25rem;
-            height: 40px;
-
-            md-pagination-wrapper { height: 35px; }
-            md-ink-bar {
-                color: $c-blue-tabs;
-                background: $c-blue-tabs;
-            }
-            md-tab-item {
-
-                padding: 6px 0px;
-                margin: 0px 20px;
-            }
-        }
     }  
 }

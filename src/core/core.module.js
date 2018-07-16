@@ -8,10 +8,9 @@ import MoneyChangeService from './services/money.change.service';
 
 import InputFocusDirective from './directives/input-focus/input-focus.directive';
 import PerfectScrollDirective from './directives/perfect-scroll/perfect-scroll.directive';
+import AccountListDirective from './directives/account-list/account-list.directive';
 
 import MessageConfirmController from './components/message-confirm/message-confirm.controller';
-
-import AccountListComponent from './components/account-list/account-list.component';
 
 const coreModule = angular.module('app.core', [
 	'ui.router'
@@ -29,9 +28,8 @@ coreModule.service('CompanyService', CompanyService);
 
 coreModule.directive('inputFocus', InputFocusDirective);
 coreModule.directive('perfectScroll', PerfectScrollDirective);
+coreModule.directive('accountList', AccountListDirective);
 
 coreModule.controller('MessageConfirmController', MessageConfirmController);
-
-coreModule.component('accountList', AccountListComponent);
 
 export default coreModule;

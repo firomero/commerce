@@ -1,4 +1,10 @@
 header {
+
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    right: 0;
     
     md-toolbar {
         height: 100px;
@@ -53,6 +59,11 @@ header {
     .menu {
         background-color: $c-white;
 
+        .date {
+            float: right;
+            line-height: 48px;
+            margin-right: 190px;
+        }
         md-tabs {
 
             .md-tab { color: $c-gray; }
@@ -78,54 +89,56 @@ header {
         }
     }
 
-    .marketina-container {
-        height: 48px;
+    .marketina-group {
         position: relative;
 
-        .background {
+        .marketina.background {
             height: 48px;
-            background-color: $c-white;
-            opacity: .2;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            left: 0;
+            right: 0;
         }
 
-        .toggle-price {
-            position: absolute;
-            color: $c-white;
-            background-color: $c-blue-tabs;
-            padding-bottom: 5px;
-            padding-left: 15px;
-            padding-right: 15px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            padding-top: 15px;
-            bottom: -40px;
-            width: 160px;
-            right: -90;
-        }
+        .marketina-container {
+            height: 48px;
+            position: relative;
 
-        .prices {
-            position: absolute;
-            top: 0;
+            .prices {
+                position: absolute;
+                top: 0;
 
-            md-tabs {                
+                md-tabs {                
 
-                .md-tab {
-                    padding: 0px 24px;
-                }
-                md-ink-bar {
-                    color: transparent;
-                    background: transparent;
-                }
-                md-tabs-canvas { height: 35px; }
-                md-tab-item > div {
-                    
-                    color: $c-black;
-                    font-weight: 700;
-                    line-height: 18px;
-    
-                    .percent { color: $c-green; }
+                    .md-tab {
+                        padding: 0px 24px;
+                    }
+                    md-ink-bar {
+                        color: transparent;
+                        background: transparent;
+                    }
+                    md-tabs-canvas { height: 35px; }
+                    md-tab-item > div {
+                        
+                        color: $c-black;
+                        font-weight: 700;
+                        line-height: 18px;
+        
+                        .percent { color: $c-green; }
+                    }
                 }
             }
         }
-    }        
+    }
+    .toggle-price {
+        position: absolute;
+        color: #fff;
+        background-color: #5e9ced;
+        padding: 15px 15px 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        bottom: -40px;
+        width: 160px;
+        right: 5rem;
+    } 
 }

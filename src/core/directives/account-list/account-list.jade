@@ -1,0 +1,41 @@
+div.mt-8.pos-r(ng-cloak ng-if="list.length")
+  h3 Cuentas Disponibles
+  md-tabs.account-list(md-dynamic-height)
+    md-tab(label="Cuenta N {{item.name}}" ng-disabled="item.disabled" ng-repeat="item in list")
+      md-content.poster
+        md-card.pb-15px.pt-15px
+          div.row.m-0
+            div.col-lg-5.col-md-12.col-xs-12
+              div.row
+                small.card-text.col-xs-12 Monto Disponible
+                div.price.col-xs-12 $500.503.000
+              
+              div.row
+                span.tag.col-xs-6.mt-1(ng-repeat="tag in innerDataLeft")
+                  small.tag-text.col-xs-6 {{tag.text}}
+                  small.tag-value.col-xs-6 {{tag.value}}
+                
+            div.col-lg-7.col-md-12.col-xs-12
+              div.row
+                small.card-text.col-xs-12 Línea de Crédito Disponible
+                div.c-green.price-green.col-xs-12 $60.000.000
+
+              div.row
+                span.tag.col-xs-6.mt-1(ng-repeat="tag in innerDataRight")
+                  small.tag-text.col-xs-6 {{tag.text}}
+                  small.tag-value.col-xs-6 {{tag.value}}
+          
+        div.action-container
+          md-button.md-fab
+          md-button.md-fab.success
+          md-button.md-fab
+          md-button.md-fab
+          md-button.md-fab
+
+div.mt-8(ng-cloak ng-if="!list.length")
+  md-card
+    div.row
+      div.col-lg-4.col-md-4
+      div.col-lg-5.col-md-5
+        label Ud No posee Cuentas Corrientes Disponibles
+      button.col-lg-2.col-md-2.button-success SOLICITAR

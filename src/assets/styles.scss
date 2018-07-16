@@ -42,6 +42,7 @@ $fa-font-path: '~font-awesome/fonts/';
 @import 'blocks/button';
 @import 'blocks/extra-layout';
 @import 'blocks/modals';
+@import 'blocks/account-list';
 
 @import 'blocks/login';
 @import 'blocks/forgot';
@@ -78,7 +79,7 @@ md-menu-content {
 
 md-card { margin: 8px 0px; }
 
-body {background-color: #F5F5F5;}
+body {background-color: #EBEBEB;}
 
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs

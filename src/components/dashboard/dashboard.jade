@@ -36,10 +36,10 @@ section
                   div.col-lg-4.col-md-4                   
                   //user login end
     
-
     
     //menu start 
     div.menu
+      i.fa.fa-clock-o.date Al 17 de Abril del 2018 / 14:34 hrs
       div.container
         md-tabs
             md-tab(ng-repeat="item in ['INICIO', 'TRANSFERENCIAS', 'PRODUCTOS', 'DOCUMENTOS']")
@@ -50,27 +50,29 @@ section
 
 
     //marketina start
-    div.marketina-container
-      div.background
-      div.toggle-price
+    div.marketina-group(ng-if="$ctrl.tooglePrice")
+      div.marketina.background    
+      div.marketina-container
+        div.prices.pl-0.pr-0.pt-1.pb-1.w-100
+          md-tabs
+            md-tab(ng-repeat="change in $ctrl.moneyChange")
+              md-tab-label
+                div
+                  span.mr-1 {{change.text}}
+                  span.percent {{change.porcent}}%
+                div.text-left {{change.cash | currency }}
+    div.pos-rel
+      div.toggle-price(ng-click="$ctrl.showPrice()")
         span Indicadores
-        span.pull-right +
-        span.pull-right -
-      div.prices.pl-0.pr-0.pt-1.pb-1.w-100
-        md-tabs
-          md-tab(ng-repeat="change in $ctrl.moneyChange")
-            md-tab-label
-              div
-                span.mr-1 {{change.text}}
-                span.percent {{change.porcent}}%
-              div.text-left {{change.cash | currency }}
+        span.pull-right(ng-if="$ctrl.tooglePrice") -
+        span.pull-right(ng-if="!$ctrl.tooglePrice") +
     //marketina end
   //header end
 
 
 
 
-  div.container
+  div.container(style="margin-top: 200px;")
     div.row
       div.col-lg-8.col-md-8.col-sm-8 SOLICITUDES
       div.col-lg-4.col-md-4.col-sm-4 PRODUCTOS
@@ -155,62 +157,93 @@ section
               div.action.text-center.ml-1
                 md-button.md-fab
                 div.text-center Label
-
+                
+    //list account
+    account-list(list="$ctrl.currentCompany.accounts" ng-if="!$ctrl.loadAccounts")
     //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi
-    div.row.mt-8.pos-r(ng-cloak ng-if="$ctrl.currentCompany.accounts.length")
-      h3.ml-15px Cuentas Disponibles
-      md-tabs.account-list(md-dynamic-height)
-        md-tab(label="Cuenta N {{item.name}}" ng-disabled="item.disabled" ng-repeat="item in $ctrl.currentCompany.accounts")
-          md-content.poster
-            md-card.ml-15px.mr-15px
-              p.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
-            div.action-container
-              div.action.text-center.mr-1
-                md-button.md-fab
-                div Saldo y Movimientos
-              div.action.text-center.mr-1.ml-1
-                md-button.md-fab.success
-                div.text-center Transferir
-              div.action.text-center.mr-1.ml-1
-                md-button.md-fab
-                div Solicitar Creditos
-              div.action.text-center.mr-1.ml-1
-                md-button.md-fab
-                div Pagar Linea
-                div de Credito
-              div.action.text-center.ml-1
-                md-button.md-fab
-                div Solicitar Aumento
-                div Linea de Credito 
 
-    div.mt-8(ng-cloak ng-if="!$ctrl.currentCompany.accounts.length")
-      md-card
-        div.row
-          div.col-lg-4.col-md-4
-          div.col-lg-5.col-md-5
-            label Ud No posee Cuentas Corrientes Disponibles
-          div.col-lg-2.col-md-2.button-success SOLICITAR
+    //footer start
+    div.row
+      div.col-md-2
+        img.footer-logo(src="assets/images/footer.png")
+      
+      div.col-md-10
+        p.m-0
+          a(href="#") Términos y Condiciones | 
+          a(href="#") Política de Privacidad | 
+          a(href="#") Trabaja con Nosotros | 
+          a(href="#") Mapa del Sitio | 
+          a(href="#") Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 
+          a(href="#") 2013 Banco Consorcio.
+        p.m-0 Todos los derechos reservados. Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior
         
-  md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right")
+  md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
     div.p-2
       div.row.text-center
         img.user-avatar(src="assets/images/user.png")
         h3.c-white {{$ctrl.userLogin.fullName}}
 
       div.row.data.pl-2.pr-2.mt-5
-        span.mr-2 x
-        span DATOS
-        span.pull-right e
+        div
+          span.mr-2 x
+          span DATOS
+          span.pull-right e
+        div.pl-3.mt-2
+          span Telefono Celular
+        div.pl-3
+          span +5691584599
+        
+        div.pl-3.mt-2
+          span Telefono Fijo
+        div.pl-3
+          span +5691584599
 
+        div.pl-3.mt-2
+          span Correo Electronico
+        div.pl-3
+          span +5691584599
+
+        div.pl-3.mt-2
+          span Direccion
+        div.pl-3
+          span +5691584599
+      
       div.row.pass.pl-2.pr-2
-        span.mr-2 x
-        span CLAVES
-        span.pull-right e
+        div
+          span.mr-2 x
+          span CLAVES
+          span.pull-right e
+
+        div.pl-3.mt-2
+          span Token
+        div.pl-3
+          span Habilitada
+
+        div.pl-3.mt-2
+          span Preguntas Secretas
+        div.pl-3
+          span Habilitada
 
       div.row.communication.pl-2.pr-2
-        span.mr-2 x
-        span COMUNICACIONES
-        span.pull-right e
+        div
+          span.mr-2 x
+          span COMUNICACIONES
+          span.pull-right e
 
-      div.row
+        div.pl-3.mt-2
+          span Cartolas
+        div.pl-3
+          span Mail
+
+        div.pl-3.mt-2
+          span Cuenta Empresa
+        div.pl-3
+          span Mail
+        
+        div.pl-3.mt-2
+          span Creditos
+        div.pl-3
+          span Mail - Direccion Particular
+
+      div.row.mt-5
         button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="$ctrl.closeToggle()") CONTACTAR A EJECUTIVO

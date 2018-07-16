@@ -2,6 +2,8 @@ export default class DashboardController {
 
 	currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	userCompanies = [];
+	loadAccounts = false;
+	tooglePrice = false;
 	ROL_1 = 'APODERADO';
 	ROL_2 = 'OPERADOR';
 
@@ -33,7 +35,9 @@ export default class DashboardController {
 
 	selectCompany(company) {
 
+		this.loadAccounts = true;
 		this.currentCompany = company;
+		this.loadAccounts = false;
 	}
 
 	openToggle() {
@@ -44,5 +48,10 @@ export default class DashboardController {
 	closeToggle() {
 		
 		this.$mdSidenav('right').close();
+	}
+
+	showPrice() {
+
+		this.tooglePrice = !this.tooglePrice;
 	}
 }
