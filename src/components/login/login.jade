@@ -3,6 +3,7 @@ video.fullscreen(preload="none" allowfullscreen autoplay loop)
 div.backdrop
 div.container.login
   div.row
+
     div.col-lg-12.logo-container
       img.logo(src="assets/images/logoBanco100.png")
     div.col-lg-12.title.mt-5.mb-4
@@ -15,8 +16,8 @@ div.container.login
           div.row
             div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
               div.form-text
-                i.material-icons.cso-form-glass__input-icon perm_identity
-                label.ml-2 Nombre
+                i.material-icons.cso-form-glass__input-icon person
+                label Nombre
               div.form-element
                 input(name="username" type="text" ng-model="$ctrl.model.username" required="required")
           div.row
@@ -35,8 +36,8 @@ div.container.login
           div.row
             div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
               div.form-text
-                i.material-icons.cso-form-glass__input-icon perm_identity
-                label.ml-2 Rut
+                i.material-icons.cso-form-glass__input-icon person
+                label Rut
               div.form-element
                 input(name="rut" type="text" ng-model="$ctrl.model.rut" required="required")
           div.row
@@ -58,7 +59,7 @@ div.container.login
             div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
               div.form-text
                 i.material-icons.cso-form-glass__input-icon https
-                label.ml-2 Clave
+                label Clave
               div.form-element
                 input(name="rut" type="password" ng-model="$ctrl.model.password" required="required")
           div.row

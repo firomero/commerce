@@ -2,6 +2,7 @@
 
     .title {
         text-align: center;
+        color: $c-black-light;
     }
 
     .header {
@@ -37,7 +38,7 @@
             .strip {
 
                 height: 18px;
-                border-bottom: 2px solid $c-gray;
+                border-bottom: 1px solid $c-gray;
                 padding: 0px;
             }
 
@@ -62,6 +63,10 @@
                 border-radius: 50%;
                 margin: 0 auto;
                 font-size: 18px;
+
+                i {
+                    line-height: 35px;
+                }
             }
 
             span.sub-title {
@@ -127,23 +132,19 @@
                     height: 47px;
                     border-radius: 5px;
                     background-color: rgba(255, 255, 255, 0.19);
-                    border: solid 1px rgba(74,74,74,.7);
                     display: -webkit-inline-box;
                     padding: 5px;
                     margin-bottom: 15px;
+                    border: 1px solid rgba(74,74,74,.1);
+                    position: relative;
                 }
 
                 .input-form .form-text {
-                    text-align: left;
-                    width: 35%;
                     opacity: 1;
                     border-radius: 0px;
                     background: none;
                     border: none;
-                }
-
-                .input-form .form-text.custom {
-                    width: 40%;
+                    position: absolute;
                 }
 
                 .input-form .form-text i {
@@ -166,11 +167,13 @@
                     display: inline-block;
                     vertical-align: top;
                     font-family: Roboto;
+                    margin-left: 1rem;
+                    margin-bottom: 0px;
                 }
 
                 .input-form .form-element {
                     text-align: right;
-                    width: 60%;
+                    width: 100%;
                 }
 
                 .input-form .form-element input {
@@ -209,27 +212,5 @@
         label {
             font-size: 20px;
         }
-    }
-}
-
-@media (max-width: 767px) {//col-xs
-    
-    .forgot md-steppers md-content .input .input-form .form-text label {
-        line-height: 18px;
-    }
-    .forgot md-steppers md-content .input .input-form .form-text {
-        width: 20%;
-    }
-}
-@media (min-width: 992px) and (max-width: 1199px)  {//col-md
-    
-    .forgot md-steppers md-content .input .input-form .form-text.custom label {
-        line-height: 18px;
-    }
-}
-@media (min-width: 1200px) {//col-lg
-    
-    .forgot md-steppers md-content .input .input-form .form-text.custom label {
-        line-height: 18px;
     }
 }

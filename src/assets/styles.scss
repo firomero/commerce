@@ -52,6 +52,12 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     outline: none;
 }
+.is-focused-black {
+    border: 1px solid rgba(74, 74, 74, 0.1);
+    background-color: rgba(227, 227, 227, 0.4);
+    box-shadow: 0 0 10px rgba(74, 74, 74, 0.3);
+    outline: none;
+}
 .border-left { border-left: 1px solid #dddddd; }
 
 md-menu-content {

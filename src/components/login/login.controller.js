@@ -44,7 +44,7 @@ export default class LoginController {
 	  
 		modalInstance.result.then(function (response) {
 			
-			if (response.success) {
+			if (response != undefined  && response.success) {
 				_this.WizardHandler.wizard().reset();
 				_this.reset();
 			}
