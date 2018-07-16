@@ -1,0 +1,23 @@
+div.mt-8.pos-r(ng-cloak ng-if="$ctrl.dataList.length")
+  h3.ml-15px Cuentas Disponibles
+    md-tabs.account-list(md-dynamic-height)
+      md-tab(label="Cuenta N {{item.name}}" ng-disabled="item.disabled" ng-repeat="item in $ctrl.dataList")
+        md-content.poster
+          md-card.ml-15px.mr-15px
+            p.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
+          div.action-container
+            md-button.md-fab
+            md-button.md-fab.success
+            md-button.md-fab
+            md-button.md-fab
+            md-button.md-fab
+
+div.mt-8(ng-cloak ng-if="!$ctrl.dataList.length")
+  md-card
+    div.row
+      div.col-lg-4.col-md-4
+      div.col-lg-5.col-md-5
+        label Ud No posee Cuentas Corrientes Disponibles
+      button.col-lg-2.col-md-2.button-success SOLICITAR
+
+pre {{dataList | json}}

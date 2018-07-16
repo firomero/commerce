@@ -22,7 +22,7 @@ section
                   div.col-lg-8.col-md-8
                     div.row
                       div.pl-0.pr-0.col-lg-3.col-md-3.col-sm-1.col-xs-1
-                        img.user-logo(src="assets/images/user.png")
+                        img.user-logo(src="assets/images/user.png" ng-click="$ctrl.openToggle()")
                       div.col-lg-9.col-md-9.col-sm-11.col-xs-11.pl-0.pr-0.company-selector-container
                         label.user-fullname {{$ctrl.userLogin.fullName}}
                         md-menu
@@ -36,6 +36,19 @@ section
                   div.col-lg-4.col-md-4                   
                   //user login end
     
+
+    
+    //menu start 
+    div.menu
+      div.container
+        md-tabs
+            md-tab(ng-repeat="item in ['INICIO', 'TRANSFERENCIAS', 'PRODUCTOS', 'DOCUMENTOS']")
+              md-tab-label
+                label {{item}}
+    //menu end
+
+
+
     //marketina start
     div.marketina-container
       div.background
@@ -43,7 +56,7 @@ section
         span Indicadores
         span.pull-right +
         span.pull-right -
-      div.container.prices.pl-0.pr-0.pt-1.pb-1
+      div.prices.pl-0.pr-0.pt-1.pb-1.w-100
         md-tabs
           md-tab(ng-repeat="change in $ctrl.moneyChange")
             md-tab-label
@@ -58,8 +71,6 @@ section
 
 
   div.container
-    md-button.md-primary(ng-click="$ctrl.openToggle()") Toggle right
-
     div.row
       div.col-lg-8.col-md-8.col-sm-8 SOLICITUDES
       div.col-lg-4.col-md-4.col-sm-4 PRODUCTOS
@@ -68,27 +79,82 @@ section
       div.col-lg-8.col-md-8.col-sm-8
         div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_1")
           div.col-lg-6.col-md-6.poster
-            md-card asdasd
+            md-card 
+              div.row.p-15px
+                div.col-lg-7.col-md-7
+                  div
+                    label Transferencias
+                  div
+                    span Por un Monto total de
+                  div
+                    h3 $933.125.000
+                  div
+                    span Lorem ipsum dolor sit amet, consectetur
+
+                div.col-lg-5.col-md-5 circle
             div.action-container
-              md-button.md-fab
+              div.text-center
+                md-button.md-fab
+              div.text-center Ver Transferencias
+              
           div.col-lg-6.col-md-6.poster
-            md-card asdasd
+            md-card
+              div.row.p-15px
+                div.col-lg-7.col-md-7
+                  div
+                    label Destinatarios
+                  div
+                    span Nuevos usuarios estan esperando su aprobacion
+                  div
+                    span.c-green Marcelo Perez Ignacio Gonzalez y 2 mas
+                  
+                div.col-lg-5.col-md-5 circle
             div.action-container
-              md-button.md-fab
+              div.text-center
+                md-button.md-fab
+              div.text-center Ver Destinatarios
 
         div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_2")
           div.col-lg-12.col-md-12.poster
-            md-card asdasd
+            md-card
+              div.row.p-15px
+                div.col-lg-5.col-md-5
+                  div
+                    label Transferencias
+                  div
+                    span Por un Monto total de
+                  div
+                    h3 $933.125.000
+                  div
+                    span Lorem ipsum dolor sit amet, consectetur
+                div.col-lg-7.col-md-7 circle
             div.action-container
-              md-button.md-fab
+              div.text-center
+                md-button.md-fab
+              div.text-center asdsad
 
       div.col-lg-4.col-md-4.col-sm-4
         div.row
           div.col-lg-12.col-md-12.poster
-            md-card asdasd
+            md-card
+              div.row.p-15px
+                div.col-lg-7.col-md-7
+                  div
+                    label Transferencias
+                  div
+                    span Por un Monto total de
+                  div
+                    h3 $933.125.000
+                  div
+                    span Lorem ipsum dolor sit amet, consectetur
+                div.col-lg-5.col-md-5 circle
             div.action-container
-              md-button.md-fab
-              md-button.md-fab
+              div.action.text-center.mr-1
+                md-button.md-fab
+                div Label
+              div.action.text-center.ml-1
+                md-button.md-fab
+                div.text-center Label
 
     //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi
     div.row.mt-8.pos-r(ng-cloak ng-if="$ctrl.currentCompany.accounts.length")
@@ -99,11 +165,23 @@ section
             md-card.ml-15px.mr-15px
               p.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
             div.action-container
-              md-button.md-fab
-              md-button.md-fab.success
-              md-button.md-fab
-              md-button.md-fab
-              md-button.md-fab
+              div.action.text-center.mr-1
+                md-button.md-fab
+                div Saldo y Movimientos
+              div.action.text-center.mr-1.ml-1
+                md-button.md-fab.success
+                div.text-center Transferir
+              div.action.text-center.mr-1.ml-1
+                md-button.md-fab
+                div Solicitar Creditos
+              div.action.text-center.mr-1.ml-1
+                md-button.md-fab
+                div Pagar Linea
+                div de Credito
+              div.action.text-center.ml-1
+                md-button.md-fab
+                div Solicitar Aumento
+                div Linea de Credito 
 
     div.mt-8(ng-cloak ng-if="!$ctrl.currentCompany.accounts.length")
       md-card
@@ -113,11 +191,26 @@ section
             label Ud No posee Cuentas Corrientes Disponibles
           div.col-lg-2.col-md-2.button-success SOLICITAR
         
-  md-sidenav.md-sidenav-right.md-whiteframe-4dp(md-component-id="right")
+  md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right")
     div.p-2
-      div.row
-      div.row
-      div.row
-      div.row
+      div.row.text-center
+        img.user-avatar(src="assets/images/user.png")
+        h3.c-white {{$ctrl.userLogin.fullName}}
+
+      div.row.data.pl-2.pr-2.mt-5
+        span.mr-2 x
+        span DATOS
+        span.pull-right e
+
+      div.row.pass.pl-2.pr-2
+        span.mr-2 x
+        span CLAVES
+        span.pull-right e
+
+      div.row.communication.pl-2.pr-2
+        span.mr-2 x
+        span COMUNICACIONES
+        span.pull-right e
+
       div.row
         button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="$ctrl.closeToggle()") CONTACTAR A EJECUTIVO

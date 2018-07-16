@@ -11,6 +11,8 @@ import PerfectScrollDirective from './directives/perfect-scroll/perfect-scroll.d
 
 import MessageConfirmController from './components/message-confirm/message-confirm.controller';
 
+import AccountListComponent from './components/account-list/account-list.component';
+
 const coreModule = angular.module('app.core', [
 	'ui.router'
 ]);
@@ -29,5 +31,7 @@ coreModule.directive('inputFocus', InputFocusDirective);
 coreModule.directive('perfectScroll', PerfectScrollDirective);
 
 coreModule.controller('MessageConfirmController', MessageConfirmController);
+
+coreModule.component('accountList', AccountListComponent);
 
 export default coreModule;

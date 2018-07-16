@@ -45,6 +45,8 @@ $fa-font-path: '~font-awesome/fonts/';
 
 @import 'blocks/login';
 @import 'blocks/forgot';
+@import 'blocks/header';
+@import 'blocks/user-profile';
 @import 'blocks/dashboard';
 
 .is-focused {
@@ -80,7 +82,7 @@ body {background-color: #F5F5F5;}
 
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
-    .container {}
+    .marketina-container {width: 1170px;}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .container {}
@@ -89,5 +91,11 @@ body {background-color: #F5F5F5;}
     .container {}
 }
 @media (min-width: 1200px) {//col-lg
-    .container {}
+    .marketina-container {
+        width: 1280px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
