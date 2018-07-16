@@ -55,6 +55,7 @@ export default class ForgotController {
 					controllerAs: '$ctrl',
 					size: 'lg',
 					backdrop: false,
+					keyboard  : false,
 					resolve: {
 						message: () => message
 					},
@@ -91,6 +92,7 @@ export default class ForgotController {
 			controllerAs: '$ctrl',
 			size: 'lg',
 			backdrop: false,
+			keyboard  : false,			
 			resolve: {
 				message: () => message
 			},
