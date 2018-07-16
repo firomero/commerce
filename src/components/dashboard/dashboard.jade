@@ -4,11 +4,11 @@ section
     md-toolbar.md-hue-2
       div.md-toolbar-tools
         div.row.w-100.m-0
-          div.col-lg-6.col-md-6.pl-0
+          div.col-lg-6.col-md-6.pl-0.logo
             img(src="assets/images/logoBanco100.png")
           div.col-lg-6.col-md-6.pr-0
             div.row
-              div.col-lg-4.col-md-4
+              div.col-lg-3.col-md-3
                 ul.links
                   li 
                     a Ayuda
@@ -21,7 +21,7 @@ section
                   //user login start
                   div.col-lg-8.col-md-8
                     div.row
-                      div.pl-0.pr-0.col-lg-3.col-md-3.col-sm-1.col-xs-1
+                      div.pl-0.col-lg-3.col-md-3.col-sm-1.col-xs-1.text-right
                         img.user-logo(src="assets/images/user.png" ng-click="$ctrl.openToggle()")
                       div.col-lg-9.col-md-9.col-sm-11.col-xs-11.pl-0.pr-0.company-selector-container
                         label.user-fullname {{$ctrl.userLogin.fullName}}
@@ -29,7 +29,8 @@ section
                           div.company-selector(ng-mouseenter="$mdMenu.open()") 
                             span {{$ctrl.currentCompany.name}}
                             span
-                              i x
+                              i.material-icons arrow_drop_down
+
                           md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
                             md-menu-item(ng-repeat="item in $ctrl.userCompanies" ng-class="{'selected': item.nameID == $ctrl.currentCompany.nameID}")
                               a(ng-click="$mdMenu.close();$ctrl.selectCompany(item);") {{item.name}}
@@ -39,7 +40,9 @@ section
     
     //menu start 
     div.menu
-      i.fa.fa-clock-o.date Al 17 de Abril del 2018 / 14:34 hrs
+      div.date 
+        i.material-icons access_time
+        label Al 17 de Abril del 2018 / 14:34 hrs
       div.container
         md-tabs
             md-tab(ng-repeat="item in ['INICIO', 'TRANSFERENCIAS', 'PRODUCTOS', 'DOCUMENTOS']")
@@ -159,7 +162,8 @@ section
                 div.text-center Label
                 
     //list account
-    account-list(list="$ctrl.currentCompany.accounts" ng-if="!$ctrl.loadAccounts")
+    div.mt-10
+      account-list(list="$ctrl.currentCompany.accounts" ng-if="!$ctrl.loadAccounts")
     //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi
 
     //footer start

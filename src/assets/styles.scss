@@ -1,8 +1,4 @@
 // for loading font-awesome icons
-$fa-font-path: '~font-awesome/fonts/';
-
-@import '~font-awesome/scss/font-awesome';
-
 @font-face {
     font-family: Roboto;
     src: url('fonts/Roboto-Regular.ttf');
@@ -56,6 +52,7 @@ $fa-font-path: '~font-awesome/fonts/';
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     outline: none;
 }
+.border-left { border-left: 1px solid #dddddd; }
 
 md-menu-content {
 

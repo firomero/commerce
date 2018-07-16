@@ -7,25 +7,35 @@ header {
     right: 0;
     
     md-toolbar {
-        height: 100px;
+        height: 80.94px;
 
         .md-toolbar-tools {
-            height: 100px;
+            height: 80.94px;
             max-height: 100px;
-            background-color: $c-blue;            
+            background-color: $c-blue-toolbar;            
+        }
+
+        .logo {
+            padding-top: 2.3rem;
+
+            img { height: 50px; }
         }
 
         .links {
             padding: 0px;
             margin-bottom: 0px;
             text-align: center;
-            line-height: 100px;
 
             li {
                 list-style: none;
                 display: inline-block;
                 vertical-align: top;
                 padding: 0px 1rem;
+                font-family: Roboto;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: -0.34px;
+                line-height: 99.94px;
             }
         }
 
@@ -33,23 +43,35 @@ header {
 
             img.user-logo {
                 border-radius: 50%;
-                width: 70px;
-                margin: 15px 0px;
+                width: 50px;
+                margin: 25px 0;
             }
             .company-selector-container {
 
-                margin: 25px 0px;
+                padding-top: 3.2rem;
 
                 .user-fullname {
-                    font-size: 16px;
                     text-transform: uppercase;
                     margin-bottom: 0px;
+                    font-family: Roboto;
+                    font-size: 16px;
+                    font-weight: 700;
+                    letter-spacing: -0.39px;
+                    line-height: 19px;
                 }
 
                 .company-selector {
 
                     span:last-child {
                         float: right;
+                        font-size: 14px;
+                    }
+
+                    span:first-child {
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-weight: 400;
+                        letter-spacing: -0.34px;                      
                     }
                 }
             }
@@ -58,18 +80,42 @@ header {
 
     .menu {
         background-color: $c-white;
+        border-radius: 2px;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12999999523162842), 0 2px 4px 0 rgba(0, 0, 0, 0.20000000298023224);
+        height: 50px;
 
         .date {
             float: right;
             line-height: 48px;
             margin-right: 190px;
+            opacity: .41;
+
+            i {
+                width: 12px;
+                height: 12px;
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            label {
+                color: #4A4A4A;
+                font-family: Roboto;
+                font-size: 11px;
+                font-weight: 500;
+                letter-spacing: -0.02px;
+                margin-bottom: 0px;
+            }
         }
         md-tabs {
 
-            .md-tab { color: $c-gray; }
-            .md-tab.md-active {
-                color: $c-black;
+            .md-tab { 
+                color: $c-gray;
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 500;
+                letter-spacing: 0.46px;
             }
+            .md-tab.md-active { color: #4A4A4A; }
             md-tabs-canvas {
                 md-pagination-wrapper {
                     height: 38px;
@@ -77,8 +123,10 @@ header {
             }
 
             md-ink-bar {
-                color: $c-blue-tabs;
-                background: $c-blue-tabs;
+                color: $c-blue-light;
+                background: $c-blue-light;
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11999999731779099), 0 1px 1px 0 rgba(0, 0, 0, 0.23999999463558197);
+                height: 3px;
             }
             md-tab-item {
                 

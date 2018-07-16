@@ -1,5 +1,13 @@
 account-list { 
     
+    .title {
+        display: inline;
+        position: absolute;
+        top: 4px;
+        left: 0;
+        font-size: 20px;
+    }
+    md-card { height: auto !important; }
     md-content {
         min-height: 350px;
         overflow: initial;
@@ -8,12 +16,12 @@ account-list {
     md-tabs-canvas {
         
         margin-left: 25rem;
-        height: 40px;
+        height: 30px;
 
-        md-pagination-wrapper { height: 35px; }
+        md-pagination-wrapper { height: 30px; }
         md-ink-bar {
-            color: $c-blue-tabs;
-            background: $c-blue-tabs;
+            color: $c-blue-light;
+            background: $c-blue-light;
             height: 3px !important;
         }
         
@@ -23,62 +31,89 @@ account-list {
         
         padding: 6px 0px !important;
         margin: 0px 20px;
+        font-family: Roboto !important;
+        color: #4A4A4A !important;        
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.46px !important;
+        line-height: 16px !important;
+    }
+
+    .action-container {
+        position: absolute;
+        right: 5 !important;
+        bottom: -60px;
+
+        .action {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .button-text {
+            color: #4A4A4A;
+            font-family: Roboto;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.12px;
+            line-height: 12px;
+            max-width: 85px;
+        }
+        .md-button.md-fab, .md-button.md-fab:not([disabled]):hover { background-color: $c-blue; }
+        .md-button.md-fab.success, .md-button.md-fab.success:not([disabled]):hover { background-color: $c-green; }
     }
 
     small.card-text {
         font-family: Roboto;
-        font-size: 13px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
         color: #4a4a4a;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
     }
     div.price {
         font-family: Roboto;
         font-size: 30px;
-        font-weight: normal;
         font-style: normal;
         font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
         color: #4a4a4a;
+        font-weight: 400;
+        letter-spacing: -0.09px;
+        line-height: 36px;
     }
     div.price-green {
         font-family: Roboto;
         font-size: 30px;
-        font-weight: normal;
         font-style: normal;
         font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
+        font-weight: 400;
+        letter-spacing: -0.09px;
+        line-height: 36px;
     }
     span.tag {
         display: flex;
         flex-wrap: wrap;
         padding: 0;
+        margin-bottom: .5rem;
     }
 
     .tag-text {
         font-family: Roboto;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
         font-style: normal;
         font-stretch: normal;
-        line-height: normal;
-        letter-spacing: -0.3px;
         color: #4a4a4a;
+        letter-spacing: -0.31px;
+        line-height: 16px;
     }
       
     .tag-value {
         font-family: Roboto;
-        font-size: 14px;
-        font-weight: normal;
         font-style: normal;
         font-stretch: normal;
-        line-height: normal;
-        letter-spacing: -0.3px;
         color: #4a4a4a;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: -0.31px;
+        line-height: 16px;
     }
 }
