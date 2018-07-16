@@ -1,4 +1,4 @@
-section
+section.bg-gray
   //header star
   header
     md-toolbar.md-hue-2
@@ -50,8 +50,6 @@ section
                 label {{item}}
     //menu end
 
-
-
     //marketina start
     div.marketina-group(ng-if="$ctrl.tooglePrice")
       div.marketina.background    
@@ -73,9 +71,23 @@ section
   //header end
 
 
+  //carousel start
+  div(uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides" style="margin-top:130px")
+    div(uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id")
+      img(ng-src="{{slide.image}}")
+      div.carousel-caption
+        div.row.text-left
+          h4.mb-0.col-lg-10 {{slide.text}}
+        div.row.text-left
+          h2.mb-0.col-lg-10 {{slide.text1}}
+        div.row.text-left
+          h1.mt-0.col-lg-10 {{slide.text2}}
+          button.button-success.col-lg-2 SIMULAR
+
+  //carousel end
 
 
-  div.container(style="margin-top: 200px;")
+  div.container
     div.row
       div.col-lg-8.col-md-8.col-sm-8 SOLICITUDES
       div.col-lg-4.col-md-4.col-sm-4 PRODUCTOS
@@ -96,7 +108,8 @@ section
                   div
                     span Lorem ipsum dolor sit amet, consectetur
 
-                div.col-lg-5.col-md-5 circle
+                div.col-lg-5.col-md-5 
+                  div(knob)
             div.action-container
               div.text-center
                 md-button.md-fab

@@ -9,8 +9,11 @@ account-list {
     }
     md-card { height: auto !important; }
     md-content {
-        min-height: 350px;
+        // min-height: 350px;
         overflow: initial;
+    }
+    md-tab-content.md-active {
+        padding-bottom: 70px;
     }
     
     md-tabs-canvas {

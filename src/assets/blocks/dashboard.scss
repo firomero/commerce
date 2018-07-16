@@ -1,5 +1,16 @@
 dashboard {
 
+    .carousel {
+        height: 300px;
+        .item img {
+            height: 300px;
+            width: 100%;
+        }
+
+        .carousel-control { display: none; }
+        .carousel-indicators { top: 20%; }
+    }
+
     .poster {
         position: relative;
 
@@ -30,5 +41,31 @@ dashboard {
                 }
             }
         }
-    }  
+    }
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
+}
+@media (min-width: 1200px) {//col-lg
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
 }

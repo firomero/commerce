@@ -50,7 +50,6 @@
     "font-awesome": "4.7.0",
     "jquery": "^3.2.1",
     "md-steppers": "^0.4.0",
-    "ng-knob": "^1.0.1",
     "perfect-scrollbar": "^1.4.0",
     "popper.js": "^1.14.3"
   }
