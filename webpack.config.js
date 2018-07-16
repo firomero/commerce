@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
 	entry: {
@@ -43,7 +43,7 @@ const config = {
 				test: /\.(png|jpg|jpeg|gif)$/,
 				loader: 'url-loader?limit=10000',
 				options: {
-					name: './assets/images/[name].[ext]'
+					name: 'images/[name].[ext]'
 				}
 			},
 			{
@@ -77,20 +77,20 @@ const config = {
 		}),
 		new ExtractTextWebpackPlugin('assets/styles.css'),
 		new OptimizeCssAssetsWebpackPlugin()
-		// ,
-		// new CopyWebpackPlugin([{
-		// 	from: 'src/assets/images/*.png',
-		// 	to: 'assets/images/',
-		// 	flatten: true
-		// },{
-		// 	from: 'src/assets/images/*.gif',
-		// 	to: 'assets/images/',
-		// 	flatten: true
-		// },{
-		// 	from: 'src/assets/video/*.mp4',
-		// 	to: 'assets/video/',
-		// 	flatten: true
-		// }])
+		,
+		new CopyWebpackPlugin([{
+			from: 'src/assets/images/*.png',
+			to: 'images/',
+			flatten: true
+		},{
+			from: 'src/assets/images/*.gif',
+			to: 'images/',
+			flatten: true
+		},{
+			from: 'src/assets/video/*.mp4',
+			to: 'video/',
+			flatten: true
+		}])
 	],
 	devServer: {
 		port: 3000,
