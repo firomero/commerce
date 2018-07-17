@@ -79,6 +79,10 @@ const config = {
 		new OptimizeCssAssetsWebpackPlugin()
 		,
 		new CopyWebpackPlugin([{
+			from: 'src/assets/images/carousel/*.*',
+			to: 'images/carousel',
+			flatten: true
+		},{
 			from: 'src/assets/images/*.png',
 			to: 'images/',
 			flatten: true

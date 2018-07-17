@@ -11,13 +11,13 @@ export default class DashboardController {
 	active = 0;
 	currIndex = 0; 
 	slides = [{
-		image: 'assets/images/carousel/login-background.png',
+		image: 'images/carousel/login-background.png',
 		text: 'Hola Marcelo',
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
 		id: this.currIndex++
 	  },{
-		image: 'assets/images/carousel/creditcard-advance-background.jpg',
+		image: 'images/carousel/creditcard-advance-background.jpg',
 		text: 'Hola Marcelo',
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
