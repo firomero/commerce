@@ -4,11 +4,11 @@ section.bg-gray
     md-toolbar.md-hue-2
       div.md-toolbar-tools
         div.row.w-100.m-0
-          div.col-lg-6.col-md-6.pl-0.logo
+          div.col-lg-7.col-md-7.pl-0.logo
             img(src="assets/images/logoBanco100.png")
-          div.col-lg-6.col-md-6.pr-0
+          div.col-lg-5.col-md-5.pr-0
             div.row
-              div.col-lg-3.col-md-3
+              div.col-lg-4.col-md-4
                 ul.links
                   li 
                     a Ayuda
@@ -19,7 +19,7 @@ section.bg-gray
               div.col-lg-8.col-md-8
                 div.row.user-login
                   //user login start
-                  div.col-lg-8.col-md-8
+                  div.col-lg-9.col-md-9
                     div.row
                       div.pl-0.col-lg-3.col-md-3.col-sm-1.col-xs-1.text-right
                         img.user-logo(src="assets/images/user.png" ng-click="$ctrl.openToggle()")
@@ -34,7 +34,7 @@ section.bg-gray
                           md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
                             md-menu-item(ng-repeat="item in $ctrl.userCompanies" ng-class="{'selected': item.nameID == $ctrl.currentCompany.nameID}")
                               a(ng-click="$mdMenu.close();$ctrl.selectCompany(item);") {{item.name}}
-                  div.col-lg-4.col-md-4                   
+                  //- div.col-lg-4.col-md-4                   
                   //user login end
     
     
@@ -59,17 +59,19 @@ section.bg-gray
   //carousel end
 
 
-  div.container
+  div.container.dashboard
     
-    div.row
-      div.col-lg-8.col-md-8.col-sm-8 SOLICITUDES
-      div.col-lg-4.col-md-4.col-sm-4 PRODUCTOS
+    div.row.card-container
+      div.col-lg-8.col-md-8.col-sm-8
+        label.title SOLICITUDES
+      div.col-lg-4.col-md-4.col-sm-4
+        label.title PRODUCTOS
       
     div.row
       div.col-lg-8.col-md-8.col-sm-8
         div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_1")
           div.col-lg-6.col-md-6.poster
-            md-card 
+            md-card
               div.row.p-15px
                 div.col-lg-7.col-md-7
                   div
@@ -83,11 +85,11 @@ section.bg-gray
 
                 div.col-lg-5.col-md-5 
                   div(knob)
-            div.action-container
+            div.action-container.custom.first
               div.text-center
                 md-button.md-fab
                   i.material-icons.rotate90 import_export
-              div.text-center Ver Transferencias
+              div.button-text.text-center Ver Transferencias
               
           div.col-lg-6.col-md-6.poster
             md-card
@@ -101,10 +103,11 @@ section.bg-gray
                     span.c-green Marcelo Perez Ignacio Gonzalez y 2 mas
                   
                 div.col-lg-5.col-md-5 circle
-            div.action-container
+            div.action-container.custom
               div.text-center
                 md-button.md-fab
-              div.text-center Ver Destinatarios
+                  i.material-icons people
+              div.button-text.text-center Ver Destinatarios
 
         div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_2")
           div.col-lg-12.col-md-12.poster
@@ -120,10 +123,10 @@ section.bg-gray
                   div
                     span Lorem ipsum dolor sit amet, consectetur
                 div.col-lg-7.col-md-7 circle
-            div.action-container
+            div.action-container.custom
               div.text-center
                 md-button.md-fab
-              div.text-center asdsad
+              div.button-text.text-center asdsad
 
       div.col-lg-4.col-md-4.col-sm-4
         div.row
@@ -140,25 +143,26 @@ section.bg-gray
                   div
                     span Lorem ipsum dolor sit amet, consectetur
                 div.col-lg-5.col-md-5 circle
-            div.action-container
-              div.action.text-center.mr-1
+            div.action-container.custom
+              div.action.text-center
                 md-button.md-fab
-                div Label
+                div.button-text.text-center Label
+
               div.action.text-center.ml-1
                 md-button.md-fab
-                div.text-center Label
+                div.button-text.text-center Label
                 
     //list account
-    div.mt-10
+    div.mt-8
       account-list(list="$ctrl.currentCompany.accounts" ng-if="!$ctrl.loadAccounts")
     //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi
 
     //footer start
-    div.row
-      div.col-md-2
+    div.row.footer.mt-4
+      div.col-md-2.pl-3
         img.footer-logo(src="assets/images/footer.png")
       
-      div.col-md-10
+      div.col-md-10.pl-0
         p.m-0
           a(href="#") Términos y Condiciones | 
           a(href="#") Política de Privacidad | 
@@ -170,71 +174,84 @@ section.bg-gray
         
   md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
     div.p-2
-      div.row.text-center
+      div.row.text-center.pos-r
         img.user-avatar(src="assets/images/user.png")
+        i.material-icons.change-avatar photo_camera
         h3.c-white {{$ctrl.userLogin.fullName}}
 
       div.row.data.pl-2.pr-2.mt-5
-        div
-          span.mr-2 x
-          span DATOS
-          span.pull-right e
-        div.pl-3.mt-2
-          span Telefono Celular
-        div.pl-3
-          span +5691584599
+        div.pos-r
+          span
+            i.material-icons account_circle
+          span.title DATOS
+          span.pull-right
+            i.material-icons.edit create
+        div.pl-4.mt-4
+          span.sub-title Telefono Celular
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
         
-        div.pl-3.mt-2
-          span Telefono Fijo
-        div.pl-3
-          span +5691584599
+        div.pl-4.mt-2
+          span.sub-title Telefono Fijo
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
 
-        div.pl-3.mt-2
-          span Correo Electronico
-        div.pl-3
-          span +5691584599
+        div.pl-4.mt-2
+          span.sub-title Correo Electronico
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
 
-        div.pl-3.mt-2
-          span Direccion
-        div.pl-3
-          span +5691584599
+        div.pl-4.mt-2
+          span.sub-title Direccion
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
       
+    md-divider.divider
+
+    div.p-2
       div.row.pass.pl-2.pr-2
-        div
-          span.mr-2 x
-          span CLAVES
-          span.pull-right e
+        div.pos-r
+          span.mr-2
+            i.material-icons vpn_key
+          span.title CLAVES
+          span.pull-right
+            i.material-icons.edit create
 
-        div.pl-3.mt-2
-          span Token
-        div.pl-3
-          span Habilitada
+        div.pl-4.mt-4
+          span.sub-title Token
+        div.pl-4.mt-05
+          span.sub-title-value Habilitada
 
-        div.pl-3.mt-2
-          span Preguntas Secretas
-        div.pl-3
-          span Habilitada
+        div.pl-4.mt-2
+          span.sub-title Preguntas Secretas
+        div.pl-4.mt-05
+          span.sub-title-value Habilitada
+    
+    md-divider.divider
 
+    div.p-2
       div.row.communication.pl-2.pr-2
-        div
-          span.mr-2 x
-          span COMUNICACIONES
-          span.pull-right e
+        div.pos-r
+          span.mr-2
+            i.material-icons markunread_mailbox
+          span.title COMUNICACIONES
+          span.pull-right
+            i.material-icons.edit create
 
-        div.pl-3.mt-2
-          span Cartolas
-        div.pl-3
-          span Mail
+        div.pl-4.mt-4
+          span.sub-title Cartolas
+        div.pl-4.mt-05
+          span.sub-title-value Mail
 
-        div.pl-3.mt-2
-          span Cuenta Empresa
-        div.pl-3
-          span Mail
+        div.pl-4.mt-2
+          span.sub-title Cuenta Empresa
+        div.pl-4.mt-05
+          span.sub-title-value Mail
         
-        div.pl-3.mt-2
-          span Creditos
-        div.pl-3
-          span Mail - Direccion Particular
+        div.pl-4.mt-2
+          span.sub-title Creditos
+        div.pl-4.mt-05
+          span.sub-title-value Mail - Direccion Particular
 
       div.row.mt-5
         button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="$ctrl.closeToggle()") CONTACTAR A EJECUTIVO

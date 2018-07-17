@@ -11,14 +11,16 @@ menu {
         .date {
             float: right;
             line-height: 48px;
-            margin-right: 190px;
+            position: relative;
             opacity: .41;
+            width: 20%;
 
             i {
                 width: 12px;
                 height: 12px;
                 font-size: 16px;
                 margin-right: 10px;
+                margin-top: 15px;
             }
 
             label {
@@ -28,36 +30,52 @@ menu {
                 font-weight: 500;
                 letter-spacing: -0.02px;
                 margin-bottom: 0px;
+                position: absolute;
             }
         }
-        md-tabs {
+        ul.tabs {
 
-            .md-tab { 
-                color: $c-gray;
-                font-family: Roboto;
-                font-size: 13px;
-                font-weight: 500;
-                letter-spacing: 0.46px;
-            }
-            .md-tab.md-active { color: #4A4A4A; }
-            md-tabs-canvas {
-                md-pagination-wrapper {
-                    height: 38px;
-                }
-            }
+            margin: 0px;
+            padding-left: 0px;
+            height: 100%;
 
-            md-ink-bar {
-                color: $c-blue-light;
-                background: $c-blue-light;
-                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11999999731779099), 0 1px 1px 0 rgba(0, 0, 0, 0.23999999463558197);
-                height: 3px;
-            }
-            md-tab-item {
-                
+            .tab { 
+                list-style: none;
                 padding: 10px 0px;
                 margin: 0px 5rem;
+                display: inline-block;
+                vertical-align: top;
+                line-height: 30px;
+                
+                a {
+                    color: $c-black;
+                    font-family: Roboto;
+                    font-size: 13px;
+                    font-weight: 500;
+                    letter-spacing: 0.46px;
+                    padding-bottom: 3px;
+                }
+                a:hover {
+                    text-decoration: none;
+                    font-weight: 700;
+                    color: #4A4A4A;
+                    cursor: pointer;
+                }
+                a.disabled {
+                    opacity: .4;
+                }
+                a.disabled:hover {
+                    color: $c-black;
+                    font-weight: 500;
+                    cursor: initial;
+                }
             }
-            md-tab-item { margin-left: 0px; }
+            .tab:first-child { margin-left: 0px; }
+            .tab.active a { 
+                color: #4A4A4A;
+                font-weight: 700;
+                border-bottom: 3px solid $c-blue-light;
+            }
         }
     }
 
@@ -67,14 +85,58 @@ menu {
         .dropdown-menu {
             width: 100%;
             border-radius: 0px;
-            height: 204px;
+            height: 260px;
             top: -5px;
             border: none;
             box-shadow: 0 9px 12px rgba(0,0,0,.175);
             padding-bottom: 0px;
 
-            .title, .link {
+            .section .title, .link {
                 display: block;
+            }
+
+            .title{  
+                
+                position: relative;
+
+                i {
+                    color: $c-blue-light;
+                    width: 20px;
+                    height: 17px;
+                    margin-right: 2rem;
+                }
+                label {
+                    color: #4A4A4A;
+                    font-family: Roboto;
+                    font-size: 17px;
+                    font-weight: 500;
+                    letter-spacing: 0.61px;
+                    line-height: 20px;
+                    margin-bottom: 0px;
+                    position: absolute;
+                }
+            }
+            .title.extra {
+                color: #4A4A4A;
+                font-family: Roboto;
+                font-size: 20px;
+                font-weight: 500;
+                letter-spacing: 0.61px;
+                line-height: 20px;
+                margin-bottom: 2rem;
+            }
+
+            .extra-title { opacity: .6; }
+
+            .link {
+                color: #4A4A4A;
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 400;
+                letter-spacing: 0.46px;
+                line-height: 16px;
+                margin-bottom: 1.5rem;
+                margin-left: 4rem;
             }
 
             .picture {
@@ -135,11 +197,18 @@ menu {
         position: absolute;
         color: #fff;
         background-color: #5e9ced;
-        padding: 15px 15px 5px;
+        font-family: Roboto;
+        padding: 10px 15px 5px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        bottom: -40px;
+        bottom: -38px;
         width: 160px;
         right: 5rem;
+        z-index: -1;
+        font-weight: 600;
+    }
+    .toggle-price:hover {
+        text-decoration: none;
+        cursor: pointer;
     }
 }

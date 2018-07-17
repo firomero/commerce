@@ -13,21 +13,14 @@ export default function MenuDirective(MoneyChangeService) {
 	function link($scope, $element, $attrs) {
 
 		$scope.isopen = false;
-		$scope.state = false;
 		$scope.tooglePrice = false;
-		$scope.menuActive = '';
+		$scope.menuActive = 'INICIO';
 		$scope.menuItems = [{
 			text: 'INICIO', 
 			disabled: false
 		},{
 			text: 'TRANSFERENCIAS',
 			disabled: false
-		},{
-			text: 'PRODUCTOS',
-			disabled: true
-		},{	
-			text: 'DOCUMENTOS',
-			disabled: true
 		}];
 		
 		$scope.showPrice = showPrice;
@@ -44,13 +37,19 @@ export default function MenuDirective(MoneyChangeService) {
 	
 		function toggleDropdown($event, item) {
 
-			if ($scope.menuActive != item.text && !$scope.state) {
+			$event.preventDefault();
+			$event.stopPropagation();
+			if (!$scope.isopen) {
 				$scope.isopen = !$scope.isopen;
-				$scope.state = $scope.isopen;
 			}
 			
 			$scope.menuActive = item.text;
 		}
+
+		var inputElement = $element[0].querySelector('.dropdown-menu');
+		angular.element(inputElement).on('click', function(e){
+			e.stopPropagation();
+		})
 	}
 
 	return directive;

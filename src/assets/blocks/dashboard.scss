@@ -11,14 +11,27 @@ dashboard {
         .carousel-indicators { top: 20%; }
     }
 
+    .container.dashboard {
+
+        margin-top: -7rem;
+    }
+    .card-container {
+        .title {
+            font-family: Roboto;
+            color: $c-white;
+            font-weight: 500;
+        }
+    }
+
     .poster {
         position: relative;
 
         md-card {height: 171px;}
 
-        .action-container {
+        .action-container.custom {
             position: absolute;
             right: 25;
+            bottom: -40px;
 
             .action {
                 display: inline-block;
@@ -27,6 +40,9 @@ dashboard {
 
             .md-button.md-fab, .md-button.md-fab:not([disabled]):hover { background-color: $c-blue; }
             .md-button.md-fab.success, .md-button.md-fab.success:not([disabled]):hover { background-color: $c-green; }
+        }
+        .action-container.custom.first {
+            bottom: -55px;
         }
     }
 
@@ -41,6 +57,20 @@ dashboard {
                 }
             }
         }
+    }
+
+    .footer {
+        color: #9B9B9B;
+        font-family: SFNSText;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: -0.24px;
+        line-height: 12px;
+        padding-bottom: 10px;
+
+        .footer-logo { width: 100px; }
+
+        a { color: #9B9B9B; }
     }
 }
 
