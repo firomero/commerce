@@ -1,0 +1,64 @@
+//menu start 
+div.menu
+  div.date 
+    i.material-icons access_time
+    label Al 17 de Abril del 2018 / 14:34 hrs
+  div.container
+    md-tabs
+        md-tab(ng-disabled="item.disabled" ng-repeat="item in menuItems")
+          md-tab-label
+            label(ng-click="toggleDropdown($event, item)") {{item.text}}
+
+div.menu-collapse
+  div(uib-dropdown is-open="isopen")
+    div.dropdown-menu(uib-dropdown-menu role="menu")
+      div.row.m-0(ng-if="menuActive == 'INICIO'")
+        div.col-lg-2.col-md-2
+          label.title Inicio
+          span.link Resumen
+          span.link Saldo y Movimientos
+          span.link Línea de Crédito
+        div.col-lg-5.col-md-5
+          label.title Perfilamiento
+          span.link Crear Usuario
+          span.link Usuarios
+        div.col-lg-5.col-md-5.picture
+          img(src="assets/images/menu-banner.png")
+
+      div.row.m-0(ng-if="menuActive == 'TRANSFERENCIAS'")
+        div.col-lg-2.col-md-2
+          label.title Transferencias
+          span.link Resumen
+          span.link Históricas
+          span.link Transferir
+          span.link Crear Nómina
+        div.col-lg-3.col-md-3
+          label.title Destinatarios
+          span.link Lista de Destinatarios
+        div.col-lg-3.col-md-3
+          label.title Transferencias
+          span.extra-title Lorem ipsum dolor sit amet, consectetur
+          p.extra-title Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
+          button.button-success.col-lg-6 TRANSFERIR
+        div.col-lg-4.col-md-4.picture
+          img(src="assets/images/menu-banner2.png")
+//menu end
+
+//marketina start
+div.marketina-group(ng-if="tooglePrice")
+  div.marketina.background    
+  div.marketina-container
+    div.prices.pl-0.pr-0.pt-1.pb-1.w-100
+      md-tabs
+        md-tab(ng-repeat="change in moneyChange")
+          md-tab-label
+            div
+              span.mr-1 {{change.text}}
+              span.percent {{change.porcent}}%
+            div.text-left {{change.cash | currency }}
+div.pos-rel
+  div.toggle-price(ng-click="showPrice()")
+    span Indicadores
+    span.pull-right(ng-if="tooglePrice") -
+    span.pull-right(ng-if="!tooglePrice") +
+//marketina end

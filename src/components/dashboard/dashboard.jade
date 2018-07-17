@@ -39,35 +39,7 @@ section.bg-gray
     
     
     //menu start 
-    div.menu
-      div.date 
-        i.material-icons access_time
-        label Al 17 de Abril del 2018 / 14:34 hrs
-      div.container
-        md-tabs
-            md-tab(ng-repeat="item in ['INICIO', 'TRANSFERENCIAS', 'PRODUCTOS', 'DOCUMENTOS']")
-              md-tab-label
-                label {{item}}
-    //menu end
-
-    //marketina start
-    div.marketina-group(ng-if="$ctrl.tooglePrice")
-      div.marketina.background    
-      div.marketina-container
-        div.prices.pl-0.pr-0.pt-1.pb-1.w-100
-          md-tabs
-            md-tab(ng-repeat="change in $ctrl.moneyChange")
-              md-tab-label
-                div
-                  span.mr-1 {{change.text}}
-                  span.percent {{change.porcent}}%
-                div.text-left {{change.cash | currency }}
-    div.pos-rel
-      div.toggle-price(ng-click="$ctrl.showPrice()")
-        span Indicadores
-        span.pull-right(ng-if="$ctrl.tooglePrice") -
-        span.pull-right(ng-if="!$ctrl.tooglePrice") +
-    //marketina end
+    menu
   //header end
 
 
@@ -88,6 +60,7 @@ section.bg-gray
 
 
   div.container
+    
     div.row
       div.col-lg-8.col-md-8.col-sm-8 SOLICITUDES
       div.col-lg-4.col-md-4.col-sm-4 PRODUCTOS
@@ -113,6 +86,7 @@ section.bg-gray
             div.action-container
               div.text-center
                 md-button.md-fab
+                  i.material-icons.rotate90 import_export
               div.text-center Ver Transferencias
               
           div.col-lg-6.col-md-6.poster

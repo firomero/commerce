@@ -1,0 +1,145 @@
+menu {
+
+    padding-left: 0px;
+    margin: 0px;
+    .menu {
+        background-color: $c-white;
+        border-radius: 2px;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12999999523162842), 0 2px 4px 0 rgba(0, 0, 0, 0.20000000298023224);
+        height: 50px;
+
+        .date {
+            float: right;
+            line-height: 48px;
+            margin-right: 190px;
+            opacity: .41;
+
+            i {
+                width: 12px;
+                height: 12px;
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            label {
+                color: #4A4A4A;
+                font-family: Roboto;
+                font-size: 11px;
+                font-weight: 500;
+                letter-spacing: -0.02px;
+                margin-bottom: 0px;
+            }
+        }
+        md-tabs {
+
+            .md-tab { 
+                color: $c-gray;
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 500;
+                letter-spacing: 0.46px;
+            }
+            .md-tab.md-active { color: #4A4A4A; }
+            md-tabs-canvas {
+                md-pagination-wrapper {
+                    height: 38px;
+                }
+            }
+
+            md-ink-bar {
+                color: $c-blue-light;
+                background: $c-blue-light;
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.11999999731779099), 0 1px 1px 0 rgba(0, 0, 0, 0.23999999463558197);
+                height: 3px;
+            }
+            md-tab-item {
+                
+                padding: 10px 0px;
+                margin: 0px 5rem;
+            }
+            md-tab-item { margin-left: 0px; }
+        }
+    }
+
+    .menu-collapse {
+        position: relative;
+
+        .dropdown-menu {
+            width: 100%;
+            border-radius: 0px;
+            height: 204px;
+            top: -5px;
+            border: none;
+            box-shadow: 0 9px 12px rgba(0,0,0,.175);
+            padding-bottom: 0px;
+
+            .title, .link {
+                display: block;
+            }
+
+            .picture {
+                padding-right: 0px;
+                
+                img {
+                    float: right;
+                    height: 100%;
+                }
+            }
+            
+        }
+    }
+
+    .marketina-group {
+        position: relative;
+
+        .marketina.background {
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+        .marketina-container {
+            height: 48px;
+            position: relative;
+
+            .prices {
+                position: absolute;
+                top: 0;
+
+                md-tabs {                
+
+                    .md-tab {
+                        padding: 0px 24px;
+                    }
+                    md-ink-bar {
+                        color: transparent;
+                        background: transparent;
+                    }
+                    md-tabs-canvas { height: 35px; }
+                    md-tab-item > div {
+                        
+                        color: $c-black;
+                        font-weight: 700;
+                        line-height: 18px;
+        
+                        .percent { color: $c-green; }
+                    }
+                }
+            }
+        }
+    }
+
+    .toggle-price {
+        position: absolute;
+        color: #fff;
+        background-color: #5e9ced;
+        padding: 15px 15px 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        bottom: -40px;
+        width: 160px;
+        right: 5rem;
+    }
+}
