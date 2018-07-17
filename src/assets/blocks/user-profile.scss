@@ -1,0 +1,65 @@
+md-sidenav.md-sidenav-right {
+    background-color: $c-blue-toolbar;
+
+    .user-avatar {
+        width: 150px;
+        border-radius: 50%;
+    }
+    .change-avatar {
+        position: absolute;
+        top: 110px;
+        color: $c-blue-light;
+    }
+    .edit {
+        color: $c-blue-light;
+    }
+
+    .data, .pass, .communication {
+        color: $c-white;
+    }
+
+    .title {
+        color: $c-white;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.4px;
+        line-height: 17px;
+        position: absolute;
+        top: 5px;
+        left: 4rem;
+    }
+    .sub-title {
+        color: $c-white;
+        font-family: SFNSText;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: -0.34px;
+        line-height: 14px;
+    }
+    .sub-title-value {
+        color: $c-white;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.4px;
+        line-height: 17px;
+    }
+    md-divider.divider {
+        border-top: 1px solid #80B9E6;
+        opacity: 0.1848392210144928;
+        margin: 25px 0px;
+    }
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+}
+@media (min-width: 1200px) {//col-lg
+
+    md-sidenav {width: 460px;}
+}

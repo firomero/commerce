@@ -1,0 +1,80 @@
+header {
+
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    md-toolbar {
+        height: 80.94px;
+
+        .md-toolbar-tools {
+            height: 80.94px;
+            max-height: 100px;
+            background-color: $c-blue-toolbar;            
+        }
+
+        .logo {
+            padding-top: 2.3rem;
+
+            img { height: 50px; }
+        }
+
+        .links {
+            padding: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+
+            li {
+                list-style: none;
+                display: inline-block;
+                vertical-align: top;
+                padding: 0px 1rem;
+                font-family: Roboto;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: -0.34px;
+                line-height: 99.94px;
+            }
+        }
+
+        .user-login {
+
+            img.user-logo {
+                border-radius: 50%;
+                width: 50px;
+                margin: 25px 0;
+            }
+            .company-selector-container {
+
+                padding-top: 3.2rem;
+
+                .user-fullname {
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                    font-family: Roboto;
+                    font-size: 16px;
+                    font-weight: 700;
+                    letter-spacing: -0.39px;
+                    line-height: 19px;
+                }
+
+                .company-selector {
+
+                    span:last-child {
+                        float: right;
+                        font-size: 14px;
+                    }
+
+                    span:first-child {
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-weight: 400;
+                        letter-spacing: -0.34px;                      
+                    }
+                }
+            }
+        }
+    }
+}

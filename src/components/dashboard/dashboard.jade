@@ -1,0 +1,266 @@
+section.bg-gray
+  //header star
+  header
+    md-toolbar.md-hue-2
+      div.md-toolbar-tools
+        div.row.w-100.m-0
+          div.col-lg-7.col-md-7.pl-0.logo
+            img(src="assets/images/logoBanco100.png")
+          div.col-lg-5.col-md-5.pr-0
+            div.row
+              div.col-lg-4.col-md-4
+                ul.links
+                  li 
+                    a Ayuda
+                  li 
+                    a FAQ
+                  li 
+                    a Contacto
+              div.col-lg-8.col-md-8
+                div.row.user-login
+                  //user login start
+                  div.col-lg-9.col-md-9
+                    div.row
+                      div.pl-0.col-lg-3.col-md-3.col-sm-1.col-xs-1.text-right
+                        img.user-logo(src="assets/images/user.png" ng-click="$ctrl.openToggle()")
+                      div.col-lg-9.col-md-9.col-sm-11.col-xs-11.pl-0.pr-0.company-selector-container
+                        label.user-fullname {{$ctrl.userLogin.fullName}}
+                        md-menu
+                          div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                            span {{$ctrl.currentCompany.name}}
+                            span
+                              i.material-icons arrow_drop_down
+
+                          md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
+                            md-menu-item(ng-repeat="item in $ctrl.userCompanies" ng-class="{'selected': item.nameID == $ctrl.currentCompany.nameID}")
+                              a(ng-click="$mdMenu.close();$ctrl.selectCompany(item);") {{item.name}}
+                  //- div.col-lg-4.col-md-4                   
+                  //user login end
+    
+    
+    //menu start 
+    menu
+  //header end
+
+
+  //carousel start
+  div(uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides" style="margin-top:130px")
+    div(uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id")
+      img(ng-src="{{slide.image}}")
+      div.carousel-caption
+        div.row.text-left
+          h4.mb-0.col-lg-10 {{slide.text}}
+        div.row.text-left
+          h2.mb-0.col-lg-10 {{slide.text1}}
+        div.row.text-left
+          h1.mt-0.col-lg-10 {{slide.text2}}
+          button.button-success.col-lg-2 SIMULAR
+
+  //carousel end
+
+
+  div.container.dashboard
+    
+    div.row.card-container
+      div.col-lg-8.col-md-8.col-sm-8
+        label.title SOLICITUDES
+      div.col-lg-4.col-md-4.col-sm-4
+        label.title PRODUCTOS
+      
+    div.row
+      div.col-lg-8.col-md-8.col-sm-8
+        div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_1")
+          div.col-lg-6.col-md-6.poster
+            md-card.notification
+              div.row.p-15px
+                div.col-lg-7.col-md-7
+                  div
+                    label.title Transferencias
+                  div
+                    span.sub-title Por un Monto total de:
+                  div
+                    h3.mt-1.mb-1 $933.125.000
+                  div
+                    span.sub-title Lorem ipsum dolor sit amet, consectetur
+
+                div.col-lg-5.col-md-5
+                  div
+                    ui-knob(value="$ctrl.rating.transferencias.value" options="$ctrl.rating.transferencias.options")
+                  //- (knob model="$ctrl.rating")
+            div.action-container.custom.first
+              div.text-center
+                md-button.md-fab
+                  i.material-icons.rotate90 import_export
+              div.button-text.text-center Ver Transferencias
+              
+          div.col-lg-6.col-md-6.poster
+            md-card.notification
+              div.row.p-15px
+                div.col-lg-7.col-md-7
+                  div
+                    label.title Destinatarios
+                  div
+                    span.sub-title Nuevos usuarios estan esperando su aprobación
+                  div.mt-1
+                    span.c-green.link Marcelo Perez Ignacio Gonzalez y 2 más
+                  
+                div.col-lg-5.col-md-5
+                  div
+                    ui-knob(value="$ctrl.rating.destinatarios.value" options="$ctrl.rating.destinatarios.options")
+            div.action-container.custom
+              div.text-center
+                md-button.md-fab
+                  i.material-icons people
+              div.button-text.text-center Ver Destinatarios
+
+        div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_2")
+          div.col-lg-12.col-md-12.poster
+            md-card.notification
+              div.row.p-15px
+                div.col-lg-5.col-md-5
+                  div
+                    label.title Estado de Mis Solicitudes Diarias
+                  div
+                    span.sub-title Por un Monto total de:
+                  div
+                    h3.mt-1.mb-1 $100.950.000
+                  div
+                    span.sub-title Lorem ipsum dolor sit amet, consectetur
+                div.col-lg-7.col-md-7.pl-0
+                  div.grap(ng-repeat="grap in $ctrl.rating.solicitudes")
+                    ui-knob(value="grap.value" options="grap.options")
+            div.action-container.custom
+              div.text-center
+                md-button.md-fab
+                  i.material-icons list
+              div.button-text.text-center Ver Todas
+
+      div.col-lg-4.col-md-4.col-sm-4
+        div.row
+          div.col-lg-12.col-md-12.poster
+            md-card.notification
+              div.row.p-15px
+                div.col-lg-7.col-md-7
+                  div
+                    label.title Factoring
+                  div
+                    span.sub-title Por un Monto total de:
+                  div
+                    h3.mt-1.mb-1 $495.000.000
+                  div
+                    span.sub-title 90 días plazo
+                div.col-lg-5.col-md-5
+                  div
+                    ui-knob(value="$ctrl.rating.factoring.value" options="$ctrl.rating.factoring.options")
+            div.action-container.custom
+              div.action.text-center
+                md-button.md-fab
+                div.button-text.text-center Label
+
+              div.action.text-center.ml-1
+                md-button.md-fab
+                div.button-text.text-center Label
+                
+    //list account
+    div.mt-8
+      account-list(list="$ctrl.currentCompany.accounts" ng-if="!$ctrl.loadAccounts")
+    //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi
+
+    //footer start
+    div.row.footer.mt-4
+      div.col-md-2.pl-3
+        img.footer-logo(src="assets/images/footer.png")
+      
+      div.col-md-10.pl-0
+        p.m-0
+          a(href="#") Términos y Condiciones | 
+          a(href="#") Política de Privacidad | 
+          a(href="#") Trabaja con Nosotros | 
+          a(href="#") Mapa del Sitio | 
+          a(href="#") Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 
+          a(href="#") 2013 Banco Consorcio.
+        p.m-0 Todos los derechos reservados. Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior
+        
+  md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
+    div.p-2
+      div.row.text-center.pos-r
+        img.user-avatar(src="assets/images/user.png")
+        i.material-icons.change-avatar photo_camera
+        h3.c-white {{$ctrl.userLogin.fullName}}
+
+      div.row.data.pl-2.pr-2.mt-5
+        div.pos-r
+          span
+            i.material-icons account_circle
+          span.title DATOS
+          span.pull-right
+            i.material-icons.edit create
+        div.pl-4.mt-4
+          span.sub-title Telefono Celular
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
+        
+        div.pl-4.mt-2
+          span.sub-title Telefono Fijo
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
+
+        div.pl-4.mt-2
+          span.sub-title Correo Electronico
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
+
+        div.pl-4.mt-2
+          span.sub-title Direccion
+        div.pl-4.mt-05
+          span.sub-title-value +5691584599
+      
+    md-divider.divider
+
+    div.p-2
+      div.row.pass.pl-2.pr-2
+        div.pos-r
+          span.mr-2
+            i.material-icons vpn_key
+          span.title CLAVES
+          span.pull-right
+            i.material-icons.edit create
+
+        div.pl-4.mt-4
+          span.sub-title Token
+        div.pl-4.mt-05
+          span.sub-title-value Habilitada
+
+        div.pl-4.mt-2
+          span.sub-title Preguntas Secretas
+        div.pl-4.mt-05
+          span.sub-title-value Habilitada
+    
+    md-divider.divider
+
+    div.p-2
+      div.row.communication.pl-2.pr-2
+        div.pos-r
+          span.mr-2
+            i.material-icons markunread_mailbox
+          span.title COMUNICACIONES
+          span.pull-right
+            i.material-icons.edit create
+
+        div.pl-4.mt-4
+          span.sub-title Cartolas
+        div.pl-4.mt-05
+          span.sub-title-value Mail
+
+        div.pl-4.mt-2
+          span.sub-title Cuenta Empresa
+        div.pl-4.mt-05
+          span.sub-title-value Mail
+        
+        div.pl-4.mt-2
+          span.sub-title Creditos
+        div.pl-4.mt-05
+          span.sub-title-value Mail - Direccion Particular
+
+      div.row.mt-5
+        button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="$ctrl.closeToggle()") CONTACTAR A EJECUTIVO

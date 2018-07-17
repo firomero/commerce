@@ -9,18 +9,37 @@ export default class UserService {
 
         this.user = {
             username: 'Juan Pablos',
+            fullName: 'Juan Pablos Rojas Contreras',
             rut: '10.456.789-0',
             password: '****************',
             currentCompany: '',
             companies: [{
-                    rol: '',
-                    nameID: 'KIMBERLY'
+                    rol: 'APODERADO',
+                    name: 'Kimberly Clark Chile S.A',
+                    nameID: 'KIMBERLY',
+                    accounts: [{
+                        name: '1234',
+                        disabled: false
+                    },{
+                        name: '5678',
+                        disabled: true
+                    },{
+                        name: '9012',
+                        disabled: true
+                    },{
+                        name: '3456',
+                        disabled: true
+                    }]
                 },{
-                    rol: '',
-                    nameID: 'TRANSBANK'
+                    rol: 'OPERADOR',
+                    name: 'Transbank S.A',
+                    nameID: 'TRANSBANK',
+                    accounts: []
                 },{
-                    rol: '',
-                    nameID: 'COCACOLA'
+                    rol: 'APODERADO',
+                    name: 'Coca-Cola de Chicle S.A',
+                    nameID: 'COCACOLA',
+                    accounts: []
             }]
         };
         
@@ -29,6 +48,11 @@ export default class UserService {
     
     login() {
 
-        return JSON.parse(localStorage.getItem('user'))
+        return JSON.parse(localStorage.getItem('user'));
+    };
+
+    userLogin() {
+        
+        return JSON.parse(localStorage.getItem('userLogin'));
     };
 }

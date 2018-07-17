@@ -1,8 +1,4 @@
 // for loading font-awesome icons
-$fa-font-path: '~font-awesome/fonts/';
-
-@import '~font-awesome/scss/font-awesome';
-
 @font-face {
     font-family: Roboto;
     src: url('fonts/Roboto-Regular.ttf');
@@ -40,10 +36,16 @@ $fa-font-path: '~font-awesome/fonts/';
 
 // loading blocks
 @import 'blocks/button';
-@import 'blocks/login';
-@import 'blocks/forgot';
 @import 'blocks/extra-layout';
 @import 'blocks/modals';
+@import 'blocks/account-list';
+@import 'blocks/menu';
+
+@import 'blocks/login';
+@import 'blocks/forgot';
+@import 'blocks/header';
+@import 'blocks/user-profile';
+@import 'blocks/dashboard';
 
 .is-focused {
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -51,10 +53,60 @@ $fa-font-path: '~font-awesome/fonts/';
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     outline: none;
 }
-
 .is-focused-black {
     border: 1px solid rgba(74, 74, 74, 0.1);
     background-color: rgba(227, 227, 227, 0.4);
     box-shadow: 0 0 10px rgba(74, 74, 74, 0.3);
     outline: none;
+}
+.border-left { border-left: 1px solid #dddddd; }
+
+md-menu-content {
+
+    padding: 0px;
+
+    md-menu-item { 
+
+        cursor: pointer;
+        
+        a, a:hover {
+            color: $c-black;
+            text-decoration: none;
+        }
+    }
+
+    md-menu-item.selected {
+        
+        background-color: $c-gray-light;
+    }
+}
+
+md-card { margin: 8px 0px; }
+
+md-backdrop.md-sidenav-backdrop {
+    height: 100% !important;
+    position: fixed !important;
+}
+
+.md-sidenav-right { position: fixed; }
+
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    .marketina-container {width: 1170px;}
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .container {}
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    .container {}
+}
+@media (min-width: 1200px) {//col-lg
+    .marketina-container {
+        width: 1280px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }

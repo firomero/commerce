@@ -1,0 +1,124 @@
+dashboard {
+
+    .carousel {
+        height: 300px;
+        .item img {
+            height: 300px;
+            width: 100%;
+        }
+
+        .carousel-control { display: none; }
+        .carousel-indicators { top: 20%; }
+    }
+
+    .container.dashboard {
+
+        margin-top: -7rem;
+    }
+    .card-container {
+        .title {
+            font-family: Roboto;
+            color: $c-white;
+            font-weight: 500;
+        }
+    }
+
+    .poster {
+        position: relative;
+
+        
+
+        .action-container.custom {
+            position: absolute;
+            right: 25;
+            bottom: -40px;
+
+            .action {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .md-button.md-fab, .md-button.md-fab:not([disabled]):hover { background-color: $c-blue; }
+            .md-button.md-fab.success, .md-button.md-fab.success:not([disabled]):hover { background-color: $c-green; }
+        }
+        .action-container.custom.first {
+            bottom: -55px;
+        }
+
+        .grap {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: .5rem;
+        }
+    }
+
+    md-card.notification {
+
+        height: 150px;
+
+        .title, .sub-title {
+            font-family: Roboto;
+            color: $c-black-light;
+        }
+        .sub-title {
+            opacity: .7;
+            font-size: 12px;
+        }
+        .link {
+            font-size: 12px;
+        }
+    }
+
+    md-tabs {
+
+        md-tabs-content-wrapper {
+
+            md-tab-content {
+
+                md-content {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .footer {
+        color: #9B9B9B;
+        font-family: SFNSText;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: -0.24px;
+        line-height: 12px;
+        padding-bottom: 10px;
+
+        .footer-logo { width: 100px; }
+
+        a { color: #9B9B9B; }
+    }
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
+}
+@media (min-width: 1200px) {//col-lg
+    .carousel-caption {
+        left: 15%;
+        bottom: 25%;
+    }
+}

@@ -10,7 +10,7 @@ div.container.login
       h3 the all-new online banking experience is here.
 
     div.col-lg-12
-      wizard(on-finish="finishedWizard()" hide-indicators="true")
+      wizard(on-finish="$ctrl.finishedWizard()" hide-indicators="true")
         wz-step(canexit="exitValidation")
           h3.title-form.mb-5 Ingrese Su Nombre
           div.row
@@ -80,7 +80,7 @@ div.container.login
               md-radio-group(ng-model="$ctrl.model.currentCompany")
                 md-radio-button.input-form.md-primary(ng-value="company.nameID" ng-repeat="company in $ctrl.companies") {{company.name}}
           div.row.custom
-            input.col-lg-4.col-md-4.col-sm-6.col-xs-8.button-success.last-child(type="submit" wz-next value="Siguiente")
+            input.col-lg-4.col-md-4.col-sm-6.col-xs-8.button-success.last-child(type="submit" wz-finish value="Siguiente")
 
           ul.mt-5.mb-8
             li.extra-link

@@ -13,6 +13,7 @@ const appModule = angular
 		'md-steppers',
 		'ui.bootstrap',
 		'ngResource',
+		'ui.knob',
 		// shared module
 		'app.core',
 		// 3rd party modules
