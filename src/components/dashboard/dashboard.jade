@@ -71,20 +71,22 @@ section.bg-gray
       div.col-lg-8.col-md-8.col-sm-8
         div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_1")
           div.col-lg-6.col-md-6.poster
-            md-card
+            md-card.notification
               div.row.p-15px
                 div.col-lg-7.col-md-7
                   div
-                    label Transferencias
+                    label.title Transferencias
                   div
-                    span Por un Monto total de
+                    span.sub-title Por un Monto total de:
                   div
-                    h3 $933.125.000
+                    h3.mt-1.mb-1 $933.125.000
                   div
-                    span Lorem ipsum dolor sit amet, consectetur
+                    span.sub-title Lorem ipsum dolor sit amet, consectetur
 
-                div.col-lg-5.col-md-5 
-                  div(knob)
+                div.col-lg-5.col-md-5
+                  div
+                    ui-knob(value="$ctrl.rating.transferencias.value" options="$ctrl.rating.transferencias.options")
+                  //- (knob model="$ctrl.rating")
             div.action-container.custom.first
               div.text-center
                 md-button.md-fab
@@ -92,17 +94,19 @@ section.bg-gray
               div.button-text.text-center Ver Transferencias
               
           div.col-lg-6.col-md-6.poster
-            md-card
+            md-card.notification
               div.row.p-15px
                 div.col-lg-7.col-md-7
                   div
-                    label Destinatarios
+                    label.title Destinatarios
                   div
-                    span Nuevos usuarios estan esperando su aprobacion
-                  div
-                    span.c-green Marcelo Perez Ignacio Gonzalez y 2 mas
+                    span.sub-title Nuevos usuarios estan esperando su aprobación
+                  div.mt-1
+                    span.c-green.link Marcelo Perez Ignacio Gonzalez y 2 más
                   
-                div.col-lg-5.col-md-5 circle
+                div.col-lg-5.col-md-5
+                  div
+                    ui-knob(value="$ctrl.rating.destinatarios.value" options="$ctrl.rating.destinatarios.options")
             div.action-container.custom
               div.text-center
                 md-button.md-fab
@@ -111,38 +115,43 @@ section.bg-gray
 
         div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_2")
           div.col-lg-12.col-md-12.poster
-            md-card
+            md-card.notification
               div.row.p-15px
                 div.col-lg-5.col-md-5
                   div
-                    label Transferencias
+                    label.title Estado de Mis Solicitudes Diarias
                   div
-                    span Por un Monto total de
+                    span.sub-title Por un Monto total de:
                   div
-                    h3 $933.125.000
+                    h3.mt-1.mb-1 $100.950.000
                   div
-                    span Lorem ipsum dolor sit amet, consectetur
-                div.col-lg-7.col-md-7 circle
+                    span.sub-title Lorem ipsum dolor sit amet, consectetur
+                div.col-lg-7.col-md-7.pl-0
+                  div.grap(ng-repeat="grap in $ctrl.rating.solicitudes")
+                    ui-knob(value="grap.value" options="grap.options")
             div.action-container.custom
               div.text-center
                 md-button.md-fab
-              div.button-text.text-center asdsad
+                  i.material-icons list
+              div.button-text.text-center Ver Todas
 
       div.col-lg-4.col-md-4.col-sm-4
         div.row
           div.col-lg-12.col-md-12.poster
-            md-card
+            md-card.notification
               div.row.p-15px
                 div.col-lg-7.col-md-7
                   div
-                    label Transferencias
+                    label.title Factoring
                   div
-                    span Por un Monto total de
+                    span.sub-title Por un Monto total de:
                   div
-                    h3 $933.125.000
+                    h3.mt-1.mb-1 $495.000.000
                   div
-                    span Lorem ipsum dolor sit amet, consectetur
-                div.col-lg-5.col-md-5 circle
+                    span.sub-title 90 días plazo
+                div.col-lg-5.col-md-5
+                  div
+                    ui-knob(value="$ctrl.rating.factoring.value" options="$ctrl.rating.factoring.options")
             div.action-container.custom
               div.action.text-center
                 md-button.md-fab

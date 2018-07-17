@@ -1,27 +1,32 @@
-// import Knob from 'knob';
 
 export default function KnobDirective() {
 	'ngInject';
 	
 	var directive = {
-		restrict: 'AC',
+		restrict: 'AE',
+		scope: {
+			model: '='
+		},
 		link: link
 	};
 
-	function link($scope, $element, $attrs) {
+	function link(scope, element, attrs, ngModel) {
 
-		// var knob = new Knob({
-		// 	label: 'Test 123',
-		// 	value: 100,
-		// 	angleOffset: -125,
-		// 	angleArc: 250,
-		// 	min: 0,
-		// 	max: 200,
-		// 	width: 100
-		// });
-		  
-		// $element[0].appendChild(knob)
-	}
+		$(element).knob({
+			'change' : function (v) { console.log(v); }
+		});
+		$(element).trigger('configure', {
+			'min': 0,
+			'max': scope.model.total,
+			'readOnly': true,
+			'fgColor': 'green',
+			'width': 100,
+			'height': 100,
+			'cursor':false
+			
+		});
+		$(element).val(scope.model.rating).trigger('change');
+	};
 
 	return directive;
 };

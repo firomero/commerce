@@ -22,7 +22,132 @@ export default class DashboardController {
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
 		id: this.currIndex++
-	  }]; 
+	}]; 
+
+	rating = {
+		transferencias: {
+			value: 30,
+			options: {
+				min: 0,
+				max: 37,
+				size: 100,
+				barColor: '#94BB20',
+				trackColor: '#EAEAEA',
+				trackWidth: 1,
+				barWidth: 8,
+				readOnly: true,
+				unit: ' / ' + 37,
+				subText: {
+					enabled: true,
+					text: 'Solicitudes Pendientes'
+				}
+			}
+		},
+		solicitudes: [{
+			value: 237,
+			options: {
+				min: 0,
+				max: 300,
+				size: 100,
+				barColor: '#94BB20',
+				trackColor: '#EAEAEA',
+				trackWidth: 1,
+				barWidth: 8,
+				readOnly: true,
+				unit: ' / ' + 300,
+				subText: {
+					enabled: true,
+					text: 'Ingresadas'
+				}
+			}
+		},{
+			value: 30,
+			options: {
+				min: 0,
+				max: 37,
+				size: 100,
+				barColor: '#94BB20',
+				trackColor: '#EAEAEA',
+				trackWidth: 1,
+				barWidth: 8,
+				readOnly: true,
+				unit: ' / ' + 37,
+				subText: {
+					enabled: true,
+					text: 'Visadas'
+				}
+			}
+		},{
+			value: 10,
+			options: {
+				min: 0,
+				max: 21,
+				size: 100,
+				barColor: '#94BB20',
+				trackColor: '#EAEAEA',
+				trackWidth: 1,
+				barWidth: 8,
+				readOnly: true,
+				unit: ' / ' + 21,
+				subText: {
+					enabled: true,
+					text: 'Autorizadas'
+				}
+			}
+		},{
+			value: 50,
+			options: {
+				min: 0,
+				max: 78,
+				size: 100,
+				barColor: '#94BB20',
+				trackColor: '#EAEAEA',
+				trackWidth: 1,
+				barWidth: 8,
+				readOnly: true,
+				unit: ' / ' + 78,
+				subText: {
+					enabled: true,
+					text: 'Liberadas'
+				}
+			}
+		}],
+		destinatarios: {
+			value: 4,
+			options: {
+				min: 0,
+				max: 6,
+				size: 100,
+				barColor: '#94BB20',
+				trackColor: '#EAEAEA',
+				trackWidth: 1,
+				barWidth: 8,
+				readOnly: true,
+				unit: ' / ' + 6,
+				subText: {
+					enabled: true,
+					text: 'Solicitudes Pendientes'
+				}
+			}
+		},
+		factoring: {
+			value: 20,
+			options: {
+				min: 0,
+				max: 25,
+				size: 100,
+				barColor: '#94BB20',
+				trackColor: '#EAEAEA',
+				trackWidth: 1,
+				barWidth: 8,
+				readOnly: true,
+				subText: {
+					enabled: true,
+					text: 'días Pendientes'
+				}
+			}
+		}
+	};
 
 	constructor($timeout, $mdSidenav, UserService, MoneyChangeService) {
 		'ngInject';

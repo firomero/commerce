@@ -14,3 +14,5 @@ import 'angular-material/angular-material';
 import 'angular-wizard/dist/angular-wizard.min.js';
 import 'md-steppers/dist/md-steppers.min.js';
 import 'angular-ui-bootstrap';
+import 'jquery-knob/dist/jquery.knob.min.js';
+import 'ng-ui-knob/dist/ng-knob.js';

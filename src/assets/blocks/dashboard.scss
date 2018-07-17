@@ -26,7 +26,7 @@ dashboard {
     .poster {
         position: relative;
 
-        md-card {height: 171px;}
+        
 
         .action-container.custom {
             position: absolute;
@@ -43,6 +43,29 @@ dashboard {
         }
         .action-container.custom.first {
             bottom: -55px;
+        }
+
+        .grap {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: .5rem;
+        }
+    }
+
+    md-card.notification {
+
+        height: 150px;
+
+        .title, .sub-title {
+            font-family: Roboto;
+            color: $c-black-light;
+        }
+        .sub-title {
+            opacity: .7;
+            font-size: 12px;
+        }
+        .link {
+            font-size: 12px;
         }
     }
 
