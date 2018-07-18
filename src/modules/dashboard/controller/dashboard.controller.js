@@ -30,11 +30,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			options: {
 				min: 0,
 				max: 37,
-				size: 100,
+				size: 104,
 				barColor: '#94BB20',
 				trackColor: '#EAEAEA',
 				trackWidth: 1,
-				barWidth: 8,
+				barWidth: 5,
 				readOnly: true,
 				unit: ' / ' + 37,
 				subText: {
@@ -48,11 +48,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			options: {
 				min: 0,
 				max: 300,
-				size: 100,
+				size: 104,
 				barColor: '#94BB20',
 				trackColor: '#EAEAEA',
 				trackWidth: 1,
-				barWidth: 8,
+				barWidth: 5,
 				readOnly: true,
 				unit: ' / ' + 300,
 				subText: {
@@ -65,11 +65,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			options: {
 				min: 0,
 				max: 37,
-				size: 100,
+				size: 104,
 				barColor: '#94BB20',
 				trackColor: '#EAEAEA',
 				trackWidth: 1,
-				barWidth: 8,
+				barWidth: 5,
 				readOnly: true,
 				unit: ' / ' + 37,
 				subText: {
@@ -82,11 +82,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			options: {
 				min: 0,
 				max: 21,
-				size: 100,
+				size: 104,
 				barColor: '#94BB20',
 				trackColor: '#EAEAEA',
 				trackWidth: 1,
-				barWidth: 8,
+				barWidth: 5,
 				readOnly: true,
 				unit: ' / ' + 21,
 				subText: {
@@ -99,11 +99,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			options: {
 				min: 0,
 				max: 78,
-				size: 100,
+				size: 104,
 				barColor: '#94BB20',
 				trackColor: '#EAEAEA',
 				trackWidth: 1,
-				barWidth: 8,
+				barWidth: 5,
 				readOnly: true,
 				unit: ' / ' + 78,
 				subText: {
@@ -117,11 +117,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			options: {
 				min: 0,
 				max: 6,
-				size: 100,
+				size: 104,
 				barColor: '#94BB20',
 				trackColor: '#EAEAEA',
 				trackWidth: 1,
-				barWidth: 8,
+				barWidth: 5,
 				readOnly: true,
 				unit: ' / ' + 6,
 				subText: {
@@ -135,11 +135,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			options: {
 				min: 0,
 				max: 25,
-				size: 100,
+				size: 104,
 				barColor: '#94BB20',
 				trackColor: '#EAEAEA',
 				trackWidth: 1,
-				barWidth: 8,
+				barWidth: 5,
 				readOnly: true,
 				subText: {
 					enabled: true,
@@ -170,40 +170,9 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 	$scope.$on('account::change', function(data) {
 
 		$scope.loadAccounts = true;
-		$scope.currentCompany = data.targetScope.currentCompany;
-		$scope.loadAccounts = false;
+		$timeout(function(){
+			$scope.currentCompany = data.targetScope.currentCompany;
+			$scope.loadAccounts = false;
+		}, 30);
 	});
-
-	// constructor($scope, $timeout, $mdSidenav, UserService) {
-	// 	'ngInject';
-	// 	this.$scope = $scope;
-	// 	this.$timeout = $timeout;
-	// 	this.$mdSidenav = $mdSidenav;
-	// 	this.UserService = UserService;
-	// }
-
-	// $onInit = () => {
-
-		// var _this = this
-        // this.$scope.$on('company::change', function(data) {
-
-        //     this.loadAccounts = true;
-        // 	this.currentCompany = data.currentCompany;
-        // 	this.loadAccounts = false;
-		// });
-		
-		// this.userLogin = this.UserService.userLogin();
-		// this.currentCompany.nameID = this.userLogin.currentCompany;
-		// this.userCompanies = this.userLogin.companies;
-
-		// for(var i = 0;i < this.userCompanies.length;i++) {
-
-		// 	if (this.userCompanies[i].nameID == this.currentCompany.nameID) {
-		// 		this.currentCompany.rol = this.userCompanies[i].rol;
-		// 		this.currentCompany.name = this.userCompanies[i].name;
-		// 		this.currentCompany.accounts = this.userCompanies[i].accounts;
-		// 		break;
-		// 	}
-		// }
-	// };	
 }
