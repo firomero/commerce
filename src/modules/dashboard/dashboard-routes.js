@@ -2,12 +2,13 @@ export default [
 	{
 		name: 'login',
 		url: '/login',
-		component: 'login'
+		controller: 'LoginController',
+		template: require('../../login/view/login.jade')(),
 	},{
 		name: 'app',
 		abstract: true,
 		url: '/',
-		template: require('../layout/layout.jade')(),
+		template: require('../../dashboard/view/layout.jade')(),
 		controller: 'LayoutController',
 		resolve: {
 			userLogin: function(UserService) {
@@ -20,8 +21,8 @@ export default [
 		children: [{
 			name: 'app.dashboard',
 			url: 'dashboard',
-			component: 'dashboard'
-			// template: 'funciono'
+			controller: 'DashboardController',
+			template: require('../../dashboard/view/dashboard.jade')(),
 		}]
 	}
 ];

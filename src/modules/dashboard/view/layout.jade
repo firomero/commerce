@@ -21,7 +21,7 @@ header
                 div.col-lg-9.col-md-9
                   div.row
                     div.pl-0.col-lg-3.col-md-3.col-sm-1.col-xs-1.text-right
-                      img.user-logo(src="images/user.png" ng-click="$ctrl.openToggle()")
+                      img.user-logo(src="images/user.png" ng-click="openToggle()")
                     div.col-lg-9.col-md-9.col-sm-11.col-xs-11.pl-0.pr-0.company-selector-container
                       label.user-fullname {{userLogin.fullName}}
                       md-menu
@@ -64,7 +64,7 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
     div.row.text-center.pos-r
       img.user-avatar(src="images/user.png")
       i.material-icons.change-avatar photo_camera
-      h3.c-white {{$ctrl.userLogin.fullName}}
+      h3.c-white {{userLogin.fullName}}
 
     div.row.data.pl-2.pr-2.mt-5
       div.pos-r
@@ -141,4 +141,4 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
         span.sub-title-value Mail - Direccion Particular
 
     div.row.mt-5
-      button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="$ctrl.closeToggle()") CONTACTAR A EJECUTIVO
+      button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle()") CONTACTAR A EJECUTIVO

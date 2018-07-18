@@ -1,30 +1,30 @@
-export default class DashboardController {
+export default function DashboardController(userLogin, $scope, $timeout, $mdSidenav, UserService) {
+	'ngInject';
 
-	currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
-	userCompanies = [];
-	loadAccounts = false;
-	ROL_1 = 'APODERADO';
-	ROL_2 = 'OPERADOR';
-
-	myInterval = 0;
-	noWrapSlides = false;
-	active = 0;
-	currIndex = 0; 
-	slides = [{
+	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
+	$scope.userCompanies = [];
+	$scope.loadAccounts = false;
+	$scope.ROL_1 = 'APODERADO';
+	$scope.ROL_2 = 'OPERADOR';
+	$scope.myInterval = 0;
+	$scope.noWrapSlides = false;
+	$scope.active = 0;
+	$scope.currIndex = 0; 
+	$scope.slides = [{
 		image: 'images/carousel/login-background.png',
 		text: 'Hola Marcelo',
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
-		id: this.currIndex++
+		id: $scope.currIndex++
 	  },{
 		image: 'images/carousel/creditcard-advance-background.jpg',
 		text: 'Hola Marcelo',
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
-		id: this.currIndex++
+		id: $scope.currIndex++
 	}]; 
 
-	rating = {
+	$scope.rating = {
 		transferencias: {
 			value: 30,
 			options: {
@@ -149,36 +149,61 @@ export default class DashboardController {
 		}
 	};
 
-	constructor($scope, $timeout, $mdSidenav, UserService) {
-		'ngInject';
-		this.$scope = $scope;
-		this.$timeout = $timeout;
-		this.$mdSidenav = $mdSidenav;
-		this.UserService = UserService;
-	}
+	activate();
 
-	$onInit = () => {
+	function activate() {
 
-		var _this = this
-        this.$scope.$on('company::change', function(data) {
+		$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
+		$scope.currentCompany.nameID = userLogin.currentCompany;
+		$scope.userCompanies = userLogin.companies;
+		for(var i = 0;i < $scope.userCompanies.length;i++) {
 
-            this.loadAccounts = true;
-        	this.currentCompany = data.currentCompany;
-        	this.loadAccounts = false;
-		});
-		
-		this.userLogin = this.UserService.userLogin();
-		this.currentCompany.nameID = this.userLogin.currentCompany;
-		this.userCompanies = this.userLogin.companies;
-
-		for(var i = 0;i < this.userCompanies.length;i++) {
-
-			if (this.userCompanies[i].nameID == this.currentCompany.nameID) {
-				this.currentCompany.rol = this.userCompanies[i].rol;
-				this.currentCompany.name = this.userCompanies[i].name;
-				this.currentCompany.accounts = this.userCompanies[i].accounts;
+			if ($scope.userCompanies[i].nameID == $scope.currentCompany.nameID) {
+				$scope.currentCompany.rol = $scope.userCompanies[i].rol;
+				$scope.currentCompany.name = $scope.userCompanies[i].name;
+				$scope.currentCompany.accounts = $scope.userCompanies[i].accounts;
 				break;
 			}
 		}
-	};	
+	}
+
+	$scope.$on('account::change', function(data) {
+
+		$scope.loadAccounts = true;
+		$scope.currentCompany = data.targetScope.currentCompany;
+		$scope.loadAccounts = false;
+	});
+
+	// constructor($scope, $timeout, $mdSidenav, UserService) {
+	// 	'ngInject';
+	// 	this.$scope = $scope;
+	// 	this.$timeout = $timeout;
+	// 	this.$mdSidenav = $mdSidenav;
+	// 	this.UserService = UserService;
+	// }
+
+	// $onInit = () => {
+
+		// var _this = this
+        // this.$scope.$on('company::change', function(data) {
+
+        //     this.loadAccounts = true;
+        // 	this.currentCompany = data.currentCompany;
+        // 	this.loadAccounts = false;
+		// });
+		
+		// this.userLogin = this.UserService.userLogin();
+		// this.currentCompany.nameID = this.userLogin.currentCompany;
+		// this.userCompanies = this.userLogin.companies;
+
+		// for(var i = 0;i < this.userCompanies.length;i++) {
+
+		// 	if (this.userCompanies[i].nameID == this.currentCompany.nameID) {
+		// 		this.currentCompany.rol = this.userCompanies[i].rol;
+		// 		this.currentCompany.name = this.userCompanies[i].name;
+		// 		this.currentCompany.accounts = this.userCompanies[i].accounts;
+		// 		break;
+		// 	}
+		// }
+	// };	
 }

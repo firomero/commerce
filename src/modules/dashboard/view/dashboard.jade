@@ -1,8 +1,8 @@
-section.bg-gray
+section.bg-gray.dashboard-container
 
   //carousel start
-  div(uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides" style="margin-top:130px")
-    div(uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id")
+  div(uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" style="margin-top:130px")
+    div(uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id")
       img(ng-src="{{slide.image}}")
       div.carousel-caption
         div.row.text-left
@@ -26,7 +26,7 @@ section.bg-gray
       
     div.row
       div.col-lg-8.col-md-8.col-sm-8
-        div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_1")
+        div.row(ng-if="currentCompany.rol == ROL_1")
           div.col-lg-6.col-md-6.poster
             md-card.notification
               div.row.p-15px
@@ -42,8 +42,8 @@ section.bg-gray
 
                 div.col-lg-5.col-md-5
                   div
-                    ui-knob(value="$ctrl.rating.transferencias.value" options="$ctrl.rating.transferencias.options")
-                  //- (knob model="$ctrl.rating")
+                    ui-knob(value="rating.transferencias.value" options="rating.transferencias.options")
+
             div.action-container.custom.first
               div.text-center
                 md-button.md-fab.success
@@ -63,14 +63,14 @@ section.bg-gray
                   
                 div.col-lg-5.col-md-5
                   div
-                    ui-knob(value="$ctrl.rating.destinatarios.value" options="$ctrl.rating.destinatarios.options")
+                    ui-knob(value="rating.destinatarios.value" options="rating.destinatarios.options")
             div.action-container.custom
               div.text-center
                 md-button.md-fab.success
                   i.material-icons people
               div.button-text.text-center Ver Destinatarios
 
-        div.row(ng-if="$ctrl.currentCompany.rol == $ctrl.ROL_2")
+        div.row(ng-if="currentCompany.rol == ROL_2")
           div.col-lg-12.col-md-12.poster
             md-card.notification
               div.row.p-15px
@@ -84,7 +84,7 @@ section.bg-gray
                   div
                     span.sub-title Lorem ipsum dolor sit amet, consectetur
                 div.col-lg-7.col-md-7.pl-0
-                  div.grap(ng-repeat="grap in $ctrl.rating.solicitudes")
+                  div.grap(ng-repeat="grap in rating.solicitudes")
                     ui-knob(value="grap.value" options="grap.options")
             div.action-container.custom
               div.text-center
@@ -108,7 +108,7 @@ section.bg-gray
                     span.sub-title 90 días plazo
                 div.col-lg-5.col-md-5
                   div
-                    ui-knob(value="$ctrl.rating.factoring.value" options="$ctrl.rating.factoring.options")
+                    ui-knob(value="rating.factoring.value" options="rating.factoring.options")
             div.action-container.custom
               div.action.text-center
                 md-button.md-fab.success
@@ -120,5 +120,5 @@ section.bg-gray
                 
     //list account
     div.mt-8
-      account-list(list="$ctrl.currentCompany.accounts" ng-if="!$ctrl.loadAccounts")
+      account-list(list="currentCompany.accounts" ng-if="!loadAccounts")
     //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi

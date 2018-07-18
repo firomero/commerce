@@ -3,40 +3,40 @@ div.container.forgot
     div.logo
       img.logo(src="images/isologo-premium-modal.png")
     div.close
-      i.material-icons(ng-click="$ctrl.close()") close
+      i.material-icons(ng-click="close()") close
 
   div.title.mb-3 
     h3 Recuperar Clave
 
   div.indicator-container
     div.row.step-strip
-      div.strip.col-lg-offset-4.col-lg-2.col-mg-offset-4.col-md-2.col-sm-offset-4.col-sm-2.col-xs-offset-2.col-xs-4(ng-class="{'pending': $ctrl.stepData[0].completed}")
-      div.strip.col-lg-2.col-md-2.col-sm-2.col-xs-4(ng-class="{'pending': $ctrl.stepData[1].completed}")
+      div.strip.col-lg-offset-4.col-lg-2.col-mg-offset-4.col-md-2.col-sm-offset-4.col-sm-2.col-xs-offset-2.col-xs-4(ng-class="{'pending': stepData[0].completed}")
+      div.strip.col-lg-2.col-md-2.col-sm-2.col-xs-4(ng-class="{'pending': stepData[1].completed}")
 
     div.row.step-indicators
       div.col-lg-offset-3.col-lg-2.col-md-offset-3.col-md-2.col-sm-offset-3.col-sm-2.col-xs-4.indicator.pending
-        span.icon(ng-if="!$ctrl.stepData[0].completed") 1
-        span.icon(ng-if="$ctrl.stepData[0].completed")
+        span.icon(ng-if="!stepData[0].completed") 1
+        span.icon(ng-if="stepData[0].completed")
           i.material-icons check  
         span.sub-title Ingrese su rut
 
-      div.col-lg-2.col-md-2.col-sm-2.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[0].completed}")
-        span.icon(ng-if="!$ctrl.stepData[1].completed") 2
-        span.icon(ng-if="$ctrl.stepData[1].completed")
+      div.col-lg-2.col-md-2.col-sm-2.col-xs-4.indicator(ng-class="{'pending': stepData[0].completed}")
+        span.icon(ng-if="!stepData[1].completed") 2
+        span.icon(ng-if="stepData[1].completed")
           i.material-icons check
         span.sub-title Pregunta Secreta
 
-      div.col-lg-2.col-md-2.col-sm-2.col-xs-4.indicator(ng-class="{'pending': $ctrl.stepData[1].completed}")
-        span.icon(ng-if="!$ctrl.stepData[2].completed") 3
-        span.icon(ng-if="$ctrl.stepData[2].completed")
+      div.col-lg-2.col-md-2.col-sm-2.col-xs-4.indicator(ng-class="{'pending': stepData[1].completed}")
+        span.icon(ng-if="!stepData[2].completed") 3
+        span.icon(ng-if="stepData[2].completed")
           i.material-icons check
         span.sub-title Clave de recuperación
 
   div.row.mb-6
     div.col-lg-12
-      md-steppers(md-selected="$ctrl.selectedStep")
+      md-steppers(md-selected="selectedStep")
 
-        md-step(label="step1" md-complete="$ctrl.stepData[0].completed")
+        md-step(label="step1" md-complete="stepData[0].completed")
           md-content
             h4.title.mb-8.mt-4 Estimado Usuario, para recuperar su Clave ingrese su RUT.
             form.row.input.mb-3(name="step1")
@@ -45,13 +45,13 @@ div.container.forgot
                   i.material-icons person
                   label.rut Rut
                 div.form-element
-                  input(name="rut" type="text" ng-model="$ctrl.stepData[0].data.password" required="required")
+                  input(name="rut" type="text" ng-model="stepData[0].data.password" required="required")
 
             div.row.m-0.pb-2
-              button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="$ctrl.close()") CANCELAR
-              button.button-success.col-lg-2.col-md-2.col-sm-3.col-xs-4(ng-click="$ctrl.submitCurrentStep($ctrl.stepData[0])") SIGUIENTE
+              button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="close()") CANCELAR
+              button.button-success.col-lg-2.col-md-2.col-sm-3.col-xs-4(ng-click="submitCurrentStep(stepData[0])") SIGUIENTE
 
-        md-step(label="step2" md-complete="$ctrl.stepData[1].completed")
+        md-step(label="step2" md-complete="stepData[1].completed")
           md-content
             h4.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
             form.row.input.mb-3(name="step2")
@@ -59,19 +59,19 @@ div.container.forgot
                 div.form-text
                   label ¿Ciudad donde nació?
                 div.form-element
-                  input(name="question1" type="password" ng-model="$ctrl.stepData[1].data.question1" required="required")
+                  input(name="question1" type="password" ng-model="stepData[1].data.question1" required="required")
 
               div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-12(input-focus=".form-element input" focus-class="is-focused-black")
                 div.form-text
                   label ¿Nombre de tu primera mascota?
                 div.form-element
-                  input(name="question2" type="password" ng-model="$ctrl.stepData[1].data.question2" required="required")
+                  input(name="question2" type="password" ng-model="stepData[1].data.question2" required="required")
 
             div.row.m-0.pb-2
-              button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="$ctrl.moveToPreviousStep()") VOLVER
-              button.button-success.col-lg-2.col-md-2.col-sm-3.col-xs-4(ng-click="$ctrl.submitCurrentStep($ctrl.stepData[1])") RECUPERAR
+              button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="moveToPreviousStep()") VOLVER
+              button.button-success.col-lg-2.col-md-2.col-sm-3.col-xs-4(ng-click="submitCurrentStep(stepData[1])") RECUPERAR
 
-        md-step(label="step3" md-complete="$ctrl.stepData[2].completed")
+        md-step(label="step3" md-complete="stepData[2].completed")
           md-content
             h4.title.mb-8.mt-4 Hola, ingresa tús respuestas de las preguntas de seguridad
             form.row.input.mb-3(name="step3")
@@ -79,23 +79,23 @@ div.container.forgot
                 div.form-text
                   label Clave de recuperación
                 div.form-element
-                  input(name="password1" type="password" ng-model="$ctrl.stepData[2].data.recuperacion" required="required")
+                  input(name="password1" type="password" ng-model="stepData[2].data.recuperacion" required="required")
 
               div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-12(input-focus=".form-element input" focus-class="is-focused-black")
                 div.form-text
                   label Nueva Clave
                 div.form-element
-                  input(name="password2" type="password" ng-model="$ctrl.stepData[2].data.password" required="required")
+                  input(name="password2" type="password" ng-model="stepData[2].data.password" required="required")
 
               div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-12(input-focus=".form-element input" focus-class="is-focused-black")
                 div.form-text
                   label Confirmar Clave
                 div.form-element
-                  input(name="password3" type="password" ng-model="$ctrl.stepData[2].data.repassword" required="required")
+                  input(name="password3" type="password" ng-model="stepData[2].data.repassword" required="required")
 
             div.row.m-0.pb-2
-              button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="$ctrl.moveToPreviousStep()") VOLVER
-              button.button-success.col-lg-2.col-md-2.col-sm-3.col-xs-4(ng-click="$ctrl.finish()") RECUPERAR
+              button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="moveToPreviousStep()") VOLVER
+              button.button-success.col-lg-2.col-md-2.col-sm-3.col-xs-4(ng-click="finish()") RECUPERAR
 
   div.footer
     p.mb-2 Si tienes Problemas para recuperar tu clave contacte con nuestros ejecutivos.
