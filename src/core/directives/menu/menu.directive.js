@@ -21,6 +21,9 @@ export default function MenuDirective(MoneyChangeService) {
 		},{
 			text: 'TRANSFERENCIAS',
 			disabled: false
+		},{
+			text: 'PRODUCTOS',
+			disabled: false
 		}];
 		
 		$scope.showPrice = showPrice;

@@ -9,8 +9,6 @@ div.menu
         a(ng-click="toggleDropdown($event, item)") {{item.text}}
       
       li.tab
-        a.disabled PRODUCTOS
-      li.tab
         a.disabled DOCUMENTOS
 
 div.menu-collapse
@@ -31,8 +29,8 @@ div.menu-collapse
             label Perfilamiento
           span.link.mt-3 Crear Usuario
           span.link Usuarios
-        div.col-lg-6.col-md-6.picture
-          img(src="images/menu-banner.png")
+        div.col-lg-6.col-md-6.picture.inicio
+          //- img(src="images/menu-banner.png")
 
       div.row.m-0(ng-if="menuActive == 'TRANSFERENCIAS'")
         div.col-lg-offset-1.col-lg-2.col-lg-offset-1.col-md-2
@@ -55,8 +53,32 @@ div.menu-collapse
           p Lorem ipsum dolor sit amet, consectetur
           p.extra-title.mb-4 Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
           button.button-success.col-lg-6 TRANSFERIR
-        div.col-lg-3.col-md-3.picture
-          img(src="images/menu-banner2.png")
+        div.col-lg-3.col-md-3.picture.transferencia
+          //- img(src="images/menu-banner2.png")
+
+      div.row.m-0(ng-if="menuActive == 'PRODUCTOS'")
+        div.col-lg-offset-1.col-lg-2.col-lg-offset-1.col-md-2
+          div.title 
+            i.material-icons home
+            label Productos
+          span.link.mt-3 Crédito Comercial
+          span.link Depósito a plazo
+          span.link Forward
+          span.link Leasing
+
+        div.col-lg-2.col-md-2.pl-0.not-title
+          span.link.mt-3 Factoring
+          span.link Mesa
+          span.link Boleta de Garantia
+          span.link Comex
+
+        div.col-lg-offset-1.col-lg-3.col-md-offset-1.col-md-3.pl-0.pr-0
+          label.title.extra Crédito Comercial
+          p Ut enim ad minim veniam, quis  nostrud exerc
+          p.extra-title.mb-4 Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
+          button.button-success.col-lg-6 CTA
+        div.col-lg-3.col-md-3.picture.product
+          //- img(src="assets/images/menu_investments.jpg")
 //menu end
 
 //marketina start
