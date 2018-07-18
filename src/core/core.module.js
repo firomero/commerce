@@ -12,6 +12,7 @@ import AccountListDirective from './directives/account-list/account-list.directi
 import MenuDirective from './directives/menu/menu.directive';
 import KnobDirective from './directives/knob/knob.directive';
 
+import LayoutController from './layout/layout.controller';
 import MessageConfirmController from './components/message-confirm/message-confirm.controller';
 
 const coreModule = angular.module('app.core', [
@@ -34,6 +35,7 @@ coreModule.directive('accountList', AccountListDirective);
 coreModule.directive('menu', MenuDirective);
 coreModule.directive('knob', KnobDirective);
 
+coreModule.controller('LayoutController', LayoutController);
 coreModule.controller('MessageConfirmController', MessageConfirmController);
 
 export default coreModule;

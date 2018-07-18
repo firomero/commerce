@@ -149,8 +149,9 @@ export default class DashboardController {
 		}
 	};
 
-	constructor($timeout, $mdSidenav, UserService, MoneyChangeService) {
+	constructor($scope, $timeout, $mdSidenav, UserService) {
 		'ngInject';
+		this.$scope = $scope;
 		this.$timeout = $timeout;
 		this.$mdSidenav = $mdSidenav;
 		this.UserService = UserService;
@@ -158,6 +159,14 @@ export default class DashboardController {
 
 	$onInit = () => {
 
+		var _this = this
+        this.$scope.$on('company::change', function(data) {
+
+            this.loadAccounts = true;
+        	this.currentCompany = data.currentCompany;
+        	this.loadAccounts = false;
+		});
+		
 		this.userLogin = this.UserService.userLogin();
 		this.currentCompany.nameID = this.userLogin.currentCompany;
 		this.userCompanies = this.userLogin.companies;
@@ -171,22 +180,5 @@ export default class DashboardController {
 				break;
 			}
 		}
-	};
-
-	selectCompany(company) {
-
-		this.loadAccounts = true;
-		this.currentCompany = company;
-		this.loadAccounts = false;
-	}
-
-	openToggle() {
-
-		this.$mdSidenav('right').toggle();
-	}
-
-	closeToggle() {
-		
-		this.$mdSidenav('right').close();
-	}
+	};	
 }

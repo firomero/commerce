@@ -4,9 +4,15 @@ export default function routerHelper($stateProvider, $urlRouterProvider, $locati
 	'ngInject';
 
 	$locationProvider.html5Mode(true); // setting html5 mode to remove !# from url
-	$urlRouterProvider.otherwise('/login'); // setting default route
 
 	appRoutes.forEach((route) => {
 		$stateProvider.state(route);
+		if (route.children) {
+			route.children.forEach((routeChildren) => {
+				$stateProvider.state(routeChildren);
+			});
+		}
 	});
+
+	$urlRouterProvider.otherwise('/login'); // setting default route
 }

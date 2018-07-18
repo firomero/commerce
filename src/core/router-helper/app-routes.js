@@ -5,7 +5,23 @@ export default [
 		component: 'login'
 	},{
 		name: 'app',
-		url: '/dashboard',
-		component: 'dashboard'
+		abstract: true,
+		url: '/',
+		template: require('../layout/layout.jade')(),
+		controller: 'LayoutController',
+		resolve: {
+			userLogin: function(UserService) {
+				'ngInject';
+
+				var userLogin = UserService.userLogin();
+				return userLogin;
+			}
+		},
+		children: [{
+			name: 'app.dashboard',
+			url: 'dashboard',
+			component: 'dashboard'
+			// template: 'funciono'
+		}]
 	}
 ];

@@ -1,0 +1,144 @@
+//header star
+header
+  md-toolbar.md-hue-2
+    div.md-toolbar-tools
+      div.row.w-100.m-0
+        div.col-lg-7.col-md-7.pl-0.logo
+          img(src="images/logoBanco100.png")
+        div.col-lg-5.col-md-5.pr-0
+          div.row
+            div.col-lg-4.col-md-4
+              ul.links
+                li 
+                  a Ayuda
+                li 
+                  a FAQ
+                li 
+                  a Contacto
+            div.col-lg-8.col-md-8
+              div.row.user-login
+                //user login start
+                div.col-lg-9.col-md-9
+                  div.row
+                    div.pl-0.col-lg-3.col-md-3.col-sm-1.col-xs-1.text-right
+                      img.user-logo(src="images/user.png" ng-click="$ctrl.openToggle()")
+                    div.col-lg-9.col-md-9.col-sm-11.col-xs-11.pl-0.pr-0.company-selector-container
+                      label.user-fullname {{userLogin.fullName}}
+                      md-menu
+                        div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                          span {{currentCompany.name}}
+                          span
+                            i.material-icons arrow_drop_down
+
+                        md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
+                          md-menu-item(ng-repeat="item in userCompanies" ng-class="{'selected': item.nameID == currentCompany.nameID}")
+                            a(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
+                //- div.col-lg-4.col-md-4                   
+                //user login end
+
+  //menu start 
+  menu
+  //header end
+  
+div(ui-view)
+
+//footer start
+div.bg-gray
+  div.container
+    div.row.footer.mt-4
+      div.col-md-2.pl-3
+        img.footer-logo(src="images/footer.png")
+    
+      div.col-md-10.pl-0
+        p.m-0
+          a(href="#") Términos y Condiciones | 
+          a(href="#") Política de Privacidad | 
+          a(href="#") Trabaja con Nosotros | 
+          a(href="#") Mapa del Sitio | 
+          a(href="#") Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 
+          a(href="#") 2013 Banco Consorcio.
+        p.m-0 Todos los derechos reservados. Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior
+
+md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
+  div.p-2
+    div.row.text-center.pos-r
+      img.user-avatar(src="images/user.png")
+      i.material-icons.change-avatar photo_camera
+      h3.c-white {{$ctrl.userLogin.fullName}}
+
+    div.row.data.pl-2.pr-2.mt-5
+      div.pos-r
+        span
+          i.material-icons account_circle
+        span.title DATOS
+        span.pull-right
+          i.material-icons.edit create
+      div.pl-4.mt-4
+        span.sub-title Telefono Celular
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
+        
+      div.pl-4.mt-2
+        span.sub-title Telefono Fijo
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
+
+      div.pl-4.mt-2
+        span.sub-title Correo Electronico
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
+
+      div.pl-4.mt-2
+        span.sub-title Direccion
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
+      
+  md-divider.divider
+
+  div.p-2
+    div.row.pass.pl-2.pr-2
+      div.pos-r
+        span.mr-2
+          i.material-icons vpn_key
+        span.title CLAVES
+        span.pull-right
+          i.material-icons.edit create
+
+      div.pl-4.mt-4
+        span.sub-title Token
+      div.pl-4.mt-05
+        span.sub-title-value Habilitada
+
+      div.pl-4.mt-2
+        span.sub-title Preguntas Secretas
+      div.pl-4.mt-05
+        span.sub-title-value Habilitada
+    
+  md-divider.divider
+
+  div.p-2
+    div.row.communication.pl-2.pr-2
+      div.pos-r
+        span.mr-2
+          i.material-icons markunread_mailbox
+        span.title COMUNICACIONES
+        span.pull-right
+          i.material-icons.edit create
+
+      div.pl-4.mt-4
+        span.sub-title Cartolas
+      div.pl-4.mt-05
+        span.sub-title-value Mail
+
+      div.pl-4.mt-2
+        span.sub-title Cuenta Empresa
+      div.pl-4.mt-05
+        span.sub-title-value Mail
+        
+      div.pl-4.mt-2
+        span.sub-title Creditos
+      div.pl-4.mt-05
+        span.sub-title-value Mail - Direccion Particular
+
+    div.row.mt-5
+      button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="$ctrl.closeToggle()") CONTACTAR A EJECUTIVO
