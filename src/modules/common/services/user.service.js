@@ -19,10 +19,32 @@ export default class UserService {
                     nameID: 'KIMBERLY',
                     accounts: [{
                         name: '1234',
-                        disabled: false
+                        disabled: false,
+                        data: {
+                            montoD: '$500.503.000',
+                            creditoD: '$60.000.000',
+                            saldo: '$500.000.000',
+                            retencion: '$0',
+                            cargo: '$50.000.000',
+                            abonos: '$76.678.067',
+                            autorizado: '$500.000.000',
+                            utilizado: '$400.000.000',
+                            interes: '3,5%'
+                        }
                     },{
                         name: '5678',
-                        disabled: true
+                        disabled: false,
+                        data: {
+                            montoD: '$100.003.000',
+                            creditoD: '$40.100.000',
+                            saldo: '$20.000.000',
+                            retencion: '$100',
+                            cargo: '$300.000',
+                            abonos: '$678.067',
+                            autorizado: '$10.000.000',
+                            utilizado: '$900.000',
+                            interes: '3,5%'
+                        }
                     },{
                         name: '9012',
                         disabled: true
@@ -35,10 +57,21 @@ export default class UserService {
                     name: 'Transbank S.A',
                     nameID: 'TRANSBANK',
                     accounts: [{
-                        name: '9012',
-                        disabled: false
+                        name: '8723',
+                        disabled: false,
+                        data: {
+                            montoD: '$503.000',
+                            creditoD: '$1.000',
+                            saldo: '$900',
+                            retencion: '$0',
+                            cargo: '$100.000',
+                            abonos: '$78.067',
+                            autorizado: '$10.000',
+                            utilizado: '$40.000.000',
+                            interes: '3,5%'
+                        }
                     },{
-                        name: '3456',
+                        name: '9001',
                         disabled: true
                     }]
                 },{

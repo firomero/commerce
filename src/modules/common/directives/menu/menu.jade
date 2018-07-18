@@ -13,9 +13,10 @@ div.menu
 
 div.menu-collapse
   div(uib-dropdown is-open="isopen")
+    div.shadow
     div.dropdown-menu(uib-dropdown-menu role="menu" aria-labelledby="single-button")
       div.row.m-0(ng-if="menuActive == 'INICIO'")
-        div.col-lg-offset-1.col-lg-2.col-md-offset-1.col-md-2
+        div.col-lg-offset-1.col-lg-2.col-md-offset-1.col-md-2.pt-3
           div.title 
             i.material-icons home
             label Inicio
@@ -23,7 +24,7 @@ div.menu-collapse
           span.link Saldo y Movimientos
           span.link Línea de Crédito
 
-        div.col-lg-3.col-md-3.pl-0
+        div.col-lg-3.col-md-3.pl-0.pt-3
           div.title 
             i.material-icons person_add
             label Perfilamiento
@@ -32,7 +33,7 @@ div.menu-collapse
         div.col-lg-6.col-md-6.picture.inicio
 
       div.row.m-0(ng-if="menuActive == 'TRANSFERENCIAS'")
-        div.col-lg-offset-1.col-lg-2.col-lg-offset-1.col-md-2
+        div.col-lg-offset-1.col-lg-2.col-lg-offset-1.col-md-2.pt-3
           div.title 
             i.material-icons.rotate90 import_export
             label Transferencias
@@ -41,21 +42,21 @@ div.menu-collapse
           span.link Transferir
           span.link Crear Nómina
 
-        div.col-lg-2.col-md-2.pl-0
+        div.col-lg-2.col-md-2.pl-0.pt-3
           div.title 
             i.material-icons people
             label Destinatarios
           span.link.mt-3 Lista de Destinatarios
 
         div.col-lg-offset-1.col-lg-3.col-md-offset-1.col-md-3.pl-0.pr-0
-          label.title.extra Transferencias
+          label.title.extra.mt-2 Transferencias
           p Lorem ipsum dolor sit amet, consectetur
           p.extra-title.mb-4 Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
           button.button-success.col-lg-6 TRANSFERIR
         div.col-lg-3.col-md-3.picture.transferencia
 
       div.row.m-0(ng-if="menuActive == 'PRODUCTOS'")
-        div.col-lg-offset-1.col-lg-2.col-lg-offset-1.col-md-2
+        div.col-lg-offset-1.col-lg-2.col-lg-offset-1.col-md-2.pt-3
           div.title 
             i.material-icons home
             label Productos
@@ -64,14 +65,14 @@ div.menu-collapse
           span.link Forward
           span.link Leasing
 
-        div.col-lg-2.col-md-2.pl-0.not-title
-          span.link.mt-3 Factoring
+        div.col-lg-2.col-md-2.pl-0.not-title.pt-3
+          span.link.mt-4-5 Factoring
           span.link Mesa
           span.link Boleta de Garantia
           span.link Comex
 
         div.col-lg-offset-1.col-lg-3.col-md-offset-1.col-md-3.pl-0.pr-0
-          label.title.extra Crédito Comercial
+          label.title.extra.mt-2 Crédito Comercial
           p Ut enim ad minim veniam, quis  nostrud exerc
           p.extra-title.mb-4 Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
           button.button-success.col-lg-6 CTA
@@ -84,7 +85,7 @@ div.marketina-group(ng-if="tooglePrice")
   div.marketina-container
     div.prices.pl-0.pr-0.pt-1.pb-1.w-100
       md-tabs
-        md-tab(ng-repeat="change in moneyChange")
+        md-tab(ng-disabled="true" ng-repeat="change in moneyChange")
           md-tab-label
             div
               span.mr-1 {{change.text}}
@@ -93,8 +94,8 @@ div.marketina-group(ng-if="tooglePrice")
 div.pos-rel
   a.toggle-price(ng-click="showPrice()")
     span Indicadores
-    span.pull-right(ng-if="tooglePrice")
+    span.icon.pull-right(ng-if="tooglePrice")
       i.material-icons arrow_drop_up
-    span.pull-right(ng-if="!tooglePrice")
+    span.icon.pull-right(ng-if="!tooglePrice")
       i.material-icons arrow_drop_down
 //marketina end

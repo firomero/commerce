@@ -8,20 +8,20 @@ div.pos-r(ng-cloak ng-if="list.length")
             div.col-lg-5.col-md-12.col-xs-12
               div.row.mb-1
                 small.card-text.mb-1.col-xs-12 Monto Disponible
-                div.price.col-xs-12 $500.503.000
+                div.price.col-xs-12 {{item.data.montoD}}
               
               div.row
-                span.tag.col-xs-6.mt-1(ng-repeat="tag in innerDataLeft")
+                span.tag.col-xs-6.mt-1(ng-repeat="tag in item.innerDataLeft")
                   small.tag-text.col-xs-6 {{tag.text}}
                   small.tag-value.col-xs-6 {{tag.value}}
                 
             div.col-lg-7.col-md-12.col-xs-12.border-left
               div.row.mb-1
                 small.card-text.mb-1.col-xs-12 Línea de Crédito Disponible
-                div.c-green.price-green.col-xs-12 $60.000.000
+                div.c-green.price-green.col-xs-12 {{item.data.creditoD}}
 
               div.row
-                span.tag.col-xs-6.mt-1(ng-repeat="tag in innerDataRight")
+                span.tag.col-xs-6.mt-1(ng-repeat="tag in item.innerDataRight")
                   small.tag-text.col-xs-6 {{tag.text}}
                   small.tag-value.col-xs-6 {{tag.value}}
 

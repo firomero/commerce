@@ -8,7 +8,11 @@
         }
 
         .carousel-control { display: none; }
-        .carousel-indicators { top: 20%; }
+        .carousel-indicators {
+            top: 20%;
+
+            li { margin-left: .6rem; }
+        }
     }
 
     .container.dashboard {
@@ -20,6 +24,8 @@
             font-family: Roboto;
             color: $c-white;
             font-weight: 500;
+            text-transform: uppercase;
+            font-size: 16px;
         }
     }
 
@@ -45,29 +51,36 @@
         .grap {
             display: inline-block;
             vertical-align: top;
-            margin-right: .5rem;
+            margin-right: 1.5rem;
         }
     }
 
     md-card.notification {
 
-        height: 150px;
+        height: 155px;
 
         .title, .sub-title {
             font-family: Roboto;
             color: $c-black-light;
         }
         .title {
-            color: #4a4a4a;
+            color: #4A4A4A;
             font-size: 14px;
             font-weight: 400;
+            letter-spacing: -0.34px;
         }
         .sub-title {
             opacity: .7;
             font-size: 12px;
+            letter-spacing: -0.29px;
         }
         .link {
             font-size: 12px;
+        }
+        h3 {
+            font-size: 30px;
+            color: #4A4A4A;
+            font-weight: 400;
         }
     }
 

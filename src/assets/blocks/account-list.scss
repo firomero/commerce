@@ -10,9 +10,9 @@ account-list {
     }
     md-card { height: auto !important; }
     md-content {
-        // min-height: 350px;
         overflow: initial;
     }
+    md-tab-content {min-height: 270px;}
     md-tab-content.md-active {
         padding-bottom: 70px;
     }

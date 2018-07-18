@@ -12,30 +12,35 @@ export default function AccountListDirective() {
 
 	function link($scope, $element, $attrs) {
 
-		$scope.innerDataLeft = [{
-			text: "Saldo Contable",
-			value: "$500.000.000"
-		},{
-			text: "Cargos",
-			value: "$50.000.000"
-		},{
-			text: "Retenciones",
-			value: "$0"
-		},{
-			text: "Abonos",
-			value: "$76.678.067"
-		}];
+		for (var i = 0; i < $scope.list.length; i++) {
 
-		$scope.innerDataRight = [{
-			text: "Monto Autorizado",
-			value: "$500.000.000"
-		},{
-			text: "Tasa de interés",
-			value: "3,5%"
-		},{
-			text: "Monto Utilizado",
-			value: "$440.000.000"
-		}];
+			if (!$scope.list[i].disabled) {
+				var data = $scope.list[i].data;
+				$scope.list[i].innerDataLeft = [{
+					text: "Saldo Contable",
+					value: data.saldo
+				},{
+					text: "Cargos",
+					value: data.cargo
+				},{
+					text: "Retenciones",
+					value: data.retencion
+				},{
+					text: "Abonos",
+					value: data.abonos
+				}];
+				$scope.list[i].innerDataRight = [{
+					text: "Monto Autorizado",
+					value: data.autorizado
+				},{
+					text: "Tasa de interés",
+					value: data.interes
+				},{
+					text: "Monto Utilizado",
+					value: data.utilizado
+				}];
+			}
+		}
 	}
 
 	return directive;
