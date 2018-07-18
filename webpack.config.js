@@ -83,31 +83,15 @@ const config = {
 			to: 'images/carousel',
 			flatten: true
 		},{
-			from: 'src/assets/images/*.png',
+			from: 'src/assets/images/*.*',
 			to: 'images/',
 			flatten: true
 		},{
-			from: 'src/assets/images/*.gif',
-			to: 'images/',
-			flatten: true
-		},{
-			from: 'src/assets/video/*.mp4',
+			from: 'src/assets/video/*.*',
 			to: 'video/',
 			flatten: true
 		},{
-			from: 'src/assets/fonts/*.eot',
-			to: 'fonts/',
-			flatten: true
-		},{
-			from: 'src/assets/fonts/*.svg',
-			to: 'fonts/',
-			flatten: true
-		},{
-			from: 'src/assets/fonts/*.woff',
-			to: 'fonts/',
-			flatten: true
-		},{
-			from: 'src/assets/fonts/*.woff2',
+			from: 'src/assets/fonts/*.*',
 			to: 'fonts/',
 			flatten: true
 		}])
