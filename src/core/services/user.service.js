@@ -34,7 +34,13 @@ export default class UserService {
                     rol: 'OPERADOR',
                     name: 'Transbank S.A',
                     nameID: 'TRANSBANK',
-                    accounts: []
+                    accounts: [{
+                        name: '9012',
+                        disabled: false
+                    },{
+                        name: '3456',
+                        disabled: true
+                    }]
                 },{
                     rol: 'APODERADO',
                     name: 'Coca-Cola de Chicle S.A',

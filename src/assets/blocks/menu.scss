@@ -116,6 +116,7 @@ menu {
                     position: absolute;
                 }
             }
+            .not-title {padding-top: 1.5rem;}
             .title.extra {
                 color: #4A4A4A;
                 font-family: Roboto;
@@ -140,12 +141,19 @@ menu {
             }
 
             .picture {
-                padding-right: 0px;
-                
-                img {
-                    float: right;
-                    height: 100%;
-                }
+                padding-right: 0px;                
+                background-size: cover;
+                background-position: center;
+                height: 100%;
+            }
+            .picture.inicio {
+                background-image: url('images/menu-banner.png');
+            }
+            .picture.transferencia {
+                background-image: url('images/menu-banner2.png');
+            }
+            .picture.product {
+                background-image: url('images/menu_investments.jpg');
             }
             
         }

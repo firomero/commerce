@@ -3,9 +3,10 @@ account-list {
     .title {
         display: inline;
         position: absolute;
-        top: 4px;
+        top: 5px;
         left: 0;
-        font-size: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
     }
     md-card { height: auto !important; }
     md-content {
@@ -51,8 +52,6 @@ account-list {
             display: inline-block;
             vertical-align: top;
         }
-        .md-button.md-fab, .md-button.md-fab:not([disabled]):hover { background-color: $c-blue; }
-        .md-button.md-fab.success, .md-button.md-fab.success:not([disabled]):hover { background-color: $c-green; }
     }
 
     small.card-text {
