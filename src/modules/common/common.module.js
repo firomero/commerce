@@ -14,26 +14,26 @@ import KnobDirective from './directives/knob/knob.directive';
 
 import MessageConfirmController from './components/message-confirm/message-confirm.controller';
 
-const coreModule = angular.module('app.core', [
+const commonModule = angular.module('app.common', [
 	'ui.router'
 ]);
 
 // inject services, config, filters and re-usable code
 // which can be shared via all modules
-coreModule.config(RouterHelperService);
+commonModule.config(RouterHelperService);
 
-coreModule.filter('currency', CurrencyFilter);
+commonModule.filter('currency', CurrencyFilter);
 
-coreModule.service('MoneyChangeService', MoneyChangeService);
-coreModule.service('UserService', UserService);
-coreModule.service('CompanyService', CompanyService);
+commonModule.service('MoneyChangeService', MoneyChangeService);
+commonModule.service('UserService', UserService);
+commonModule.service('CompanyService', CompanyService);
 
-coreModule.directive('inputFocus', InputFocusDirective);
-coreModule.directive('perfectScroll', PerfectScrollDirective);
-coreModule.directive('accountList', AccountListDirective);
-coreModule.directive('menu', MenuDirective);
-coreModule.directive('knob', KnobDirective);
+commonModule.directive('inputFocus', InputFocusDirective);
+commonModule.directive('perfectScroll', PerfectScrollDirective);
+commonModule.directive('accountList', AccountListDirective);
+commonModule.directive('menu', MenuDirective);
+commonModule.directive('knob', KnobDirective);
 
-coreModule.controller('MessageConfirmController', MessageConfirmController);
+commonModule.controller('MessageConfirmController', MessageConfirmController);
 
-export default coreModule;
+export default commonModule;

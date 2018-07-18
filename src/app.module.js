@@ -2,9 +2,11 @@
 import styles from './assets/styles.scss';
 
 // loading shared module
-import './core/core.module';
+import './modules/common/common.module';
+import './modules/login/login.module';
+import './modules/dashboard/dashboard.module';
 // loading all module components
-import './components/component.module';
+// import './components/component.module';
 
 const appModule = angular
 	.module('app', [
@@ -15,11 +17,12 @@ const appModule = angular
 		'ngResource',
 		'ui.knob',
 		// shared module
-		'app.core',
+		'app.common',
 		// 3rd party modules
 		'ui.router',
 		// application specific modules
-		'app.component'
+		'app.login',
+		'app.dashboard'
 	]);
 
 export default appModule;
