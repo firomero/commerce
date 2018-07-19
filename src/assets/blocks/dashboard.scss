@@ -154,6 +154,9 @@
     .dashboard-container .margin-xs {
         margin-bottom: 70px;
     }
+    .dashboard-container .carousel .carousel-indicators {
+        top: 58%;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .carousel-caption {

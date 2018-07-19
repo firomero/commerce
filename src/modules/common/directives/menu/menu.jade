@@ -82,15 +82,16 @@ div.menu-collapse
 //marketina start
 div.marketina-group(ng-if="tooglePrice")
   div.marketina.background    
-  div.marketina-container
+  div.marketina-container.container
     div.prices.pl-0.pr-0.pt-1.pb-1.w-100
       md-tabs
         md-tab(ng-disabled="true" ng-repeat="change in moneyChange")
           md-tab-label
             div
-              span.mr-1 {{change.text}}
+              span.mr-1.money {{change.text}}
               span.percent {{change.porcent}}%
-            div.text-left {{change.cash | currency }}
+            div.text-left 
+              span.price {{change.cash | currency }}
 div.pos-rel
   a.toggle-price(ng-click="showPrice()")
     span Indicadores

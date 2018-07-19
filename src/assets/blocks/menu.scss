@@ -180,8 +180,6 @@ menu {
             z-index: 0;
 
             .prices {
-                // position: absolute;
-                // top: 0;
 
                 md-tabs {                
 
@@ -200,6 +198,9 @@ menu {
                         font-weight: 700;
                         line-height: 18px;
         
+                        .money, .price {color: #000;}
+                        .money, .percent { font-size: 10px;font-family: HelveticaNeue; }
+                        .price { font-size: 12px;font-family: HelveticaNeue; }
                         .percent { color: $c-green; }
                     }
                 }

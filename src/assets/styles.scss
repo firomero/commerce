@@ -94,7 +94,6 @@ md-backdrop.md-sidenav-backdrop {
 
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
-    .marketina-container {width: 1170px;}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .container {}
@@ -103,11 +102,5 @@ md-backdrop.md-sidenav-backdrop {
     .container {}
 }
 @media (min-width: 1200px) {//col-lg
-    .marketina-container {
-        width: 1280px;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
+    
 }
