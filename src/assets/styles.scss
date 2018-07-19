@@ -90,7 +90,7 @@ md-backdrop.md-sidenav-backdrop {
 }
 
 .md-sidenav-right { position: fixed; }
-
+.column { display: inline-block;vertical-align: top; }
 
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
