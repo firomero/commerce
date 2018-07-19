@@ -1,14 +1,18 @@
-export default function LayoutController(userLogin, $scope, $mdSidenav, UserService) {
+export default function LayoutController(userLogin, $scope, $mdSidenav, $location, UserService) {
     'ngInject';
 
     $scope.userLogin = userLogin;
     $scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
+    $scope.currentAccount = null;
     $scope.currentCompany.nameID = $scope.userLogin.currentCompany;
     $scope.userCompanies = userLogin.companies;
+    $scope.activeAccountSelector = false;
     
     $scope.selectCompany = selectCompany;
+    $scope.selectAccount = selectAccount;
     $scope.openToggle = openToggle;
     $scope.closeToggle = closeToggle;
+    $scope.logout = logout;
     
     activate();
 
@@ -22,22 +26,45 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, UserServ
                 break;
             }
         }
+        if ($scope.currentCompany.accounts.length) {
+            $scope.currentAccount = $scope.currentCompany.accounts[0];
+        }
     }
 
     function selectCompany(company) {
         
         $scope.currentCompany = company;
-        $scope.$broadcast('account::change', {currentCompany: $scope.currentCompany});
+        if ($scope.currentCompany.accounts.length) {
+            $scope.currentAccount = $scope.currentCompany.accounts[0];
+        }
+        $scope.$broadcast('company::change', {currentCompany: $scope.currentCompany});
     }
 
-    function openToggle() {
+    function selectAccount(account) {
         
-        $mdSidenav('right').toggle();
+        $scope.currentAccount = account;
+        $scope.$broadcast('account::change', {accountChange: $scope.currentAccount});
+    }
+
+    function openToggle(position) {
+        
+        $mdSidenav(position).toggle();
     }
         
-    function closeToggle() {
+    function closeToggle(position) {
         
-        $mdSidenav('right').close();
+        $mdSidenav(position).close();
     }
+
+    function logout() {
+
+        localStorage.removeItem('userLogin');
+		$location.path('/login');
+    }
+
+    $scope.$on('account-selector::view', function(data) {
+        
+        $scope.activeAccountSelector = data.targetScope.activeAccountSelector && data.targetScope.isopen;
+    });
 }
     

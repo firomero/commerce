@@ -17,9 +17,13 @@ account-list {
         padding-bottom: 70px;
     }
     
+    md-tabs-wrapper {
+        margin-left: 25rem;
+    }
+
     md-tabs-canvas {
         
-        margin-left: 25rem;
+        
         height: 30px;
 
         md-pagination-wrapper { height: 30px; }
@@ -113,4 +117,41 @@ account-list {
         img { height: 50px; }
         h3 { margin-top: 15px; }
     }
+}
+
+
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    account-list md-tab-content {
+        min-height: 430px;
+    }
+    account-list md-tab-item { margin: 0 10px; }
+    account-list md-tab-item:first-child { margin-left: 0px; }
+    account-list md-tabs-wrapper {  
+        width: 100% !important;
+        margin-left: 0px;
+    }
+    account-list .title { position: relative; }
+    account-list md-tabs { margin-top: 1rem; }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    account-list md-tab-content {
+        min-height: 430px;
+    }
+    account-list md-tab-item { margin: 0 10px; }
+    account-list md-tab-item:first-child { margin-left: 0px; }
+    account-list md-tabs-wrapper {  
+        width: 100% !important;
+        margin-left: 0px;
+    }
+    account-list .title { position: relative; }
+    account-list md-tabs { margin-top: 1rem; }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    account-list md-tab-content {
+        min-height: 400px;
+    }
+    account-list md-tab-item { margin: 0 10px; }
+    account-list md-tabs-wrapper {  width: calc(100% - 25rem) !important; }
 }

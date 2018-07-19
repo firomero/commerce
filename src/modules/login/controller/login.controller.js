@@ -48,7 +48,7 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 	function finishedWizard() {
 		localStorage.setItem('userLogin', JSON.stringify($scope.model));
 		localStorage.removeItem('user');
-		$location.path('/dashboard')
+		$location.path('/dashboard');
 	}
 
 	function reset() {

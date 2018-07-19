@@ -89,8 +89,8 @@ md-backdrop.md-sidenav-backdrop {
     position: fixed !important;
 }
 
-.md-sidenav-right { position: fixed; }
-
+.md-sidenav-right, .md-sidenav-left  { position: fixed; }
+.column { display: inline-block;vertical-align: top; }
 
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs

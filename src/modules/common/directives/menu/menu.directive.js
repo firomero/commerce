@@ -47,12 +47,18 @@ export default function MenuDirective(MoneyChangeService) {
 			}
 			
 			$scope.menuActive = item.text;
+			$scope.activeAccountSelector = $scope.menuActive == 'TRANSFERENCIAS' && $scope.isopen ? true : false;
+			$scope.$emit('account-selector::view');
 		}
+
+		$scope.$watch('isopen', function(e) {
+			$scope.$emit('account-selector::view');
+		});
 
 		var inputElement = $element[0].querySelector('.dropdown-menu');
 		angular.element(inputElement).on('click', function(e){
 			e.stopPropagation();
-		})
+		});
 	}
 
 	return directive;

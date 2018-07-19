@@ -1,17 +1,17 @@
 section.bg-gray.dashboard-container
 
   //carousel start
-  div(uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" style="margin-top:130px")
+  div(uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides")
     div(uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id")
       img(ng-src="{{slide.image}}")
       div.carousel-caption
         div.row.text-left
-          h4.mb-0.col-lg-10 {{slide.text}}
+          h4.mb-0.col-lg-10.col-md-10.text-small {{slide.text}}
         div.row.text-left
-          h2.mb-0.col-lg-10 {{slide.text1}}
+          h2.mb-0.col-lg-10.col-md-10.text-medium {{slide.text1}}
         div.row.text-left
-          h1.mt-0.col-lg-10 {{slide.text2}}
-          button.button-success.col-lg-2 SIMULAR
+          h1.mt-0.col-lg-10.col-md-10.text-big {{slide.text2}}
+          button.button-success.col-lg-2.col-md-2.col-sm-5.col-xs-6 SIMULAR
 
   //carousel end
 
