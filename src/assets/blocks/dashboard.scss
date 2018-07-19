@@ -1,4 +1,5 @@
 .dashboard-container {
+    margin-top:130px;
 
     .carousel {
         height: 300px;
@@ -104,11 +105,33 @@
         left: 15%;
         bottom: 25%;
     }
+    .dashboard-container {
+
+        margin-top: 80px;
+
+        .text-small, .text-medium, .text-big {
+            padding-left: 0px;
+        }
+        .text-small { font-size: 20px; }
+        .text-medium { font-size: 25px;margin-top: 12px; }
+        .text-big { font-size: 30px; }
+    }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .carousel-caption {
         left: 15%;
         bottom: 25%;
+    }
+    .dashboard-container {
+
+        margin-top: 80px;
+        
+        .text-small, .text-medium, .text-big {
+            padding-left: 0px;
+        }
+        .text-small { font-size: 20px; }
+        .text-medium { font-size: 25px;margin-top: 12px; }
+        .text-big { font-size: 30px; }
     }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
@@ -116,6 +139,7 @@
         left: 15%;
         bottom: 25%;
     }
+    .dashboard-container { margin-top: 80px; }
 }
 @media (min-width: 1200px) {//col-lg
     .carousel-caption {
