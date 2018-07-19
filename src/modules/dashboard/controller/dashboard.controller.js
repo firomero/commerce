@@ -149,6 +149,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 		}
 	};
 
+	$scope.selectProduct = selectProduct;
 	activate();
 
 	function activate() {
@@ -165,6 +166,11 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 				break;
 			}
 		}
+	}
+
+	function selectProduct(product) {
+
+		console.log(product);
 	}
 
 	$scope.$on('company::change', function(data) {
