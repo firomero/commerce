@@ -11,6 +11,10 @@
         .carousel-control { display: none; }
         .carousel-indicators {
             top: 20%;
+            width: 200px;
+            height: 40px;
+            left: 45%;
+            margin-left: 0px;
 
             li { margin-left: .6rem; }
         }
@@ -84,6 +88,14 @@
             color: #4A4A4A;
             font-weight: 400;
         }
+
+        .graficas {padding-left: 0px;}
+        .float-menu {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            z-index: 5;
+        }
     }
 
     md-tabs {
@@ -97,6 +109,15 @@
                 }
             }
         }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 450px) {
+    .dashboard-container md-card.notification.dimension .graficas {
+        padding-left: 15px !important;
+    }
+    .dashboard-container .poster .grap {
+        margin-right: 2.5rem !important;
     }
 }
 
@@ -117,6 +138,22 @@
         .text-medium { font-size: 25px;margin-top: 12px; }
         .text-big { font-size: 30px; }
     }
+    .dashboard-container .poster .grap {
+        margin-right: 4.5rem;
+        margin-bottom: 1rem;
+    }
+    .dashboard-container md-card.notification.dimension .graficas {
+        padding-left: 20%;
+    }
+    .dashboard-container md-card.notification.dimension {
+        height: 370px;
+    }
+    .dashboard-container .margin-sm-xs {
+        margin-bottom: 55px;
+    }
+    .dashboard-container .margin-xs {
+        margin-bottom: 70px;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .carousel-caption {
@@ -133,6 +170,20 @@
         .text-small { font-size: 20px; }
         .text-medium { font-size: 25px;margin-top: 12px; }
         .text-big { font-size: 30px; }
+        .no-p-r { padding-right: 0px; }
+
+        .margin-sm-xs {
+            margin-bottom: 55px;
+        }
+        .title-extra {
+            font-family: Roboto;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+    }
+    .dashboard-container md-card.notification.dimension .graficas {
+        padding-right: 0px;
     }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
@@ -141,6 +192,19 @@
         bottom: 25%;
     }
     .dashboard-container { margin-top: 80px; }
+    .dashboard-container md-card.notification h3 {
+        font-size: 24px;
+    }
+    .dashboard-container .poster .grap {
+        margin-right: 4.5rem;
+        margin-bottom: 1rem;
+    }
+    .dashboard-container md-card.notification.dimension {
+        height: 250px;
+    }
+    .dashboard-container md-card.notification.dimension .graficas {
+        padding-left: 40px;
+    }
 }
 @media (min-width: 1200px) {//col-lg
     .carousel-caption {
