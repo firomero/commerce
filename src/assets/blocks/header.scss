@@ -108,8 +108,20 @@ header {
                 letter-spacing: -0.34px;
                 line-height: 80px;
             }
-        }
-
-       
+        }       
     }
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    header md-toolbar .logo .column:first-child { float: left; }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    header md-toolbar .logo .column:first-child { float: left; }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    header md-toolbar .logo .column:first-child { float: left; }
+}
+@media (min-width: 1200px) {//col-lg
+    header{}
 }

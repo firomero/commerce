@@ -46,14 +46,14 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         $scope.$broadcast('account::change', {accountChange: $scope.currentAccount});
     }
 
-    function openToggle() {
+    function openToggle(position) {
         
-        $mdSidenav('right').toggle();
+        $mdSidenav(position).toggle();
     }
         
-    function closeToggle() {
+    function closeToggle(position) {
         
-        $mdSidenav('right').close();
+        $mdSidenav(position).close();
     }
 
     function logout() {

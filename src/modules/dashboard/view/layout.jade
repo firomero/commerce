@@ -4,11 +4,11 @@ header
     div.md-toolbar-tools
       div.row.w-100.m-0
         div.logo
-          div.column.mr-2
-            i.material-icons.menu-icon format_align_justify
+          div.column.mr-2.visible-md.visible-sm.visible-xs
+            i.material-icons.menu-icon(ng-click="openToggle('left')") format_align_justify
           div.column.pt-15px
             img(src="images/logoBanco100.png")
-        div.user-profile
+        div.user-profile.visible-lg
           div.column.mr-1-5
             ul.links
               li 
@@ -21,7 +21,7 @@ header
           div.column.user-login
             div.column.mr-15px
               div.pt-15px
-                img.user-logo(src="images/user.png" ng-click="openToggle()")
+                img.user-logo(src="images/user.png" ng-click="openToggle('right')")
             div.column.company-selector-container
               label.user-fullname {{userLogin.fullName}}
               md-menu
@@ -71,6 +71,130 @@ div.bg-gray
           a(href="#") Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 
           a(href="#") 2013 Banco Consorcio.
         p.m-0 Todos los derechos reservados. Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior
+
+
+
+
+md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-backdrop md-whiteframe="4" perfect-scroll)
+  
+  md-toolbar.md-hue-2
+    div.md-toolbar-tools
+      div.row.w-100.m-0
+
+        div.user-profile
+          div.user-login
+            div.column.mr-15px
+              div.pt-1
+                img.user-logo(src="images/user.png" ng-click="openToggle('right')")
+            div.column.company-selector-container
+              label.user-fullname {{userLogin.fullName}}
+              div.mt-05
+                md-menu
+                  div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                    span {{currentCompany.name}}
+                    span
+                      i.material-icons arrow_drop_down
+
+                  md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
+                    md-menu-item(ng-repeat="item in userCompanies" ng-class="{'selected': item.nameID == currentCompany.nameID}")
+                      a(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
+              
+              div.account-selector.mt-05
+                md-menu
+                  div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                    span Cuenta Nº {{currentAccount.name}}
+                    span
+                      i.material-icons arrow_drop_down
+
+                  md-menu-content(width="2" ng-mouseleave="$mdMenu.close()")
+                    md-menu-item(ng-repeat="item in currentCompany.accounts" ng-class="{'selected': item.name == currentAccount.name}")
+                      a(ng-click="$mdMenu.close();selectAccount(item);") {{item.name}}
+
+            div.logout.column.pull-right
+              i.material-icons(ng-click="logout()") exit_to_app
+              i.material-icons(ng-click="closeToggle('left')") close
+
+  div.menu-container
+    uib-accordion
+      div.panel-default(uib-accordion-group)
+        uib-accordion-heading
+          div.headder-menu
+            span.label Inicio
+        
+        ul.menu-list
+          li.grouping
+            i.material-icons.icon home
+            span.label Inicio
+          li.link 
+            span.label Resumen
+          li.link 
+            span.label Saldo y Movimientos
+          li.link
+            span.label Línea de Crédito
+
+        ul.menu-list
+          li.grouping
+            i.material-icons.icon person_add
+            span.label Perfilamiento
+          li.link
+            span.label Crear Usuario
+          li.link
+            span.label Usuarios
+      
+      div.panel-default(uib-accordion-group)
+        uib-accordion-heading
+          div.headder-menu
+            span.label Transferencias
+        
+        ul.menu-list
+          li.grouping
+            i.material-icons.icon home
+            span.label Transferencias
+          li.link 
+            span.label Resumen
+          li.link
+            span.label Históricas
+          li.link
+            span.label Transferir
+          li.link
+            span.label Crear Nómina
+
+        ul.menu-list
+          li.grouping
+            i.material-icons.icon people
+            span.label Destinatarios
+          li.link
+            span.label Lista de Destinatarios
+
+      div.panel-default(uib-accordion-group)
+        uib-accordion-heading
+          div.headder-menu
+            span.label Productos
+
+        ul.menu-list
+          li.grouping
+            i.material-icons.icon home
+            span.label Productos
+          li.link
+            span.label Crédito Comercial
+          li.link
+            span.label Depósito a plazo
+          li.link
+            span.label Forward
+          li.link
+            span.label Leasing
+
+        ul.menu-list
+          li.link
+            span.label Factoring
+          li.link
+            span.label Mesa
+          li.link
+            span.label Boleta de Garantia
+          li.link
+            span.label Comex
+
+          
 
 md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
   div.p-2
@@ -154,4 +278,4 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
         span.sub-title-value Mail - Direccion Particular
 
     div.row.mt-5
-      button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle()") CONTACTAR A EJECUTIVO
+      button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle('right')") CONTACTAR A EJECUTIVO
