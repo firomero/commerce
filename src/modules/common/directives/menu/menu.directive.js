@@ -47,7 +47,7 @@ export default function MenuDirective(MoneyChangeService) {
 			}
 			
 			$scope.menuActive = item.text;
-			$scope.activeAccountSelector = $scope.menuActive == 'TRANSFERENCIAS' && $scope.isopen ? true : false;
+			$scope.activeAccountSelector = ($scope.menuActive == 'TRANSFERENCIAS' || $scope.menuActive == 'PRODUCTOS') && $scope.isopen ? true : false;
 			$scope.$emit('account-selector::view');
 		}
 

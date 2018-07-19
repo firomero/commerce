@@ -46,7 +46,7 @@
             }
         }
         .action-container.custom.first {
-            bottom: -55px;
+            bottom: -40px;
         }
 
         .grap {
@@ -59,6 +59,7 @@
     md-card.notification {
 
         height: 155px;
+        margin: 0px !important;
 
         .title, .sub-title {
             font-family: Roboto;
