@@ -25,12 +25,12 @@ header
             div.column.company-selector-container
               label.user-fullname {{userLogin.fullName}}
               md-menu
-                div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                a.company-selector(ng-click="$mdMenu.open($event)")
                   span {{currentCompany.name}}
                   span
                     i.material-icons arrow_drop_down
 
-                md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
+                md-menu-content(width="5")
                   md-menu-item(ng-repeat="item in userCompanies" ng-class="{'selected': item.nameID == currentCompany.nameID}")
                     a(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
 

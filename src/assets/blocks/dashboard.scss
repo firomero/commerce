@@ -41,7 +41,7 @@
 
         .action-container.custom {
             position: absolute;
-            right: 25;
+            right: 15;
             bottom: -40px;
 
             .action {
@@ -84,6 +84,7 @@
             font-size: 12px;
         }
         h3 {
+            font-family: Roboto;
             font-size: 30px;
             color: #4A4A4A;
             font-weight: 400;
@@ -118,6 +119,11 @@
     }
     .dashboard-container .poster .grap {
         margin-right: 2.5rem !important;
+    }
+}
+@media (max-width: 500px) {//col-xs
+    .dashboard-container .poster .action-container.custom.refactor {
+        bottom: -52px;
     }
 }
 

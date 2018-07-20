@@ -43,10 +43,15 @@ header {
                         text-transform: uppercase;
                         margin-bottom: 0px;
                         font-family: Roboto;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-weight: 700;
                         letter-spacing: -0.39px;
                         line-height: 19px;
+                    }
+
+                    md-menu { 
+                        display: block !important;
+                        cursor: pointer;
                     }
     
                     .company-selector {
@@ -59,7 +64,7 @@ header {
     
                         span:first-child {
                             font-family: Roboto;
-                            font-size: 14px;
+                            font-size: 16px;
                             font-weight: 400;
                             letter-spacing: -0.34px;                      
                         }

@@ -49,7 +49,7 @@ account-list {
 
     .action-container {
         position: absolute;
-        right: 5 !important;
+        right: 0 !important;
         bottom: -60px;
 
         .action {
@@ -93,13 +93,14 @@ account-list {
 
     .tag-text {
         font-family: Roboto;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 500;
         font-style: normal;
         font-stretch: normal;
         color: #4a4a4a;
         letter-spacing: -0.31px;
         line-height: 16px;
+        padding-right: 0px;
     }
       
     .tag-value {
@@ -107,7 +108,7 @@ account-list {
         font-style: normal;
         font-stretch: normal;
         color: #4a4a4a;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 400;
         letter-spacing: -0.31px;
         line-height: 16px;
@@ -119,7 +120,11 @@ account-list {
     }
 }
 
-
+@media (max-width: 500px) {//col-xs
+    account-list .action-container {
+        bottom: -75px !important;
+    }
+}
 
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
