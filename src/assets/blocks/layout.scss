@@ -81,8 +81,8 @@ md-sidenav.md-sidenav-left {
 
                 .logout { 
 
-                    i + i {margin-left: 1em;}
-                    i { font-size: 18px;cursor: pointer; }
+                    a + a {margin-left: 1em;}
+                    a { font-size: 18px; }
                 }
             }
         }
@@ -136,12 +136,12 @@ md-sidenav.md-sidenav-left {
     md-sidenav.md-sidenav-left .md-toolbar-tools .user-profile .user-login .company-selector-container {
         margin-right: 5px;
     }
-    md-sidenav.md-sidenav-left .md-toolbar-tools .user-profile .user-login .logout i {
+    md-sidenav.md-sidenav-left .md-toolbar-tools .user-profile .user-login .logout a {
         display: block;
     }
     md-sidenav.md-sidenav-left .md-toolbar-tools .user-profile .user-login .logout {
 
-        i + i {
+        a + a {
             margin-left: 0px;
             margin-top: 2rem;
         }
@@ -153,16 +153,18 @@ md-sidenav.md-sidenav-left {
     md-sidenav.md-sidenav-left {
         width: 460px !important;
     }
+    md-sidenav.md-sidenav-right { width: 300px !important; }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     md-sidenav.md-sidenav-left {
         width: 460px !important;
     }
-
+    md-sidenav.md-sidenav-right { width: 300px !important; }
 }
 @media (min-width: 1200px) {//col-lg
 
     md-sidenav.md-sidenav-left {
         width: 400px !important;
     }
+    md-sidenav.md-sidenav-right { width: 300px !important; }
 }

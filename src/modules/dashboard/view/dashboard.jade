@@ -101,7 +101,8 @@ section.bg-gray.dashboard-container
               div.row.p-15px.pos-r
                 div.float-menu
                   md-menu
-                    i.material-icons(ng-click="$mdMenu.open($event)") more_vert
+                    a.pointer(ng-click="$mdMenu.open($event)")
+                      i.material-icons more_vert
                     md-menu-content(width="3")
                       md-menu-item 
                         a(ng-click="selectProduct('LEASING')") Leasing

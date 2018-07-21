@@ -5,7 +5,8 @@ header
       div.row.w-100.m-0
         div.logo
           div.column.mr-2.visible-md.visible-sm.visible-xs
-            i.material-icons.menu-icon(ng-click="openToggle('left')") format_align_justify
+            a.pointer(ng-click="openToggle('left')")
+              i.material-icons.menu-icon format_align_justify
           div.column.pt-15px
             img(src="images/logoBanco100.png")
         div.user-profile.visible-lg
@@ -21,11 +22,12 @@ header
           div.column.user-login
             div.column.mr-15px
               div.pt-15px
-                img.user-logo(src="images/user.png" ng-click="openToggle('right')")
+                a.pointer(ng-click="openToggle('right')")
+                  img.user-logo(src="images/user.png")
             div.column.company-selector-container
               label.user-fullname {{userLogin.fullName}}
               md-menu
-                a.company-selector(ng-click="$mdMenu.open($event)")
+                a.pointer.company-selector(ng-click="$mdMenu.open($event)")
                   span {{currentCompany.name}}
                   span
                     i.material-icons arrow_drop_down
@@ -36,12 +38,12 @@ header
 
             div.column.account-selector(ng-if="currentCompany.accounts.length && activeAccountSelector")
               md-menu
-                div(ng-mouseenter="$mdMenu.open()") 
+                a.pointer(ng-click="$mdMenu.open($event)")
                   span Cuenta Nº {{currentAccount.name}}
                   span
                     i.material-icons arrow_drop_down
 
-                md-menu-content(width="2" ng-mouseleave="$mdMenu.close()")
+                md-menu-content(width="2")
                   md-menu-item(ng-repeat="item in currentCompany.accounts" ng-class="{'selected': item.name == currentAccount.name}")
                     a(ng-click="$mdMenu.close();selectAccount(item);") {{item.name}}
 
@@ -62,7 +64,7 @@ div.bg-gray
       div.col-lg-2.col-md-2.col-sm-2.col-xs-12.pl-3
         img.footer-logo(src="images/footer.png")
     
-      div.col-lg-10.col-md-10.col-sm-10.col-xs-12
+      div.col-lg-10.col-md-10.col-sm-10.col-xs-12.pl-0
         p.m-0
           a(href="#") Términos y Condiciones | 
           a(href="#") Política de Privacidad | 
@@ -85,34 +87,37 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
           div.user-login
             div.column.mr-15px
               div.pt-1
-                img.user-logo(src="images/user.png" ng-click="openToggle('right')")
+                a.pointer(ng-click="openToggle('right')")
+                  img.user-logo(src="images/user.png")
             div.column.company-selector-container
               label.user-fullname {{userLogin.fullName}}
               div.mt-05
                 md-menu
-                  div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                  a.pointer.company-selector(ng-click="$mdMenu.open($event)")
                     span {{currentCompany.name}}
                     span
                       i.material-icons arrow_drop_down
 
-                  md-menu-content(width="5" ng-mouseleave="$mdMenu.close()")
+                  md-menu-content(width="5")
                     md-menu-item(ng-repeat="item in userCompanies" ng-class="{'selected': item.nameID == currentCompany.nameID}")
-                      a(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
+                      a.pointer(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
               
               div.account-selector.mt-05
                 md-menu
-                  div.company-selector(ng-mouseenter="$mdMenu.open()") 
+                  a.pointer.company-selector(ng-click="$mdMenu.open($event)") 
                     span Cuenta Nº {{currentAccount.name}}
                     span
                       i.material-icons arrow_drop_down
 
-                  md-menu-content(width="2" ng-mouseleave="$mdMenu.close()")
+                  md-menu-content(width="2")
                     md-menu-item(ng-repeat="item in currentCompany.accounts" ng-class="{'selected': item.name == currentAccount.name}")
                       a(ng-click="$mdMenu.close();selectAccount(item);") {{item.name}}
 
             div.logout.column.pull-right
-              i.material-icons(ng-click="logout()") exit_to_app
-              i.material-icons(ng-click="closeToggle('left')") close
+              a.pointer(ng-click="logout()")
+                i.material-icons exit_to_app
+              a.pointer(ng-click="closeToggle('left')")
+                i.material-icons close
 
   div.menu-container
     uib-accordion
