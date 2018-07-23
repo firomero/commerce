@@ -27,6 +27,7 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 	function forgotPassword() {
 
 		var modalInstance = $uibModal.open({
+			animation: false,
 			ariaLabelledBy: 'modal-title',
 			ariaDescribedBy: 'modal-body',
 			template: require('../view/forgot.jade')(),

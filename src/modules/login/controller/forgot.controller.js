@@ -6,7 +6,7 @@ export default function ForgotController($scope, $timeout, $uibModal, $uibModalI
 	$scope.maxStep = 3;
 	$scope.confirmationInfoEmail = false;
 	$scope.stepData = [
-		{ step: 1, completed: false, data: {password: '10.456.789-0'} },
+		{ step: 1, completed: false, data: {} },
 		{ step: 2, completed: false, data: {} },
 		{ step: 3, completed: false, data: {} },
 	];

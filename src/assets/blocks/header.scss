@@ -92,8 +92,10 @@ header {
             }
 
             .logout { 
-                margin-left: 15px;
-                margin-top: 15px;
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                
                 i { font-size: 20px;cursor: pointer; }
             }
         }

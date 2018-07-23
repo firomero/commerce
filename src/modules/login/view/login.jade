@@ -19,7 +19,7 @@ div.container.login
                 i.material-icons.cso-form-glass__input-icon person
                 label Nombre
               div.form-element
-                input(name="username" type="text" ng-model="model.username" required="required")
+                input(name="username" type="text" placeholder="Ingrese" autocomplete="off" ng-model="model.username" required="required")
           div.row
             input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
             button.button-success.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
@@ -39,7 +39,7 @@ div.container.login
                 i.material-icons.cso-form-glass__input-icon person
                 label Rut
               div.form-element
-                input(name="rut" type="text" ng-model="model.rut" required="required")
+                input(name="rut" type="text" placeholder="Ingrese" autocomplete="off" autofocus ng-model="model.rut" required="required")
           div.row
             input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
             botton.button-success.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
@@ -61,7 +61,7 @@ div.container.login
                 i.material-icons.cso-form-glass__input-icon https
                 label Clave
               div.form-element
-                input(name="rut" type="password" ng-model="model.password" required="required")
+                input(name="rut" type="password" autocomplete="off" ng-model="model.password" required="required")
           div.row
             input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
             botton.button-success.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")

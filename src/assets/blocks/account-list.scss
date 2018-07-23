@@ -139,6 +139,7 @@ account-list {
     }
     account-list .title { position: relative; }
     account-list md-tabs { margin-top: 1rem; }
+    .border-left {margin-top: 2rem;border-left: none !important;}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     account-list md-tab-content {
@@ -152,6 +153,7 @@ account-list {
     }
     account-list .title { position: relative; }
     account-list md-tabs { margin-top: 1rem; }
+    .border-left {margin-top: 2rem;border-left: none !important;}
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     account-list md-tab-content {
@@ -159,4 +161,5 @@ account-list {
     }
     account-list md-tab-item { margin: 0 10px; }
     account-list md-tabs-wrapper {  width: calc(100% - 25rem) !important; }
+    .border-left {margin-top: 2rem;border-left: none !important;}
 }

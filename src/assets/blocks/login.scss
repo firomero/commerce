@@ -123,6 +123,11 @@ div.backdrop {
         font-weight: 400;
         letter-spacing: -0.41px;
         line-height: 32px;
+
+        &::-webkit-input-placeholder { color: $c-white; }
+        &::-moz-placeholder { color: $c-white; }
+        &::-ms-input-placeholder { color: $c-white; }
+        &::-moz-placeholder { color: $c-white; }
     }
 
     .input-form .form-element input:focus {

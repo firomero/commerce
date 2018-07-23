@@ -45,7 +45,7 @@ div.container.forgot
                   i.material-icons person
                   label.rut Rut
                 div.form-element
-                  input(name="rut" type="text" ng-model="stepData[0].data.password" required="required")
+                  input(name="rut" type="text" autocomplete="off" placeholder="Ingrese 10.456.789-0" ng-model="stepData[0].data.password" autofocus required="required")
 
             div.row.m-0.pb-2
               button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="close()") CANCELAR
@@ -59,13 +59,13 @@ div.container.forgot
                 div.form-text
                   label ¿Ciudad donde nació?
                 div.form-element
-                  input(name="question1" type="password" ng-model="stepData[1].data.question1" required="required")
+                  input(name="question1" type="password" autocomplete="off" ng-model="stepData[1].data.question1" required="required")
 
               div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-12(input-focus=".form-element input" focus-class="is-focused-black")
                 div.form-text
                   label ¿Nombre de tu primera mascota?
                 div.form-element
-                  input(name="question2" type="password" ng-model="stepData[1].data.question2" required="required")
+                  input(name="question2" type="password" autocomplete="off" ng-model="stepData[1].data.question2" required="required")
 
             div.row.m-0.pb-2
               button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="moveToPreviousStep()") VOLVER
@@ -79,19 +79,19 @@ div.container.forgot
                 div.form-text
                   label Clave de recuperación
                 div.form-element
-                  input(name="password1" type="password" ng-model="stepData[2].data.recuperacion" required="required")
+                  input(name="password1" type="password" autocomplete="off" ng-model="stepData[2].data.recuperacion" required="required")
 
               div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-12(input-focus=".form-element input" focus-class="is-focused-black")
                 div.form-text
                   label Nueva Clave
                 div.form-element
-                  input(name="password2" type="password" ng-model="stepData[2].data.password" required="required")
+                  input(name="password2" type="password" autocomplete="off" ng-model="stepData[2].data.password" required="required")
 
               div.input-form.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-12(input-focus=".form-element input" focus-class="is-focused-black")
                 div.form-text
                   label Confirmar Clave
                 div.form-element
-                  input(name="password3" type="password" ng-model="stepData[2].data.repassword" required="required")
+                  input(name="password3" type="password" autocomplete="off" ng-model="stepData[2].data.repassword" required="required")
 
             div.row.m-0.pb-2
               button.button-default.col-lg-offset-4.col-lg-2.col-md-offset-4.col-md-2.col-sm-offset-3.col-sm-3.col-xs-offset-2.col-xs-4(ng-click="moveToPreviousStep()") VOLVER

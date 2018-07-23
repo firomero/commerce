@@ -84,6 +84,11 @@ menu {
         z-index: 1;
         p {font-family: Roboto;}
 
+        .open > .dropdown-menu {
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1); 
+        }
+
         .dropdown-menu {
             width: 100%;
             border-radius: 0px;
@@ -94,6 +99,16 @@ menu {
             padding-bottom: 0px;
             padding-top: 0px;
             margin-top: 0px;
+            display: block;
+
+            transition: all 0.2s ease-out;
+            -webkit-transition: all 0.2s ease-out;
+            -webkit-transform-origin: top;
+            transform-origin: top;
+            -webkit-animation-fill-mode: forwards;  
+            animation-fill-mode: forwards; 
+            -webkit-transform: scale(1, 0);
+          
 
             .section .title, .link {
                 display: block;
