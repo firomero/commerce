@@ -1,4 +1,4 @@
-export default function AccountListDirective() {
+export default function AccountListDirective($rootScope) {
 	'ngInject';
 	
 	var directive = {
@@ -41,6 +41,16 @@ export default function AccountListDirective() {
 				}];
 			}
 		}
+
+		$scope.onTabSelected = onTabSelected;
+
+
+		function onTabSelected(item) {
+
+			$scope.activeTab = item;
+			$scope.$emit('active::account');
+		}
+		
 	}
 
 	return directive;

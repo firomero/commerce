@@ -2,6 +2,7 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 	'ngInject';
 
 	$scope.saving = false;
+	$scope.showRut = 0;
 	$scope.setLoadingStep = setLoadingStep;
 	$scope.forgotPassword = forgotPassword;
 	$scope.finishedWizard = finishedWizard;
@@ -20,7 +21,8 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 		$timeout(1000).then(function() {
 
 			$scope.saving = false;
-			WizardHandler.wizard().next();		
+			WizardHandler.wizard().next();
+			$scope.showRut++;
 		});
 	}
 
@@ -56,5 +58,6 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 
 		activate()
 		$scope.saving = false;
+		$scope.showRut = 0;
 	}
 }

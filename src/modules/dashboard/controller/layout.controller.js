@@ -66,5 +66,11 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         
         $scope.activeAccountSelector = data.targetScope.activeAccountSelector && data.targetScope.isopen;
     });
+
+    $scope.$on('active::account', function(data) {
+        
+        if (data.targetScope.activeTab)
+            $scope.selectAccount(data.targetScope.activeTab);
+    });
 }
     
