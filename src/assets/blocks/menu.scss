@@ -33,50 +33,68 @@ menu {
                 position: absolute;
             }
         }
-        ul.tabs {
+        .tabs {
 
-            margin: 0px;
-            padding-left: 0px;
-            height: 100%;
-
-            .tab { 
-                list-style: none;
-                padding: 10px 0px;
+            md-ink-bar {
+                color: $c-blue-light;
+                background: $c-blue-light;
+                height: 3px !important;
+            }
+            md-pagination-wrapper { height: 40px; }
+            md-tab-item {
+                padding: 0px 0px;
                 margin: 0px 3rem;
-                display: inline-block;
-                vertical-align: top;
-                line-height: 30px;
-                
-                a {
-                    color: $c-black;
-                    font-family: Roboto;
-                    font-size: 13px;
-                    font-weight: 500;
-                    letter-spacing: 0.46px;
-                    padding-bottom: 3px;
-                    border-bottom: 3px solid transparent;
-                }
-                a:hover {
-                    text-decoration: none;
-                    font-weight: 700;
-                    color: #4A4A4A;
-                    cursor: pointer;
-                }
-                a.disabled {
-                    opacity: .4;
-                }
-                a.disabled:hover {
-                    color: $c-black;
-                    font-weight: 500;
-                    cursor: initial;
-                }
-            }
-            .tab:first-child { margin-left: 0px; }
-            .tab.active a { 
+                line-height: 48px;
                 color: #4A4A4A;
-                font-weight: 700;
-                border-bottom: 3px solid $c-blue-light;
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 500;
+                letter-spacing: 0.46px;
             }
+            md-tab-item:first-child { margin-left: 0px; }
+
+            // margin: 0px;
+            // padding-left: 0px;
+            // height: 100%;
+
+            // md-tab-item { 
+            //     list-style: none;
+            //     padding: 10px 0px;
+            //     margin: 0px 3rem;
+            //     display: inline-block;
+            //     vertical-align: top;
+            //     line-height: 30px;
+                
+            //     a {
+            //         color: $c-black;
+            //         font-family: Roboto;
+            //         font-size: 13px;
+            //         font-weight: 500;
+            //         letter-spacing: 0.46px;
+            //         padding-bottom: 3px;
+            //         border-bottom: 3px solid transparent;
+            //     }
+            //     a:hover {
+            //         text-decoration: none;
+            //         font-weight: 700;
+            //         color: #4A4A4A;
+            //         cursor: pointer;
+            //     }
+            //     a.disabled {
+            //         opacity: .4;
+            //     }
+            //     a.disabled:hover {
+            //         color: $c-black;
+            //         font-weight: 500;
+            //         cursor: initial;
+            //     }
+            // }
+            // md-tab-item:first-child { margin-left: 0px; }
+            // .tab.active a { 
+            //     color: #4A4A4A;
+            //     font-weight: 700;
+            //     border-bottom: 3px solid $c-blue-light;
+            // }
         }
     }
 
@@ -85,31 +103,16 @@ menu {
         z-index: 1;
         p {font-family: Roboto;}
 
-        .open > .dropdown-menu {
-            -webkit-transform: scale(1, 1);
-            transform: scale(1, 1); 
-        }
-
-        .dropdown-menu {
+        .menu-body {
             width: 100%;
             border-radius: 0px;
             height: 300px;
-            top: -1px;
             border: none;
             box-shadow: 0 9px 12px rgba(0,0,0,.175);
             padding-bottom: 0px;
             padding-top: 0px;
             margin-top: 0px;
-            display: block;
-
-            transition: all 0.2s ease-out;
-            -webkit-transition: all 0.2s ease-out;
-            -webkit-transform-origin: top;
-            transform-origin: top;
-            -webkit-animation-fill-mode: forwards;  
-            animation-fill-mode: forwards; 
-            -webkit-transform: scale(1, 0);
-          
+            background-color: $c-white;
 
             .section .title, .link {
                 display: block;

@@ -12,7 +12,7 @@ export default function MenuDirective(MoneyChangeService) {
 
 	function link($scope, $element, $attrs) {
 
-		$scope.isopen = false;
+		$scope.isopen = true;
 		$scope.tooglePrice = false;
 		$scope.menuActive = 'INICIO';
 		$scope.menuItems = [{
@@ -38,16 +38,18 @@ export default function MenuDirective(MoneyChangeService) {
 			this.tooglePrice = !this.tooglePrice;
 		}
 	
-		function toggleDropdown($event, item) {
+		function toggleDropdown(item) {
 
-			$event.preventDefault();
-			$event.stopPropagation();
-			if (!$scope.isopen) {
+			if ($scope.isopen) {
 				$scope.isopen = !$scope.isopen;
+			}else {
+				if ($scope.menuActive == item.text) {
+					$scope.isopen = !$scope.isopen;
+				}
 			}
 			
 			$scope.menuActive = item.text;
-			$scope.activeAccountSelector = ($scope.menuActive == 'TRANSFERENCIAS' || $scope.menuActive == 'PRODUCTOS') && $scope.isopen ? true : false;
+			$scope.activeAccountSelector = ($scope.menuActive == 'TRANSFERENCIAS' || $scope.menuActive == 'PRODUCTOS') && !$scope.isopen ? true : false;
 			$scope.$emit('account-selector::view');
 		}
 

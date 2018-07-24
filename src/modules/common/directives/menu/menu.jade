@@ -4,17 +4,21 @@ div.menu
     i.material-icons access_time
     label Al 17 de Abril del 2018 / 14:34 hrs
   div.container
-    ul.tabs
-      li.tab(ng-disabled="item.disabled" ng-class="{'active': item.text == menuActive}" ng-repeat="item in menuItems")
-        a(ng-click="toggleDropdown($event, item)") {{item.text}}
+    md-tabs.tabs
+      md-tab(label="{{item.text}}" ng-click="toggleDropdown(item)" ng-disabled="item.disabled" ng-repeat="item in menuItems")
+      md-tab(label="DOCUMENTS" ng-click="toggleDropdown()" ng-disabled="true")
+    //- ul.tabs
+    //-   li.tab(ng-disabled="item.disabled" ng-class="{'active': item.text == menuActive}" ng-repeat="item in menuItems")
+    //-     a(ng-click="toggleDropdown($event, item)") {{item.text}}
       
-      li.tab
-        a.disabled DOCUMENTOS
+    //-   li.tab
+    //-     a.disabled DOCUMENTOS
 
 div.menu-collapse
-  div(uib-dropdown is-open="isopen")
+  div(uib-collapse="isopen")
     div.shadow
-    div.dropdown-menu(uib-dropdown-menu role="menu" aria-labelledby="single-button")
+    
+    div.menu-body
       div.row.m-0(ng-if="menuActive == 'INICIO'")
         div.col-lg-3.pt-3.pl-8
           div.title 
