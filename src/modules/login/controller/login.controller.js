@@ -11,6 +11,7 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 
 	function activate() {
 
+		$scope.object = {};
 		$scope.model = UserService.login();
 		$scope.companies = CompanyService.getCompanies();
 	}
@@ -49,6 +50,7 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 	}
 
 	function finishedWizard() {
+		$scope.model.currentCompany = $scope.object.currentCompany;
 		localStorage.setItem('userLogin', JSON.stringify($scope.model));
 		localStorage.removeItem('user');
 		$location.path('/dashboard');

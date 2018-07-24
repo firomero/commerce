@@ -34,6 +34,10 @@
 // loading blocks
 @import 'vars/colors';
 
+:focus {
+    outline: none;
+}
+
 // loading blocks
 @import 'blocks/button';
 @import 'blocks/extra-layout';

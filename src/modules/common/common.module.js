@@ -7,6 +7,7 @@ import CompanyService from './services/company.service';
 import MoneyChangeService from './services/money.change.service';
 
 import InputFocusDirective from './directives/input-focus/input-focus.directive';
+import AutoFocusDirective from './directives/auto-focus/auto-focus.directive';
 import PerfectScrollDirective from './directives/perfect-scroll/perfect-scroll.directive';
 import AccountListDirective from './directives/account-list/account-list.directive';
 import MenuDirective from './directives/menu/menu.directive';
@@ -29,6 +30,7 @@ commonModule.service('UserService', UserService);
 commonModule.service('CompanyService', CompanyService);
 
 commonModule.directive('inputFocus', InputFocusDirective);
+commonModule.directive('autoFocus', AutoFocusDirective);
 commonModule.directive('perfectScroll', PerfectScrollDirective);
 commonModule.directive('accountList', AccountListDirective);
 commonModule.directive('menu', MenuDirective);
