@@ -44,7 +44,7 @@ section.bg-gray.dashboard-container
                   div
                     ui-knob(value="rating.transferencias.value" options="rating.transferencias.options")
 
-            div.action-container.custom.first
+            div.action-container.custom.transfer
               div.text-center
                 md-button.md-fab.success
                   i.material-icons.rotate90 import_export
@@ -86,7 +86,7 @@ section.bg-gray.dashboard-container
                 div.col-lg-8.col-md-7.col-sm-8.col-xs-12.graficas
                   div.grap(ng-repeat="grap in rating.solicitudes")
                     ui-knob(value="grap.value" options="grap.options")
-            div.action-container.custom
+            div.action-container.custom.solicitudes
               div.text-center
                 md-button.md-fab.success
                   i.material-icons list
@@ -122,13 +122,13 @@ section.bg-gray.dashboard-container
                 div.col-lg-5.col-md-5.col-sm-5.col-xs-5
                   div
                     ui-knob(value="rating.factoring.value" options="rating.factoring.options")
-            div.action-container.custom
+            div.action-container.custom.productos
               div.action.text-center
                 md-button.md-fab.success
                 div.button-text.text-center Label
 
-              div.action.text-center.ml-1
-                md-button.md-fab.success
+              div.action.text-center
+                md-button.md-fab.success.ml-2px
                 div.button-text.text-center Label
                 
     //list account
