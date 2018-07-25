@@ -64,7 +64,7 @@ menu {
         .menu-body {
             width: 100%;
             border-radius: 0px;
-            height: 300px;
+            height: 250px;
             border: none;
             box-shadow: 0 9px 12px rgba(0,0,0,.175);
             padding-bottom: 0px;
@@ -132,17 +132,162 @@ menu {
             .picture {
                 padding-right: 0px;                
                 background-size: cover;
-                background-position: inherit;
                 height: 100%;
             }
             .picture.inicio {
-                background-image: url('images/menu-banner.png');
+                background-image: url('images/menu_dashboard.jpg');
+                background-repeat: no-repeat;
+                background-position: 120% 24%;
+                background-size: 500px;
+                padding-left: 0px;
+
+                .text-container {
+                    height: 100%;
+                    width: 400px;
+                    padding-right: 100px;
+                    background: linear-gradient(90deg, #FFFFFF 52%, rgba(15, 42, 79, 0) 100%);
+                    padding-top: 8px;
+                
+                    .title-text {
+                        color: $c-black-light;
+                        font-family: Roboto;
+                        font-size: 20px;
+                        font-weight: 400;
+                        letter-spacing: -0.48px;
+                        line-height: 24px;
+                        margin-bottom: 10px;
+                    }
+                    .middle-text {
+                        color: #4A4A4A;
+                        font-family: HelveticaNeue;
+                        font-size: 14px;
+                        font-weight: 300;
+                        letter-spacing: -0.34px;
+                        line-height: 17px;
+                        margin-bottom: 17px;
+                    }
+                    .text-extra {
+                        color: #4A4A4A;
+                        font-family: Roboto;
+                        font-size: 12px;
+                        font-weight: 300;
+                        letter-spacing: -0.24px;
+                        line-height: 14px;
+                    }
+                    button {
+                        background-color: #000000;
+                        border: 1.13px solid #A6A6A6;
+                        border-radius: 5.67px;
+                        color: $c-white;
+                        padding: 3px 6px;
+
+                        img {
+                            display: block;
+                            float: left;
+                            width: 31px;
+                            margin-right: 8px;
+                            margin-top: 2px;
+                        }
+                        small {
+                            display: block;
+                            float: left;
+                            font-size: 10px;
+                        }
+                        span {
+                            font-size: 16px;
+                            font-weight: 900;
+                            float: left;
+                        }
+                    }
+                    button.google { width: 140px; }
+                    button.store { width: 131px; }         
+                }
             }
             .picture.transferencia {
-                background-image: url('images/menu-banner2.png');
+                background-image: url('images/menu_transfer.jpg');
+                background-repeat: no-repeat;
+                background-position: 101% 97%;
+                background-size: 443px;
+                padding-left: 0px;
+
+                .text-container {
+                    height: 100%;
+                    width: 400px;
+                    padding-right: 100px;
+                    background: linear-gradient(90deg, #FFFFFF 52%, rgba(15, 42, 79, 0) 100%);
+                    padding-top: 8px;
+                    
+                    .title-text {
+                        color: $c-black-light;
+                        font-family: Roboto;
+                        font-size: 20px;
+                        font-weight: 400;
+                        letter-spacing: -0.48px;
+                        line-height: 24px;
+                        margin-bottom: 10px;
+                    }
+                    .middle-text {
+                        color: #4A4A4A;
+                        font-family: HelveticaNeue;
+                        font-size: 14px;
+                        font-weight: 300;
+                        letter-spacing: -0.34px;
+                        line-height: 17px;
+                        margin-bottom: 17px;
+                    }
+                    .text-extra {
+                        color: #4A4A4A;
+                        font-family: Roboto;
+                        font-size: 12px;
+                        font-weight: 300;
+                        letter-spacing: -0.24px;
+                        line-height: 14px;
+                    }
+                    button.button-success { height: 45px; }
+                }
             }
             .picture.product {
                 background-image: url('images/menu_investments.jpg');
+                background-repeat: no-repeat;
+                background-position: 105% 2%;
+                background-size: 410px;
+                padding-left: 0px;
+
+                .text-container {
+                    height: 100%;
+                    width: 500px;
+                    padding-right: 200px;
+                    background: linear-gradient(90deg, #FFFFFF 52%, rgba(15, 42, 79, 0) 100%);
+                    padding-top: 8px;
+                    
+                    .title-text {
+                        color: $c-black-light;
+                        font-family: Roboto;
+                        font-size: 20px;
+                        font-weight: 400;
+                        letter-spacing: -0.48px;
+                        line-height: 24px;
+                        margin-bottom: 10px;
+                    }
+                    .middle-text {
+                        color: #4A4A4A;
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-weight: 400;
+                        letter-spacing: -0.34px;
+                        line-height: 17px;
+                        margin-bottom: 17px;
+                    }
+                    .text-extra {
+                        color: #4A4A4A;
+                        font-family: Roboto;
+                        font-size: 12px;
+                        font-weight: 300;
+                        letter-spacing: -0.24px;
+                        line-height: 14px;
+                    }
+                    button.button-success { height: 45px; }
+                }
             }
             
         }
