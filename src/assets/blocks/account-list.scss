@@ -52,7 +52,7 @@ account-list {
 
     .action-container {
         position: absolute;
-        right: 0!important;
+        right: -4!important;
         bottom: -69px;
 
         .pagar {
@@ -62,6 +62,21 @@ account-list {
             }
             .button-text.text-center {
                 max-width: 65px;
+            }
+        }
+        .credito {
+            .md-fab.success {
+                margin-right: 4px;
+            }
+        }
+        .transfer {
+            .md-fab.success {
+                margin-right: 5px;
+            }
+        }
+        .saldo {
+            .md-fab.success {
+                margin-right: 9px;
             }
         }
 
@@ -140,7 +155,7 @@ account-list {
 @media (max-width: 500px) {//col-xs
     account-list .action-container {
         bottom: -75px !important;
-        right: 3px !important;
+        right: -1px !important;
     }
     account-list .action-container .pagar .button-text.text-center {
         max-width: 59px;
@@ -148,6 +163,10 @@ account-list {
     account-list .action-container .credito .md-fab.success {
         margin-right: 3px;
     }
+    account-list .action-container .transfer .md-fab.success {
+        margin-right: 7px !important;
+    }
+    
 }
 
 /*MEDIA SCREEN*/
