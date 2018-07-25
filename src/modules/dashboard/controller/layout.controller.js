@@ -6,7 +6,6 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.currentAccount = null;
     $scope.currentCompany.nameID = $scope.userLogin.currentCompany;
     $scope.userCompanies = userLogin.companies;
-    $scope.activeAccountSelector = false;
     
     $scope.selectCompany = selectCompany;
     $scope.selectAccount = selectAccount;
@@ -43,7 +42,6 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     function selectAccount(account) {
         
         $scope.currentAccount = account;
-        $scope.$broadcast('account::change', {accountChange: $scope.currentAccount});
     }
 
     function openToggle(position) {
@@ -61,16 +59,5 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         localStorage.removeItem('userLogin');
 		$location.path('/login');
     }
-
-    $scope.$on('account-selector::view', function(data) {
-        
-        $scope.activeAccountSelector = data.targetScope.activeAccountSelector && !data.targetScope.isopen;
-    });
-
-    $scope.$on('active::account', function(data) {
-        
-        if (data.targetScope.activeTab)
-            $scope.selectAccount(data.targetScope.activeTab);
-    });
 }
     

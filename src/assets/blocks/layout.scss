@@ -18,7 +18,7 @@ md-sidenav.md-sidenav-left, md-sidenav.md-sidenav-left .md-toolbar-tools {
 md-sidenav.md-sidenav-left {
     
     .md-toolbar-tools {
-        min-height: 105.94px;
+        min-height: 78.94px;
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.13), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
         .user-profile {
@@ -61,24 +61,7 @@ md-sidenav.md-sidenav-left {
                         }
                     }
                 }
-
-                .account-selector {
-                    
-                    span {
-                        color: $c-white;
-                        font-family: Roboto;
-                        font-size: 11px;
-                        font-weight: 500;
-                        letter-spacing: 0.46px;
-                        line-height: 16px;
-        
-                        i { font-size: 16px; }
-                    }
-                    span:last-child {
-                        float: right;
-                    }
-                }
-
+                
                 .logout { 
 
                     a + a {margin-left: 1em;}
@@ -143,7 +126,7 @@ md-sidenav.md-sidenav-left {
 
         a + a {
             margin-left: 0px;
-            margin-top: 2rem;
+            margin-top: .5rem;
         }
     }
     .footer div:first-child { text-align: center; }

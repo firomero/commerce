@@ -43,10 +43,6 @@ header
                   span
                     i.material-icons arrow_drop_down
 
-                md-menu-content(width="2")
-                  md-menu-item(ng-repeat="item in currentCompany.accounts" ng-class="{'selected': item.name == currentAccount.name}")
-                    a(ng-click="$mdMenu.close();selectAccount(item);") {{item.name}}
-
           div.column.logout
             a.pointer(ng-click="logout()")
               i.material-icons exit_to_app
@@ -87,7 +83,7 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
         div.user-profile
           div.user-login
             div.column.mr-15px
-              div.pt-1
+              div.pt-05
                 a.pointer
                   img.user-logo(src="images/user.png")
             div.column.company-selector-container
@@ -102,17 +98,6 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
                   md-menu-content(width="5")
                     md-menu-item(ng-repeat="item in userCompanies" ng-class="{'selected': item.nameID == currentCompany.nameID}")
                       a.pointer(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
-              
-              div.account-selector.mt-05
-                md-menu
-                  a.pointer.company-selector(ng-click="$mdMenu.open($event)") 
-                    span Cuenta Nº {{currentAccount.name}}
-                    span
-                      i.material-icons arrow_drop_down
-
-                  md-menu-content(width="2")
-                    md-menu-item(ng-repeat="item in currentCompany.accounts" ng-class="{'selected': item.name == currentAccount.name}")
-                      a(ng-click="$mdMenu.close();selectAccount(item);") {{item.name}}
 
             div.logout.column.pull-right
               a.pointer(ng-click="logout()")

@@ -49,17 +49,30 @@ export default function MenuDirective(MoneyChangeService) {
 			}
 			
 			$scope.menuActive = item.text;
-			$scope.activeAccountSelector = ($scope.menuActive == 'TRANSFERENCIAS' || $scope.menuActive == 'PRODUCTOS') && !$scope.isopen ? true : false;
-			$scope.$emit('account-selector::view');
 		}
-
-		$scope.$watch('isopen', function(e) {
-			$scope.$emit('account-selector::view');
-		});
 
 		var inputElement = $element[0].querySelector('.dropdown-menu');
 		angular.element(inputElement).on('click', function(e){
 			e.stopPropagation();
+		});
+
+		$(document).on('click', function(e) {
+
+			console.log(e.target);
+			if (e.target.innerText == 'INICIO' || e.target.innerText == 'TRANSFERENCIAS' || e.target.innerText == 'PRODUCTOS') return;
+
+			var item = null;
+			for (var i = 0; i < $scope.menuItems.length; i++) {
+				if ($scope.menuActive == $scope.menuItems[i].text) {
+					item = $scope.menuItems[i];
+					break;
+				}
+			}
+			var panel = document.querySelector('.menu-collapse > .collapse.in');
+			if (panel) {
+				$scope.isopen = true;
+				$scope.$apply();
+			}
 		});
 	}
 

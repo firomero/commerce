@@ -40,17 +40,7 @@ export default function AccountListDirective($rootScope) {
 					value: data.utilizado
 				}];
 			}
-		}
-
-		$scope.onTabSelected = onTabSelected;
-
-
-		function onTabSelected(item) {
-
-			$scope.activeTab = item;
-			$scope.$emit('active::account');
-		}
-		
+		}		
 	}
 
 	return directive;

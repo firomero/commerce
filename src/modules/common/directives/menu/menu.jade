@@ -7,12 +7,6 @@ div.menu
     md-tabs.tabs
       md-tab(label="{{item.text}}" ng-click="toggleDropdown(item)" ng-disabled="item.disabled" ng-repeat="item in menuItems")
       md-tab(label="DOCUMENTS" ng-click="toggleDropdown()" ng-disabled="true")
-    //- ul.tabs
-    //-   li.tab(ng-disabled="item.disabled" ng-class="{'active': item.text == menuActive}" ng-repeat="item in menuItems")
-    //-     a(ng-click="toggleDropdown($event, item)") {{item.text}}
-      
-    //-   li.tab
-    //-     a.disabled DOCUMENTOS
 
 div.menu-collapse
   div(uib-collapse="isopen")

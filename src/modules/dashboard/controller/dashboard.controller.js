@@ -181,6 +181,4 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 			$scope.loadAccounts = false;
 		}, 30);
 	});
-
-	$scope.$on('account::change', function(data) {});
 }
