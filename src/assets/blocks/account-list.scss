@@ -52,8 +52,18 @@ account-list {
 
     .action-container {
         position: absolute;
-        right: 0 !important;
-        bottom: -60px;
+        right: 0!important;
+        bottom: -69px;
+
+        .pagar {
+
+            .md-fab.success {
+                margin-right: 5px;
+            }
+            .button-text.text-center {
+                max-width: 65px;
+            }
+        }
 
         .action {
             display: inline-block;
@@ -121,11 +131,22 @@ account-list {
         img { height: 50px; }
         h3 { margin-top: 15px; }
     }
+
+    .button-text {
+        max-width: 70px;
+    }
 }
 
 @media (max-width: 500px) {//col-xs
     account-list .action-container {
         bottom: -75px !important;
+        right: 3px !important;
+    }
+    account-list .action-container .pagar .button-text.text-center {
+        max-width: 59px;
+    }
+    account-list .action-container .credito .md-fab.success {
+        margin-right: 3px;
     }
 }
 

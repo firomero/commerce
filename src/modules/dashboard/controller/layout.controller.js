@@ -64,7 +64,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
 
     $scope.$on('account-selector::view', function(data) {
         
-        $scope.activeAccountSelector = data.targetScope.activeAccountSelector && data.targetScope.isopen;
+        $scope.activeAccountSelector = data.targetScope.activeAccountSelector && !data.targetScope.isopen;
     });
 
     $scope.$on('active::account', function(data) {

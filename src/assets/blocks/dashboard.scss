@@ -42,16 +42,17 @@
         .action-container.custom {
             position: absolute;
             right: 15;
-            bottom: -40px;
+            bottom: -45px;
 
             .action {
                 display: inline-block;
                 vertical-align: top;
             }
         }
-        .action-container.custom.first {
-            bottom: -40px;
-        }
+        .action-container.custom.transfer { right: 10px; }
+        .action-container.custom.refactor { right: 13px; }
+        .action-container.custom.solicitudes { right: 18px; } 
+        .action-container.custom.productos { right: 17px; }
 
         .grap {
             display: inline-block;
@@ -124,8 +125,22 @@
     }
 }
 @media (max-width: 500px) {//col-xs
-    .dashboard-container .poster .action-container.custom.refactor {
-        bottom: -52px;
+
+    .dashboard-container .poster .action-container.custom.transfer { 
+        bottom: -38px;
+        right: 3px;
+    }
+    .dashboard-container .poster .action-container.custom.refactor { 
+        bottom: -48px;
+        right: 16px;
+    }
+    .dashboard-container .poster .action-container.custom.solicitudes {
+        bottom: -37px;
+        right: 17px;
+    } 
+    .dashboard-container .poster .action-container.custom.productos { 
+        bottom: -38px;
+        right: 16px;
     }
 }
 

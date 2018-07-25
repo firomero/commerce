@@ -52,49 +52,7 @@ menu {
                 letter-spacing: 0.46px;
             }
             md-tab-item:first-child { margin-left: 0px; }
-
-            // margin: 0px;
-            // padding-left: 0px;
-            // height: 100%;
-
-            // md-tab-item { 
-            //     list-style: none;
-            //     padding: 10px 0px;
-            //     margin: 0px 3rem;
-            //     display: inline-block;
-            //     vertical-align: top;
-            //     line-height: 30px;
-                
-            //     a {
-            //         color: $c-black;
-            //         font-family: Roboto;
-            //         font-size: 13px;
-            //         font-weight: 500;
-            //         letter-spacing: 0.46px;
-            //         padding-bottom: 3px;
-            //         border-bottom: 3px solid transparent;
-            //     }
-            //     a:hover {
-            //         text-decoration: none;
-            //         font-weight: 700;
-            //         color: #4A4A4A;
-            //         cursor: pointer;
-            //     }
-            //     a.disabled {
-            //         opacity: .4;
-            //     }
-            //     a.disabled:hover {
-            //         color: $c-black;
-            //         font-weight: 500;
-            //         cursor: initial;
-            //     }
-            // }
-            // md-tab-item:first-child { margin-left: 0px; }
-            // .tab.active a { 
-            //     color: #4A4A4A;
-            //     font-weight: 700;
-            //     border-bottom: 3px solid $c-blue-light;
-            // }
+            .md-tab.md-active { cursor: pointer; }
         }
     }
 
@@ -113,6 +71,14 @@ menu {
             padding-top: 0px;
             margin-top: 0px;
             background-color: $c-white;
+
+            .panel-group { 
+                margin-bottom: 0px;
+
+                .panel { margin: 0px;border: none; }
+            }
+            .panel-heading { display: none; }
+            .panel-body { padding: 0px; }
 
             .section .title, .link {
                 display: block;
