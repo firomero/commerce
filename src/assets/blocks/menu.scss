@@ -61,10 +61,6 @@ menu {
         z-index: 1;
         p {font-family: Roboto;}
 
-        // .dropdown .menu-body {
-        //     transition: all ease-in-out 1000s;
-        // }
-
         .menu-body {
             width: 100%;
             border-radius: 0px;
@@ -83,6 +79,7 @@ menu {
             }
             .panel-heading { display: none; }
             .panel-body { padding: 0px; }
+            .panel-collapse { transition: height 0.15s ease-in-out; }
 
             .section .title, .link {
                 display: block;
