@@ -8,6 +8,29 @@ div.menu
       md-tab(label="{{item.text}}" ng-click="toggleDropdown(item)" ng-disabled="item.disabled" ng-repeat="item in menuItems")
       md-tab(label="DOCUMENTS" ng-click="toggleDropdown()" ng-disabled="true")
 
+//marketina start
+div.marketina-group(ng-if="tooglePrice")
+  div.marketina.background    
+  div.marketina-container.container
+    div.prices.pl-0.pr-0.pt-1.pb-1.w-100
+      md-tabs
+        md-tab(ng-disabled="true" ng-repeat="change in moneyChange")
+          md-tab-label
+            div
+              span.mr-1.money {{change.text}}
+              span.percent {{change.porcent}}%
+            div.text-left 
+              span.price {{change.cash | currency }}
+div.pos-rel
+  a.toggle-price(ng-click="showPrice()")
+    span Indicadores
+    span.icon.pull-right(ng-if="tooglePrice")
+      i.material-icons arrow_drop_up
+    span.icon.pull-right(ng-if="!tooglePrice")
+      i.material-icons arrow_drop_down
+//marketina end
+
+
 div.menu-collapse
   div(uib-collapse="isopen")
     div.shadow
@@ -97,25 +120,3 @@ div.menu-collapse
                 div.row.ml-0
                   button.button-success.col-lg-9 CTA
 //menu end
-
-//marketina start
-div.marketina-group(ng-if="tooglePrice")
-  div.marketina.background    
-  div.marketina-container.container
-    div.prices.pl-0.pr-0.pt-1.pb-1.w-100
-      md-tabs
-        md-tab(ng-disabled="true" ng-repeat="change in moneyChange")
-          md-tab-label
-            div
-              span.mr-1.money {{change.text}}
-              span.percent {{change.porcent}}%
-            div.text-left 
-              span.price {{change.cash | currency }}
-div.pos-rel
-  a.toggle-price(ng-click="showPrice()")
-    span Indicadores
-    span.icon.pull-right(ng-if="tooglePrice")
-      i.material-icons arrow_drop_up
-    span.icon.pull-right(ng-if="!tooglePrice")
-      i.material-icons arrow_drop_down
-//marketina end

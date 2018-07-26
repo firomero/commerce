@@ -35,7 +35,7 @@ export default function MenuDirective(MoneyChangeService) {
 		}
 		
 		function showPrice() {			
-			this.tooglePrice = !this.tooglePrice;
+			$scope.tooglePrice = !$scope.tooglePrice;
 		}
 	
 		function toggleDropdown(item) {
@@ -48,6 +48,9 @@ export default function MenuDirective(MoneyChangeService) {
 				}
 			}
 			
+			if (!$scope.isopen && $scope.tooglePrice) {
+				$scope.tooglePrice = !$scope.tooglePrice;
+			}
 			$scope.menuActive = item.text;
 		}
 

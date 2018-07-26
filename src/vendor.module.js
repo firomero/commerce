@@ -16,3 +16,4 @@ import 'md-steppers/dist/md-steppers.min.js';
 import 'angular-ui-bootstrap';
 import 'jquery-knob/dist/jquery.knob.min.js';
 import 'ng-ui-knob/dist/ng-knob.js';
+import './assets/lib/ngMask.min.js';

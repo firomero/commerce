@@ -50,9 +50,10 @@ menu {
                 font-size: 13px;
                 font-weight: 500;
                 letter-spacing: 0.46px;
+                opacity: .5;
             }
             md-tab-item:first-child { margin-left: 0px; }
-            .md-tab.md-active { cursor: pointer; }
+            .md-tab.md-active { cursor: pointer;opacity: 1; }
         }
     }
 
@@ -331,8 +332,8 @@ menu {
                         line-height: 18px;
         
                         .money, .price {color: #000;}
-                        .money, .percent { font-size: 10px;font-family: HelveticaNeue; }
-                        .price { font-size: 12px;font-family: HelveticaNeue; }
+                        .money, .percent { font-size: 10px;font-family: Roboto; }
+                        .price { font-size: 12px;font-family: Roboto; }
                         .percent { color: $c-green; }
                     }
                 }

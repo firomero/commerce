@@ -6,7 +6,6 @@ import './modules/common/common.module';
 import './modules/login/login.module';
 import './modules/dashboard/dashboard.module';
 // loading all module components
-// import './components/component.module';
 
 const appModule = angular
 	.module('app', [
@@ -16,6 +15,7 @@ const appModule = angular
 		'ui.bootstrap',
 		'ngResource',
 		'ui.knob',
+		'ngMask',
 		// shared module
 		'app.common',
 		// 3rd party modules
