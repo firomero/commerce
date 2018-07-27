@@ -1,0 +1,16 @@
+firm {
+    
+    cursor: pointer;
+    
+    i {
+        width: 11.36px;
+        height: 11.36px;
+        font-size: 16px !important;
+        color: $c-gray-firm;
+        margin-right: 5px;
+
+        &.success {
+            color: $c-green-firm;
+        }
+    }
+}
