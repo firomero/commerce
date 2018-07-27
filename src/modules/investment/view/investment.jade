@@ -1,16 +1,88 @@
 section.bg-gray.dashboard-container
     div.container
         div.mt-4
-            account-list(list="currentCompany.accounts" title="Monto Disponible" button-transfer-new="true" ng-if="!loadAccounts")
+            account-list(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="true" button-transfer-new="true" ng-if="!loadAccounts")
 
         div
-            md-tabs.md-no-animation(md-dynamic-height)
-                md-tab(label="ESTADO ORDENES DE TRNSFERENCIAS")
+            md-tabs.component.md-no-animation(md-dynamic-height)
+                md-tab(label="ULTIMOS MOVIMIENTOS")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
                             label filters
 
                         md-card.pt-15px.pos-r
+                            div.table-responsive
+                                div.table.custom
+                                    div.thead
+                                        div.tr.flex-row.m-0
+                                            div.th.flex-item-4 Fecha
+                                            div.th.flex-item-8 Description
+                                            div.th.flex-item-3 Serie
+                                            div.th.flex-item-5 Cargos / Abonos
+                                            div.th.flex-item-4 Saldo
+                                    div.tbody
+                                        div.tr-container(ng-repeat="item in lastMovement")
+                                            div.tr.flex-row.m-0
+                                                div.td.flex-item-4 {{item.date}}
+                                                div.td.flex-item-8 {{item.description}}
+                                                div.td.flex-item-3 {{item.serie}}
+                                                div.td.flex-item-5 {{item.cargo | currency}}
+                                                div.td.flex-item-4 {{item.saldo | currency}}
+
+
+                md-tab(label="CARTOLA INTERESES")
+                    md-card.pt-15px.pos-r.filter
+                            label filters
+
+                    md-content.poster
+                        md-card.mt-0.pt-15px.pos-r
+                            div.table-responsive
+                                div.table.custom
+                                    div.thead
+                                        div.tr.flex-row.m-0
+                                            div.th.flex-item-4 Fecha
+                                            div.th.flex-item-6 Saldo Diario
+                                            div.th.flex-item-11 Tasa Diaria
+                                            div.th.flex-item-3 Interes
+                                    div.tbody
+                                        div.tr-container(ng-repeat="item in interes")
+                                            div.tr.flex-row.m-0
+                                                div.td.flex-item-4 {{item.date}}
+                                                div.td.flex-item-6 {{item.saldo | currency}}
+                                                div.td.flex-item-11 {{item.tasa}}%
+                                                div.td.flex-item-3 {{item.interes | currency}}
+
+
+                md-tab(label="CARTOLA HISTORICA")
+                    md-card.pt-15px.pos-r.filter
+                            label filters
+
+                    md-content.poster
+                        md-card.mt-0.pt-15px.pos-r
+                            div.table-responsive
+                                div.table.custom
+                                    div.thead
+                                        div.tr.flex-row.m-0
+                                            div.th.flex-item-4 Año
+                                            div.th.flex-item-5 Mes
+                                            div.th.flex-item-11 Folio
+                                            div.th.flex-item-3 Documentos
+                                    div.tbody
+                                        div.tr-container(ng-repeat="item in historica")
+                                            div.tr.flex-row.m-0
+                                                div.td.flex-item-4 {{item.year}}
+                                                div.td.flex-item-5.text-uppercase {{item.month}}
+                                                div.td.flex-item-11 {{item.folio}}
+                                                div.td.flex-item-3
+                                                    a.pointer Descargar
+
+                
+                md-tab(label="CHEQUES")
+                    md-card.pt-15px.pos-r.filter
+                            label filters
+
+                    md-content.poster
+                        md-card.mt-0.pt-15px.pos-r
                             div.table-responsive
                                 div.table.custom
                                     div.thead
@@ -42,13 +114,4 @@ section.bg-gray.dashboard-container
                                                 div.td.flex-item-3 {{item.estado}}
                                             div.flex-row.m-0.plus-data(ng-if="item.plus")
                                                 label asdasd
-                                        
-
-
-                md-tab(label="DESTINATARIOS")
-                    md-card.pt-15px.pos-r.filter
-                            label filters
-
-                    md-content.poster
-                        md-card.pb-3.pt-15px.pos-r
 

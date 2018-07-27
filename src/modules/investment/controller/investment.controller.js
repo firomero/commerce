@@ -3,6 +3,159 @@ export default function InvestmentController($scope, userLogin, $timeout) {
 
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
+	$scope.lastMovement = [{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Sueldos / Nominas Lorem ipsum dolor set amet',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Sueldos / Nominas Lorem ipsum dolor set amet',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	},{
+		date: '23-04-2016',
+		description: 'Abono de Terceros',
+		serie: '00000000000015',
+		cargo: '400.000',
+		saldo: '400.000.0000'
+	}];
+	$scope.interes = [{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	},{
+		date: '23-04-2016',
+		saldo: '400.000.0000',		
+		tasa: '0,04',
+		interes: '400.000'
+	}];
+	$scope.historica = [{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Mayo',		
+		folio: '32165498'
+	}];
 	$scope.dummyDataTransfer = [{
 		selected: false,
 		plus: false,

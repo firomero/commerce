@@ -1,4 +1,8 @@
-.transfer, account-list {
+md-tabs.component {
+
+    &.md-no-animation md-tab-content {
+        transition: none;
+    }
     
     md-tabs-canvas {
         height: 30px;
@@ -24,8 +28,4 @@
     }
     md-tab-item.md-active { opacity: 1; }
     md-tab-item:first-child { margin-left: 0px; }
-
-    md-tabs.md-no-animation md-tab-content {
-        transition: none;
-    }
 }

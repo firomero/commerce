@@ -1,6 +1,6 @@
 div.pos-r(ng-cloak ng-if="list.length")
   h3.m-0.title {{title}}
-  md-tabs.account-list.md-no-animation(md-dynamic-height md-stretch-tabs="auto")
+  md-tabs.component.account-list.md-no-animation(md-dynamic-height md-stretch-tabs="auto")
     md-tab(label="Cuenta Nº {{item.name}}" md-on-select="onTabSelected(item)" ng-disabled="item.disabled" ng-repeat="item in list")
       md-content.poster
         md-card.pb-3.pt-15px.pos-r
@@ -35,6 +35,10 @@ div.pos-r(ng-cloak ng-if="list.length")
               md-button.md-fab.success
                 i.material-icons.rotate90 import_export
               div.button-text.text-center Transferir
+
+            div.action.text-center(ng-if="buttonCreditSubmit")
+              md-button.md-fab.success
+              div.button-text.text-center Solicitar Crédito
 
             div.action.text-center(ng-if="buttonTransferNew")
               md-button.md-fab.success

@@ -10,6 +10,7 @@ export default function AccountListDirective($rootScope) {
 			title: '@',
 			buttonSaldo: '=',
 			buttonTransfer: '=',
+			buttonCreditSubmit: '=',
 			buttonTransferNew: '=',
 			buttonCredit: '=',
 			buttonCreditLine: '=',
