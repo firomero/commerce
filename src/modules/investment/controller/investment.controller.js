@@ -3,7 +3,120 @@ export default function InvestmentController($scope, userLogin, $timeout) {
 
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
+	$scope.dummyDataTransfer = [{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Alto Monto',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Alto Monto',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Alto Monto',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Pagos Masivos',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Alto Monto',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Alto Monto',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Pagos Masivos',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Alto Monto',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Alto Monto',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	},{
+		selected: false,
+		plus: false,
+		plusData: [],
+		date: '23-04-2016',
+		type: 'Pagos Masivos',
+		origen: '32165498',
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		transferencia: '$400.000',
+		firmas: 3,
+		estado: 'P_AUT'
+	}];
 
+	$scope.toggleAll = toggleAll;
+	$scope.toggle = toggle;
 	activate();
 	
 	function activate() {
@@ -18,6 +131,33 @@ export default function InvestmentController($scope, userLogin, $timeout) {
 				$scope.currentCompany.accounts = userLogin.companies[i].accounts;
 				break;
 			}
+		}
+	}
+
+	function toggleAll(list) {
+		
+		var resetList = $scope.selectedDummyDataTransfer ? false : true;
+		resetItemSelected(list, resetList);
+	}
+	function toggle(item, list, all) {
+
+		var count = countSelectedItems(list);
+		$scope[all] = (!item.selected && count == list.length - 1) ? true : false;
+	}
+
+	function countSelectedItems(list) {
+
+		var count = 0;
+		for(var i = 0; i < list.length; i++) {
+			if (list[i].selected) count++;
+		}
+
+		return count;
+	}
+	function resetItemSelected(list, action) {
+		
+		for(var i = 0; i < list.length; i++) {
+			list[i].selected = action;
 		}
 	}
 	

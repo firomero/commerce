@@ -2,3 +2,54 @@ section.bg-gray.dashboard-container
     div.container
         div.mt-4
             account-list(list="currentCompany.accounts" title="Monto Disponible" button-transfer-new="true" ng-if="!loadAccounts")
+
+
+        div
+            md-tabs.account-list.md-no-animation(md-dynamic-height)
+                md-tab(label="ESTADO ORDENES DE TRNSFERENCIAS")
+                    md-content.poster
+                        md-card.pt-15px.pos-r.filter
+                            label filters
+
+                        md-card.pt-15px.pos-r
+                            div.table-responsive
+                                div.table.custom
+                                    div.thead
+                                        div.tr.flex-row.m-0
+                                            div.th.flex-item-2.check
+                                                md-checkbox.md-primary(ng-click="toggleAll(dummyDataTransfer)" ng-model="selectedDummyDataTransfer") Todo
+                                            div.th.flex-item-3 Fecha
+                                            div.th.flex-item-3.pl-2 Tipo
+                                            div.th.flex-item-3.text-right Cuenta Origen
+                                            div.th.flex-item-4.pl-2 Destinatario
+                                            div.th.flex-item-4.text-right.pr-3 Monto Transferencia
+                                            div.th.flex-item-2 Firmas
+                                            div.th.flex-item-3 Estado
+                                    div.tbody
+                                        div.tr-container(ng-repeat="item in dummyDataTransfer")
+                                            div.tr.flex-row.m-0
+                                                div.td.flex-item-2.check
+                                                    md-checkbox.md-primary(ng-click="toggle(item, dummyDataTransfer, 'selectedDummyDataTransfer')" ng-model="item.selected")
+                                                div.td.flex-item-3.plus-icon
+                                                    i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
+                                                    i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
+                                                    span {{item.date}}
+                                                div.td.flex-item-3.text-right {{item.type}}
+                                                div.td.flex-item-3.text-right {{item.origen}}
+                                                div.td.flex-item-4.text-uppercase.destinatario {{item.destinatario}}
+                                                div.td.flex-item-4.text-right.pr-3 {{item.transferencia}}
+                                                div.td.flex-item-2 
+                                                    firm(count="item.firmas" total="4")
+                                                div.td.flex-item-3 {{item.estado}}
+                                            div.flex-row.m-0.plus-data(ng-if="item.plus")
+                                                label asdasd
+                                        
+
+
+                md-tab(label="DESTINATARIOS")
+                    md-card.pt-15px.pos-r.filter
+                            label filters
+
+                    md-content.poster
+                        md-card.pb-3.pt-15px.pos-r
+

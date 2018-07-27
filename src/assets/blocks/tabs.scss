@@ -1,0 +1,31 @@
+.transfer, account-list {
+    
+    md-tabs-canvas {
+        height: 30px;
+
+        md-pagination-wrapper { height: 30px; }
+        md-ink-bar {
+            color: $c-blue-light;
+            background: $c-blue-light;
+            height: 3px !important;
+        }
+    }
+    md-tab-item {
+        
+        padding: 6px 0px !important;
+        margin: 0px 20px;
+        font-family: Roboto !important;
+        color: #4A4A4A !important;
+        opacity: .5;    
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.46px !important;
+        line-height: 16px !important;
+    }
+    md-tab-item.md-active { opacity: 1; }
+    md-tab-item:first-child { margin-left: 0px; }
+
+    md-tabs.md-no-animation md-tab-content {
+        transition: none;
+    }
+}
