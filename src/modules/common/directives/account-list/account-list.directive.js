@@ -6,12 +6,20 @@ export default function AccountListDirective($rootScope) {
 		template: require('./account-list.jade')(),
 		link: link,
 		scope: {
-			list: '<'
+			list: '<',
+			title: '@',
+			buttonSaldo: '=',
+			buttonTransfer: '=',
+			buttonTransferNew: '=',
+			buttonCredit: '=',
+			buttonCreditLine: '=',
+			buttonCreditLineUp: '='
 		}
 	};
 
 	function link($scope, $element, $attrs) {
 
+		if ($scope.title == undefined) { $scope.title = 'Cuentas Disponibles'; }
 		for (var i = 0; i < $scope.list.length; i++) {
 
 			if (!$scope.list[i].disabled) {

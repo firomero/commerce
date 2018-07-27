@@ -1,9 +1,9 @@
-export default function InvestmentController($scope, userLogin) {
+export default function InvestmentController($scope, userLogin, $timeout) {
 	'ngInject';
 
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
-	
+
 	activate();
 	
 	function activate() {
@@ -19,5 +19,14 @@ export default function InvestmentController($scope, userLogin) {
 				break;
 			}
 		}
-	}	
+	}
+	
+	$scope.$on('company::change', function(data) {
+		
+		$scope.loadAccounts = true;
+		$timeout(function(){
+			$scope.currentCompany = data.targetScope.currentCompany;
+			$scope.loadAccounts = false;
+		}, 30);
+	});
 }
