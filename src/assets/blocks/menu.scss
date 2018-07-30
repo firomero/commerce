@@ -140,16 +140,17 @@ menu {
                 background-image: url('images/menu_dashboard.jpg');
                 background-repeat: no-repeat;
                 background-position: 120% 24%;
-                background-size: 500px;
+                background-size: 55%;
                 padding-left: 0px;
 
                 .text-container {
                     height: 100%;
-                    width: 400px;
-                    padding-right: 100px;
-                    background: linear-gradient(90deg, #FFFFFF 52%, rgba(15, 42, 79, 0) 100%);
+                    width: 100%;
+                    background: linear-gradient(90deg, #FFFFFF 54%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
                 
+                    .container-inner { width: 320px; }
+
                     .title-text {
                         color: $c-black-light;
                         font-family: Roboto;
@@ -214,11 +215,13 @@ menu {
 
                 .text-container {
                     height: 100%;
-                    width: 400px;
+                    width: 100%;
                     padding-right: 100px;
                     background: linear-gradient(90deg, #FFFFFF 52%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
                     
+                    .container-inner { width: 320px; }
+
                     .title-text {
                         color: $c-black-light;
                         font-family: Roboto;
@@ -257,10 +260,12 @@ menu {
 
                 .text-container {
                     height: 100%;
-                    width: 500px;
+                    width: 100%;
                     padding-right: 200px;
-                    background: linear-gradient(90deg, #FFFFFF 52%, rgba(15, 42, 79, 0) 100%);
+                    background: linear-gradient(90deg, #FFFFFF 54%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
+
+                    .container-inner { width: 320px; }
                     
                     .title-text {
                         color: $c-black-light;

@@ -22,7 +22,7 @@ div.container.login
                 div.form-element
                   input(name="username" type="text" placeholder="Ingrese ..." autocomplete="off" ng-model="object.username" auto-focus required="required")
             div.row
-              input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!object.username.length")
+              input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!form.username.$valid")
               button.button-success.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
                 img(src="images/spinner.gif")
             
