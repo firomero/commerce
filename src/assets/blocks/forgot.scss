@@ -100,11 +100,8 @@
         }
     }
 
-    md-steppers.md-dynamic-height {
-        min-height: 460px;
-    }
-
     md-steppers {
+        min-height: 460px;
 
         md-steppers-wrapper { display: none; }
         md-steppers-content-wrapper { 
