@@ -1,0 +1,99 @@
+.modal.fullscreen {
+
+    .modal-dialog {
+        width: 100%;
+        margin: 0px auto;
+        position: absolute;
+        min-height: 100vh !important;
+
+        .modal-content {
+            height: 100%;
+            border-radius: 0px;
+            border: none;
+        }
+    }
+}
+
+.modal.bottom-confirm {
+
+    .modal-dialog.modal-lg { 
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        margin: 0px;
+
+        .modal-content { 
+            border-radius: 0px;
+            padding: 2rem;
+            background-color: #94BB20;
+
+            .message {
+                line-height: 51px;
+                color: $c-white;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {//col-xs
+    
+    .modal.fullscreen {
+        
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+    
+            .modal-content {
+                height: 100%;
+            }
+        }
+    }
+
+    .modal.bottom-confirm .message label { line-height: 18px; }
+    .modal.bottom-confirm.finish .message label { line-height: 50px; }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    
+    .modal.fullscreen {
+        
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+    
+            .modal-content {
+                height: 100%;
+            }
+        }
+    }
+
+    .modal.bottom-confirm .message label { line-height: 18px; }
+    .modal.bottom-confirm.finish .message label { line-height: 50px; }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    
+    .modal.fullscreen {
+        
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+    
+            .modal-content {
+                height: 100%;
+            }
+        }
+    }
+}
+@media (min-width: 1200px) {//col-lg
+    
+    .modal.fullscreen {
+        
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+    
+            .modal-content {
+                height: 100%;
+            }
+        }
+    }
+}

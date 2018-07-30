@@ -1,0 +1,153 @@
+.footer {
+    color: #9B9B9B;
+    font-family: SFNSText;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: -0.24px;
+    line-height: 12px;
+    padding-bottom: 10px;
+
+    .footer-logo { width: 100px; }
+
+    a { color: #9B9B9B; }
+}
+
+md-sidenav.md-sidenav-left, md-sidenav.md-sidenav-left .md-toolbar-tools {
+    background-color: #0b2c4d;
+}
+md-sidenav.md-sidenav-left {
+    
+    .md-toolbar-tools {
+        min-height: 78.94px;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.13), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+        .user-profile {
+            max-height: 105.94px;
+            overflow: hidden;
+
+            .user-login {
+                
+                img.user-logo {
+                    border-radius: 50%;
+                    width: 35px;
+                }
+                .company-selector-container {
+
+                    margin-right: 30px;
+
+                    .user-fullname {
+                        text-transform: uppercase;
+                        margin-bottom: 0px;
+                        font-family: Roboto;
+                        font-size: 12px;
+                        font-weight: 700;
+                        letter-spacing: -0.39px;
+                        line-height: 19px;
+                    }
+
+                    .company-selector {
+
+                        span:last-child {
+                            float: right;
+
+                            i { font-size: 16px; }
+                        }
+
+                        span:first-child {
+                            font-family: Roboto;
+                            font-size: 11px;
+                            font-weight: 400;
+                            letter-spacing: -0.34px;                      
+                        }
+                    }
+                }
+                
+                .logout { 
+
+                    a + a {margin-left: 1em;}
+                    a i { font-size: 18px; }
+                }
+            }
+        }
+    }
+
+    .menu-container {
+        padding-top: 15px;
+        
+        .panel-title>a:hover, .panel-title>a:focus { text-decoration: none !important; }
+        .panel-default, .panel-default>.panel-heading {
+            color: $c-white !important;
+            background-color: transparent !important;
+            border: none !important;
+            border-radius: 0px !important;
+            font-family: Roboto;
+        }
+        .headder-menu {
+            position: relative;            
+        }
+        .panel-body { 
+            border-top: none !important;
+            padding-top: 5px;
+            padding-bottom: 0;
+
+            .menu-list {
+                font-family: Roboto;
+                padding-left: 2rem;
+                margin-bottom: 20px;
+
+                .grouping {
+                    position: relative;
+
+                    .icon {
+                        font-size: 18px;
+                    }
+                    .label {
+                        position: absolute;
+                        top: 3px;
+                    }
+                }
+                .link {
+                    margin-left: 2rem;
+                }
+            }
+        }
+    }
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    md-sidenav.md-sidenav-left .md-toolbar-tools .user-profile .user-login .company-selector-container {
+        margin-right: 5px;
+    }
+    md-sidenav.md-sidenav-left .md-toolbar-tools .user-profile .user-login .logout a {
+        display: block;
+    }
+    md-sidenav.md-sidenav-left .md-toolbar-tools .user-profile .user-login .logout {
+
+        a + a {
+            margin-left: 0px;
+            margin-top: .5rem;
+        }
+    }
+    .footer div:first-child { text-align: center; }
+
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    md-sidenav.md-sidenav-left {
+        width: 460px !important;
+    }
+    md-sidenav.md-sidenav-right { width: 300px !important; }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    md-sidenav.md-sidenav-left {
+        width: 460px !important;
+    }
+    md-sidenav.md-sidenav-right { width: 300px !important; }
+}
+@media (min-width: 1200px) {//col-lg
+
+    md-sidenav.md-sidenav-left {
+        width: 400px !important;
+    }
+    md-sidenav.md-sidenav-right { width: 300px !important; }
+}

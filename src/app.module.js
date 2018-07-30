@@ -1,20 +1,28 @@
 // for loading styles we need to load main scss file
-import styles from './styles/styles.scss';
+import styles from './assets/styles.scss';
 
 // loading shared module
-import './core/core.module';
+import './modules/common/common.module';
+import './modules/login/login.module';
+import './modules/dashboard/dashboard.module';
 // loading all module components
-import './components/component.module';
 
 const appModule = angular
 	.module('app', [
+		'ngMaterial',
+		'mgo-angular-wizard',
+		'md-steppers',
+		'ui.bootstrap',
 		'ngResource',
+		'ui.knob',
+		'ngMask',
 		// shared module
-		'app.core',
+		'app.common',
 		// 3rd party modules
 		'ui.router',
 		// application specific modules
-		'app.component'
+		'app.login',
+		'app.dashboard'
 	]);
 
 export default appModule;

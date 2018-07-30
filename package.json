@@ -1,15 +1,15 @@
 {
-  "name": "project",
+  "name": "bcempresa",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --open",
+    "start": "webpack-dev-server --progress --open --host=0.0.0.0",
     "build": "webpack --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Yoan Diaz Cubas",
+  "author": "Banca Empresa Consorcio",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -18,6 +18,7 @@
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
@@ -38,11 +39,23 @@
   },
   "dependencies": {
     "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-aria": "^1.6.5",
+    "angular-knob": "0.0.4",
+    "angular-material": "^1.1.10",
     "angular-resource": "^1.6.5",
+    "angular-ui-bootstrap": "^2.5.6",
     "angular-ui-router": "^1.0.3",
-    "bootstrap": "^4.1.1",
+    "angular-wizard": "^1.1.1",
+    "angularjs-highcharts": "^0.3.1",
+    "bootstrap": "^3.3.7",
     "font-awesome": "4.7.0",
+    "i": "^0.3.6",
     "jquery": "^3.2.1",
+    "jquery-knob": "^1.2.11",
+    "md-steppers": "^0.4.0",
+    "ng-ui-knob": "^0.1.6",
+    "perfect-scrollbar": "^1.4.0",
     "popper.js": "^1.14.3"
   }
 }

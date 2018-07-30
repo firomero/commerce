@@ -1,6 +1,6 @@
 # AngularJS ES6 Starter Kit
 
-This repo contains `webpack`, `AngularJS`, `ES6`, `Jade` and `Bootstrap 4`starter kit.
+This repo contains `webpack`, `AngularJS`, `ES6`, `Jade` and `Bootstrap 3.3.7`starter kit.
 
 ### Prerequisites
 Node 8.11.3

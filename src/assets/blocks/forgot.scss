@@ -1,0 +1,210 @@
+.forgot {
+
+    .title {
+        text-align: center;
+        color: $c-black-light;
+    }
+
+    .header {
+        // position: relative;
+        height: 52px;
+
+        .logo {
+            width: 159px;
+            height: 52px;
+            position: absolute;
+            top: 10;
+            left: 10;
+        }
+
+        .close {
+
+            position: absolute;
+            top: 25;
+            right: 25;
+
+            i {
+                font-size: 34px;
+            }
+        }
+    }
+    .indicator-container {
+
+        position: relative;
+        height: 60px;
+
+        .step-strip {
+
+            .strip {
+
+                height: 18px;
+                border-bottom: 1px solid $c-gray;
+                padding: 0px;
+            }
+
+            .strip.pending {
+                border-bottom-color: $c-blue-light;
+            }
+        }
+
+        .step-indicators {
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+
+            span { display: block; text-align: center; }
+            
+            span.icon {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                border-radius: 50%;
+                margin: 0 auto;
+                font-size: 18px;
+
+                i {
+                    line-height: 35px;
+                }
+            }
+
+            span.sub-title {
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+            div.indicator {
+                
+                span.icon {
+                    color: rgba(255, 255, 255, 0.8);
+                    background-color: $c-gray;               
+                }            
+
+                span.sub-title {
+                    color: $c-gray;
+                }
+            }
+
+            div.indicator.pending {
+                
+                span.icon {
+                    background-color: $c-blue-light;
+                    color: $c-white;                
+                }            
+
+                span.sub-title {
+                    color: $c-blue-light;
+                }
+            }
+        }
+    }
+
+    md-steppers {
+        min-height: 460px;
+
+        md-steppers-wrapper { display: none; }
+        md-steppers-content-wrapper { 
+            top: 3rem;
+
+            md-step-content {
+                overflow: initial;
+            }
+        }
+
+        .title {
+            display: block;
+            text-align: center;
+        }
+
+        md-content {
+
+            background-color: $c-white;
+
+            .input {
+
+                margin: 0px;
+                // INPUT START
+                .input-form {
+                    height: 47px;
+                    border-radius: 5px;
+                    background-color: #FAFAFA;
+                    display: -webkit-inline-box;
+                    padding: 5px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ECECEC;
+                    position: relative;
+                }
+
+                .input-form .form-text {
+                    opacity: 1;
+                    border-radius: 0px;
+                    background: none;
+                    border: none;
+                    position: absolute;
+                }
+
+                .input-form .form-text i {
+                    color: $c-black;
+                    font-size: 25px;
+                    display: inline-block;
+                    vertical-align: top;
+                    line-height: 34px;        
+                }
+
+                .input-form .form-text label {
+                    font-size: 13px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    font-weight: 400;
+                    letter-spacing: -0.36px;
+                    line-height: 35px;
+                    color: $c-black;
+                    display: inline-block;
+                    vertical-align: top;
+                    font-family: Roboto;
+                    margin-left: 1rem;
+                    margin-bottom: 0px;
+                }
+
+                .input-form .form-element {
+                    text-align: right;
+                    width: 100%;
+                }
+
+                .input-form .form-element input {
+                    width: 100%;
+                    border: none;
+                    background-color: transparent;
+                    text-align: right;
+                    color: $c-black;
+                    font-size: 17px;
+                    font-family: Roboto;
+                    font-weight: 400;
+                    letter-spacing: -0.41px;
+                    line-height: 32px;
+                }
+
+                .input-form .form-element input:focus {
+                    outline-width: 0px !important;
+                }
+                // INPUT END
+            }
+        }
+    }
+
+    .footer {
+        text-align: center;
+        font-family: Roboto;
+        color: #9b9b9b;
+
+        p {
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+    }
+}

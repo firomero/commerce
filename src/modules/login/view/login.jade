@@ -1,0 +1,93 @@
+video.fullscreen(preload="none" allowfullscreen autoplay loop)
+  source(src="video/login.mp4" type="video/mp4")
+div.backdrop
+div.container.login
+  div.row
+
+    div.col-lg-12
+      img.logo(src="images/logoBanco100.png")
+    div.col-lg-12.title.mt-2
+      h3 the all-new online banking experience is here.
+
+    div.col-lg-12
+      wizard(on-finish="finishedWizard()" hide-indicators="true")
+        wz-step(canexit="exitValidation")
+          h3.title-form.mb-3 Ingrese Su Nombre
+          form(name="form")
+            div.row(ng-if="showRut == 0")
+              div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
+                div.form-text
+                  i.material-icons.cso-form-glass__input-icon person
+                  label Nombre
+                div.form-element
+                  input(name="username" type="text" placeholder="Ingrese ..." autocomplete="off" ng-model="object.username" auto-focus required="required")
+            div.row
+              input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!form.username.$valid")
+              button.button-success.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
+                img(src="images/spinner.gif")
+            
+            ul.mt-5.mb-6
+              li.extra-link
+                a(href="/login") Hazte Cliente
+              li.extra-link
+                a(ng-click="forgotPassword()") ¿Olvidaste tu clave?
+
+        wz-step(canexit="exitValidation")
+          h3.title-form.mb-3 Ingrese Su Rut
+          form(name="form")
+            div.row(ng-if="showRut == 1")
+              div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
+                div.form-text
+                  i.material-icons.cso-form-glass__input-icon person
+                  label Rut
+                div.form-element
+                  input(name="rut" id="rut" type="text" placeholder="Ingrese ..." autocomplete="off" ng-model="object.rut" auto-focus mask="99.999.999-9" required="required")
+            div.row
+              input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!form.rut.$valid")
+              botton.button-success.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
+                img(src="images/spinner.gif")
+
+          ul.mt-5.mb-6
+            li.extra-link
+              a(href="/login") Hazte Cliente
+            li.extra-link
+              a(ng-click="forgotPassword()") ¿Olvidaste tu clave?
+            li.extra-link
+              a(wz-reset="reset()") Ingresar con otro usuario
+
+        wz-step(canexit="exitValidation")
+          h3.title-form.mb-3 Bienvenido {{object.username}}
+          div.row(ng-if="showRut == 2")
+            div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
+              div.form-text
+                i.material-icons.cso-form-glass__input-icon https
+                label Clave
+              div.form-element
+                input(name="rut" type="password" placeholder="Ingrese ..." autocomplete="off" ng-model="object.password" auto-focus required="required")
+          div.row
+            input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!object.password.length")
+            botton.button-success.spinner.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
+              img(src="images/spinner.gif")
+
+          ul.mt-5.mb-6
+            li.extra-link
+              a(ng-click="forgotPassword()") ¿Olvidaste tu clave?
+            li.extra-link
+              a(wz-reset="reset()") Ingresar con otro usuario
+
+        wz-step(canexit="exitValidation")
+          h3.title-form.mb-3 {{object.username}} Selecciona Tu Empresa
+          div.row
+            div.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8.radio-content(perfect-scroll)
+              md-radio-group(ng-model="object.currentCompany")
+                md-radio-button.input-form.md-primary(ng-value="company.nameID" ng-repeat="company in companies") {{company.name}}
+          div.row.custom
+            input.col-lg-4.col-md-4.col-sm-6.col-xs-8.button-success.last-child(type="submit" wz-finish value="Siguiente" ng-disabled="!object.currentCompany")
+
+          ul.mt-5.mb-6
+            li.extra-link
+              a(wz-reset="reset()") Ingresar con otro usuario
+
+  div.col-lg-12.footer
+    p Términos y Condiciones | Política de Privacidad | Trabaja con Nosotros | Mapa del Sitio | Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl | 2013 Banco Consorcio. Todos los derechos reservados.
+    p Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior.

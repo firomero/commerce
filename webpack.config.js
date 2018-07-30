@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
 	entry: {
@@ -38,19 +39,18 @@ const config = {
 					]
 				})
 			},
-			// for fixing of loading bootstrap icon files
 			{
-				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+				test: /\.(png|jpg|jpeg|gif)$/,
 				loader: 'url-loader?limit=10000',
 				options: {
-					name: './fonts/[name].[ext]'
+					name: 'images/[name].[ext]'
 				}
 			},
 			{
-				test: /\.(eot|ttf)$/,
+				test: /\.(eot|ttf|svg|woff|woff2)$/,
 				loader: 'file-loader',
 				options: {
-					name: './fonts/[name].[ext]'
+					name: 'fonts/[name].[ext]'
 				}
 			},
 			{ test: /\.html$/, loader: 'html-loader' },
@@ -75,8 +75,26 @@ const config = {
 			$: 'jquery',
 			jquery: 'jquery'
 		}),
-		new ExtractTextWebpackPlugin('styles/styles.css'),
+		new ExtractTextWebpackPlugin('styles.css'),
 		new OptimizeCssAssetsWebpackPlugin()
+		,
+		new CopyWebpackPlugin([{
+			from: 'src/assets/images/carousel/*.*',
+			to: 'images/carousel',
+			flatten: true
+		},{
+			from: 'src/assets/images/*.*',
+			to: 'images/',
+			flatten: true
+		},{
+			from: 'src/assets/video/*.*',
+			to: 'video/',
+			flatten: true
+		},{
+			from: 'src/assets/fonts/*.*',
+			to: 'fonts/',
+			flatten: true
+		}])
 	],
 	devServer: {
 		port: 3000,
