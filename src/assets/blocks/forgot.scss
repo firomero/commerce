@@ -100,7 +100,7 @@
         }
     }
 
-    md-steppers:not(.md-no-step-content):not(.md-dynamic-height) {
+    md-steppers.md-dynamic-height {
         min-height: 460px;
     }
 
