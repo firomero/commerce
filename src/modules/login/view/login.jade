@@ -13,23 +13,24 @@ div.container.login
       wizard(on-finish="finishedWizard()" hide-indicators="true")
         wz-step(canexit="exitValidation")
           h3.title-form.mb-3 Ingrese Su Nombre
-          div.row(ng-if="showRut == 0")
-            div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
-              div.form-text
-                i.material-icons.cso-form-glass__input-icon person
-                label Nombre
-              div.form-element
-                input(name="username" type="text" placeholder="Ingrese ..." autocomplete="off" ng-model="object.username" auto-focus required="required")
-          div.row
-            input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!object.username.length")
-            button.button-success.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
-              img(src="images/spinner.gif")
-          
-          ul.mt-5.mb-6
-            li.extra-link
-              a(href="/login") Hazte Cliente
-            li.extra-link
-              a(ng-click="forgotPassword()") ¿Olvidaste tu clave?
+          form(name="form")
+            div.row(ng-if="showRut == 0")
+              div.input-form.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(input-focus=".form-element input")
+                div.form-text
+                  i.material-icons.cso-form-glass__input-icon person
+                  label Nombre
+                div.form-element
+                  input(name="username" type="text" placeholder="Ingrese ..." autocomplete="off" ng-model="object.username" auto-focus required="required")
+            div.row
+              input.button-success.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!object.username.length")
+              button.button-success.spinner-custom.col-lg-offset-4.col-lg-4.col-md-offset-4.col-md-4.col-sm-offset-3.col-sm-6.col-xs-offset-2.col-xs-8(ng-if="saving")
+                img(src="images/spinner.gif")
+            
+            ul.mt-5.mb-6
+              li.extra-link
+                a(href="/login") Hazte Cliente
+              li.extra-link
+                a(ng-click="forgotPassword()") ¿Olvidaste tu clave?
 
         wz-step(canexit="exitValidation")
           h3.title-form.mb-3 Ingrese Su Rut
