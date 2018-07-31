@@ -4,7 +4,7 @@ account-list {
         display: inline;
         position: absolute;
         top: 5px;
-        left: 0;
+        left: 2px;
         font-size: 18px;
         text-transform: uppercase;
     }
@@ -123,6 +123,12 @@ account-list {
     }
 }
 
+account-list.bg-toolbar {
+    md-card {background-color: $c-blue-toolbar !important;}
+    small.card-text, div.price, .tag-text, .tag-value {color: $c-white;}
+    .md-button.md-fab.success {background-color: $c-button-gray;}
+}
+
 @media (max-width: 500px) {//col-xs
     account-list .action-container {
         bottom: -75px !important;
@@ -139,7 +145,6 @@ account-list {
     }
     
 }
-
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
     account-list md-tab-content {

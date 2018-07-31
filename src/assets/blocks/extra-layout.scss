@@ -43,6 +43,7 @@
 .pt-05 { padding-top: .5rem!important; }
 .pt-1 { padding-top: 1rem!important; }
 .pt-3 { padding-top: 3rem!important; }
+.pt-6 { padding-top: 6rem!important; }
 
 .pl-0 { padding-left: 0px!important; }
 .pl-025 { padding-left: .25rem!important; }
@@ -59,13 +60,15 @@
 .pb-2 { padding-bottom: 2rem!important; }
 .pb-3 { padding-bottom: 3rem!important; }
 
+
+.c-green {color: $c-green;}
+.c-white {color: $c-white}
+.bg-gray {background-color: #EBEBEB;}
+
 .w-100 { width: 100%; }
 .pos-r { position: relative; }
 .pointer { cursor: pointer; }
-.c-green {color: $c-green;}
-.c-white {color: $c-white}
 .rotate90 { transform: rotate(90deg); }
-.bg-gray {background-color: #EBEBEB;}
 .shadow {
     box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.20);
     height: 1px;

@@ -43,7 +43,8 @@ div.menu-collapse
               div.title 
                 i.material-icons home
                 label Inicio
-              span.link.mt-3 Resumen
+              span.link.mt-3 
+                a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
               span.link
                 a(ui-sref="app.investment" ui-sref-active="active") Saldo y Movimientos
               span.link Línea de Crédito

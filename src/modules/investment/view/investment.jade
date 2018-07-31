@@ -1,7 +1,7 @@
-section.bg-gray.dashboard-container
-    div.container
+section.bg-gray.content-container
+    div.container.investment
         div.mt-4
-            account-list(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="true" button-transfer-new="true" ng-if="!loadAccounts")
+            account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="true" button-transfer-new="true" ng-if="!loadAccounts")
 
         div
             md-tabs.component.md-no-animation(md-dynamic-height)
@@ -31,10 +31,10 @@ section.bg-gray.dashboard-container
 
 
                 md-tab(label="CARTOLA INTERESES")
-                    md-card.pt-15px.pos-r.filter
+                    md-content.poster
+                        md-card.pt-15px.pos-r.filter
                             label filters
 
-                    md-content.poster
                         md-card.mt-0.pt-15px.pos-r
                             div.table-responsive
                                 div.table.custom
@@ -53,11 +53,11 @@ section.bg-gray.dashboard-container
                                                 div.td.flex-item-3 {{item.interes | currency}}
 
 
-                md-tab(label="CARTOLA HISTORICA")
-                    md-card.pt-15px.pos-r.filter
+                md-tab(label="CARTOLA HISTORICA")                
+                    md-content.poster
+                        md-card.pt-15px.pos-r.filter
                             label filters
 
-                    md-content.poster
                         md-card.mt-0.pt-15px.pos-r
                             div.table-responsive
                                 div.table.custom
@@ -78,10 +78,10 @@ section.bg-gray.dashboard-container
 
                 
                 md-tab(label="CHEQUES")
-                    md-card.pt-15px.pos-r.filter
+                    md-content.poster
+                        md-card.pt-15px.pos-r.filter
                             label filters
 
-                    md-content.poster
                         md-card.mt-0.pt-15px.pos-r
                             div.table-responsive
                                 div.table.custom

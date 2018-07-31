@@ -3,7 +3,10 @@ md-tabs.component {
     &.md-no-animation md-tab-content {
         transition: none;
     }
-    
+    md-content {
+        padding: 0px 2px;
+        background-color: transparent; 
+    }
     md-tabs-canvas {
         height: 30px;
 
@@ -27,5 +30,5 @@ md-tabs.component {
         line-height: 16px !important;
     }
     md-tab-item.md-active { opacity: 1; }
-    md-tab-item:first-child { margin-left: 0px; }
+    md-tab-item:first-child { margin-left: 2px; }
 }

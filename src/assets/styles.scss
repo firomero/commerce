@@ -104,13 +104,14 @@ md-backdrop.md-sidenav-backdrop {
 
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
+    .content-container {padding-top: 6rem;}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
-    .container {}
+    .content-container {padding-top: 6rem;}
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
-    .container {}
+    .content-container {padding-top: 6rem;}
 }
 @media (min-width: 1200px) {//col-lg
-    
+    .content-container {padding-top: 11rem;}
 }
