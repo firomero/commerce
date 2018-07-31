@@ -4,10 +4,13 @@
         width: 100%;
         margin: 0px auto;
         position: absolute;
+        min-height: 100vh !important;
 
         .modal-content {
             height: 100%;
             border-radius: 0px;
+            border: none;
+            min-height: 100vh !important;
         }
     }
 }
