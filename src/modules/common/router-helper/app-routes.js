@@ -23,6 +23,11 @@ export default [
 			url: 'dashboard',
 			controller: 'DashboardController',
 			template: require('../../dashboard/view/dashboard.jade')(),
+		},{
+			name: 'app.investment',
+			url: 'investment',
+			controller: 'InvestmentController',
+			template: require('../../investment/view/investment.jade')(),
 		}]
 	}
 ];

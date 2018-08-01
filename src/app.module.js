@@ -5,6 +5,7 @@ import styles from './assets/styles.scss';
 import './modules/common/common.module';
 import './modules/login/login.module';
 import './modules/dashboard/dashboard.module';
+import './modules/investment/investment.module';
 // loading all module components
 
 const appModule = angular
@@ -22,7 +23,8 @@ const appModule = angular
 		'ui.router',
 		// application specific modules
 		'app.login',
-		'app.dashboard'
+		'app.dashboard',
+		'app.investment'
 	]);
 
 export default appModule;

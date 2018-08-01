@@ -1,0 +1,87 @@
+
+.table-responsive { border: none !important;margin-bottom: 0px; }
+.table.custom {
+
+    margin-bottom: 0px;
+    
+    .tr {
+
+        height: 50px;
+
+        .th, .td {
+            margin: auto 0px;
+            font-size: 12px;
+            font-weight: 500;
+
+            &:first-child { padding-left: 24px; }
+            &:last-child { padding-right: 24px; }
+            &.check {
+
+                vertical-align: middle;
+                md-checkbox {margin-bottom: 0px;}
+            }
+
+            md-checkbox .md-icon {
+                width: 15px;
+                height: 15px;
+
+                &:after {
+                    left: 2.66667px;
+                    top: -1.77778px;
+                }
+            }
+            md-checkbox.md-checked .md-icon {
+                background-color: $c-green-firm;
+            }
+            md-checkbox .md-container .md-ripple-container { left: -20px;top: -18px; }
+        }
+        
+        .th{
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.59px;
+            line-height: 33.6px;
+            color: $c-black-table-header;
+            border-bottom: none;
+        }
+        .td {
+
+            color: #333333;
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.55px;
+            line-height: 33.6px;
+            border-top: none;
+
+            &.plus-icon {
+                i {
+                    color: $c-white;
+                    font-size: 13px;
+                    font-weight: 500;
+                    letter-spacing: -0.03px;
+                    border-radius: 2px;
+                }
+                i.add { background-color: $c-blue-light; }
+                i.remove { background-color: $c-red-remove; }
+            }
+            &.destinatario {
+                color: $c-green;
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 400;
+                letter-spacing: -0.18px;
+                line-height: 16px;
+                padding-left: 2rem;
+            }
+        }
+    }
+
+    .thead{}
+    .tbody{
+
+        .tr-container:nth-child(odd) { background-color: $c-black-table-striped; }
+        .plus-data { background-color: $c-black-table-striped; }
+    }
+} 

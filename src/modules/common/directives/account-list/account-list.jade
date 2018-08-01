@@ -1,7 +1,7 @@
 div.pos-r(ng-cloak ng-if="list.length")
-  h3.m-0.title Cuentas Disponibles
-  md-tabs.account-list.md-no-animation(md-dynamic-height md-stretch-tabs="auto")
-    md-tab(label="Cuenta Nº {{item.name}}" ng-disabled="item.disabled" ng-repeat="item in list")
+  h3.m-0.title {{title}}
+  md-tabs.component.account-list.md-no-animation(md-dynamic-height md-stretch-tabs="auto")
+    md-tab(label="Cuenta Nº {{item.name}}" md-on-select="onTabSelected(item)" ng-disabled="item.disabled" ng-repeat="item in list")
       md-content.poster
         md-card.pb-3.pt-15px.pos-r
           div.row.m-0
@@ -26,28 +26,37 @@ div.pos-r(ng-cloak ng-if="list.length")
                   small.tag-value.col-xs-6 {{tag.value}}
 
           div.action-container
-            div.action.text-center.saldo
+            div.action.text-center(ng-if="buttonSaldo")
               md-button.md-fab.success
                 i.material-icons timeline
               div.button-text.text-center Saldo y Movimientos
 
-            div.action.text-center.transfer
-              md-button.md-fab.success.ml-2px
+            div.action.text-center(ng-if="buttonTransfer")
+              md-button.md-fab.success
                 i.material-icons.rotate90 import_export
               div.button-text.text-center Transferir
 
-            div.action.text-center.credito
-              md-button.md-fab.success.ml-2px
+            div.action.text-center(ng-if="buttonCreditSubmit")
+              md-button.md-fab.success
+              div.button-text.text-center Solicitar Crédito
+
+            div.action.text-center(ng-if="buttonTransferNew")
+              md-button.md-fab.success
+                i.material-icons.rotate90 import_export
+              div.button-text.text-center Nueva Transferencia
+
+            div.action.text-center(ng-if="buttonCredit")
+              md-button.md-fab.success
                 i.material-icons attach_money
               div.button-text.text-center Solicitar Créditos
 
-            div.action.text-center.pagar
-              md-button.md-fab.success.ml-2px
+            div.action.text-center(ng-if="buttonCreditLine")
+              md-button.md-fab.success
                 i.material-icons attach_money
               div.button-text.text-center Pagar Línea de Crédito
 
-            div.action.text-center
-              md-button.md-fab.success.ml-2px
+            div.action.text-center(ng-if="buttonCreditLineUp")
+              md-button.md-fab.success
                 i.material-icons arrow_upward
               div.button-text.text-center Solicitar Aumento Línea de Crédito
 

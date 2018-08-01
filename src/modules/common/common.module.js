@@ -12,6 +12,7 @@ import PerfectScrollDirective from './directives/perfect-scroll/perfect-scroll.d
 import AccountListDirective from './directives/account-list/account-list.directive';
 import MenuDirective from './directives/menu/menu.directive';
 import KnobDirective from './directives/knob/knob.directive';
+import FirmDirective from './directives/firm/firm.directive';
 
 import MessageConfirmController from './components/message-confirm/message-confirm.controller';
 
@@ -35,6 +36,7 @@ commonModule.directive('perfectScroll', PerfectScrollDirective);
 commonModule.directive('accountList', AccountListDirective);
 commonModule.directive('menu', MenuDirective);
 commonModule.directive('knob', KnobDirective);
+commonModule.directive('firm', FirmDirective);
 
 commonModule.controller('MessageConfirmController', MessageConfirmController);
 
