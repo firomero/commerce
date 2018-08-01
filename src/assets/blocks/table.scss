@@ -1,3 +1,5 @@
+
+.table-responsive { border: none !important;margin-bottom: 0px; }
 .table.custom {
 
     margin-bottom: 0px;
@@ -14,6 +16,8 @@
             &:first-child { padding-left: 24px; }
             &:last-child { padding-right: 24px; }
             &.check {
+
+                vertical-align: middle;
                 md-checkbox {margin-bottom: 0px;}
             }
 
@@ -27,7 +31,7 @@
                 }
             }
             md-checkbox.md-checked .md-icon {
-                background-color: rgba(3, 155, 229, 0.75);
+                background-color: $c-green-firm;
             }
             md-checkbox .md-container .md-ripple-container { left: -20px;top: -18px; }
         }
@@ -37,17 +41,19 @@
             font-size: 14px;
             font-weight: 500;
             letter-spacing: 0.59px;
-            line-height: 46.7px;
+            line-height: 33.6px;
             color: $c-black-table-header;
+            border-bottom: none;
         }
         .td {
 
             color: #333333;
             font-family: Roboto;
             font-size: 13px;
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: 0.55px;
-            line-height: 49.6px;
+            line-height: 33.6px;
+            border-top: none;
 
             &.plus-icon {
                 i {

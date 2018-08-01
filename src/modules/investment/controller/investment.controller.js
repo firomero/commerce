@@ -3,65 +3,67 @@ export default function InvestmentController($scope, userLogin, $timeout) {
 
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
+	$scope.visibilityTabControl = 'ACCOUNT';
+	$scope.chequeMotivo = null;
 	$scope.lastMovement = [{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 100000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Sueldos / Nominas Lorem ipsum dolor set amet',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Sueldos / Nominas Lorem ipsum dolor set amet',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	},{
 		date: '23-04-2016',
 		description: 'Abono de Terceros',
 		serie: '00000000000015',
-		cargo: '400.000',
+		cargo: 400000,
 		saldo: '400.000.0000'
 	}];
 	$scope.interes = [{
@@ -125,7 +127,23 @@ export default function InvestmentController($scope, userLogin, $timeout) {
 		folio: '32165498'
 	},{
 		year: '2016',
+		month: 'Abril',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Marzo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Febrero',		
+		folio: '32165498'
+	},{
+		year: '2016',
 		month: 'Mayo',		
+		folio: '32165498'
+	},{
+		year: '2016',
+		month: 'Noviembre',		
 		folio: '32165498'
 	},{
 		year: '2016',
@@ -139,22 +157,62 @@ export default function InvestmentController($scope, userLogin, $timeout) {
 		year: '2016',
 		month: 'Mayo',		
 		folio: '32165498'
+	}];
+	$scope.selectedcheques = [];
+	$scope.cheques = [{
+		cheque: '123456789000000000',
+		pago: '23-04-2016',		
+		monto: '$100.000',
+		selected: false,
+		completed: true
 	},{
-		year: '2016',
-		month: 'Mayo',		
-		folio: '32165498'
+		cheque: '123456789000000000',
+		pago: 'Sin Información',		
+		monto: '$100.000',
+		selected: false
 	},{
-		year: '2016',
-		month: 'Mayo',		
-		folio: '32165498'
+		cheque: '123456789000000000',
+		pago: 'Sin Información',		
+		monto: '$100.000',
+		selected: false
 	},{
-		year: '2016',
-		month: 'Mayo',		
-		folio: '32165498'
+		cheque: '123456789000000000',
+		pago: 'Sin Información',		
+		monto: '$100.000',
+		selected: false
 	},{
-		year: '2016',
-		month: 'Mayo',		
-		folio: '32165498'
+		cheque: '123456789000000000',
+		pago: '23-04-2016',		
+		monto: '$100.000',
+		selected: false,
+		completed: true
+	},{
+		cheque: '123456789000000000',
+		pago: '23-04-2016',		
+		monto: '$100.000',
+		selected: false,
+		completed: true
+	},{
+		cheque: '123456789000000000',
+		pago: '23-04-2016',		
+		monto: 'Sin Información',
+		selected: false
+	},{
+		cheque: '123456789000000000',
+		pago: '23-04-2016',		
+		monto: 'Sin Información',
+		selected: false
+	},{
+		cheque: '123456789000000000',
+		pago: '23-04-2016',		
+		monto: 'Sin Información',
+		selected: false
+	},{
+		cheque: '123456789000000000',
+		pago: '23-04-2016',		
+		monto: '$900.000',
+		selected: false,
+		completed: true
 	}];
 	$scope.dummyDataTransfer = [{
 		selected: false,
