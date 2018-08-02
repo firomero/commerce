@@ -3,13 +3,13 @@ section.bg-gray.content-container
         div.mt-4
             account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="true" button-transfer-new="true" ng-if="!loadAccounts")
 
-        div.pos-r.account-movement
+        div.pos-r.account-movement(ng-if="existAccounts")
             div.radio-container
                 md-radio-group(ng-model="visibilityTabControl") 
                     md-radio-button.md-primary(value="ACCOUNT") Cuentas
                     md-radio-button.md-primary(value="CREDIT") Linea de Credito
 
-            md-tabs.component.md-no-animation(md-dynamic-height)
+            md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData")
                 md-tab(label="ULTIMOS MOVIMIENTOS")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
@@ -88,7 +88,7 @@ section.bg-gray.content-container
                                                         span
                                                             i.material-icons cloud_download
 
-                md-tab(label="CHEQUES")
+                md-tab(label="CHEQUES" ng-if="visibilityTabControl == 'CREDIT'")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
                             label filters
@@ -105,7 +105,7 @@ section.bg-gray.content-container
                                     tbody.tbody 
                                         tr.tr.tr-container(ng-repeat="item in cheques")
                                             td.td.check(ng-disabled="item.completed" ng-class="{'disabled': item.completed}")
-                                                md-checkbox.md-primary(ng-click="toggle(item, cheques, 'selectedcheques')" ng-model="item.selected")
+                                                md-checkbox.md-primary(ng-click="toggle(item)" ng-model="item.selected")
                                             td.td(ng-disabled="item.completed" ng-class="{'disabled': item.completed}") {{item.cheque}}
                                             td.td {{item.pago}}
                                             td.td {{item.monto}}
@@ -122,5 +122,6 @@ section.bg-gray.content-container
                                                 md-option(value="INCUMPLIMIENTO_COMERCIAL") INCUMPLIMIENTO COMERCIAL
                                                 md-option(value="OTROS_NO_ESPECIFICADOS") OTROS NO ESPECIFICADOS
                                                 md-option(value="ALTERACION_O_FALSIFICACION") ALTERACIÓN O FALSIFICACIÓN
-                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case(ng-disabled="!chequeMotivo") Orden de pago
+                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case(ng-if="chequeMotivo != null && selectedCheques.length" ng-click="checkDetail()") Orden de pago
+                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case.disabled(ng-if="chequeMotivo == null || !selectedCheques.length") Orden de pago
 

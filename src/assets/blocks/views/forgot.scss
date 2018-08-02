@@ -4,30 +4,7 @@
         text-align: center;
         color: $c-black-light;
     }
-
-    .header {
-        // position: relative;
-        height: 52px;
-
-        .logo {
-            width: 159px;
-            height: 52px;
-            position: absolute;
-            top: 10;
-            left: 10;
-        }
-
-        .close {
-
-            position: absolute;
-            top: 25;
-            right: 25;
-
-            i {
-                font-size: 34px;
-            }
-        }
-    }
+    
     .indicator-container {
 
         position: relative;
