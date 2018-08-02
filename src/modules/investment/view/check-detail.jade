@@ -1,12 +1,48 @@
 div.container.check-detail
-  div.header.mt-4.mb-4
+  div.header.mt-4.mb-1
     div.logo
       img.logo(src="images/isologo-premium-modal.png")
     div.close
       i.material-icons(ng-click="close()") close
 
   div.title.mb-3 
-    h3 Recuperar Clave
+    h3.mt-0 Orden de no pago
 
-  div.row.mb-6
-    div.col-lg-12      
+  div.sub-title.mb-3 
+    h4 Hola {{userLogin.username}}, a continuación podras visualizar el resumen de la orden de no pago
+
+  div.row.modal-check-detail
+    div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
+  
+      div.row.mb-1
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-5.text Chequera
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.value 123456789000000000
+      
+      div.row.mb-1.modal-check-detail-cheques
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Cheques
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
+          ul.pl-0
+            li.value 12345675
+            li.value 12345676
+            li.value 12345677
+            li.value 12345678
+
+      div.row.mb-1.modal-check-detail-motivo
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Motivo
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{motivo.text}}
+
+      div.row.mb-1
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha y Hora ONP
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 13-06-2017 / 20:30hrs
+
+      div.row.mb-1
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha de Creación
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 10 / 05 / 2018
+
+      div.row.mb-8
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Codigo de Registro
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 1234567890
+
+      div.row.pb-2
+        button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-offset-1.col-xs-5(ng-click="close()") CANCELAR
+        button.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-5(ng-click="close()") ACEPTAR

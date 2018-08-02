@@ -113,6 +113,26 @@
     }
 }
 
+
+.modal-check-detail {
+    .text, .value {
+        color: #4A4A4A;
+        font-family: Roboto;
+        font-size: 13px;
+    }
+    .text { letter-spacing: -0.03px;font-weight: 700; }
+    .value { letter-spacing: -0.29px;font-weight: 400; }
+}
+.modal-check-detail-cheques {
+    ul {
+        margin-bottom: 0px;
+        li {list-style: none;}
+    }
+}
+.modal-check-detail-motivo {
+
+}
+
 /*MEDIA SCREEN*/
 @media (max-width: 500px) {
     .investment account-list.bg-toolbar .action-container {

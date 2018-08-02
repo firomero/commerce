@@ -1,18 +1,30 @@
 export default function InvestmentController($scope, userLogin, $timeout, $uibModal) {
 	'ngInject';
 
+	var self = this;
+
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
 	$scope.visibilityTabControl = 'ACCOUNT';
-	$scope.chequeMotivo = null;
 	$scope.selectedCheques = [];
+	$scope.userLogin = userLogin;
 	
 	$scope.lastMovement = [];
 	$scope.interes = [];
 	$scope.historica = [];
-	$scope.cheques = [];	
+	$scope.cheques = [];
+
+	self.chequeMotivo = '';	
+	self.motivos = [
+		{text: 'Perdida o Extravio', label: 'PERDIDA O EXTRAVIO', id: 1},
+		{text: 'Robo', label: 'ROBO', id: 2},
+		{text: 'Hurto', label: 'HURTO', id: 3},		
+		{text: 'Incumplimiento Comercial', label: 'INCUMPLIMIENTO COMERCIAL', id: 4},
+		{text: 'Otros no especificados', label: 'OTROS NO ESPECIFICADOS', id: 5},
+		{text: 'Alteración o falsificación', label: 'ALTERACIÓN O FALSIFICACIÓN', id: 6}
+	];
 
 	$scope.dummyDataTransfer = [{
 			selected: false,
@@ -167,7 +179,10 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 					return $scope.selectedCheques;
 				},
 				motivo: function() {
-					return $scope.chequeMotivo;
+					return self.chequeMotivo;
+				},
+				userLogin: function() {
+					return $scope.userLogin;
 				}
 			}
 		});
@@ -191,7 +206,7 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 	}
 
 	function resetControls() {
-		$scope.chequeMotivo = null;
+		self.chequeMotivo = '';
 		$scope.selectedCheques = [];
 		
 		$scope.lastMovement = [];
