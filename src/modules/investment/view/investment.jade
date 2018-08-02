@@ -88,7 +88,7 @@ section.bg-gray.content-container
                                                         span
                                                             i.material-icons cloud_download
 
-                md-tab(label="CHEQUES" ng-if="visibilityTabControl == 'CREDIT'")
+                md-tab(label="CHEQUES" ng-if="visibilityTabControl == 'ACCOUNT'")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
                             label filters
@@ -115,13 +115,8 @@ section.bg-gray.content-container
                                     div.col-lg-2.col-md-2.col-sm-2.col-xs-2.motive MOTIVO
                                     div.col-lg-5.col-md-5.col-sm-5.col-xs-5.pl-0
                                         md-input-container.input-form
-                                            md-select.md-no-underline(name="motivo" ng-model="chequeMotivo" placeholder="Selecciones") 
-                                                md-option(value="PERDIDA_O_EXTRAVIO") PERDIDA O EXTRAVIO 
-                                                md-option(value="ROBO") ROBO 
-                                                md-option(value="HURTO") HURTO
-                                                md-option(value="INCUMPLIMIENTO_COMERCIAL") INCUMPLIMIENTO COMERCIAL
-                                                md-option(value="OTROS_NO_ESPECIFICADOS") OTROS NO ESPECIFICADOS
-                                                md-option(value="ALTERACION_O_FALSIFICACION") ALTERACIÓN O FALSIFICACIÓN
-                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case(ng-if="chequeMotivo != null && selectedCheques.length" ng-click="checkDetail()") Orden de pago
-                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case.disabled(ng-if="chequeMotivo == null || !selectedCheques.length") Orden de pago
+                                            md-select.md-no-underline(ng-model="$ctrl.chequeMotivo" ng-change="changeMotivo(chequeMotivo)" ng-model-options="{trackBy: '$value.id'}" placeholder="Selecciones") 
+                                                md-option.text-uppercase(ng-value="motivo" ng-repeat="motivo in $ctrl.motivos") {{motivo.label}}
+                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case(ng-if="$ctrl.chequeMotivo != '' && selectedCheques.length" ng-click="checkDetail()") Orden de pago
+                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case.disabled(ng-if="$ctrl.chequeMotivo == '' || !selectedCheques.length") Orden de pago
 

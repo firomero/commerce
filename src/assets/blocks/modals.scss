@@ -35,6 +35,23 @@
                     }
                 }
             }
+
+            & .container > .title,
+            & .container > .sub-title {
+                text-align: center;
+                font-weight: 400;
+                font-family: Roboto;                
+            }
+            & .container > .title {
+                font-size: 24px;                
+                color: #4A4A4A;
+                letter-spacing: -0.05px;
+            }
+            & .container > .sub-title {
+                color: rgba(0, 0, 0, 0.8700000047683716);
+                font-size: 18px;
+                letter-spacing: -0.03px;
+            }
         }
     }
 }
