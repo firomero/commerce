@@ -11,6 +11,30 @@
             border-radius: 0px;
             border: none;
             min-height: 100vh !important;
+
+            .header {
+
+                height: 52px;
+
+                .logo {
+                    width: 159px;
+                    height: 52px;
+                    position: absolute;
+                    top: 10;
+                    left: 10;
+                }
+
+                .close {
+
+                    position: absolute;
+                    top: 25;
+                    right: 25;
+
+                    i {
+                        font-size: 34px;
+                    }
+                }
+            }
         }
     }
 }

@@ -49,7 +49,15 @@ export default function AccountListDirective($rootScope) {
 					value: data.utilizado
 				}];
 			}
-		}		
+		}
+		
+		$scope.onTabSelected = onTabSelected;
+		
+		
+		function onTabSelected(item) {
+
+			$scope.$emit('account::change', item);
+		}
 	}
 
 	return directive;
