@@ -1,0 +1,18 @@
+.input-form {
+
+    md-datepicker {
+
+        .md-datepicker-input-container {
+            width: 90%;
+            margin-left: 0px;
+            border-bottom: none;
+
+            .md-datepicker-triangle-button { display: none; }
+            .md-datepicker-input { width: 100%; }
+        }
+
+        .md-datepicker-button {
+            md-icon { color: $c-green; }
+        }
+    }
+}

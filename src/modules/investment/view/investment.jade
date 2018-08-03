@@ -4,7 +4,7 @@ section.bg-gray.content-container
             account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="true" button-transfer-new="true" ng-if="!loadAccounts")
 
         div.pos-r.account-movement(ng-if="existAccounts")
-            div.radio-container
+            div.radio-container-selector
                 md-radio-group(ng-model="visibilityTabControl") 
                     md-radio-button.md-primary(value="ACCOUNT") Cuentas
                     md-radio-button.md-primary(value="CREDIT") Linea de Credito
@@ -13,7 +13,54 @@ section.bg-gray.content-container
                 md-tab(label="ULTIMOS MOVIMIENTOS")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
-                            label filters
+                            div.row.m-0
+                                div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
+                                    div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
+                                    div.col-lg-4.col-md-3.col-sm-4.pr-0
+                                        div.input-form.refactor-bottom
+                                            md-datepicker(ng-model="$ctrl.dateStart" name="dateStart")
+
+                                    div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+                                    div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+                                        div.input-form
+                                            md-datepicker(ng-model="$ctrl.dateEnd" name="dateEnd")
+
+                                div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
+                                    button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-offset-1.col-xs-5 BUSCAR
+                                    button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-5(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+
+
+                            div.row.m-0(ng-if="$ctrl.avanzadControl")
+                                div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
+                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+                                        form.input-form
+                                            div.form-text
+                                                label.rut Rut Destinatario
+                                            div.form-element
+                                                input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
+
+                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+                                        md-input-container.input-form
+                                            md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino") 
+                                                md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.label}}
+
+                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+                                        md-input-container.input-form
+                                            md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino") 
+                                                md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
+
+                                div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
+                                    div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
+                                        div Tipos
+                                        md-radio-group
+                                            md-radio-button.md-primary(value="ALL") Todas
+                                            md-radio-button.md-primary(value="TOP") Alto Monto
+                                            md-radio-button.md-primary(value="DOWN") Bajo Monto
+                                            md-radio-button.md-primary(value="EXTRA") Masivos
+
+                                    div.col-lg-12.col-md-12.col-sm-5.col-xs-12
+                                        button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
+                                        button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
                         md-card.pt-15px.pl-15px.pr-15px.pos-r
                             div.table-responsive 

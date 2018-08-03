@@ -25,6 +25,13 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 		{text: 'Otros no especificados', label: 'OTROS NO ESPECIFICADOS', id: 5},
 		{text: 'Alteración o falsificación', label: 'ALTERACIÓN O FALSIFICACIÓN', id: 6}
 	];
+	self.dateStart = '';
+	self.dateEnd = '';
+	self.avanzadControl = false;
+	self.chequeBank = '';
+	self.banks = [];
+	self.chequeAccount = '';
+	self.accounts = [];
 
 	$scope.dummyDataTransfer = [{
 			selected: false,
@@ -160,6 +167,7 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 
 		if ($scope.currentCompany.accounts.length) {
 			$scope.existAccounts = true;
+			self.accounts = $scope.currentCompany.accounts;
 		}
 	}
 
@@ -262,6 +270,7 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 			if (!$scope.currentCompany.accounts.length) {
 				$scope.existAccounts = false;
 			}
+			self.accounts = $scope.currentCompany.accounts;
 			$scope.loadAccounts = false;
 		}, 30);
 	});
