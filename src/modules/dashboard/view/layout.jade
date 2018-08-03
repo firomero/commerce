@@ -117,9 +117,11 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
             i.material-icons.icon home
             span.label Inicio
           li.link 
-            span.label Resumen
+            span.label 
+              a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
           li.link 
-            span.label Saldo y Movimientos
+            span.label 
+              a(ui-sref="app.investment" ui-sref-active="active") Saldo y Movimientos
           li.link
             span.label Línea de Crédito
 

@@ -103,6 +103,20 @@
             margin-top: 5px;
         }
     }
+
+    .refactor-all {
+        float: left;
+        line-height: 50px;
+    }
+
+    md-input-container.input-form.refactor {
+        width: 85% !important;
+        margin-left: 15px;
+    }
+
+    .last-filter {
+        padding: 0px 0px;
+    }
 }
 
 @media (max-width: 767px) {//col-xs
@@ -123,6 +137,13 @@
             padding-left: 15px !important;
             padding-bottom: 15px;
         }
+        md-input-container.input-form.refactor {
+            width: 100% !important;
+            margin-left: 0px;
+        }
+        .last-filter {
+            padding-left: 15px;
+        }
     }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
@@ -130,6 +151,10 @@
         
         .top { padding-right: 0px; }
         .radio-storage { padding-left: 15px !important; }
+        .last-filter { 
+            padding-left: 15px !important;
+            padding-bottom: 15px;
+        }
     }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md

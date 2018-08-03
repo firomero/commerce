@@ -725,19 +725,19 @@ export default class UserService {
                                 selected: false,
                                 id: 27
                             },{
-                                cheque: '123456789000000000',
+                                cheque: '123456789001111000',
                                 pago: '23-04-2016',		
                                 monto: 'Sin Información',
                                 selected: false,
                                 id: 28
                             },{
-                                cheque: '123456789000000000',
+                                cheque: '123456789001111000',
                                 pago: '23-04-2016',		
                                 monto: 'Sin Información',
                                 selected: false,
                                 id: 29
                             },{
-                                cheque: '123456789000000000',
+                                cheque: '123456789001111000',
                                 pago: '23-04-2016',		
                                 monto: '$900.000',
                                 selected: false,

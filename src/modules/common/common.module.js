@@ -5,6 +5,8 @@ import CurrencyFilter from './filters/currency.filter';
 import UserService from './services/user.service';
 import CompanyService from './services/company.service';
 import MoneyChangeService from './services/money.change.service';
+import BankService from './services/bank.service';
+import ContactService from './services/contact.service';
 
 import InputFocusDirective from './directives/input-focus/input-focus.directive';
 import AutoFocusDirective from './directives/auto-focus/auto-focus.directive';
@@ -29,6 +31,8 @@ commonModule.filter('currency', CurrencyFilter);
 commonModule.service('MoneyChangeService', MoneyChangeService);
 commonModule.service('UserService', UserService);
 commonModule.service('CompanyService', CompanyService);
+commonModule.service('BankService', BankService);
+commonModule.service('ContactService', ContactService);
 
 commonModule.directive('inputFocus', InputFocusDirective);
 commonModule.directive('autoFocus', AutoFocusDirective);

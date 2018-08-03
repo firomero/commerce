@@ -1,4 +1,4 @@
-export default function InvestmentController($scope, userLogin, $timeout, $uibModal) {
+export default function InvestmentController($scope, userLogin, $timeout, $uibModal, BankService) {
 	'ngInject';
 
 	var self = this;
@@ -29,9 +29,38 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 	self.dateEnd = '';
 	self.avanzadControl = false;
 	self.chequeBank = '';
-	self.banks = [];
+	self.banks = BankService.getBanks();
 	self.chequeAccount = '';
 	self.accounts = [];
+	self.cheques = [{
+		id: 1,
+		name: '123456789000000000'
+	},{
+		id: 2,
+		name: '123456789001111000'
+	}];
+	self.chequeras = [{
+		id: 1,
+		name: '123456789034567'
+	},{
+		id: 2,
+		name: '234567654324567'
+	},{
+		id: 3,
+		name: '987656789342345'
+	},{
+		id: 4,
+		name: '451239456709821'
+	},{
+		id: 5,
+		name: '234567654312345'
+	},{
+		id: 6,
+		name: '323456098765432'
+	},{
+		id: 7,
+		name: '890765678943213'
+	}];
 
 	$scope.dummyDataTransfer = [{
 			selected: false,
