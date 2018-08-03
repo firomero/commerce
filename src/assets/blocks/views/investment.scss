@@ -13,7 +13,7 @@
         }
     }
 
-    .radio-container {
+    .radio-container-selector {
 
         position: absolute;
         top: 5px;
@@ -82,7 +82,21 @@
             font-size: 13px;
             font-weight: 400;
             letter-spacing: -0.03px;
-        }        
+        }
+        
+        md-input-container { margin: 0px !important; }
+        md-input-container.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
+            -webkit-transform: none;
+            transform: none;
+            color: rgba(0, 0, 0, 0.8700000047683716);
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+        }
+        md-input-container:not([md-no-float]) .md-select-placeholder span:first-child {
+            color: rgba(0, 0, 0, 0.8700000047683716);
+        }
     }
 
     .input-form {
@@ -97,19 +111,6 @@
         position: relative;
 
         md-select { width: 100%; }
-    }
-    md-input-container { margin: 0px !important; }
-    md-input-container.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
-        -webkit-transform: none;
-        transform: none;
-        color: rgba(0, 0, 0, 0.8700000047683716);
-        font-family: Roboto;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 17px;
-    }
-    md-input-container:not([md-no-float]) .md-select-placeholder span:first-child {
-        color: rgba(0, 0, 0, 0.8700000047683716);
     }
 }
 
@@ -163,7 +164,7 @@
         width: 100% !important;
         margin-left: 0px;
     }
-    .investment .radio-container { margin-bottom: 15px;position: relative; }
+    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .investment .cheque-container {
@@ -177,7 +178,7 @@
         width: 100% !important;
         margin-left: 0px;
     }
-    .investment .radio-container { margin-bottom: 15px;position: relative; }   
+    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }   
     .investment .documents {
         padding-right: 10rem!important;
     }
@@ -194,7 +195,7 @@
         width: 100% !important;
         margin-left: 0px;
     }
-    .investment .radio-container { margin-bottom: 15px;position: relative; }    
+    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }    
 }
 @media (min-width: 1200px) {//col-lg
     .investment .cheque-container {
