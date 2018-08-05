@@ -36,11 +36,11 @@
         height: 50px;
         width: 100%;
         border-radius: 5px;
-        background-color: #FAFAFA;
+        background-color: $c-gray-background-input;
         display: -webkit-inline-box;
         padding: 5px;
         margin-bottom: 15px;
-        border: 1px solid #ECECEC;
+        border: 1px solid $c-gray-border-input;
         position: relative;
 
         md-select { width: 100%; }

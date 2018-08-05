@@ -44,7 +44,7 @@
             }
             & .container > .title {
                 font-size: 24px;                
-                color: #4A4A4A;
+                color: $c-black-table-header;
                 letter-spacing: -0.05px;
             }
             & .container > .sub-title {
@@ -67,7 +67,7 @@
         .modal-content { 
             border-radius: 0px;
             padding: 2rem;
-            background-color: #94BB20;
+            background-color: $c-green;
 
             .message {
                 line-height: 51px;

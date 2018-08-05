@@ -18,7 +18,7 @@ div.backdrop {
     min-height: 100%;
     width: auto;
     height: auto;
-    background-image: linear-gradient(to top, #0b2c4d, rgba(11, 44, 77, 0.14));
+    background-image: linear-gradient(to top, $c-blue-toolbar, rgba(11, 44, 77, 0.14));
 }
 
 .login {

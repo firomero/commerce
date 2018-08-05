@@ -61,7 +61,8 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 		id: 7,
 		name: '890765678943213'
 	}];
-
+	
+	self.selectedDummyDataTransfer = false;
 	$scope.dummyDataTransfer = [{
 			selected: false,
 			plus: false,
@@ -174,7 +175,6 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			estado: 'P_AUT'
 		}
 	];
-	self.selectedDummyDataTransfer = [];
 
 	$scope.toggleAll = toggleAll;
 	$scope.toggle = toggle;
