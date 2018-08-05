@@ -6,6 +6,7 @@ import './modules/common/common.module';
 import './modules/login/login.module';
 import './modules/dashboard/dashboard.module';
 import './modules/investment/investment.module';
+import './modules/transfer/transfer.module';
 // loading all module components
 
 const appModule = angular
@@ -24,7 +25,8 @@ const appModule = angular
 		// application specific modules
 		'app.login',
 		'app.dashboard',
-		'app.investment'
+		'app.investment',
+		'app.transfer'
 	]);
 
 export default appModule;
