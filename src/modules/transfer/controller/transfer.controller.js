@@ -174,8 +174,9 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			estado: 'P_AUT'
 		}
 	];
+	self.selectedDummyDataTransfer = [];
 
-	// $scope.toggleAll = toggleAll;
+	$scope.toggleAll = toggleAll;
 	$scope.toggle = toggle;
 	activate();
 	
@@ -199,45 +200,30 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 		}
 	}
 
-	// function checkDetail() {
+	function toggleAll(list) {
+		
+		var resetList = self.selectedDummyDataTransfer ? false : true;
+		resetItemSelected(list, resetList);
+	}
+	function toggle(item, list, all) {
 
-	// 	var modalInstance = $uibModal.open({
-	// 		animation: false,
-	// 		ariaLabelledBy: 'modal-title',
-	// 		ariaDescribedBy: 'modal-body',
-	// 		template: require('../view/check-detail.jade')(),
-	// 		controller: 'CheckDetailController',
-	// 		controllerAs: '$ctrl',
-	// 		size: 'lg',
-	// 		windowClass: 'fullscreen',
-	// 		resolve: {
-	// 			accounts: function() {
-	// 				return $scope.selectedCheques;
-	// 			},
-	// 			motivo: function() {
-	// 				return self.chequeMotivo;
-	// 			},
-	// 			userLogin: function() {
-	// 				return $scope.userLogin;
-	// 			}
-	// 		}
-	// 	});
-	  
-	// 	modalInstance.result.then(function (response) {
-			
-	// 		if (response != undefined  && response.success) {
-	// 			console.log('asdasd');
-	// 		}
-	// 	});
-	// }
+		var count = countSelectedItems(list);
+		self[all] = (!item.selected && count == list.length - 1) ? true : false;
+	}
 
-	function toggle(item) {
+	function countSelectedItems(list) {
 
-		var position = inArray($scope.selectedCheques, 'id', item.id);
-		if (!item.selected && position === false) {
-			$scope.selectedCheques.push(item);
-		}else {
-			$scope.selectedCheques.splice(position, 1);
+		var count = 0;
+		for(var i = 0; i < list.length; i++) {
+			if (list[i].selected) count++;
+		}
+
+		return count;
+	}
+	function resetItemSelected(list, action) {
+		
+		for(var i = 0; i < list.length; i++) {
+			list[i].selected = action;
 		}
 	}
 
@@ -250,32 +236,6 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 		$scope.historica = [];
 		$scope.cheques = [];
 	}
-
-	// function toggleAll(list) {
-		
-	// 	var resetList = $scope.selectedDummyDataTransfer ? false : true;
-	// 	resetItemSelected(list, resetList);
-	// }
-	// function toggle(item, list, all) {
-
-	// 	var count = countSelectedItems(list);
-	// 	$scope[all] = (!item.selected && count == list.length - 1) ? true : false;
-	// }
-	// function countSelectedItems(list) {
-
-	// 	var count = 0;
-	// 	for(var i = 0; i < list.length; i++) {
-	// 		if (list[i].selected) count++;
-	// 	}
-
-	// 	return count;
-	// }
-	// function resetItemSelected(list, action) {
-		
-	// 	for(var i = 0; i < list.length; i++) {
-	// 		list[i].selected = action;
-	// 	}
-	// }
 
 	function inArray(array, key, value) {
 
