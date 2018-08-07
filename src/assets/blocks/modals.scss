@@ -77,6 +77,49 @@
     }
 }
 
+.firm-detail {
+    .modal-dialog {
+        .modal-content {
+            background-color: $c-black-table-header;
+            padding: 15px;
+
+            .modal-header { padding: 0px; }
+            .modal-header {
+                border-bottom: 1px solid #979797;
+                padding-bottom: 7px;
+
+                .modal-title {
+                    color: $c-white;
+                    font-family: Roboto;
+                    font-size: 13px;
+                    font-weight: 700;
+                    letter-spacing: -0.24px;
+                    line-height: 16px;
+                }
+            }
+
+            .modal-body {
+                padding: 10px 0px 5rem 0px;
+            }
+            .modal-footer {
+                padding-bottom: 0px;
+                padding-top: 10px;
+                border-top: 1px solid #979797;
+
+                span {
+                    color: $c-gray-txt-modal;
+                    font-family: Roboto;
+                    font-size: 11px;
+                    font-weight: 400;
+                    letter-spacing: 0.39px;
+                    line-height: 13px;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 767px) {//col-xs
     
     .modal.fullscreen {

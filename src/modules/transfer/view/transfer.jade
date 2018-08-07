@@ -63,23 +63,23 @@ section.bg-gray.content-container
                                 table.table.custom
                                     colgroup
                                         col(width="8%")
-                                        col(width="12%")
+                                        col(width="11%")
                                         col(width="10%")
                                         col(width="12%")
-                                        col(width="19%")
+                                        col(width="18%")
                                         col(width="15%")
-                                        col(width="10%")
-                                        col(width="14%")
+                                        col(width="11%")
+                                        col(width="15%")
                                     thead.thead 
                                         tr.tr
                                             th.th
                                                 md-checkbox.md-primary(ng-click="toggleAll(dummyDataTransfer)" ng-model="$ctrl.selectedDummyDataTransfer") Todo 
                                             th.th Fecha 
                                             th.th Tipo 
-                                            th.th Cuenta Origen
+                                            th.th.text-right Cuenta Origen
                                             th.th Destinatario
-                                            th.th Monto Transferencia
-                                            th.th Firmas
+                                            th.th.text-right Monto Transferencia
+                                            th.th.text-center Firmas
                                             th.th Estado
                                     tbody.tbody 
                                         tr.tr.tr-container(ng-repeat-start="item in dummyDataTransfer" ng-class="{'odd': $index % 2 == 0}")
@@ -89,16 +89,117 @@ section.bg-gray.content-container
                                                 i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
                                                 i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
                                                 span {{item.date}}
-                                            td.td {{item.type}}
-                                            td.td {{item.origen}}
-                                            td.td.text-uppercase {{item.destinatario}}
-                                            td.td {{item.transferencia}}
-                                            td.td
-                                                firm(count="item.firmas" total="4")
-                                            td.td {{item.estado}}
+                                            td.td.text-right {{item.type}}
+                                            td.td.text-right {{item.origen}}
+                                            td.td.text-uppercase.destinatario {{item.destinatario}}
+                                            td.td.text-right {{item.transferencia}}
+                                            td.td.text-center
+                                                firm(firm="item.firmas" current-company="currentCompany")
+                                            td.td 
+                                                status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
                                         tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
-                                            td.td(colspan="8") asdasdasd
+                                            td.td(colspan="8")
+                                                div.row.data-container
+                                                    div.col-lg-6
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Rut
+                                                            div.col-lg-6.d-table
+                                                                span.value 15.980.456-8
+                                                        div.row.mb-3
+                                                            div.col-lg-6.d-table
+                                                                label.text Banco
+                                                            div.col-lg-6.text-uppercase.d-table
+                                                                span.value Banco Santender / Chile
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Ingresado Por
+                                                            div.col-lg-6.d-table
+                                                                span.value Marcelo Rojas Arriagada
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Visado Por
+                                                            div.col-lg-6.d-table
+                                                                span.value Daniela Andrade
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Aprobación Regla
+                                                            div.col-lg-6.d-table
+                                                                span.value 3A / 1B
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Aprobación Pendiente
+                                                            div.col-lg-6.d-table
+                                                                aprove(aprove="item.firmas")
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Autorizado Por
+                                                            div.col-lg-6.d-table
+                                                                span.value Juan Pablo Rojas
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Autorizar Destinatario
+                                                            div.col-lg-6.pl-0
+                                                                md-switch.md-primary
+                                                    
+                                                    div.col-lg-6
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Tipo de Cuenta
+                                                            div.col-lg-6.d-table
+                                                                span.value Cuenta Corriente
+                                                        div.row.mb-3
+                                                            div.col-lg-6.d-table
+                                                                label.text Número de Cuenta
+                                                            div.col-lg-6.d-table
+                                                                span.value 234567890000909908098
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Estado
+                                                            div.col-lg-6.d-table
+                                                                span.value Liberación Pendiente
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Motivo de transferencia
+                                                            div.col-lg-6.d-table
+                                                                span.value Pago Proveedor
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Mensaje Destinatario
+                                                            div.col-lg-6.d-table
+                                                                span.value Urgente
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Tipo de Transferencia
+                                                            div.col-lg-6.d-table
+                                                                span.value Alto Monto
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Nº de Operación
+                                                            div.col-lg-6.d-table
+                                                                span.value 45657678657567
+                                                        div.row
+                                                            div.col-lg-12.text-right.d-table
+                                                                a.pointer.link Ver Comprobante
 
+                                                div.row.inputs-container
+                                                    div.col-lg-12
+                                                        div.row
+                                                            div.col-lg-4
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Comentario
+                                                                    div.form-element
+                                                                        input(name="comment" type="text" autocomplete="off" placeholder="Ingrese un Comentario")
+                                                            div.col-lg-3.pl-0.pr-0(ng-if="item.estado.nameKey == 'AUTORIZADO'")
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Token
+                                                                    div.form-element
+                                                                        input(name="token" type="password" autocomplete="off" placeholder="********************")
+                                                            div.col-lg-5.pt-05
+                                                                button.button-success.sm.col-lg-5.mr-1 APROBAR / AUTORIZAR
+                                                                button.button-blue.sm.col-lg-5 RECHAZAR
 
                 md-tab(label="DESTINATARIOS")
                     md-content.poster

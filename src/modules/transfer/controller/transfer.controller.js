@@ -72,8 +72,53 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			origen: '32165498',
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: false
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Autorización',
+				nameKey: 'AUTORIZADO'
+			}
+		},{
+			selected: false,
+			plus: false,
+			plusData: [],
+			date: '23-04-2016',
+			type: 'Alto Monto',
+			origen: '32165498',
+			destinatario: 'Administradora de Supermercados Hiper Limitada',
+			transferencia: '$400.000',
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: true
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Autorización',
+				nameKey: 'AUTORIZADO'
+			}
 		},{
 			selected: false,
 			plus: false,
@@ -83,8 +128,81 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			origen: '32165498',
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: false
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: false
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Autorización',
+				nameKey: 'AUTORIZADO'
+			}
+		},{
+			selected: false,
+			plus: false,
+			plusData: [],
+			date: '23-04-2016',
+			type: 'Pagos Masivos',
+			origen: '32165498',
+			destinatario: 'Administradora de Supermercados Hiper Limitada',
+			transferencia: '$1.023.000',
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: true
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Visado',
+				nameKey: 'VISADO'
+			}
+		},{
+			selected: false,
+			plus: false,
+			plusData: [],
+			date: '23-04-2016',
+			type: 'Alto Monto',
+			origen: '32165498',
+			destinatario: 'Empresa de Transportes Rurales Limitada',
+			transferencia: '$450.000',
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: true
+			},{
+				name: 'Marcela Acevedo. P',
+				status: true
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Autorización',
+				nameKey: 'AUTORIZADO'
+			}
 		},{
 			selected: false,
 			plus: false,
@@ -94,8 +212,25 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			origen: '32165498',
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: true
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Autorización',
+				nameKey: 'AUTORIZADO'
+			}
 		},{
 			selected: false,
 			plus: false,
@@ -105,8 +240,25 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			origen: '32165498',
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: true
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Visado',
+				nameKey: 'VISADO'
+			}
 		},{
 			selected: false,
 			plus: false,
@@ -116,8 +268,25 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			origen: '32165498',
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: false
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Visado',
+				nameKey: 'VISADO'
+			}
 		},{
 			selected: false,
 			plus: false,
@@ -127,8 +296,25 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			origen: '32165498',
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
+			firmas: [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: false
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Autorización',
+				nameKey: 'AUTORIZADO'
+			}
 		},{
 			selected: false,
 			plus: false,
@@ -138,41 +324,25 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			origen: '32165498',
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Pagos Masivos',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: 3,
-			estado: 'P_AUT'
+			firmas:  [{
+				name: 'Pablo Hernandez. A.',
+				status: true
+			},{
+				name: 'Matias Contreras. B',
+				status: true
+			},{
+				name: 'Maria Teresa Correa. R',
+				status: true
+			},{
+				name: 'Marcela Acevedo. P',
+				status: false
+			}],
+			estado: {
+				icon: 'P',
+				class: 'orage',
+				text: 'Pendiente Visado',
+				nameKey: 'VISADO'
+			}
 		}
 	];
 
@@ -228,13 +398,13 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 	}
 
 	function resetControls() {
-		self.chequeMotivo = '';
-		$scope.selectedCheques = [];
+		// self.chequeMotivo = '';
+		// $scope.selectedCheques = [];
 		
-		$scope.lastMovement = [];
-		$scope.interes = [];
-		$scope.historica = [];
-		$scope.cheques = [];
+		// $scope.lastMovement = [];
+		// $scope.interes = [];
+		// $scope.historica = [];
+		// $scope.cheques = [];
 	}
 
 	function inArray(array, key, value) {
@@ -257,6 +427,8 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			$scope.currentCompany = data.targetScope.currentCompany;
 			if (!$scope.currentCompany.accounts.length) {
 				$scope.existAccounts = false;
+			}else {
+				$scope.existAccounts = true;
 			}
 			self.accounts = $scope.currentCompany.accounts;
 			$scope.loadAccounts = false;
@@ -270,15 +442,15 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 		$scope.loadTabData = false;
 
 		var dataCopy = Object.assign({}, data);
-		$scope.lastMovement = dataCopy.account.lastMovement || [];
-		$scope.interes = dataCopy.account.interes || [];
-		$scope.historica = dataCopy.account.historica || [];
-		if (dataCopy.credito.cheques.length) {
-			angular.forEach(dataCopy.credito.cheques, element => {
-				element.selected = false;
-			});
-		}
-		$scope.cheques = dataCopy.credito.cheques || [];
+		// $scope.lastMovement = dataCopy.account.lastMovement || [];
+		// $scope.interes = dataCopy.account.interes || [];
+		// $scope.historica = dataCopy.account.historica || [];
+		// if (dataCopy.credito.cheques.length) {
+		// 	angular.forEach(dataCopy.credito.cheques, element => {
+		// 		element.selected = false;
+		// 	});
+		// }
+		// $scope.cheques = dataCopy.credito.cheques || [];
 		$timeout(function(){
 			$scope.loadTabData = true;
 		}, 30);
