@@ -1,1 +1,12 @@
-label asdasd
+div.modal-header 
+    h3.modal-title FIRMAS DE APODERADOS
+div.modal-body
+    div(ng-repeat="item in firms track by $index")
+        span.text(ng-class="{'green': item.status}") {{item.name}}
+        span.icons
+            i.material-icons.green-firm(ng-if="item.status") check_circle
+            i.material-icons.gray-firm(ng-if="!item.status") brightness_1
+div.modal-footer
+    div.row
+        span.col-lg-8.col-md-12.col-sm-12.col-xs-12.text-left.pl-0 Enviales un recordatorio a los apoderados Faltantes
+        button.button-success.sm.col-lg-12.col-md-12.col-sm-12.col-xs-12 ENVIAR RECORDATORIO

@@ -1,4 +1,4 @@
-.button-success, .button-default, .button-default-inv {
+.button-success, .button-default, .button-default-inv, .button-blue {
     height: 50px;
     border-radius: 3px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
@@ -11,7 +11,17 @@
     letter-spacing: -0.03px;
     line-height: 17px;
 }
-
+.button-success.sm, 
+.button-default.sm, 
+.button-default-inv.sm,
+.button-blue.sm {
+    font-size: 12px;
+    height: 35px;
+}
+.button-blue {
+    background-color: $c-blue-button;
+    color: $c-white;
+}
 .button-success {
     background-color: $c-green;
     color: $c-white;
@@ -33,7 +43,7 @@
 }
 
 .button-text {
-    color: #4a4a4a;
+    color: $c-black-table-header;
     font-family: Roboto;
     font-size: 10px;
     font-weight: 500;

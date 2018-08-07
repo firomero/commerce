@@ -24,7 +24,7 @@ menu {
             }
 
             label {
-                color: #4A4A4A;
+                color: $c-black-table-header;
                 font-family: Roboto;
                 font-size: 11px;
                 font-weight: 500;
@@ -45,7 +45,7 @@ menu {
                 padding: 0px 0px;
                 margin: 0px 3rem;
                 line-height: 48px;
-                color: #4A4A4A;
+                color: $c-black-table-header;
                 font-family: Roboto;
                 font-size: 13px;
                 font-weight: 500;
@@ -97,7 +97,7 @@ menu {
                     margin-right: 2rem;
                 }
                 label {
-                    color: #4A4A4A;
+                    color: $c-black-table-header;
                     font-family: Roboto;
                     font-size: 17px;
                     font-weight: 500;
@@ -109,7 +109,7 @@ menu {
             }
             .not-title {padding-top: 1.5rem;}
             .title.extra {
-                color: #4A4A4A;
+                color: $c-black-table-header;
                 font-family: Roboto;
                 font-size: 20px;
                 font-weight: 500;
@@ -121,7 +121,7 @@ menu {
             .extra-title { opacity: .6; }
 
             .link {
-                color: #4A4A4A;
+                color: $c-black-table-header;
                 font-family: Roboto;
                 font-size: 13px;
                 font-weight: 400;
@@ -146,7 +146,7 @@ menu {
                 .text-container {
                     height: 100%;
                     width: 100%;
-                    background: linear-gradient(90deg, #FFFFFF 54%, rgba(15, 42, 79, 0) 100%);
+                    background: linear-gradient(90deg, $c-white 54%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
                 
                     .container-inner { width: 320px; }
@@ -161,7 +161,7 @@ menu {
                         margin-bottom: 10px;
                     }
                     .middle-text {
-                        color: #4A4A4A;
+                        color: $c-black-table-header;
                         font-family: HelveticaNeue;
                         font-size: 14px;
                         font-weight: 300;
@@ -170,7 +170,7 @@ menu {
                         margin-bottom: 17px;
                     }
                     .text-extra {
-                        color: #4A4A4A;
+                        color: $c-black-table-header;
                         font-family: Roboto;
                         font-size: 12px;
                         font-weight: 300;
@@ -217,7 +217,7 @@ menu {
                     height: 100%;
                     width: 100%;
                     padding-right: 100px;
-                    background: linear-gradient(90deg, #FFFFFF 52%, rgba(15, 42, 79, 0) 100%);
+                    background: linear-gradient(90deg, $c-white 52%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
                     
                     .container-inner { width: 320px; }
@@ -232,7 +232,7 @@ menu {
                         margin-bottom: 10px;
                     }
                     .middle-text {
-                        color: #4A4A4A;
+                        color: $c-black-table-header;
                         font-family: HelveticaNeue;
                         font-size: 14px;
                         font-weight: 300;
@@ -241,7 +241,7 @@ menu {
                         margin-bottom: 17px;
                     }
                     .text-extra {
-                        color: #4A4A4A;
+                        color: $c-black-table-header;
                         font-family: Roboto;
                         font-size: 12px;
                         font-weight: 300;
@@ -262,7 +262,7 @@ menu {
                     height: 100%;
                     width: 100%;
                     padding-right: 200px;
-                    background: linear-gradient(90deg, #FFFFFF 54%, rgba(15, 42, 79, 0) 100%);
+                    background: linear-gradient(90deg, $c-white 54%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
 
                     .container-inner { width: 320px; }
@@ -277,7 +277,7 @@ menu {
                         margin-bottom: 10px;
                     }
                     .middle-text {
-                        color: #4A4A4A;
+                        color: $c-black-table-header;
                         font-family: Roboto;
                         font-size: 14px;
                         font-weight: 400;
@@ -286,7 +286,7 @@ menu {
                         margin-bottom: 17px;
                     }
                     .text-extra {
-                        color: #4A4A4A;
+                        color: $c-black-table-header;
                         font-family: Roboto;
                         font-size: 12px;
                         font-weight: 300;
@@ -349,7 +349,7 @@ menu {
     .toggle-price {
         position: absolute;
         color: $c-white;
-        background-color: #67B2E8;
+        background-color: $c-blue-light;
         font-family: Roboto;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;

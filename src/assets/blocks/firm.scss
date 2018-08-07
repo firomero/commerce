@@ -14,3 +14,29 @@ firm {
         }
     }
 }
+
+.firm-detail {
+
+    .text {
+        color: $c-white;
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: -0.24px;
+        line-height: 22px;
+        text-transform: uppercase;
+    }
+    .text.green {
+        color: $c-green;
+    }
+    .icons {
+        float: right;
+        margin-right: 10%;
+        i { 
+            font-size: 14px;
+            line-height: 22px;
+        }
+        i.gray-firm { color: $c-gray-firm; }
+        i.green-firm { color: $c-green-firm; }
+    }
+}

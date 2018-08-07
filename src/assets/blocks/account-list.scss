@@ -59,7 +59,7 @@ account-list {
 
     small.card-text {
         font-family: Roboto;
-        color: #4a4a4a;
+        color: $c-black-table-header;
         font-size: 14px;
         font-weight: 400;
         line-height: 17px;
@@ -69,7 +69,7 @@ account-list {
         font-size: 30px;
         font-style: normal;
         font-stretch: normal;
-        color: #4a4a4a;
+        color: $c-black-table-header;
         font-weight: 400;
         letter-spacing: -0.09px;
         line-height: 36px;
@@ -96,7 +96,7 @@ account-list {
         font-weight: 500;
         font-style: normal;
         font-stretch: normal;
-        color: #4a4a4a;
+        color: $c-black-table-header;
         letter-spacing: -0.31px;
         line-height: 16px;
         padding-right: 0px;
@@ -106,7 +106,7 @@ account-list {
         font-family: Roboto;
         font-style: normal;
         font-stretch: normal;
-        color: #4a4a4a;
+        color: $c-black-table-header;
         font-size: 14px;
         font-weight: 400;
         letter-spacing: -0.31px;

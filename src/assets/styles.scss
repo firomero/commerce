@@ -47,6 +47,8 @@
 @import 'blocks/table';
 @import 'blocks/tabs';
 @import 'blocks/firm';
+@import 'blocks/status';
+@import 'blocks/aprove';
 @import 'blocks/input';
 @import 'blocks/filter';
 
@@ -59,6 +61,7 @@
 @import 'blocks/views/forgot';
 @import 'blocks/views/dashboard';
 @import 'blocks/views/investment';
+@import 'blocks/views/transfer';
 
 .is-focused {
     border: 1px solid rgba(255, 255, 255, 0.3);
