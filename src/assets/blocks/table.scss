@@ -79,10 +79,9 @@
         }
     }
 
-    .thead{}
     .tbody{
 
-        .tr-container:nth-child(odd) { background-color: $c-black-table-striped; }
-        .plus-data { background-color: $c-black-table-striped; }
+        .tr.tr-container.odd { background-color: $c-black-table-striped; }
+        .tr.plus-data { background-color: $c-black-table-striped; }
     }
 } 

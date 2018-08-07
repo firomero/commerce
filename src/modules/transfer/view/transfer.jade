@@ -60,7 +60,16 @@ section.bg-gray.content-container
 
                         md-card.pt-15px.pl-15px.pr-15px.pos-r
                             div.table-responsive 
-                                table.table.custom 
+                                table.table.custom
+                                    colgroup
+                                        col(width="8%")
+                                        col(width="12%")
+                                        col(width="10%")
+                                        col(width="12%")
+                                        col(width="19%")
+                                        col(width="15%")
+                                        col(width="10%")
+                                        col(width="14%")
                                     thead.thead 
                                         tr.tr
                                             th.th
@@ -73,10 +82,10 @@ section.bg-gray.content-container
                                             th.th Firmas
                                             th.th Estado
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat-start="item in dummyDataTransfer")
+                                        tr.tr.tr-container(ng-repeat-start="item in dummyDataTransfer" ng-class="{'odd': $index % 2 == 0}")
                                             td.td
                                                 md-checkbox.md-primary(ng-click="toggle(item, dummyDataTransfer, 'selectedDummyDataTransfer')" ng-model="item.selected")
-                                            td.td
+                                            td.td.plus-icon
                                                 i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
                                                 i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
                                                 span {{item.date}}

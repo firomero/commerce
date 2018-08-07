@@ -73,7 +73,7 @@ section.bg-gray.content-container
                                             th.th Cargos / Abonos
                                             th.th Saldo
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in lastMovement")
+                                        tr.tr.tr-container(ng-repeat="item in lastMovement" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.date}}
                                             td.td {{item.description}}
                                             td.td {{item.serie}}
@@ -150,7 +150,7 @@ section.bg-gray.content-container
                                             th.th Tasa Diaria
                                             th.th Interes
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in interes")
+                                        tr.tr.tr-container(ng-repeat="item in interes" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.date}}
                                             td.td {{item.saldo | currency}}
                                             td.td {{item.tasa}}%
@@ -218,7 +218,7 @@ section.bg-gray.content-container
                                             th.th Folio
                                             th.th.text-right.documents Documentos
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in historica")
+                                        tr.tr.tr-container(ng-repeat="item in historica" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.year}}
                                             td.td.text-uppercase {{item.month}}
                                             td.td {{item.folio}}
@@ -266,7 +266,7 @@ section.bg-gray.content-container
                                             th.th Fecha de Pago
                                             th.th Monto
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in cheques")
+                                        tr.tr.tr-container(ng-repeat="item in cheques" ng-class="{'odd': $index % 2 == 0}")
                                             td.td.check(ng-disabled="item.completed" ng-class="{'disabled': item.completed}")
                                                 md-checkbox.md-primary(ng-click="toggle(item)" ng-model="item.selected")
                                             td.td(ng-disabled="item.completed" ng-class="{'disabled': item.completed}") {{item.cheque}}
