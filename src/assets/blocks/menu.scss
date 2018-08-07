@@ -130,6 +130,18 @@ menu {
                 margin-bottom: 1.5rem;
                 margin-left: 4rem;
             }
+            .link a {
+                color: $c-black-table-header;
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 400;
+                letter-spacing: 0.46px;
+                line-height: 16px;
+            }
+            .link a, .link a:hover {
+                text-decoration: none;
+            }
+            .link a.active { color: $c-blue-light; }
 
             .picture {
                 padding-right: 0px;                
