@@ -350,16 +350,17 @@ section.bg-gray.content-container
                                             th.th Año
                                             th.th Mes
                                             th.th Folio
-                                            th.th.text-right Documentos
+                                            th.th.text-right
+                                                div.pr-2 Documentos
                                     tbody.tbody 
                                         tr.tr.tr-container(ng-repeat="item in dummyDataHistoricos" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.year}}
                                             td.td.text-uppercase {{item.month}}
                                             td.td {{item.folio}}
-                                            td.td.text-right.documents
+                                            td.td.text-right
                                                 div.arrow-container-download
                                                     a.pointer
-                                                        span Descargar
+                                                        span.mr-1 Descargar
                                                         span
                                                             i.material-icons cloud_download
 
