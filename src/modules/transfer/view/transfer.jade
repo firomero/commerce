@@ -352,7 +352,7 @@ section.bg-gray.content-container
                                             th.th Folio
                                             th.th.text-right Documentos
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in historica")
+                                        tr.tr.tr-container(ng-repeat="item in dummyDataHistoricos" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.year}}
                                             td.td.text-uppercase {{item.month}}
                                             td.td {{item.folio}}
