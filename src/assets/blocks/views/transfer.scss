@@ -31,6 +31,28 @@
         &.up { color: $c-green; }
         &.down { color: $c-red; }        
     }
+
+    .arrow-container-download {
+
+        padding-right: 2rem;
+        
+        a { 
+            display: block;
+
+            &:hover { text-decoration: none; }
+        }
+        span {
+            color: $c-green-firm;
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.55px;
+            display: inline-block;
+            vertical-align: middle;
+
+            i { color: #9CC131; }
+        }
+    }
     
     .input-form {
         height: 50px;

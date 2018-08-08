@@ -1,0 +1,20 @@
+account-ellipse {
+    .account-ellipse-container {
+
+        span a {
+            color: $c-green;
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 700;
+
+            &:hover { text-decoration: none; }
+        }
+        span:first-child {
+            color: $c-gray-txt-modal;
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 400;
+            margin-right: 1rem;
+        }
+    }
+}
