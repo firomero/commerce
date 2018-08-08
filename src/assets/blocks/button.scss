@@ -36,6 +36,9 @@
     color: $c-green;
     box-shadow: none;
 }
+.button-default.icon {
+    color: #E1E1E1;
+}
 .button-default-inv {
     background-color: transparent; 
     color: $c-white;

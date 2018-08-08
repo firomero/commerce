@@ -345,6 +345,158 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			}
 		}
 	];
+	$scope.dummyDataDestinatarios = [{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'A',
+			class: 'green',
+			text: 'Activo',
+			nameKey: 'ACTIVO'
+		},
+		account: {
+			bank: 'Banco de Credito e Invesriones',
+			accounts: ['2403350100000000', '2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'A',
+			class: 'green',
+			text: 'Activo',
+			nameKey: 'ACTIVO'
+		},
+		account: {
+			bank: 'Banco de Credito e Invesriones',
+			accounts: ['2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'P',
+			class: 'orage',
+			text: 'Pendiente Autorización',
+			nameKey: 'AUTORIZADO'
+		},
+		account: {
+			bank: 'Banco de Credito e Invesriones',
+			accounts: ['2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'P',
+			class: 'orage',
+			text: 'Pendiente Autorización',
+			nameKey: 'AUTORIZADO'
+		},
+		account: {
+			bank: 'Banco de Credito e Invesriones',
+			accounts: ['2403350100000000', '2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'A',
+			class: 'green',
+			text: 'Activo',
+			nameKey: 'ACTIVO'
+		},
+		account: {
+			bank: 'Banco de Credito e Invesriones',
+			accounts: ['2403350100000000', '2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'A',
+			class: 'green',
+			text: 'Activo',
+			nameKey: 'ACTIVO'
+		},
+		account: {
+			bank: 'Banco itau',
+			accounts: ['2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'A',
+			class: 'green',
+			text: 'Activo',
+			nameKey: 'ACTIVO'
+		},
+		account: {
+			bank: 'Banco de Credito e Invesriones',
+			accounts: ['2403350100000000', '2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'P',
+			class: 'orage',
+			text: 'Pendiente Autorización',
+			nameKey: 'AUTORIZADO'
+		},
+		account: {
+			bank: 'Banco itau',
+			accounts: ['2403350100000000', '2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'P',
+			class: 'orage',
+			text: 'Pendiente Autorización',
+			nameKey: 'AUTORIZADO'
+		},
+		account: {
+			bank: 'Banco de Chile / Edwards',
+			accounts: ['2403350100000000', '2403350100000000']
+		}
+	},{
+		plus: false,
+		plusData: [],
+		destinatario: 'Empresa de Transportes Rurales Limitada',
+		rut: '70.569.785-9',
+		estado: {
+			icon: 'A',
+			class: 'green',
+			text: 'Activo',
+			nameKey: 'ACTIVO'
+		},
+		account: {
+			bank: 'Banco de Chile / Edwards',
+			accounts: ['2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000']
+		}
+	}
+];
 
 	$scope.toggleAll = toggleAll;
 	$scope.toggle = toggle;
