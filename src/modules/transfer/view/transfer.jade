@@ -281,9 +281,105 @@ section.bg-gray.content-container
                                             td.td
                                                 div.row
                                                     button.button-success.sm.col-lg-9.col-md-9 TRANSFERIR
-                                                    button.button-default.icon.sm.col-lg-3.col-md-3
+                                                    button.button-default.icon.sm.col-lg-3.col-md-3(ng-if="!item.plus" ng-click="item.plus = !item.plus")
                                                         i.material-icons edit
                                         tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+                                            td.td(colspan="5")
+                                                div.row.data-container
+                                                    div.col-lg-12.pb-15px
+                                                        div.row
+                                                            div.col-lg-6.d-table
+                                                                label.text Razon Social
+                                                                span.value {{item.razon}}
+
+                                                    div.col-lg-12.pl-0
+                                                        div.row
+                                                            div.col-lg-4
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Contacto
+                                                                    div.form-element
+                                                                        input(name="contact" type="text" ng-model="item.contact.name" autocomplete="off")
+                                                            div.col-lg-4.pl-0
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Mail
+                                                                    div.form-element
+                                                                        input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off")
+                                                            div.col-lg-3.pl-0.pr-0
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Celular
+                                                                    div.form-element
+                                                                        input(name="movil" type="text" ng-model="item.contact.phone" autocomplete="off")
+                                                    
+                                                    div.col-lg-12.pl-0.pb-15px
+                                                        label.text Cuentas Asociadas
+
+                                                    div.col-lg-12.pl-0
+                                                        div.row(ng-repeat="account in item.plusData")
+                                                            div.col-lg-4
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Banco
+                                                                    div.form-element
+                                                                        input(name="bank" type="text" ng-model="account.bank" autocomplete="off" placeholder="Seleccione Banco")
+                                                            div.col-lg-4.pl-0
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Cuenta
+                                                                    div.form-element
+                                                                        input(name="account" type="text" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
+                                                            div.col-lg-3.pl-0.pr-0
+                                                                md-input-container.input-form
+                                                                    md-select.md-no-underline(ng-model="account.tipo" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
+                                                                        md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+
+                                                            div.col-lg-1.pt-05
+                                                                button.button-default.icon.sm.col-lg-3.col-md-3
+                                                                    i.material-icons.remove-account(ng-click="removeAccount(item, $index)") close
+
+                                                        div.row
+                                                            div.col-lg-4
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Banco
+                                                                    div.form-element
+                                                                        input(name="bank" type="text" ng-model="$ctrl.otherAccount.bank" autocomplete="off" placeholder="Seleccione Banco")
+                                                            div.col-lg-4.pl-0
+                                                                form.input-form
+                                                                    div.form-text
+                                                                        label Cuenta
+                                                                    div.form-element
+                                                                        input(name="account" type="text" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
+                                                            div.col-lg-3.pl-0.pr-0
+                                                                md-input-container.input-form
+                                                                    md-select.md-no-underline(ng-model="$ctrl.otherAccount.tipo" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
+                                                                        md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+
+                                                            div.col-lg-1.pt-05
+                                                                button.button-default.icon.sm.col-lg-3.col-md-3
+                                                                    i.material-icons.add-account(ng-click="addAccount(item, $ctrl.otherAccount)") add_circle
+
+                                                    //- div.col-lg-12.pl-0
+                                                    //-     div.row
+                                                    //-         div.col-lg-4
+                                                    //-             form.input-form
+                                                    //-                 div.form-text
+                                                    //-                     label Comentario
+                                                    //-                 div.form-element
+                                                    //-                     input(name="comment" type="text" autocomplete="off" placeholder="Ingrese un Comentario")
+                                                    //-         div.col-lg-3.pl-0.pr-0
+                                                    //-             form.input-form
+                                                    //-                 div.form-text
+                                                    //-                     label Token
+                                                    //-                 div.form-element
+                                                    //-                     input(name="token" type="password" autocomplete="off" placeholder="********************")
+                                                    //-         div.col-lg-5.pt-05
+                                                    //-             button.button-default.icon.sm.col-lg-3.col-md-3
+                                                    //-                 i.material-icons close
+                                                    //-                 button.button-default.icon.sm.col-lg-3.col-md-3
+                                                    //-                 i.material-icons edit
 
                 md-tab(label="HISTORICAS")                
                     md-content.poster

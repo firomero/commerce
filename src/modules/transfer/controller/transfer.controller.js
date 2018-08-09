@@ -345,9 +345,19 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			}
 		}
 	];
+	self.otherAccount = {
+		bank: '',
+		account: '',
+		tipo: '' 
+	};
 	$scope.dummyDataDestinatarios = [{
 			plus: false,
-			plusData: [],
+			plusData: [{
+					bank: 'Banco de Credito e Invesriones',
+					account: '2403350100000000',
+					tipo: '' 
+				}
+			],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -359,10 +369,24 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Credito e Invesriones',
 				accounts: ['2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
-			plusData: [],
+			plusData: [{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			},{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			}],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -374,10 +398,20 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Credito e Invesriones',
 				accounts: ['2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
-			plusData: [],
+			plusData: [{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			}],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -389,6 +423,12 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Credito e Invesriones',
 				accounts: ['2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
@@ -404,10 +444,20 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Credito e Invesriones',
 				accounts: ['2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
-			plusData: [],
+			plusData: [{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			}],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -419,10 +469,20 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Credito e Invesriones',
 				accounts: ['2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
-			plusData: [],
+			plusData: [{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			}],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -434,10 +494,20 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco itau',
 				accounts: ['2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
-			plusData: [],
+			plusData: [{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			}],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -449,10 +519,20 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Credito e Invesriones',
 				accounts: ['2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
-			plusData: [],
+			plusData: [{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			}],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -464,10 +544,20 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco itau',
 				accounts: ['2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
-			plusData: [],
+			plusData: [{
+				bank: 'Banco de Credito e Invesriones',
+				account: '2403350100000000',
+				tipo: '' 
+			}],
 			destinatario: 'Empresa de Transportes Rurales Limitada',
 			rut: '70.569.785-9',
 			estado: {
@@ -479,6 +569,12 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Chile / Edwards',
 				accounts: ['2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		},{
 			plus: false,
@@ -494,49 +590,58 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			account: {
 				bank: 'Banco de Chile / Edwards',
 				accounts: ['2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000']
+			},
+			razon: 'Transportes Rurales de Animales',
+			contact: {
+				name: 'Marcelo Arrigadad',
+				mail: 'mail@mail.cl',
+				phone: '+56 9 123 456 567'
 			}
 		}
 	];
 
 	$scope.dummyDataHistoricos = [{
-		year: '2016',
-		month: 'Abril',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Marzo',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Noviembre',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Noviembre',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Noviembre',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Abril',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Marzo',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Marzo',
-		folio: '32165498'
-	},{
-		year: '2016',
-		month: 'Marzo',
-		folio: '32165498'
-	}];
+			year: '2016',
+			month: 'Abril',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Abril',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		}
+	];
 	$scope.toggleAll = toggleAll;
 	$scope.toggle = toggle;
+	$scope.addAccount = addAccount;
+	$scope.removeAccount = removeAccount;
 	activate();
 	
 	function activate() {
@@ -557,6 +662,21 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			$scope.existAccounts = true;
 			self.accounts = $scope.currentCompany.accounts;
 		}
+	}
+
+	function addAccount(item, save) {
+
+		item.plusData.push(save);
+		self.otherAccount = {
+			bank: '',
+			account: '',
+			tipo: '' 
+		};
+	}
+
+	function removeAccount(item, $index) {
+		
+		item.plusData.splice($index, 1);
 	}
 
 	function toggleAll(list) {
