@@ -67,6 +67,32 @@
 
         md-select { width: 100%; }
     }
+
+    .remove-account {
+        color: $c-remove;
+        font-size: 34px;
+    }
+    .add-account {
+        color: $c-add;
+        font-size: 34px;
+    }
+
+    md-input-container.input-form {
+        margin-top: 0px
+    }
+    md-input-container.input-form.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
+        -webkit-transform: none;
+        transform: none;
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 17px;
+    }
+    md-input-container.input-form:not([md-no-float]) .md-select-placeholder span:first-child {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-size: 12px;
+    }
 }
 
 /*MEDIA SCREEN*/
