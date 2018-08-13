@@ -345,6 +345,44 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 			}
 		}
 	];
+	$scope.dummyDataHistoricos = [{
+			year: '2016',
+			month: 'Abril',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Abril',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		}
+	];
 	self.otherAccount = {
 		bank: '',
 		account: '',

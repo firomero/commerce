@@ -280,6 +280,6 @@ section.bg-gray.content-container
                                         md-input-container.input-form
                                             md-select.md-no-underline(ng-model="$ctrl.chequeMotivo" ng-change="changeMotivo(chequeMotivo)" ng-model-options="{trackBy: '$value.id'}" placeholder="Selecciones") 
                                                 md-option.text-uppercase(ng-value="motivo" ng-repeat="motivo in $ctrl.motivos") {{motivo.label}}
-                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case(ng-if="$ctrl.chequeMotivo != '' && selectedCheques.length" ng-click="checkDetail()") Orden de pago
-                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case.disabled(ng-if="$ctrl.chequeMotivo == '' || !selectedCheques.length") Orden de pago
+                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case(ng-if="$ctrl.chequeMotivo != '' && $ctrl.selectedCheques.length" ng-click="checkDetail()") Orden de pago
+                                    button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case.disabled(ng-if="$ctrl.chequeMotivo == '' || !$ctrl.selectedCheques.length") Orden de pago
 

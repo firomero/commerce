@@ -8,7 +8,7 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
 	$scope.visibilityTabControl = 'ACCOUNT';
-	$scope.selectedCheques = [];
+	self.selectedCheques = [];
 	$scope.userLogin = userLogin;
 	
 	$scope.lastMovement = [];
@@ -213,7 +213,7 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 			windowClass: 'fullscreen',
 			resolve: {
 				accounts: function() {
-					return $scope.selectedCheques;
+					return self.selectedCheques;
 				},
 				motivo: function() {
 					return self.chequeMotivo;
@@ -234,17 +234,17 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 
 	function toggle(item) {
 
-		var position = inArray($scope.selectedCheques, 'id', item.id);
+		var position = inArray(self.selectedCheques, 'id', item.id);
 		if (!item.selected && position === false) {
-			$scope.selectedCheques.push(item);
+			self.selectedCheques.push(item);
 		}else {
-			$scope.selectedCheques.splice(position, 1);
+			self.selectedCheques.splice(position, 1);
 		}
 	}
 
 	function resetControls() {
 		self.chequeMotivo = '';
-		$scope.selectedCheques = [];
+		self.selectedCheques = [];
 		
 		$scope.lastMovement = [];
 		$scope.interes = [];

@@ -22,10 +22,7 @@ div.container.check-detail
         div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Cheques
         div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right
           ul.pl-0
-            li.value 12345675
-            li.value 12345676
-            li.value 12345677
-            li.value 12345678
+            li.value(ng-repeat="item in $ctrl.accounts track by $index") {{item.cheque}}
 
       div.row.mb-1.modal-check-detail-motivo
         div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Motivo
@@ -33,14 +30,14 @@ div.container.check-detail
 
       div.row.mb-1
         div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha y Hora ONP
-        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 13-06-2017 / 20:30hrs
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{date | date:'dd-MM-yyyy'}} / {{date | date:'HH:mm'}}hrs
 
       div.row.mb-1
         div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha de Creación
         div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 10 / 05 / 2018
 
       div.row.mb-8
-        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Codigo de Registro
+        div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Código de Registro
         div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 1234567890
 
       div.row.pb-2

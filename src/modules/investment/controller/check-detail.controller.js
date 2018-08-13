@@ -1,9 +1,11 @@
 export default function CheckDetailController($scope, $uibModalInstance, accounts, motivo, userLogin) {
 	'ngInject';
 
-	$scope.accounts = accounts;
+	var self = this;
+	self.accounts = accounts;
 	$scope.motivo = motivo;
 	$scope.userLogin = userLogin;
+	$scope.date = new Date();
 
 	$scope.close = close;
 
