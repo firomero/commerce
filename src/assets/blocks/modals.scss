@@ -100,12 +100,23 @@
 
             .modal-body {
                 padding: 10px 0px 5rem 0px;
+
+                span.text-notification {
+                    color: $c-gray-txt-modal;
+                    font-family: Roboto;
+                    font-size: 11px;
+                    font-weight: 400;
+                    letter-spacing: 0.39px;
+                    line-height: 22px;
+                    margin-bottom: 1rem;
+                }
             }
             .modal-footer {
                 padding-bottom: 0px;
                 padding-top: 10px;
                 border-top: 1px solid #979797;
 
+                &.no-border { border-top: none; }
                 span {
                     color: $c-gray-txt-modal;
                     font-family: Roboto;

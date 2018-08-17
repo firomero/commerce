@@ -15,4 +15,34 @@
             md-icon { color: $c-green; }
         }
     }
+
+    .form-element-right {
+        position: absolute;
+        right: 5px;
+
+        span {
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            font-weight: 400;
+            letter-spacing: -0.36px;
+            line-height: 35px;
+            color: rgba(0, 0, 0, 0.8700000047683716);
+            display: inline-block;
+            vertical-align: top;
+            font-family: Roboto;
+
+            i {
+                font-size: 18px;
+                line-height: 35px;
+                margin-left: 1rem;
+                color: $c-green;
+            }
+        }
+    }
+    input[type="file"] {
+        height: 100%;
+        opacity: 0;
+    }
 }

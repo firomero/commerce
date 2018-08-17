@@ -1,4 +1,4 @@
-export default function TransferController($scope, userLogin, $timeout, $uibModal, BankService) {
+export default function TransferController($scope, $rootScope, userLogin, $timeout, $uibModal, BankService) {
 	'ngInject';
 
 	var self = this;
@@ -33,34 +33,34 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 	self.chequeAccount = '';
 	self.accounts = [];
 	self.cheques = [{
-		id: 1,
-		name: '123456789000000000'
-	},{
-		id: 2,
-		name: '123456789001111000'
-	}];
+			id: 1,
+			name: '123456789000000000'
+		},{
+			id: 2,
+			name: '123456789001111000'
+		}];
 	self.chequeras = [{
-		id: 1,
-		name: '123456789034567'
-	},{
-		id: 2,
-		name: '234567654324567'
-	},{
-		id: 3,
-		name: '987656789342345'
-	},{
-		id: 4,
-		name: '451239456709821'
-	},{
-		id: 5,
-		name: '234567654312345'
-	},{
-		id: 6,
-		name: '323456098765432'
-	},{
-		id: 7,
-		name: '890765678943213'
-	}];
+			id: 1,
+			name: '123456789034567'
+		},{
+			id: 2,
+			name: '234567654324567'
+		},{
+			id: 3,
+			name: '987656789342345'
+		},{
+			id: 4,
+			name: '451239456709821'
+		},{
+			id: 5,
+			name: '234567654312345'
+		},{
+			id: 6,
+			name: '323456098765432'
+		},{
+			id: 7,
+			name: '890765678943213'
+		}];
 	
 	self.selectedDummyDataTransfer = false;
 	$scope.dummyDataTransfer = [{
@@ -343,6 +343,44 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 				text: 'Pendiente Visado',
 				nameKey: 'VISADO'
 			}
+		}
+	];
+	$scope.dummyDataHistoricos = [{
+			year: '2016',
+			month: 'Abril',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Noviembre',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Abril',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
+		},{
+			year: '2016',
+			month: 'Marzo',
+			folio: '32165498'
 		}
 	];
 	self.otherAccount = {
@@ -642,6 +680,7 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 	$scope.toggle = toggle;
 	$scope.addAccount = addAccount;
 	$scope.removeAccount = removeAccount;
+	$scope.newTransference = newTransference;
 	activate();
 	
 	function activate() {
@@ -714,6 +753,33 @@ export default function TransferController($scope, userLogin, $timeout, $uibModa
 		// $scope.interes = [];
 		// $scope.historica = [];
 		// $scope.cheques = [];
+	}
+
+	function newTransference() {
+		
+		var modalInstance = $uibModal.open({
+			animation: false,
+			ariaLabelledBy: 'modal-title',
+			ariaDescribedBy: 'modal-body',
+			template: require('../view/transfer-modal.jade')(),
+			controller: 'TransferModalController',
+			controllerAs: '$ctrl',
+			size: 'lg',
+			windowClass: 'fullscreen',
+			resolve: {
+				action: function() {
+					return 'DESTINATARIO';
+				}
+			}
+		});
+		
+		modalInstance.result.then(function (response) {
+			
+			if (response != undefined  && response.success) {
+				// WizardHandler.wizard().reset();
+				// $scope.reset();
+			}
+		});
 	}
 
 	function inArray(array, key, value) {

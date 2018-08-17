@@ -1,4 +1,4 @@
-export default function MenuDirective($uibModal, MoneyChangeService) {
+export default function MenuDirective($uibModal) {
 	'ngInject';
 	
 	var directive = {
@@ -17,7 +17,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 
 		angular.element($element).on('click', function(){
 			
-			if ($scope.currentCompany.rol == "APODERADO") {
+			// if ($scope.currentCompany.rol == "APODERADO") {
 				var modalInstance = $uibModal.open({
 					animation: false,
 					template: require('./firm-detail/firm-detail.jade')(),
@@ -28,6 +28,9 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 					resolve: {
 						firms: function() {
 							return $scope.firm;
+						},
+						currentCompany: function() {
+							return $scope.currentCompany;
 						}
 					}
 				});
@@ -38,7 +41,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 						console.log('asdasd');
 					}
 				});
-			}
+			// }
 		});
 	}
 

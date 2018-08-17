@@ -20,6 +20,11 @@ export default class UserService {
                     accounts: [{
                         name: '1234',
                         disabled: false,
+                        resumen: {
+                            saldo: '110.311.270',
+                            credito: '50.000.000',
+                            transferencias: '160.311.720'
+                        },
                         data: {
                             montoD: '$500.503.000',
                             creditoD: '$60.000.000',
@@ -259,6 +264,11 @@ export default class UserService {
                     },{
                         name: '5678',
                         disabled: false,
+                        resumen: {
+                            saldo: '110.999.270',
+                            credito: '50.111.000',
+                            transferencias: '161.555.720'
+                        },
                         data: {
                             montoD: '$100.003.000',
                             creditoD: '$40.100.000',
@@ -497,10 +507,20 @@ export default class UserService {
                         }
                     },{
                         name: '9012',
-                        disabled: true
+                        disabled: true,
+                        resumen: {
+                            saldo: '110.999.270',
+                            credito: '50.111.000',
+                            transferencias: '161.555.720'
+                        }
                     },{
                         name: '3456',
-                        disabled: true
+                        disabled: true,
+                        resumen: {
+                            saldo: '110.999.270',
+                            credito: '50.111.000',
+                            transferencias: '161.555.720'
+                        }
                     }]
                 },{
                     rol: 'OPERADOR',
@@ -509,6 +529,11 @@ export default class UserService {
                     accounts: [{
                         name: '8723',
                         disabled: false,
+                        resumen: {
+                            saldo: '110.999.270',
+                            credito: '50.111.000',
+                            transferencias: '161.555.720'
+                        },
                         data: {
                             montoD: '$503.000',
                             creditoD: '$1.000',
@@ -747,7 +772,12 @@ export default class UserService {
                         }
                     },{
                         name: '9001',
-                        disabled: true
+                        disabled: true,
+                        resumen: {
+                            saldo: '110.999.270',
+                            credito: '50.111.000',
+                            transferencias: '161.555.720'
+                        }
                     }]
                 },{
                     rol: 'APODERADO',

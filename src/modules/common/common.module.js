@@ -18,6 +18,7 @@ import FirmDirective from './directives/firm/firm.directive';
 import StatusDirective from './directives/status/status.directive';
 import AproveDirective from './directives/aprove/aprove.directive';
 import AccountEllipseDirective from './directives/account-ellipse/account-ellipse.directive';
+import UploadInputDirective from './directives/upload-input/upload-input.directive';
 
 import MessageConfirmController from './components/message-confirm/message-confirm.controller';
 import FirmDetailController from './directives/firm/firm-detail/firm-detail.controller';
@@ -52,6 +53,7 @@ commonModule.directive('firm', FirmDirective);
 commonModule.directive('status', StatusDirective);
 commonModule.directive('aprove', AproveDirective);
 commonModule.directive('accountEllipse', AccountEllipseDirective);
+commonModule.directive('uploadInput', UploadInputDirective);
 
 commonModule.controller('MessageConfirmController', MessageConfirmController);
 

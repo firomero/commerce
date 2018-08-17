@@ -6,7 +6,18 @@ div.modal-body
         span.icons
             i.material-icons.green-firm(ng-if="item.status") check_circle
             i.material-icons.gray-firm(ng-if="!item.status") brightness_1
-div.modal-footer
-    div.row
+    
+    span.col-lg-8.col-md-12.col-sm-12.col-xs-12.text-left.pl-0.text-notification(ng-if="currentCompany.rol == 'APODERADO'") Autoriza ingresando tu Token
+
+div.modal-footer(ng-class="{'no-border': currentCompany.rol == 'APODERADO'}")
+    div.row(ng-if="currentCompany.rol == 'APODERADO'")
+        div.input-form.col-lg-12
+            div.form-text
+                label.rut Token
+            div.form-element
+                input(name="token" type="password" autocomplete="off" placeholder="Ingrese Token" required="required")
+    div.row(ng-if="currentCompany.rol != 'APODERADO'")
         span.col-lg-8.col-md-12.col-sm-12.col-xs-12.text-left.pl-0 Enviales un recordatorio a los apoderados Faltantes
         button.button-success.sm.col-lg-12.col-md-12.col-sm-12.col-xs-12 ENVIAR RECORDATORIO
+    div.row(ng-if="currentCompany.rol == 'APODERADO'")
+        button.button-success.sm.col-lg-12.col-md-12.col-sm-12.col-xs-12 AUTORIZAR

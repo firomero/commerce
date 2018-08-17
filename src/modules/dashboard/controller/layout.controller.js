@@ -27,6 +27,9 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         }
         if ($scope.currentCompany.accounts.length) {
             $scope.currentAccount = $scope.currentCompany.accounts[0];
+            localStorage.setItem('accounts', JSON.stringify($scope.currentCompany.accounts));
+        }else {
+            localStorage.setItem('accounts', JSON.stringify([]));
         }
     }
 
@@ -35,6 +38,9 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         $scope.currentCompany = company;
         if ($scope.currentCompany.accounts.length) {
             $scope.currentAccount = $scope.currentCompany.accounts[0];
+            localStorage.setItem('accounts', JSON.stringify($scope.currentCompany.accounts));
+        }else {
+            localStorage.setItem('accounts', JSON.stringify([]));
         }
         $scope.$broadcast('company::change', {currentCompany: $scope.currentCompany});
     }
