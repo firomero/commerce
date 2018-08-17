@@ -1,4 +1,4 @@
-export default function MenuDirective(MoneyChangeService) {
+export default function MenuDirective($uibModal, MoneyChangeService) {
 	'ngInject';
 	
 	var directive = {
@@ -28,6 +28,8 @@ export default function MenuDirective(MoneyChangeService) {
 		
 		$scope.showPrice = showPrice;
 		$scope.toggleDropdown = toggleDropdown;
+		$scope.newTransference = newTransference;
+		$scope.$uibModal = $uibModal;
 		activate();
 
 		function activate() {
@@ -52,6 +54,33 @@ export default function MenuDirective(MoneyChangeService) {
 				$scope.tooglePrice = !$scope.tooglePrice;
 			}
 			$scope.menuActive = item.text;
+		}
+
+		function newTransference() {
+			
+			var modalInstance = $scope.$uibModal.open({
+				animation: false,
+				ariaLabelledBy: 'modal-title',
+				ariaDescribedBy: 'modal-body',
+				template: require('../../../transfer/view/transfer-modal.jade')(),
+				controller: 'TransferModalController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				windowClass: 'fullscreen',
+				resolve: {
+					action: function() {
+						return 'NEW_TRANSFER';
+					}
+				}
+			});
+			
+			// modalInstance.result.then(function (response) {
+				
+			// 	if (response != undefined  && response.success) {
+			// 		// WizardHandler.wizard().reset();
+			// 		// $scope.reset();
+			// 	}
+			// });
 		}
 
 		var inputElement = $element[0].querySelector('.dropdown-menu');

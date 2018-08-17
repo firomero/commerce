@@ -10,6 +10,22 @@
     font-weight: 500;
     letter-spacing: -0.03px;
     line-height: 17px;
+
+    &.spinner, &.spinner-custom {
+        
+        img {
+            width: 28px;
+            height: 28px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 12px;
+        }
+    }
+
+    &.spinner-custom {
+        
+        img { margin-top: 3px; }
+    }
 }
 .button-success.sm, 
 .button-default.sm, 
