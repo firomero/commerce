@@ -73,7 +73,7 @@ section.bg-gray.content-container
                                             th.th Cargos / Abonos
                                             th.th Saldo
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in lastMovement" ng-class="{'odd': $index % 2 == 0}")
+                                        tr.tr.tr-container(ng-repeat="item in $ctrl.lastMovement" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.date}}
                                             td.td {{item.description}}
                                             td.td {{item.serie}}
@@ -87,6 +87,10 @@ section.bg-gray.content-container
                                                         i.material-icons arrow_downward
                                                     span {{item.cargo | currency}}
                                             td.td {{item.saldo | currency}}
+
+                                div.row.m-0.pt-1.pb-1
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR MAS
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR MAS
 
                 md-tab(label="CARTOLA INTERESES")
                     md-content.poster
@@ -150,11 +154,15 @@ section.bg-gray.content-container
                                             th.th Tasa Diaria
                                             th.th Interes
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in interes" ng-class="{'odd': $index % 2 == 0}")
+                                        tr.tr.tr-container(ng-repeat="item in $ctrl.interes" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.date}}
                                             td.td {{item.saldo | currency}}
                                             td.td {{item.tasa}}%
                                             td.td {{item.interes | currency}}
+
+                            div.row.m-0.pt-1.pb-1
+                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.interesPagination" ng-click="pagination('interes')") CARGAR MAS
+                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.interesPagination") CARGAR MAS
 
                 md-tab(label="CARTOLA HISTORICA")                
                     md-content.poster
@@ -218,7 +226,7 @@ section.bg-gray.content-container
                                             th.th Folio
                                             th.th.text-right.documents Documentos
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in historica" ng-class="{'odd': $index % 2 == 0}")
+                                        tr.tr.tr-container(ng-repeat="item in $ctrl.historica" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.year}}
                                             td.td.text-uppercase {{item.month}}
                                             td.td {{item.folio}}
@@ -228,6 +236,10 @@ section.bg-gray.content-container
                                                         span Descargar
                                                         span
                                                             i.material-icons cloud_download
+
+                            div.row.m-0.pt-1.pb-1
+                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.historicaPagination" ng-click="pagination('historica')") CARGAR MAS
+                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.historicaPagination") CARGAR MAS
 
                 md-tab(label="CHEQUES" ng-if="visibilityTabControl == 'ACCOUNT'")
                     md-content.poster
@@ -266,12 +278,16 @@ section.bg-gray.content-container
                                             th.th Fecha de Pago
                                             th.th Monto
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in cheques" ng-class="{'odd': $index % 2 == 0}")
+                                        tr.tr.tr-container(ng-repeat="item in $ctrl.cheques" ng-class="{'odd': $index % 2 == 0}")
                                             td.td.check(ng-disabled="item.completed" ng-class="{'disabled': item.completed}")
                                                 md-checkbox.md-primary(ng-click="toggle(item)" ng-model="item.selected")
                                             td.td(ng-disabled="item.completed" ng-class="{'disabled': item.completed}") {{item.cheque}}
                                             td.td {{item.pago}}
                                             td.td {{item.monto}}
+
+                            div.row.m-0.pt-1.pb-1
+                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.chequesPagination" ng-click="pagination('cheques')") CARGAR MAS
+                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.chequesPagination") CARGAR MAS
 
                             div.row.m-0.pt-1.pb-1.cheque-container
                                 div.col-lg-offset-6.col-lg-6.col-md-offset-6.col-md-6.col-sm-offset-2.col-sm-10.col-xs-12

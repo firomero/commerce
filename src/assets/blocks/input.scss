@@ -46,3 +46,7 @@
         opacity: 0;
     }
 }
+
+md-switch.md-checked.md-primary .md-thumb {
+    background-color: $c-blue-toolbar;
+}

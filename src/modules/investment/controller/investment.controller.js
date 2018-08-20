@@ -10,11 +10,20 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 	$scope.visibilityTabControl = 'ACCOUNT';
 	self.selectedCheques = [];
 	$scope.userLogin = userLogin;
+	$scope.itemPage = 5;
 	
-	$scope.lastMovement = [];
-	$scope.interes = [];
-	$scope.historica = [];
-	$scope.cheques = [];
+	self.lastMovement = [];
+	self.lastMovementAll = [];
+	self.lastMovementPagination = false;
+	self.interes = [];
+	self.interesAll = [];
+	self.interesPagination = false;
+	self.historica = [];
+	self.historicaAll = [];
+	self.historicaPagination = false;
+	self.cheques = [];
+	self.chequesAll = [];
+	self.chequesPagination = false;
 
 	self.chequeMotivo = '';	
 	self.motivos = [
@@ -175,9 +184,9 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 		}
 	];
 
-	// $scope.toggleAll = toggleAll;
 	$scope.toggle = toggle;
 	$scope.checkDetail = checkDetail;
+	$scope.pagination = pagination;
 	activate();
 	
 	function activate() {
@@ -198,6 +207,14 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 			$scope.existAccounts = true;
 			self.accounts = $scope.currentCompany.accounts;
 		}
+	}
+
+	function pagination(list) {
+			
+		self[list + 'All'].forEach((item) => {
+			self[list].push(item);
+		});
+		self[list + 'Pagination'] = false;
 	}
 
 	function checkDetail() {
@@ -246,37 +263,15 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 		self.chequeMotivo = '';
 		self.selectedCheques = [];
 		
-		$scope.lastMovement = [];
-		$scope.interes = [];
-		$scope.historica = [];
-		$scope.cheques = [];
+		self.lastMovement = [];
+		self.lastMovementAll = [];
+		self.interes = [];
+		self.interesAll = [];
+		self.historica = [];
+		self.historicaAll = [];
+		self.cheques = [];
+		self.chequesAll = [];
 	}
-
-	// function toggleAll(list) {
-		
-	// 	var resetList = $scope.selectedDummyDataTransfer ? false : true;
-	// 	resetItemSelected(list, resetList);
-	// }
-	// function toggle(item, list, all) {
-
-	// 	var count = countSelectedItems(list);
-	// 	$scope[all] = (!item.selected && count == list.length - 1) ? true : false;
-	// }
-	// function countSelectedItems(list) {
-
-	// 	var count = 0;
-	// 	for(var i = 0; i < list.length; i++) {
-	// 		if (list[i].selected) count++;
-	// 	}
-
-	// 	return count;
-	// }
-	// function resetItemSelected(list, action) {
-		
-	// 	for(var i = 0; i < list.length; i++) {
-	// 		list[i].selected = action;
-	// 	}
-	// }
 
 	function inArray(array, key, value) {
 
@@ -311,15 +306,34 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 		$scope.loadTabData = false;
 
 		var dataCopy = Object.assign({}, data);
-		$scope.lastMovement = dataCopy.account.lastMovement || [];
-		$scope.interes = dataCopy.account.interes || [];
-		$scope.historica = dataCopy.account.historica || [];
+		if (dataCopy.account.lastMovement.length > $scope.itemPage) {
+			self.lastMovementAll = dataCopy.account.lastMovement.splice($scope.itemPage, dataCopy.account.lastMovement.length);
+			self.lastMovementPagination = true;
+		}
+		self.lastMovement = dataCopy.account.lastMovement || [];	
+		
+		if (dataCopy.account.interes.length > $scope.itemPage) {
+			self.interesAll = dataCopy.account.interes.splice($scope.itemPage, dataCopy.account.interes.length);
+			self.interesPagination = true;
+		}
+		self.interes = dataCopy.account.interes || [];
+
+		if (dataCopy.account.historica.length > $scope.itemPage) {
+			self.historicaAll = dataCopy.account.historica.splice($scope.itemPage, dataCopy.account.historica.length);
+			self.historicaPagination = true;
+		}
+		self.historica = dataCopy.account.historica || [];
+
 		if (dataCopy.credito.cheques.length) {
 			angular.forEach(dataCopy.credito.cheques, element => {
 				element.selected = false;
 			});
 		}
-		$scope.cheques = dataCopy.credito.cheques || [];
+		if (dataCopy.credito.cheques.length > $scope.itemPage) {
+			self.chequesAll = dataCopy.credito.cheques.splice($scope.itemPage, dataCopy.credito.cheques.length);
+			self.chequesPagination = true;
+		}
+		self.cheques = dataCopy.credito.cheques || [];
 		$timeout(function(){
 			$scope.loadTabData = true;
 		}, 30);

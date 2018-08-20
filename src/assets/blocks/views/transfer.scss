@@ -93,6 +93,9 @@
         color: rgba(0, 0, 0, 0.8700000047683716);
         font-size: 12px;
     }
+
+    .pl-sm-0 { padding-left: 0px; }
+    .pr-sm-0 { padding-right: 0px; }
 }
 
 /*MEDIA SCREEN*/
@@ -106,8 +109,12 @@
 @media (min-width: 501px) and (max-width: 766px)  {
 }
 @media (max-width: 767px) {//col-xs
+    .pl-sm-0 { padding-left: 15px !important; }
+    .pr-sm-0 { padding-right: 15px !important; }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .pl-sm-0 { padding-left: 15px !important; }
+    .pr-sm-0 { padding-right: 15px !important; }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
 }
