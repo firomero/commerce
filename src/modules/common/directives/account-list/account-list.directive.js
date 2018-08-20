@@ -1,4 +1,4 @@
-export default function AccountListDirective($rootScope) {
+export default function AccountListDirective($rootScope, $uibModal) {
 	'ngInject';
 	
 	var directive = {
@@ -51,12 +51,32 @@ export default function AccountListDirective($rootScope) {
 			}
 		}
 		
+		$scope.$uibModal = $uibModal;
 		$scope.onTabSelected = onTabSelected;
-		
+		$scope.newTransference = newTransference;		
 		
 		function onTabSelected(item) {
 
 			$scope.$emit('account::change', item);
+		}
+
+		function newTransference() {
+			
+			var modalInstance = $scope.$uibModal.open({
+				animation: false,
+				ariaLabelledBy: 'modal-title',
+				ariaDescribedBy: 'modal-body',
+				template: require('../../../transfer/view/transfer-modal.jade')(),
+				controller: 'TransferModalController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				windowClass: 'fullscreen',
+				resolve: {
+					action: function() {
+						return 'NEW_TRANSFER';
+					}
+				}
+			});
 		}
 	}
 
