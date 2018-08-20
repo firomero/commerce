@@ -5,8 +5,8 @@ section.bg-gray.content-container
 
         div.pos-r.account-movement(ng-if="existAccounts")
 
-            md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData")
-                md-tab(label="ESTADO ORDENES DE TRANSFERECIAS")
+            md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
+                md-tab(label="ESTADO ORDENES DE TRANSFERECIAS" md-on-select="onTabChanges(0)")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
                             div.row.m-0
@@ -201,7 +201,7 @@ section.bg-gray.content-container
                                                                 button.button-success.sm.col-lg-5.col-md-6.mr-1 APROBAR / AUTORIZAR
                                                                 button.button-blue.sm.col-lg-5.col-md-5 RECHAZAR
 
-                md-tab(label="DESTINATARIOS")
+                md-tab(label="DESTINATARIOS" md-on-select="onTabChanges(1)")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
                             div.row.m-0
@@ -372,7 +372,7 @@ section.bg-gray.content-container
                                                                 button.button-blue.sm.col-lg-5 RECHAZAR
 
 
-                md-tab(label="HISTORICAS")                
+                md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)")               
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
                             div.row.m-0

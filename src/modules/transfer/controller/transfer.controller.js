@@ -1,4 +1,4 @@
-export default function TransferController($scope, $rootScope, userLogin, $timeout, $uibModal, BankService) {
+export default function TransferController($scope, $rootScope, $stateParams, userLogin, $timeout, $uibModal, BankService) {
 	'ngInject';
 
 	var self = this;
@@ -681,7 +681,24 @@ export default function TransferController($scope, $rootScope, userLogin, $timeo
 	$scope.addAccount = addAccount;
 	$scope.removeAccount = removeAccount;
 	$scope.newTransference = newTransference;
+	$scope.onTabChanges = onTabChanges;
+	
 	activate();
+
+	switch($stateParams.id) {
+		case 'resumen': {
+			$scope.selectedIndex = 0;
+			break;	
+		}
+		case 'destinatarios': {
+			$scope.selectedIndex = 1;
+			break;	
+		}
+		case 'historicas': {
+			$scope.selectedIndex = 2;
+			break;	
+		}
+	}
 	
 	function activate() {
 
@@ -702,6 +719,11 @@ export default function TransferController($scope, $rootScope, userLogin, $timeo
 			self.accounts = $scope.currentCompany.accounts;
 		}
 	}
+
+	function onTabChanges(currentTabIndex){
+		$scope.selectedIndex = currentTabIndex;
+		console.log($scope.selectedIndex);
+    }
 
 	function addAccount(item, save) {
 

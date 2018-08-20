@@ -80,8 +80,9 @@ div.menu-collapse
                 i.material-icons.rotate90 import_export
                 label Transferencias
               span.link.mt-3 
-                a(ui-sref="app.transfer" ui-sref-active="active") Resumen
-              span.link Históricas
+                a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active") Resumen
+              span.link 
+                a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
               span.link Transferir
               span.link Crear Nómina
 
@@ -89,7 +90,8 @@ div.menu-collapse
               div.title 
                 i.material-icons people
                 label Destinatarios
-              span.link.mt-3 Lista de Destinatarios
+              span.link.mt-3 
+                a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active") Lista de Destinatarios
 
             div.col-lg-6.picture.transferencia
               div.text-container

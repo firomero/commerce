@@ -145,9 +145,10 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
             span.label Transferencias
           li.link 
             span.label
-              a(ui-sref="app.transfer" ui-sref-active="active") Resumen
+              a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active") Resumen
           li.link
-            span.label Históricas
+            span.label
+              a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
           li.link
             span.label Transferir
           li.link
@@ -158,7 +159,8 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
             i.material-icons.icon people
             span.label Destinatarios
           li.link
-            span.label Lista de Destinatarios
+            span.label 
+              a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active") Lista de Destinatarios
 
       div.panel-default(uib-accordion-group)
         uib-accordion-heading

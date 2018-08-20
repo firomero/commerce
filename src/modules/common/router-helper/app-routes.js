@@ -31,7 +31,7 @@ export default [
 			template: require('../../investment/view/investment.jade')(),
 		},{
 			name: 'app.transfer',
-			url: 'transfer',
+			url: 'transfer/:id',
 			controller: 'TransferController',
 			controllerAs: '$ctrl',
 			template: require('../../transfer/view/transfer.jade')(),
