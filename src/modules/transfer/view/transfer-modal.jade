@@ -83,7 +83,7 @@ div.container.transfer-modal
                 div.form-text
                     label.rut Monto
                 div.form-element
-                    input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.monto" mask="99.999.999-9")
+                    input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.monto")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
               div.input-form
@@ -100,7 +100,7 @@ div.container.transfer-modal
                     input(name="mensaje" type="text" autocomplete="off" ng-model="stepData[0].data.mensaje" placeholder="Ingrese Comentario")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="setLoadingStep()") CANCELAR
+              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
               input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="INGRESAR" ng-if="!saving")
               button.button-success.spinner-custom.col-lg-4(ng-if="saving")
                 img(src="images/spinner.gif")
@@ -171,7 +171,7 @@ div.container.transfer-modal
                 div.form-text
                     label.rut Monto
                 div.form-element
-                    input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.monto")
+                    input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.montoTrans")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
               div.input-form
@@ -195,8 +195,8 @@ div.container.transfer-modal
                 md-radio-button.md-primary(value="NO") No
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="setLoadingStep()") CANCELAR
-              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="INGRESAR" ng-if="!saving" ng-disabled="!form.username.$valid")
+              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
+              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="INGRESAR" ng-if="!saving")
               button.button-success.spinner-custom.col-lg-4(ng-if="saving")
                 img(src="images/spinner.gif")
 
@@ -312,7 +312,7 @@ div.container.transfer-modal
                 button.button-default.col-lg-offset-3.col-lg-3.col-md-offset-3.col-md-3.col-sm-offset-3.col-sm-3.col-xs-4(ng-click="addUser(userForm)") ADD USER
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="setLoadingStep()") CANCELAR
+              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
               input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="INGRESAR" ng-if="!saving")
               button.button-success.spinner-custom.col-lg-4(ng-if="saving")
                 img(src="images/spinner.gif")
@@ -320,8 +320,8 @@ div.container.transfer-modal
 
 
         wz-step(canexit="exitValidation")
-          h4(ng-if="$ctrl.action == 'DESTINATARIO'").text-center.mb-2 Juan Pablo Estás seguro que desea ingresar esta transferencia?
-          div.row.modal-check-detail(ng-if="$ctrl.action == 'DESTINATARIO'")
+          h4(ng-if="$ctrl.action == 'DESTINATARIO' || $ctrl.action == 'NEW_TRANSFER'").text-center.mb-2 Juan Pablo ¿Estás seguro que desea ingresar esta transferencia?
+          div.row.modal-check-detail(ng-if="$ctrl.action == 'DESTINATARIO' || $ctrl.action == 'NEW_TRANSFER'")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
           
@@ -335,11 +335,12 @@ div.container.transfer-modal
 
               div.row.mb-1.modal-check-detail-motivo
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Monto
-                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value ${{stepData[0].data.monto || 0}}
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'DESTINATARIO'") ${{stepData[0].data.monto || 0}}
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'NEW_TRANSFER'") ${{stepData[0].data.montoTrans || 0}}
               
-              div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-                button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(wz-reset="backStep()") VOLVER
-                input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="CREAR" ng-if="!saving")
+              div.col-lg-offset-2.col-lg-8.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+                button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(wz-reset="backStep()") CANCELAR
+                input.button-success.col-lg-8.col-md-8.col-sm-8.col-xs-6(type="submit" ng-click="finish()" value="ENVIAR AUTORIZACIÓN" ng-if="!saving")
                 button.button-success.spinner-custom.col-lg-4(ng-if="saving")
                   img(src="images/spinner.gif")
           
