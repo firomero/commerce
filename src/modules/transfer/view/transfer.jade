@@ -6,7 +6,7 @@ section.bg-gray.content-container
         div.pos-r.account-movement(ng-if="existAccounts")
 
             md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
-                md-tab(label="ESTADO ORDENES DE TRANSFERECIAS" md-on-select="onTabChanges(0)")
+                md-tab(label="ESTADO ORDENES DE TRANSFERENCIAS" md-on-select="onTabChanges(0)")
                     md-content.poster
                         md-card.pt-15px.pos-r.filter
                             div.row.m-0
@@ -188,7 +188,7 @@ section.bg-gray.content-container
                                                             div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
                                                                 a.pointer.link Ver Comprobante
 
-                                                div.row.inputs-container
+                                                div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO'")
                                                     div.col-lg-12.col-md-12.col-sm-12.col-xs-12
                                                         div.row
                                                             div.col-lg-4.col-md-4.col-sm-12.col-xs-4
@@ -372,7 +372,8 @@ section.bg-gray.content-container
                                                             div.col-lg-1.pt-05
                                                                 button.button-default.icon.sm.col-lg-3.col-md-3
                                                                     i.material-icons.add-account(ng-click="addAccount(item, $ctrl.otherAccount)") add_circle
-                                                        div.row
+                                                        
+                                                        div.row(ng-if="currentCompany.rol == 'APODERADO'")
                                                             div.col-lg-offset-5.col-lg-3.pl-0
                                                                 form.input-form
                                                                     div.form-text

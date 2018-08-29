@@ -722,7 +722,6 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function onTabChanges(currentTabIndex){
 		$scope.selectedIndex = currentTabIndex;
-		console.log($scope.selectedIndex);
     }
 
 	function addAccount(item, save) {
