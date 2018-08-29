@@ -30,6 +30,13 @@
         position: absolute;
     }
 
+    .input-form .form-text i {
+        font-size: 25px;
+        display: inline-block;
+        vertical-align: top;
+        line-height: 35px;        
+    }
+
     .input-form .form-text label {
         font-size: 12px;
         font-weight: normal;
@@ -57,11 +64,11 @@
         background-color: transparent;
         text-align: right;
         color: $c-black;
-        font-size: 17px;
+        font-size: 14px;
         font-family: Roboto;
         font-weight: 400;
         letter-spacing: -0.41px;
-        line-height: 32px;
+        line-height: 35px;
     }
 
     .input-form .form-element input:focus {

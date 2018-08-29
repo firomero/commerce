@@ -34,77 +34,9 @@ div.container.transfer-modal
           div.row
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.radio-container
               md-radio-group(ng-model="$ctrl.action" ng-change="changeTitle()")
-                md-radio-button.md-primary(value="DESTINATARIO") Destinatario
                 md-radio-button.md-primary(value="NEW_TRANSFER") Nueva Transferencia
                 md-radio-button.md-primary(value="NOMINA") Nomina
           
-          form.row(name="form" ng-if="$ctrl.action == 'DESTINATARIO'")
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
-              div.placeholder-select
-                label Tipo de Transferencia
-              md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.type" ng-model-options="{trackBy: '$value.id'}") 
-                  md-option.text-uppercase(ng-value="type" ng-repeat="type in types") {{type.name}}
-
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
-              div.placeholder-select
-                label Cuenta de Origen
-              md-input-container.input-form.yellow
-                md-select.md-no-underline(ng-model="stepData[0].data.account" ng-model-options="{trackBy: '$value.name'}") 
-                  md-option.text-uppercase(ng-value="account" ng-repeat="account in accounts") {{account.name}}
-
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account(ng-if="stepData[0].data.account")
-              div.account-container
-                div.row.m-0
-                  div.col-lg-6.pl-1
-                    span Saldo Disponible
-                  div.col-lg-6.pr-1.text-right
-                    span {{stepData[0].data.account.resumen.saldo | currency}}
-                div.row.m-0
-                  div.col-lg-6.pl-1
-                    span Línea de Crédito
-                  div.col-lg-6.pr-1.text-right
-                    span {{stepData[0].data.account.resumen.credito | currency}}
-                div.row.m-0
-                  div.col-lg-6.pl-1
-                    span Total Disponible Transferencias
-                  div.col-lg-6.pr-1.text-right
-                    span {{stepData[0].data.account.resumen.transferencias | currency}}
-
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
-              div.placeholder-select
-                label Destinatario
-              md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.destinatario" ng-model-options="{trackBy: '$value.id'}") 
-                  md-option.text-uppercase(ng-value="dest" ng-repeat="dest in destinatarios") {{dest.name}}
-
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
-              div.input-form
-                div.form-text
-                    label.rut Monto
-                div.form-element
-                    input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.monto")
-
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
-              div.input-form
-                div.form-text
-                    label.rut Motivo
-                div.form-element
-                    input(name="motivo" type="text" autocomplete="off" ng-model="stepData[0].data.motivo")
-
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
-              div.input-form
-                div.form-text
-                    label.rut Mensaje
-                div.form-element
-                    input(name="mensaje" type="text" autocomplete="off" ng-model="stepData[0].data.mensaje" placeholder="Ingrese Comentario")
-
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
-              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="INGRESAR" ng-if="!saving")
-              button.button-success.spinner-custom.col-lg-4(ng-if="saving")
-                img(src="images/spinner.gif")
-
           form.row(name="form" ng-if="$ctrl.action == 'NEW_TRANSFER'")
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
               div.placeholder-select
@@ -138,28 +70,35 @@ div.container.transfer-modal
                   div.col-lg-6.pr-1.text-right
                     span.value {{stepData[0].data.account.resumen.transferencias | currency}}
 
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+              div.placeholder-select
+                label Destinatario
+              md-input-container.input-form
+                md-select.md-no-underline(ng-model="stepData[0].data.destinatario" ng-model-options="{trackBy: '$value.id'}") 
+                  md-option.text-uppercase(ng-value="dest" ng-repeat="dest in destinatarios") {{dest.name}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0(ng-if="stepData[0].data.destinatario.id == 0")
               div.input-form
                 div.form-text
                     label.rut Nombre o Razón Social
                 div.form-element
                     input(name="razon" type="text" autocomplete="off" ng-model="stepData[0].data.razon" placeholder="Ingresar")
 
-            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0(ng-if="stepData[0].data.destinatario.id == 0")
               div.input-form
                 div.form-text
                     label.rut Rut
                 div.form-element
                     input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut" mask="99.999.999-9" placeholder="Ingresar")
 
-            div.col-lg-offset-3.col-lg-4.col-md-offset-2.col-md-6.col-sm-offset-1.col-sm-7.col-xs-12.padding-0.pos-r
+            div.col-lg-offset-3.col-lg-4.col-md-offset-2.col-md-6.col-sm-offset-1.col-sm-7.col-xs-12.padding-0.pos-r(ng-if="stepData[0].data.destinatario.id == 0")
               div.placeholder-select
                 label Banco
               md-input-container.input-form
                 md-select.md-no-underline(ng-model="stepData[0].data.bank" ng-model-options="{trackBy: '$value.id'}") 
                     md-option.text-uppercase(ng-value="bank" ng-repeat="bank in banks") {{bank.name}}
 
-            div.col-lg-2.col-md-2.col-sm-3.col-xs-12.padding-right-0
+            div.col-lg-2.col-md-2.col-sm-3.col-xs-12.padding-right-0(ng-if="stepData[0].data.destinatario.id == 0")
               div.input-form
                 div.form-text
                     label.rut Nº Cuenta
@@ -187,9 +126,9 @@ div.container.transfer-modal
                 div.form-element
                     input(name="mensaje" type="text" autocomplete="off" ng-model="stepData[0].data.mensaje" placeholder="Ingrese Comentario")
 
-            div.col-lg-offset-3.col-lg-4.col-md-offset-2.col-md-5.col-sm-offset-1.col-sm-6.col-xs-12.padding-left-0.center-xs
+            div.col-lg-offset-3.col-lg-4.col-md-offset-2.col-md-5.col-sm-offset-1.col-sm-6.col-xs-12.padding-left-0.center-xs(ng-if="stepData[0].data.destinatario.id == 0")
               span.radio-text ¿Deseas Agregarlo a Lista de Destinatarios?
-            div.col-lg-2.col-md-3.col-sm-4.col-xs-12.padding-right-0.destinatario
+            div.col-lg-2.col-md-3.col-sm-4.col-xs-12.padding-right-0.destinatario(ng-if="stepData[0].data.destinatario.id == 0")
               md-radio-group(ng-model="stepData[0].data.addDestinatario")
                 md-radio-button.md-primary(value="SI") Si
                 md-radio-button.md-primary(value="NO") No
@@ -317,11 +256,9 @@ div.container.transfer-modal
               button.button-success.spinner-custom.col-lg-4(ng-if="saving")
                 img(src="images/spinner.gif")
 
-
-
         wz-step(canexit="exitValidation")
-          h4(ng-if="$ctrl.action == 'DESTINATARIO' || $ctrl.action == 'NEW_TRANSFER'").text-center.mb-2 Juan Pablo ¿Estás seguro que desea ingresar esta transferencia?
-          div.row.modal-check-detail(ng-if="$ctrl.action == 'DESTINATARIO' || $ctrl.action == 'NEW_TRANSFER'")
+          h4(ng-if="$ctrl.action == 'NEW_TRANSFER'").text-center.mb-2 Juan Pablo ¿Estás seguro que desea ingresar esta transferencia?
+          div.row.modal-check-detail(ng-if="$ctrl.action == 'NEW_TRANSFER'")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
           
@@ -383,7 +320,7 @@ div.container.transfer-modal
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
               button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(wz-reset="backStep()") VOLVER
-              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="CREAR" ng-if="!saving")
+              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="finish()" value="CREAR" ng-if="!saving")
               button.button-success.spinner-custom.col-lg-4(ng-if="saving")
                 img(src="images/spinner.gif")
                   

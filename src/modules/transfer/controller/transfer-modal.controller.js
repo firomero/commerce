@@ -42,7 +42,7 @@ export default function TransferModalController($scope, $timeout, $uibModal, $ui
 	$scope.ingresos = [{
 			id: 1,
 			name: 'DOCUMENTO EXCELL',
-			name: 'Documento Excell'
+			text: 'Documento Excell'
 		},{
 			id: 2,
 			name: 'DIGITACIÓN',
@@ -50,23 +50,17 @@ export default function TransferModalController($scope, $timeout, $uibModal, $ui
 		}
 	];
 	$scope.destinatarios = [{
+			id: 0,
+			name: 'NUEVO DESTINATARIO'
+		},{
 			id: 1,
 			name: 'EMPRESA DE TRANSPORTES RURALES LIMITADA'
 		},{
 			id: 2,
-			name: 'ADMINISTRADORA DE SUPERMERCADOS HIPER LIMITADA'
+			name: 'COMPASS GROPU SA ASES DE INVERSIONES'
 		},{
 			id: 3,
-			name: 'CINEMARK CHILE S.A'
-		},{
-			id: 4,
-			name: 'BCI SEGUROS GENERALES S.A'
-		},{
-			id: 5,
-			name: 'GRUPO COPESA S.A'
-		},{
-			id: 6,
-			name: 'SERVICIOS INDS Y CIA LTDA'
+			name: 'EXPORTADORA SUBSOLE S.A'
 		}
 	];
 	$scope.selectedStep = 1;
@@ -81,15 +75,11 @@ export default function TransferModalController($scope, $timeout, $uibModal, $ui
 	self.action = action;
 	switch (self.action) {
 		case 'NOMINA': {
-			$scope.optionTitle = 'Nomina';
-			break;
-		}
-		case 'DESTINATARIO': {
-			$scope.optionTitle = 'Destinatario';
+			$scope.optionTitle = 'Tipo Nomina';
 			break;
 		}
 		default: {
-			$scope.optionTitle = 'Nueva Transferencia';
+			$scope.optionTitle = 'Destinatario';
 			break;
 		}
 	}
@@ -145,8 +135,25 @@ export default function TransferModalController($scope, $timeout, $uibModal, $ui
 
 	function finish() {		
 		
-		if (self.action == 'DESTINATARIO' || self.action == 'NEW_TRANSFER') {
+		if (self.action == 'NEW_TRANSFER') {
 			var message = "Estimado JUAN PABLO Tú Solicitud se ha pasado a estado de AUTORIZACIÓN, se te enviará una notificación cuando los usuarios responsables Autorizen tú transferencia."; 
+			var confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: false,
+				keyboard  : false,			
+				resolve: {
+					message: () => message,
+					textAction: () => undefined
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+		}else {
+
+			var message = "Estimado Marcelo su Nomina ha sido Creada Exitosamente a Tú Correo Jpr******@gmail.com."; 
 			var confirmInstance = $uibModal.open({
 				ariaDescribedBy: 'modal-body',
 				template: require('../../common/components/message-confirm/message-confirm.jade')(),
@@ -176,15 +183,11 @@ export default function TransferModalController($scope, $timeout, $uibModal, $ui
 
 		switch (self.action) {
 			case 'NOMINA': {
-				$scope.optionTitle = 'Nomina';
-				break;
-			}
-			case 'DESTINATARIO': {
-				$scope.optionTitle = 'Destinatario';
+				$scope.optionTitle = 'Tipo Nomina';
 				break;
 			}
 			default: {
-				$scope.optionTitle = 'Nueva Transferencia';
+				$scope.optionTitle = 'Destinatario';
 				break;
 			}
 		}
