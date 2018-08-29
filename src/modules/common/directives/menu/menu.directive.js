@@ -56,7 +56,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 			$scope.menuActive = item.text;
 		}
 
-		function newTransference() {
+		function newTransference(type) {
 			
 			var modalInstance = $scope.$uibModal.open({
 				animation: false,
@@ -69,7 +69,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 				windowClass: 'fullscreen',
 				resolve: {
 					action: function() {
-						return 'NEW_TRANSFER';
+						return type;
 					}
 				}
 			});

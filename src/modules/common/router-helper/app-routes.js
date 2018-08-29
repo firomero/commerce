@@ -25,7 +25,7 @@ export default [
 			template: require('../../dashboard/view/dashboard.jade')(),
 		},{
 			name: 'app.investment',
-			url: 'investment',
+			url: 'investment/:id',
 			controller: 'InvestmentController',
 			controllerAs: '$ctrl',
 			template: require('../../investment/view/investment.jade')(),

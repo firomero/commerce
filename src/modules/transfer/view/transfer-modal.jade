@@ -234,7 +234,7 @@ div.container.transfer-modal
                     div.form-text
                         label.rut Nº Cuenta
                     div.form-element
-                        input(name="nAccount" type="text" autocomplete="off" ng-model="userForm.account" mask="999.999-99")
+                        input(name="nAccount" type="text" autocomplete="off" ng-model="userForm.account")
 
                 div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
                   div.input-form
@@ -262,15 +262,15 @@ div.container.transfer-modal
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
           
-              div.row.mb-1
+              div.row.mb-2
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-5.text Fecha
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.value {{now | date:'dd-MM-yyyy'}}
               
-              div.row.mb-1.modal-check-detail-cheques
-                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Destinatario
-                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{stepData[0].data.destinatario.name || '- -'}}
+              div.row.mb-2.modal-check-detail-cheques
+                div.col-lg-4.col-md-4.col-sm-4.col-xs-6.text Destinatario
+                div.col-lg-8.col-md-8.col-sm-8.col-xs-6.text-right.value {{stepData[0].data.destinatario.name || '- -'}}
 
-              div.row.mb-1.modal-check-detail-motivo
+              div.row.mb-2.modal-check-detail-motivo
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Monto
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'DESTINATARIO'") ${{stepData[0].data.monto || 0}}
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'NEW_TRANSFER'") ${{stepData[0].data.montoTrans || 0}}
@@ -322,13 +322,4 @@ div.container.transfer-modal
               button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(wz-reset="backStep()") VOLVER
               input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="finish()" value="CREAR" ng-if="!saving")
               button.button-success.spinner-custom.col-lg-4(ng-if="saving")
-                img(src="images/spinner.gif")
-                  
-
-    
-          
-      
-
-  //- div.footer
-  //-   p.mb-2 Si tienes Problemas para recuperar tu clave contacte con nuestros ejecutivos.
-  //-   label.m-0 600 221 2000            
+                img(src="images/spinner.gif")          

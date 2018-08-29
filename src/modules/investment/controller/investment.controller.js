@@ -1,4 +1,4 @@
-export default function InvestmentController($scope, userLogin, $timeout, $uibModal, BankService) {
+export default function InvestmentController($scope, $stateParams, userLogin, $timeout, $uibModal, BankService) {
 	'ngInject';
 
 	var self = this;
@@ -6,8 +6,7 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
-	$scope.existAccounts = false;
-	$scope.visibilityTabControl = 'ACCOUNT';
+	$scope.existAccounts = false;	
 	self.selectedCheques = [];
 	$scope.userLogin = userLogin;
 	$scope.itemPage = 5;
@@ -183,6 +182,17 @@ export default function InvestmentController($scope, userLogin, $timeout, $uibMo
 			estado: 'P_AUT'
 		}
 	];
+
+	switch($stateParams.id) {
+		case 'account': {
+			$scope.visibilityTabControl = 'ACCOUNT';
+			break;	
+		}
+		case 'credit': {
+			$scope.visibilityTabControl = 'CREDIT';
+			break;	
+		}
+	}
 
 	$scope.toggle = toggle;
 	$scope.checkDetail = checkDetail;

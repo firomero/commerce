@@ -46,8 +46,9 @@ div.menu-collapse
               span.link.mt-3 
                 a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
               span.link
-                a(ui-sref="app.investment" ui-sref-active="active") Saldo y Movimientos
-              span.link Línea de Crédito
+                a(ui-sref="app.investment({id:'account'})" ui-sref-active="active") Saldo y Movimientos
+              span.link 
+                a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active") Línea de Crédito
 
             div.col-lg-3.pl-2.pt-3
               div.title 
@@ -83,8 +84,10 @@ div.menu-collapse
                 a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active") Resumen
               span.link 
                 a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
-              span.link Transferir
-              span.link Crear Nómina
+              span.link
+                a.pointer(ng-click="newTransference('NEW_TRANSFER')") Transferir
+              span.link 
+                a.pointer(ng-click="newTransference('NOMINA')") Crear Nómina
 
             div.col-lg-3.pl-2.pt-3
               div.title 

@@ -121,9 +121,10 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
               a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
           li.link 
             span.label 
-              a(ui-sref="app.investment" ui-sref-active="active") Saldo y Movimientos
+              a(ui-sref="app.investment({id:'account'})" ui-sref-active="active") Saldo y Movimientos
           li.link
-            span.label Línea de Crédito
+            span.label
+              a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active") Línea de Crédito
 
         ul.menu-list
           li.grouping
@@ -150,9 +151,11 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
             span.label
               a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
           li.link
-            span.label Transferir
+            span.label
+              a.pointer(ng-click="newTransference('NEW_TRANSFER')") Transferir
           li.link
-            span.label Crear Nómina
+            span.label 
+              a.pointer(ng-click="newTransference('NOMINA')") Crear Nómina
 
         ul.menu-list
           li.grouping
