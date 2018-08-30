@@ -18,24 +18,24 @@ export default function StatusDirective($uibModal) {
 
 	function link($scope, $element) {
 
-		angular.element($element).on('click', function(){
+		// angular.element($element).on('click', function(){
 			
-			var modalInstance = $uibModal.open({
-				animation: false,
-				template: require('./status-detail/status-detail.jade')(),
-				controller: 'StatusDetailController',
-				controllerAs: '$ctrl',
-				size: 'sm',
-				windowClass: 'status-detail'
-			});
+		// 	var modalInstance = $uibModal.open({
+		// 		animation: false,
+		// 		template: require('./status-detail/status-detail.jade')(),
+		// 		controller: 'StatusDetailController',
+		// 		controllerAs: '$ctrl',
+		// 		size: 'sm',
+		// 		windowClass: 'status-detail'
+		// 	});
 		  
-			modalInstance.result.then(function (response) {
+		// 	modalInstance.result.then(function (response) {
 				
-				if (response != undefined  && response.success) {
-					console.log('asdasd');
-				}
-			});
-		});
+		// 		if (response != undefined  && response.success) {
+		// 			console.log('asdasd');
+		// 		}
+		// 	});
+		// });
 	}
 
 	return directive;
