@@ -291,7 +291,8 @@ section.bg-gray.content-container
                                             td.td {{item.rut}}
                                             td.td
                                                 div.text-uppercase {{item.account.bank}}
-                                                account-ellipse(accounts="item.account.accounts")
+                                                div(ng-if="item.updateAccount")
+                                                    account-ellipse(accounts="item.account.accounts")
                                             td.td 
                                                 status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
                                             td.td
@@ -362,7 +363,7 @@ section.bg-gray.content-container
                                                                     div.form-text
                                                                         label Banco
                                                                     div.form-element
-                                                                        input(name="bank" type="text" ng-model="$ctrl.otherAccount.bank" autocomplete="off" placeholder="Seleccione Banco")
+                                                                        input(name="bank" type="text" ng-model="$ctrl.otherAccount.banco" autocomplete="off" placeholder="Seleccione Banco")
                                                             div.col-lg-4.pl-0
                                                                 form.input-form
                                                                     div.form-text
@@ -371,7 +372,7 @@ section.bg-gray.content-container
                                                                         input(name="account" type="text" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
                                                             div.col-lg-3.pl-0.pr-0
                                                                 md-input-container.input-form
-                                                                    md-select.md-no-underline(ng-model="$ctrl.otherAccount.tipo" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
+                                                                    md-select.md-no-underline(ng-model="$ctrl.otherAccount.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
                                                                         md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
 
                                                             div.col-lg-1.pt-05

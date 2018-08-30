@@ -77,9 +77,9 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.dataHistoricosPagination = false;
 
 	self.otherAccount = {
-		bank: '',
+		banco: '',
 		account: '',
-		tipo: '' 
+		type: '' 
 	};
 
 	$scope.toggleAll = toggleAll;
@@ -135,17 +135,24 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function addAccount(item, save) {
 
-		item.plusData.push(save);
-		self.otherAccount = {
-			bank: '',
-			account: '',
-			tipo: '' 
-		};
+		item.updateAccount = false;
+		$timeout(function(){
+			item.account.accounts.push(save);
+			self.otherAccount = {
+				banco: '',
+				account: '',
+				type: '' 
+			};
+			item.updateAccount = true;
+		}, 30);		
 	}
 
 	function removeAccount(item, $index) {
-		
-		item.plusData.splice($index, 1);
+		item.updateAccount = false;
+		$timeout(function(){
+			item.account.accounts.splice($index, 1);
+			item.updateAccount = true;
+		}, 30);		
 	}
 
 	function toggleAll(list) {
