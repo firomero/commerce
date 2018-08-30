@@ -570,6 +570,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -607,6 +608,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -636,6 +638,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -677,6 +680,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -710,6 +714,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -743,6 +748,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco itau',
                                         accounts: [{
@@ -772,6 +778,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -805,6 +812,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco itau',
                                         accounts: [{
@@ -838,6 +846,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Chile / Edwards',
                                         accounts: [{
@@ -867,6 +876,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Chile / Edwards',
                                         accounts: [{
@@ -1487,6 +1497,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -1524,6 +1535,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -1553,6 +1565,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -1594,6 +1607,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -1627,6 +1641,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -1660,6 +1675,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco itau',
                                         accounts: [{
@@ -1689,6 +1705,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -1722,6 +1739,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco itau',
                                         accounts: [{
@@ -1755,6 +1773,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Chile / Edwards',
                                         accounts: [{
@@ -1784,6 +1803,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Chile / Edwards',
                                         accounts: [{
@@ -2425,6 +2445,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -2462,6 +2483,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -2491,6 +2513,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -2532,6 +2555,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -2565,6 +2589,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -2598,6 +2623,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco itau',
                                         accounts: [{
@@ -2627,6 +2653,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Credito e Invesriones',
                                         accounts: [{
@@ -2660,6 +2687,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco itau',
                                         accounts: [{
@@ -2693,6 +2721,7 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Chile / Edwards',
                                         accounts: [{
@@ -2722,6 +2751,7 @@ export default class UserService {
                                         text: 'Activo',
                                         nameKey: 'ACTIVO'
                                     },
+                                    updateAccount: true,
                                     account: {
                                         bank: 'Banco de Chile / Edwards',
                                         accounts: [{
