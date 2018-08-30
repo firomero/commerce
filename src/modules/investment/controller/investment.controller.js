@@ -9,7 +9,7 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	$scope.existAccounts = false;	
 	self.selectedCheques = [];
 	$scope.userLogin = userLogin;
-	$scope.itemPage = 5;
+	$scope.itemPage = 6;
 	
 	self.lastMovement = [];
 	self.lastMovementAll = [];

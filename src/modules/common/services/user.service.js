@@ -97,9 +97,31 @@ export default class UserService {
                                     serie: '00000000000015',
                                     cargo: 400000,
                                     saldo: '400.000.0000'
+                                },{
+                                    date: '23-04-2016',
+                                    description: 'Abono de Terceros',
+                                    serie: '00000000000015',
+                                    cargo: 100000,
+                                    saldo: '400.000.0000'
+                                },{
+                                    date: '23-04-2016',
+                                    description: 'Abono de Terceros',
+                                    serie: '00000000000015',
+                                    cargo: 400000,
+                                    saldo: '400.000.0000'
                                 }
                             ],
                             interes: [{
+                                    date: '23-04-2016',
+                                    saldo: '400.000.0000',		
+                                    tasa: '0,04',
+                                    interes: '400.000'
+                                },{
+                                    date: '23-04-2016',
+                                    saldo: '400.000.0000',		
+                                    tasa: '0,04',
+                                    interes: '400.000'
+                                },{
                                     date: '23-04-2016',
                                     saldo: '400.000.0000',		
                                     tasa: '0,04',
@@ -191,75 +213,96 @@ export default class UserService {
                                     year: '2016',
                                     month: 'Mayo',		
                                     folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Mayo',		
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Mayo',		
+                                    folio: '32165498'
                                 }
                             ]
                         },
                         credito: {
                             cheques: [{
-                                cheque: '123456789000000000',
-                                pago: '23-04-2016',		
-                                monto: '$100.000',
-                                selected: false,
-                                completed: true,
-                                id: 1
-                            },{
-                                cheque: '123456789000000000',
-                                pago: 'Sin Información',		
-                                monto: '$100.000',
-                                selected: false,
-                                id: 2
-                            },{
-                                cheque: '123456789000000000',
-                                pago: 'Sin Información',		
-                                monto: '$100.000',
-                                selected: false,
-                                id: 3
-                            },{
-                                cheque: '123456789000000000',
-                                pago: 'Sin Información',		
-                                monto: '$100.000',
-                                selected: false,
-                                id: 4
-                            },{
-                                cheque: '123456789000000000',
-                                pago: '23-04-2016',		
-                                monto: '$100.000',
-                                selected: false,
-                                completed: true,
-                                id: 5
-                            },{
-                                cheque: '123456789000000000',
-                                pago: '23-04-2016',		
-                                monto: '$100.000',
-                                selected: false,
-                                completed: true,
-                                id: 6
-                            },{
-                                cheque: '123456789000000000',
-                                pago: '23-04-2016',		
-                                monto: 'Sin Información',
-                                selected: false,
-                                id: 7
-                            },{
-                                cheque: '123456789000000000',
-                                pago: '23-04-2016',		
-                                monto: 'Sin Información',
-                                selected: false,
-                                id: 8
-                            },{
-                                cheque: '123456789000000000',
-                                pago: '23-04-2016',		
-                                monto: 'Sin Información',
-                                selected: false,
-                                id: 9
-                            },{
-                                cheque: '123456789000000000',
-                                pago: '23-04-2016',		
-                                monto: '$900.000',
-                                selected: false,
-                                completed: true,
-                                id: 10
-                            }]
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    completed: true,
+                                    id: 1
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: 'Sin Información',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    id: 2
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: 'Sin Información',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    id: 3
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: 'Sin Información',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    id: 4
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    completed: true,
+                                    id: 5
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    completed: true,
+                                    id: 6
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: 'Sin Información',
+                                    selected: false,
+                                    id: 7
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: 'Sin Información',
+                                    selected: false,
+                                    id: 8
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: 'Sin Información',
+                                    selected: false,
+                                    id: 9
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: '$900.000',
+                                    selected: false,
+                                    completed: true,
+                                    id: 10
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: '23-04-2016',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    completed: true,
+                                    id: 23
+                                },{
+                                    cheque: '123456789000000000',
+                                    pago: 'Sin Información',		
+                                    monto: '$100.000',
+                                    selected: false,
+                                    id: 24
+                                }]
                         },
                         transferencias: {
                             estados: [{
@@ -533,6 +576,64 @@ export default class UserService {
                                     destinatario: 'Empresa de Transportes Rurales Limitada',
                                     transferencia: '$400.000',
                                     firmas:  [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
                                         name: 'Pablo Hernandez. A.',
                                         status: true
                                     },{
@@ -903,6 +1004,75 @@ export default class UserService {
                                         mail: 'mail@mail.cl',
                                         phone: '+56 9 123 456 567'
                                     }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                            bank: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }
+                                    ],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    updateAccount: true,
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco de Credito e Invesriones', 
+                                            account: '2403350100000000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    },{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    updateAccount: true,
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
                                 }
                             ],
                             historicos: [{
@@ -936,6 +1106,14 @@ export default class UserService {
                                 },{
                                     year: '2016',
                                     month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Abril',
                                     folio: '32165498'
                                 },{
                                     year: '2016',
@@ -1024,9 +1202,31 @@ export default class UserService {
                                     serie: '00000000000015',
                                     cargo: 400000,
                                     saldo: '400.000.0000'
+                                },{
+                                    date: '23-04-2016',
+                                    description: 'Abono de Terceros',
+                                    serie: '00000000000015',
+                                    cargo: 100000,
+                                    saldo: '400.000.0000'
+                                },{
+                                    date: '23-04-2016',
+                                    description: 'Abono de Terceros',
+                                    serie: '00000000000015',
+                                    cargo: 400000,
+                                    saldo: '400.000.0000'
                                 }
                             ],
                             interes: [{
+                                    date: '23-04-2016',
+                                    saldo: '400.000.0000',		
+                                    tasa: '0,04',
+                                    interes: '400.000'
+                                },{
+                                    date: '23-04-2016',
+                                    saldo: '400.000.0000',		
+                                    tasa: '0,04',
+                                    interes: '400.000'
+                                },{
                                     date: '23-04-2016',
                                     saldo: '400.000.0000',		
                                     tasa: '0,04',
@@ -1118,6 +1318,14 @@ export default class UserService {
                                     year: '2016',
                                     month: 'Mayo',		
                                     folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Mayo',		
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Mayo',		
+                                    folio: '32165498'
                                 }
                             ]
                         },
@@ -1186,6 +1394,19 @@ export default class UserService {
                                 selected: false,
                                 completed: true,
                                 id: 20
+                            },{
+                                cheque: '123456789000000000',
+                                pago: '23-04-2016',		
+                                monto: '$100.000',
+                                selected: false,
+                                completed: true,
+                                id: 21
+                            },{
+                                cheque: '123456789000000000',
+                                pago: 'Sin Información',		
+                                monto: '$100.000',
+                                selected: false,
+                                id: 22
                             }]
                         },
                         transferencias: {
@@ -1479,6 +1700,64 @@ export default class UserService {
                                         text: 'Pendiente Autorización',
                                         nameKey: 'AUTORIZADO'
                                     }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
                                 }
                             ],
                             destinatarios: [{
@@ -1830,6 +2109,75 @@ export default class UserService {
                                         mail: 'mail@mail.cl',
                                         phone: '+56 9 123 456 567'
                                     }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                            bank: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }
+                                    ],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    updateAccount: true,
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    },{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    updateAccount: true,
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
                                 }
                             ],
                             historicos: [{
@@ -1863,6 +2211,14 @@ export default class UserService {
                                 },{
                                     year: '2016',
                                     month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Abril',
                                     folio: '32165498'
                                 },{
                                     year: '2016',
@@ -2076,64 +2432,77 @@ export default class UserService {
                                 monto: '$100.000',
                                 selected: false,
                                 completed: true,
-                                id: 21
+                                id: 31
                             },{
                                 cheque: '123456789000000000',
                                 pago: 'Sin Información',		
                                 monto: '$100.000',
                                 selected: false,
-                                id: 22
+                                id: 32
                             },{
                                 cheque: '123456789000000000',
                                 pago: 'Sin Información',		
                                 monto: '$100.000',
                                 selected: false,
-                                id: 23
+                                id: 33
                             },{
                                 cheque: '123456789000000000',
                                 pago: 'Sin Información',		
                                 monto: '$100.000',
                                 selected: false,
-                                id: 24
+                                id: 34
                             },{
                                 cheque: '123456789000000000',
                                 pago: '23-04-2016',		
                                 monto: '$100.000',
                                 selected: false,
                                 completed: true,
-                                id: 25
+                                id: 35
                             },{
                                 cheque: '123456789000000000',
                                 pago: '23-04-2016',		
                                 monto: '$100.000',
                                 selected: false,
                                 completed: true,
-                                id: 26
+                                id: 36
                             },{
                                 cheque: '123456789000000000',
                                 pago: '23-04-2016',		
                                 monto: 'Sin Información',
                                 selected: false,
-                                id: 27
+                                id: 37
                             },{
                                 cheque: '123456789001111000',
                                 pago: '23-04-2016',		
                                 monto: 'Sin Información',
                                 selected: false,
-                                id: 28
+                                id: 38
                             },{
                                 cheque: '123456789001111000',
                                 pago: '23-04-2016',		
                                 monto: 'Sin Información',
                                 selected: false,
-                                id: 29
+                                id: 39
                             },{
                                 cheque: '123456789001111000',
                                 pago: '23-04-2016',		
                                 monto: '$900.000',
                                 selected: false,
                                 completed: true,
-                                id: 30
+                                id: 40
+                            },{
+                                cheque: '123456789000000000',
+                                pago: '23-04-2016',		
+                                monto: '$100.000',
+                                selected: false,
+                                completed: true,
+                                id: 41
+                            },{
+                                cheque: '123456789000000000',
+                                pago: 'Sin Información',		
+                                monto: '$100.000',
+                                selected: false,
+                                id: 42
                             }]
                         },
                         transferencias: {
@@ -2427,6 +2796,64 @@ export default class UserService {
                                         text: 'Pendiente Visado',
                                         nameKey: 'VISADO'
                                     }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
                                 }
                             ],
                             destinatarios: [{
@@ -2778,6 +3205,75 @@ export default class UserService {
                                         mail: 'mail@mail.cl',
                                         phone: '+56 9 123 456 567'
                                     }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                            bank: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }
+                                    ],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    updateAccount: true,
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    },{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    updateAccount: true,
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
                                 }
                             ],
                             historicos: [{
@@ -2811,6 +3307,14 @@ export default class UserService {
                                 },{
                                     year: '2016',
                                     month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Abril',
                                     folio: '32165498'
                                 },{
                                     year: '2016',

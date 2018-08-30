@@ -3,7 +3,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	var self = this;
 
-	$scope.itemPage = 5;
+	$scope.itemPage = 6;
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
