@@ -43,14 +43,28 @@
 @import 'blocks/extra-layout';
 @import 'blocks/modals';
 @import 'blocks/account-list';
-@import 'blocks/layout';
-@import 'blocks/menu';
+@import 'blocks/flex-grid';
+@import 'blocks/table';
+@import 'blocks/tabs';
+@import 'blocks/firm';
+@import 'blocks/status';
+@import 'blocks/aprove';
+@import 'blocks/input';
+@import 'blocks/account-ellipse';
+@import 'blocks/filter';
+@import 'blocks/wizard';
 
-@import 'blocks/login';
-@import 'blocks/forgot';
+@import 'blocks/menu';
 @import 'blocks/header';
 @import 'blocks/user-profile';
-@import 'blocks/dashboard';
+@import 'blocks/layout';
+
+@import 'blocks/views/login';
+@import 'blocks/views/forgot';
+@import 'blocks/views/dashboard';
+@import 'blocks/views/investment';
+@import 'blocks/views/transfer';
+@import 'blocks/views/transfer-modal';
 
 .is-focused {
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -95,16 +109,23 @@ md-backdrop.md-sidenav-backdrop {
 
 .md-sidenav-right, .md-sidenav-left  { position: fixed; }
 .column { display: inline-block;vertical-align: top; }
+.md-select-menu-container {
+    z-index: 9999;
 
+    md-select-menu md-content md-option[selected] {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+    }
+}
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
+    .content-container {padding-top: 6rem;}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
-    .container {}
+    .content-container {padding-top: 6rem;}
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
-    .container {}
+    .content-container {padding-top: 6rem;}
 }
 @media (min-width: 1200px) {//col-lg
-    
+    .content-container {padding-top: 14rem;}
 }

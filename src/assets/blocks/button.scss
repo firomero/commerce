@@ -1,4 +1,4 @@
-.button-success, .button-default, .button-default-inv {
+.button-success, .button-default, .button-default-inv, .button-blue {
     height: 50px;
     border-radius: 3px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
@@ -10,8 +10,34 @@
     font-weight: 500;
     letter-spacing: -0.03px;
     line-height: 17px;
-}
 
+    &.spinner, &.spinner-custom {
+        
+        img {
+            width: 28px;
+            height: 28px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 12px;
+        }
+    }
+
+    &.spinner-custom {
+        
+        img { margin-top: 3px; }
+    }
+}
+.button-success.sm, 
+.button-default.sm, 
+.button-default-inv.sm,
+.button-blue.sm {
+    font-size: 12px;
+    height: 34px;
+}
+.button-blue {
+    background-color: $c-blue-button;
+    color: $c-white;
+}
 .button-success {
     background-color: $c-green;
     color: $c-white;
@@ -26,6 +52,9 @@
     color: $c-green;
     box-shadow: none;
 }
+.button-default.icon {
+    color: #E1E1E1;
+}
 .button-default-inv {
     background-color: transparent; 
     color: $c-white;
@@ -33,7 +62,7 @@
 }
 
 .button-text {
-    color: #4a4a4a;
+    color: $c-black-table-header;
     font-family: Roboto;
     font-size: 10px;
     font-weight: 500;
@@ -42,9 +71,14 @@
     max-width: 85px;
 }
 
-// .md-button.md-fab, .md-button.md-fab:not([disabled]):hover { background-color: $c-blue; }
 .md-button.md-fab.success { background-color: $c-blue; }
 .md-button.md-fab.success:not([disabled]):hover { background-color: $c-green; }
+
+
+md-radio-button:not([disabled]).md-primary .md-on { background-color: $c-green; }
+md-radio-button:not([disabled]).md-primary.md-checked .md-off,
+md-radio-group:not([disabled]) .md-primary.md-checked .md-off,
+md-radio-button .md-off { border-color: $c-green; }
 
 @media (max-width: 500px) {//col-xs
     .md-button.md-fab.success {

@@ -1,0 +1,325 @@
+div.container.transfer-modal
+  div.header.mt-2.mb-0
+    div.logo
+      img.logo(src="images/isologo-premium-modal.png")
+    div.close
+      i.material-icons(ng-click="close()") close
+
+  div.title.mb-3 
+    h3 Transferencias
+
+  div.indicator-container
+    div.row.step-strip
+      div.strip.col-lg-offset-4.col-lg-2.col-mg-offset-4.col-md-2.col-sm-offset-4.col-sm-2.col-xs-offset-2.col-xs-4(ng-class="{'pending': stepData[0].completed}")
+      div.strip.col-lg-2.col-md-2.col-sm-2.col-xs-4(ng-class="{'pending': stepData[0].completed}")
+
+    div.row.step-indicators
+      div.col-lg-offset-3.col-lg-2.col-md-offset-3.col-md-2.col-sm-offset-3.col-sm-2.col-xs-4.indicator.pending
+        span.icon(ng-if="!stepData[0].completed") 1
+        span.icon(ng-if="stepData[0].completed")
+          i.material-icons check  
+        span.sub-title {{optionTitle}}
+
+      div.col-lg-offset-2.col-lg-2.col-md-offset-2.col-md-2.col-sm-offset-2.col-sm-2.col-xs-offset-4.col-xs-4.indicator(ng-class="{'pending': stepData[0].completed}")
+        span.icon(ng-if="!stepData[1].completed") 2
+        span.icon(ng-if="stepData[1].completed")
+          i.material-icons check
+        span.sub-title Confirmación
+
+  div.row.mb-6
+    div.col-lg-12
+      wizard(on-finish="finishedWizard()" hide-indicators="true")
+        wz-step(canexit="exitValidation")
+          h4.text-center.mb-2 Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do
+          div.row
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.radio-container
+              md-radio-group(ng-model="$ctrl.action" ng-change="changeTitle()")
+                md-radio-button.md-primary(value="NEW_TRANSFER") Nueva Transferencia
+                md-radio-button.md-primary(value="NOMINA") Nomina
+          
+          form.row(name="form" ng-if="$ctrl.action == 'NEW_TRANSFER'")
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+              div.placeholder-select
+                label Tipo de Transferencia
+              md-input-container.input-form
+                md-select.md-no-underline(ng-model="stepData[0].data.type" ng-model-options="{trackBy: '$value.id'}") 
+                  md-option.text-uppercase(ng-value="type" ng-repeat="type in types") {{type.name}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+              div.placeholder-select
+                label Cuenta de Origen
+              md-input-container.input-form.yellow
+                md-select.md-no-underline(ng-model="stepData[0].data.account" ng-model-options="{trackBy: '$value.name'}") 
+                  md-option.text-uppercase(ng-value="account" ng-repeat="account in accounts") {{account.name}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account(ng-if="stepData[0].data.account")
+              div.account-container
+                div.row.m-0
+                  div.col-lg-6.pl-1
+                    span.text Saldo Disponible
+                  div.col-lg-6.pr-1.text-right
+                    span.value {{stepData[0].data.account.resumen.saldo | currency}}
+                div.row.m-0
+                  div.col-lg-6.pl-1
+                    span.text Línea de Crédito
+                  div.col-lg-6.pr-1.text-right
+                    span.value {{stepData[0].data.account.resumen.credito | currency}}
+                div.row.m-0
+                  div.col-lg-6.pl-1
+                    span.text Total Disponible Transferencias
+                  div.col-lg-6.pr-1.text-right
+                    span.value {{stepData[0].data.account.resumen.transferencias | currency}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+              div.placeholder-select
+                label Destinatario
+              md-input-container.input-form
+                md-select.md-no-underline(ng-model="stepData[0].data.destinatario" ng-model-options="{trackBy: '$value.id'}") 
+                  md-option.text-uppercase(ng-value="dest" ng-repeat="dest in destinatarios") {{dest.name}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0(ng-if="stepData[0].data.destinatario.id == 0")
+              div.input-form
+                div.form-text
+                    label.rut Nombre o Razón Social
+                div.form-element
+                    input(name="razon" type="text" autocomplete="off" ng-model="stepData[0].data.razon" placeholder="Ingresar")
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0(ng-if="stepData[0].data.destinatario.id == 0")
+              div.input-form
+                div.form-text
+                    label.rut Rut
+                div.form-element
+                    input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut" mask="99.999.999-9" placeholder="Ingresar")
+
+            div.col-lg-offset-3.col-lg-4.col-md-offset-2.col-md-6.col-sm-offset-1.col-sm-7.col-xs-12.padding-0.pos-r(ng-if="stepData[0].data.destinatario.id == 0")
+              div.placeholder-select
+                label Banco
+              md-input-container.input-form
+                md-select.md-no-underline(ng-model="stepData[0].data.bank" ng-model-options="{trackBy: '$value.id'}") 
+                    md-option.text-uppercase(ng-value="bank" ng-repeat="bank in banks") {{bank.name}}
+
+            div.col-lg-2.col-md-2.col-sm-3.col-xs-12.padding-right-0(ng-if="stepData[0].data.destinatario.id == 0")
+              div.input-form
+                div.form-text
+                    label.rut Nº Cuenta
+                div.form-element
+                    input(name="nAccount" type="text" autocomplete="off" ng-model="stepData[0].data.nAccount" mask="999.999-99")
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
+              div.input-form
+                div.form-text
+                    label.rut Monto
+                div.form-element
+                    input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.montoTrans")
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
+              div.input-form
+                div.form-text
+                    label.rut Motivo
+                div.form-element
+                    input(name="motivo" type="text" autocomplete="off" ng-model="stepData[0].data.motivo")
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
+              div.input-form
+                div.form-text
+                    label.rut Mensaje
+                div.form-element
+                    input(name="mensaje" type="text" autocomplete="off" ng-model="stepData[0].data.mensaje" placeholder="Ingrese Comentario")
+
+            div.col-lg-offset-3.col-lg-4.col-md-offset-2.col-md-5.col-sm-offset-1.col-sm-6.col-xs-12.padding-left-0.center-xs(ng-if="stepData[0].data.destinatario.id == 0")
+              span.radio-text ¿Deseas Agregarlo a Lista de Destinatarios?
+            div.col-lg-2.col-md-3.col-sm-4.col-xs-12.padding-right-0.destinatario(ng-if="stepData[0].data.destinatario.id == 0")
+              md-radio-group(ng-model="stepData[0].data.addDestinatario")
+                md-radio-button.md-primary(value="SI") Si
+                md-radio-button.md-primary(value="NO") No
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
+              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="INGRESAR" ng-if="!saving")
+              button.button-success.spinner-custom.col-lg-4(ng-if="saving")
+                img(src="images/spinner.gif")
+
+          form.row(name="form" ng-if="$ctrl.action == 'NOMINA'")
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+              div.placeholder-select
+                label Tipo de Pago
+              md-input-container.input-form
+                md-select.md-no-underline(ng-model="stepData[0].data.pagoT" ng-model-options="{trackBy: '$value.id'}") 
+                  md-option.text-uppercase(ng-value="pago" ng-repeat="pago in pagos") {{pago.name}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+              div.placeholder-select
+                label Forma de Pago
+              md-input-container.input-form
+                md-select.md-no-underline(ng-model="stepData[0].data.pagoF" ng-model-options="{trackBy: '$value.id'}") 
+                  md-option.text-uppercase(ng-value="forma" ng-repeat="forma in formas") {{forma.name}}
+
+            div.col-lg-offset-3.col-lg-3.col-md-offset-2.col-md-4.col-sm-offset-1.col-sm-5.padding-left-0
+              div.input-form
+                div.form-text
+                    label.rut Fecha de Abono
+                div.form-element
+                    input(name="abono" type="text" autocomplete="off" ng-model="stepData[0].data.abono" mask="99 / 99 / 9999" placeholder="_ / _ / _")
+
+            div.col-lg-3.col-md-4.col-sm-5.padding-0.pos-r
+              div.placeholder-select
+                label Modo de Ingreso
+              md-input-container.input-form
+                md-select.md-no-underline(ng-model="stepData[0].data.pagoTSelect" ng-model-options="{trackBy: '$value.id'}" placeholder="Seleccione") 
+                  md-option.text-uppercase(ng-value="ingreso" ng-repeat="ingreso in ingresos") {{ingreso.name}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.padding-0.abono-pago-type(ng-if="stepData[0].data.pagoTSelect")
+              div(ng-if="stepData[0].data.pagoTSelect.id == 1")
+                div.span-text El Archivo de Datos debe ser un Excell.
+                div.span-text.last
+                  p
+                    span.mr-1 Si desea Puede bajar un Excell Tipo en el siguiente Link
+                    a.link.pointer Nomina_Tipo.xls
+
+                div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
+                  div.input-form
+                    div.form-text
+                        label Archivo de Datos
+                    upload-input
+
+              div(ng-if="stepData[0].data.pagoTSelect.id == 2")
+                div.span-text Ingrese los Datos Requeridos por usuario
+                div.span-text.last
+                  p
+                    span.mr-1 Luego revise el excell creado
+                    a.link.pointer Nomina_Tipo.xls
+
+                div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
+                  div.col-xs-12.user-add
+                    span.text Usuarios Ingresados
+                    span.count {{userList.length}} usuario(s)
+                  
+                div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
+                  div.input-form
+                    div.form-text
+                        label.rut Nombre o Razón Social
+                    div.form-element
+                        input(name="razon" type="text" autocomplete="off" ng-model="userForm.razon" placeholder="Ingresar")
+
+                div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
+                  div.input-form
+                    div.form-text
+                        label.rut Rut
+                    div.form-element
+                        input(name="rut" type="text" autocomplete="off" ng-model="userForm.rut" mask="99.999.999-9" placeholder="Ingresar")
+
+                div.col-lg-7.col-md-7.col-sm-7.col-xs-12.pl-0.padding-rigth-xs-0
+                  div.input-form
+                    div.form-text
+                        label.rut Mail
+                    div.form-element
+                        input(name="mail" type="text" autocomplete="off" ng-model="userForm.mail" placeholder="Ingrese")
+
+                div.col-lg-5.col-md-5.col-sm-5.col-xs-12.p-0
+                  div.input-form
+                    div.form-text
+                        label.rut Forma de Abono
+                    div.form-element
+                        input(name="forma" type="text" autocomplete="off" ng-model="userForm.forma" placeholder="Ingrese")
+
+                div.col-lg-7.col-md-7.col-sm-7.col-xs-12.pl-0.pos-r.padding-rigth-xs-0
+                  div.placeholder-select.refactor
+                    label Banco
+                  md-input-container.input-form
+                    md-select.md-no-underline(ng-model="userForm.bank" ng-model-options="{trackBy: '$value.id'}") 
+                        md-option.text-uppercase(ng-value="bank" ng-repeat="bank in banks") {{bank.name}}
+
+                div.col-lg-5.col-md-5.col-sm-5.col-xs-12.p-0
+                  div.input-form
+                    div.form-text
+                        label.rut Nº Cuenta
+                    div.form-element
+                        input(name="nAccount" type="text" autocomplete="off" ng-model="userForm.account")
+
+                div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
+                  div.input-form
+                    div.form-text
+                        label.rut Monto
+                    div.form-element
+                        input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.montoNomina" placeholder="Ingresar")
+
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-8.padding-left-0.pos-r.extra-row
+                  div.col-lg-6.col-md-6.col-sm-6.col-xs-8.p-0
+                    label.text Utiliza Factura
+                  div.col-lg-6.col-md-6.col-sm-6.col-xs-4.pl-0
+                    md-switch.md-primary(md-no-ink ng-model="userForm.utilFactura")
+                button.button-default.col-lg-offset-3.col-lg-3.col-md-offset-3.col-md-3.col-sm-offset-3.col-sm-3.col-xs-4(ng-click="addUser(userForm)") ADD USER
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
+              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="INGRESAR" ng-if="!saving")
+              button.button-success.spinner-custom.col-lg-4(ng-if="saving")
+                img(src="images/spinner.gif")
+
+        wz-step(canexit="exitValidation")
+          h4(ng-if="$ctrl.action == 'NEW_TRANSFER'").text-center.mb-2 Juan Pablo ¿Estás seguro que desea ingresar esta transferencia?
+          div.row.modal-check-detail(ng-if="$ctrl.action == 'NEW_TRANSFER'")
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
+          
+              div.row.mb-2
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-5.text Fecha
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.value {{now | date:'dd-MM-yyyy'}}
+              
+              div.row.mb-2.modal-check-detail-cheques
+                div.col-lg-4.col-md-4.col-sm-4.col-xs-6.text Destinatario
+                div.col-lg-8.col-md-8.col-sm-8.col-xs-6.text-right.value {{stepData[0].data.destinatario.name || '- -'}}
+
+              div.row.mb-2.modal-check-detail-motivo
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Monto
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'DESTINATARIO'") ${{stepData[0].data.monto || 0}}
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'NEW_TRANSFER'") ${{stepData[0].data.montoTrans || 0}}
+              
+              div.col-lg-offset-2.col-lg-8.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+                button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(wz-reset="backStep()") CANCELAR
+                input.button-success.col-lg-8.col-md-8.col-sm-8.col-xs-6(type="submit" ng-click="finish()" value="ENVIAR AUTORIZACIÓN" ng-if="!saving")
+                button.button-success.spinner-custom.col-lg-4(ng-if="saving")
+                  img(src="images/spinner.gif")
+          
+          h4(ng-if="$ctrl.action == 'NOMINA'").text-center.mb-2 Estos son los Datos de La Nomina
+          div.row.modal-check-detail(ng-if="$ctrl.action == 'NOMINA'")
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
+          
+              div.row.mb-1
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-5.text Motivo de Abono
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.value {{stepData[0].data.pagoT.text}}
+              
+              div.row.mb-1.modal-check-detail-cheques
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Forma de Pago
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{stepData[0].data.pagoF.name}}
+
+              div.row.mb-1.modal-check-detail-motivo
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Creado Por
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value Claudia Orellana
+
+              div.row.mb-1
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Número de Operaciones
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 25
+
+              div.row.mb-1
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Monto
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value ${{stepData[0].data.montoNomina}}
+
+              div.row.mb-1
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha de Abono
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{stepData[0].data.abono || '--'}}
+              
+              div.row.mb-1
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha de Creación
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 10 / 05 / 2018
+
+              div.row.mb-8
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Estado
+                div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{stepData[0].data.pagoTSelect.text}}
+
+            div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+              button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(wz-reset="backStep()") VOLVER
+              input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="finish()" value="CREAR" ng-if="!saving")
+              button.button-success.spinner-custom.col-lg-4(ng-if="saving")
+                img(src="images/spinner.gif")          

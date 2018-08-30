@@ -23,6 +23,18 @@ export default [
 			url: 'dashboard',
 			controller: 'DashboardController',
 			template: require('../../dashboard/view/dashboard.jade')(),
+		},{
+			name: 'app.investment',
+			url: 'investment/:id',
+			controller: 'InvestmentController',
+			controllerAs: '$ctrl',
+			template: require('../../investment/view/investment.jade')(),
+		},{
+			name: 'app.transfer',
+			url: 'transfer/:id',
+			controller: 'TransferController',
+			controllerAs: '$ctrl',
+			template: require('../../transfer/view/transfer.jade')(),
 		}]
 	}
 ];

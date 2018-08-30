@@ -22,7 +22,7 @@ header
           div.column.user-login
             div.column.mr-15px
               div.pt-15px
-                a.pointer
+                a.pointer(ng-click="openToggle('right')")
                   img.user-logo(src="images/user.png")
             div.column.company-selector-container
               label.user-fullname {{userLogin.fullName}}
@@ -84,7 +84,7 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
           div.user-login
             div.column.mr-15px
               div.pt-05
-                a.pointer
+                a.pointer(ng-click="openToggle('right')")
                   img.user-logo(src="images/user.png")
             div.column.company-selector-container
               label.user-fullname {{userLogin.fullName}}
@@ -117,11 +117,14 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
             i.material-icons.icon home
             span.label Inicio
           li.link 
-            span.label Resumen
+            span.label 
+              a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
           li.link 
-            span.label Saldo y Movimientos
+            span.label 
+              a(ui-sref="app.investment({id:'account'})" ui-sref-active="active") Saldo y Movimientos
           li.link
-            span.label Línea de Crédito
+            span.label
+              a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active") Línea de Crédito
 
         ul.menu-list
           li.grouping
@@ -142,20 +145,25 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
             i.material-icons.icon home
             span.label Transferencias
           li.link 
-            span.label Resumen
+            span.label
+              a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active") Resumen
           li.link
-            span.label Históricas
+            span.label
+              a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
           li.link
-            span.label Transferir
+            span.label
+              a.pointer(ng-click="newTransference('NEW_TRANSFER')") Transferir
           li.link
-            span.label Crear Nómina
+            span.label 
+              a.pointer(ng-click="newTransference('NOMINA')") Crear Nómina
 
         ul.menu-list
           li.grouping
             i.material-icons.icon people
             span.label Destinatarios
           li.link
-            span.label Lista de Destinatarios
+            span.label 
+              a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active") Lista de Destinatarios
 
       div.panel-default(uib-accordion-group)
         uib-accordion-heading
@@ -187,86 +195,86 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
 
           
 
-//- md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
-//-   div.p-2
-//-     div.row.text-center.pos-r
-//-       img.user-avatar(src="images/user.png")
-//-       i.material-icons.change-avatar photo_camera
-//-       h3.c-white {{userLogin.fullName}}
+md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
+  div.p-2
+    div.row.text-center.pos-r
+      img.user-avatar(src="images/user.png")
+      i.material-icons.change-avatar photo_camera
+      h3.c-white {{userLogin.fullName}}
 
-//-     div.row.data.pl-2.pr-2.mt-5
-//-       div.pos-r
-//-         span
-//-           i.material-icons account_circle
-//-         span.title DATOS
-//-         span.pull-right
-//-           i.material-icons.edit create
-//-       div.pl-4.mt-4
-//-         span.sub-title Telefono Celular
-//-       div.pl-4.mt-05
-//-         span.sub-title-value +5691584599
+    div.row.data.pl-2.pr-2.mt-5
+      div.pos-r
+        span
+          i.material-icons account_circle
+        span.title DATOS
+        span.pull-right
+          i.material-icons.edit create
+      div.pl-4.mt-4
+        span.sub-title Telefono Celular
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
         
-//-       div.pl-4.mt-2
-//-         span.sub-title Telefono Fijo
-//-       div.pl-4.mt-05
-//-         span.sub-title-value +5691584599
+      div.pl-4.mt-2
+        span.sub-title Telefono Fijo
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
 
-//-       div.pl-4.mt-2
-//-         span.sub-title Correo Electronico
-//-       div.pl-4.mt-05
-//-         span.sub-title-value +5691584599
+      div.pl-4.mt-2
+        span.sub-title Correo Electronico
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
 
-//-       div.pl-4.mt-2
-//-         span.sub-title Direccion
-//-       div.pl-4.mt-05
-//-         span.sub-title-value +5691584599
+      div.pl-4.mt-2
+        span.sub-title Direccion
+      div.pl-4.mt-05
+        span.sub-title-value +5691584599
       
-//-   md-divider.divider
+  md-divider.divider
 
-//-   div.p-2
-//-     div.row.pass.pl-2.pr-2
-//-       div.pos-r
-//-         span.mr-2
-//-           i.material-icons vpn_key
-//-         span.title CLAVES
-//-         span.pull-right
-//-           i.material-icons.edit create
+  div.p-2
+    div.row.pass.pl-2.pr-2
+      div.pos-r
+        span.mr-2
+          i.material-icons vpn_key
+        span.title CLAVES
+        span.pull-right
+          i.material-icons.edit create
 
-//-       div.pl-4.mt-4
-//-         span.sub-title Token
-//-       div.pl-4.mt-05
-//-         span.sub-title-value Habilitada
+      div.pl-4.mt-4
+        span.sub-title Token
+      div.pl-4.mt-05
+        span.sub-title-value Habilitada
 
-//-       div.pl-4.mt-2
-//-         span.sub-title Preguntas Secretas
-//-       div.pl-4.mt-05
-//-         span.sub-title-value Habilitada
+      div.pl-4.mt-2
+        span.sub-title Preguntas Secretas
+      div.pl-4.mt-05
+        span.sub-title-value Habilitada
     
-//-   md-divider.divider
+  md-divider.divider
 
-//-   div.p-2
-//-     div.row.communication.pl-2.pr-2
-//-       div.pos-r
-//-         span.mr-2
-//-           i.material-icons markunread_mailbox
-//-         span.title COMUNICACIONES
-//-         span.pull-right
-//-           i.material-icons.edit create
+  div.p-2
+    div.row.communication.pl-2.pr-2
+      div.pos-r
+        span.mr-2
+          i.material-icons markunread_mailbox
+        span.title COMUNICACIONES
+        span.pull-right
+          i.material-icons.edit create
 
-//-       div.pl-4.mt-4
-//-         span.sub-title Cartolas
-//-       div.pl-4.mt-05
-//-         span.sub-title-value Mail
+      div.pl-4.mt-4
+        span.sub-title Cartolas
+      div.pl-4.mt-05
+        span.sub-title-value Mail
 
-//-       div.pl-4.mt-2
-//-         span.sub-title Cuenta Empresa
-//-       div.pl-4.mt-05
-//-         span.sub-title-value Mail
+      div.pl-4.mt-2
+        span.sub-title Cuenta Empresa
+      div.pl-4.mt-05
+        span.sub-title-value Mail
         
-//-       div.pl-4.mt-2
-//-         span.sub-title Creditos
-//-       div.pl-4.mt-05
-//-         span.sub-title-value Mail - Direccion Particular
+      div.pl-4.mt-2
+        span.sub-title Creditos
+      div.pl-4.mt-05
+        span.sub-title-value Mail - Direccion Particular
 
-//-     div.row.mt-5
-//-       button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle('right')") CONTACTAR A EJECUTIVO
+    div.row.mt-5
+      button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle('right')") CONTACTAR A EJECUTIVO

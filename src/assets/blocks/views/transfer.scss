@@ -1,0 +1,122 @@
+.transfer { 
+
+    account-list.bg-toolbar {
+        md-tabs-canvas md-pagination-wrapper { 
+            right: 0;
+            left: auto !important;
+        }
+        md-tabs-wrapper { margin-left: 0px; }
+        .title { text-transform: none; }
+
+        .action-container {
+            bottom: -55px;
+        }
+    }
+
+    .account-movement {
+
+        margin-top: -55px;
+    }
+
+    .arrow-container {
+
+        span:first-child {
+            float: left;
+            padding-top: 7px;
+            margin-right: 25%;
+
+            i { font-size: 18px; }
+        }
+
+        &.up { color: $c-green; }
+        &.down { color: $c-red; }        
+    }
+
+    .arrow-container-download {
+
+        padding-right: 2rem;
+        
+        a { 
+            display: block;
+
+            &:hover { text-decoration: none; }
+        }
+        span {
+            color: $c-green-firm;
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.55px;
+            display: inline-block;
+            vertical-align: middle;
+
+            i { color: #9CC131; }
+        }
+    }
+    
+    .input-form {
+        height: 50px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: $c-gray-background-input;
+        display: -webkit-inline-box;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid $c-gray-border-input;
+        position: relative;
+
+        md-select { width: 100%; }
+    }
+
+    .remove-account {
+        color: $c-remove;
+        font-size: 34px;
+    }
+    .add-account {
+        color: $c-add;
+        font-size: 34px;
+    }
+
+    md-input-container.input-form {
+        margin-top: 0px
+    }
+    md-input-container.input-form.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
+        -webkit-transform: none;
+        transform: none;
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 17px;
+    }
+    md-input-container.input-form:not([md-no-float]) .md-select-placeholder span:first-child {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-size: 12px;
+    }
+
+    .pl-sm-0 { padding-left: 0px; }
+    .pr-sm-0 { padding-right: 0px; }
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 500px) {
+    .transfer account-list.bg-toolbar .action-container {
+        bottom: -50px!important;
+        right: -1px!important;
+    }
+    .investment .account-movement { margin-top: -30px; }
+}
+@media (min-width: 501px) and (max-width: 766px)  {
+}
+@media (max-width: 767px) {//col-xs
+    .pl-sm-0 { padding-left: 15px !important; }
+    .pr-sm-0 { padding-right: 15px !important; }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .pl-sm-0 { padding-left: 15px !important; }
+    .pr-sm-0 { padding-right: 15px !important; }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+}
+@media (min-width: 1200px) {//col-lg
+}

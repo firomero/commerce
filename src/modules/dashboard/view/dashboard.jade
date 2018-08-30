@@ -133,5 +133,5 @@ section.bg-gray.dashboard-container
                 
     //list account
     div.mt-8
-      account-list(list="currentCompany.accounts" ng-if="!loadAccounts")
+      account-list(list="currentCompany.accounts" button-saldo="true" button-transfer="true" button-credit="true" button-credit-line="true" button-credit-line-up="true" ng-if="!loadAccounts")
     //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi

@@ -71,7 +71,7 @@
             color: $c-black-light;
         }
         .title {
-            color: #4A4A4A;
+            color: $c-black-table-header;
             font-size: 14px;
             font-weight: 400;
             letter-spacing: -0.34px;
@@ -87,7 +87,7 @@
         h3 {
             font-family: Roboto;
             font-size: 30px;
-            color: #4A4A4A;
+            color: $c-black-table-header;
             font-weight: 400;
         }
 
@@ -98,7 +98,7 @@
             top: 5px;
             z-index: 5;
 
-            i {color: #4a4a4a;}
+            i {color: $c-black-table-header;}
         }
     }
 
@@ -217,7 +217,7 @@
         left: 15%;
         bottom: 25%;
     }
-    .dashboard-container { margin-top: 80px; }
+    .dashboard-container { padding-top: 80px; }
     .dashboard-container md-card.notification h3 {
         font-size: 24px;
     }
