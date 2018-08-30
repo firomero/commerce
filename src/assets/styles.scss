@@ -109,7 +109,13 @@ md-backdrop.md-sidenav-backdrop {
 
 .md-sidenav-right, .md-sidenav-left  { position: fixed; }
 .column { display: inline-block;vertical-align: top; }
-.md-select-menu-container {z-index: 9999;}
+.md-select-menu-container {
+    z-index: 9999;
+
+    md-select-menu md-content md-option[selected] {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+    }
+}
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
     .content-container {padding-top: 6rem;}

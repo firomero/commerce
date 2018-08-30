@@ -3,6 +3,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	var self = this;
 
+	$scope.itemPage = 5;
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
@@ -60,628 +61,36 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		},{
 			id: 7,
 			name: '890765678943213'
-		}];
+	}];
 	
-	self.selectedDummyDataTransfer = false;
-	$scope.dummyDataTransfer = [{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: false
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Administradora de Supermercados Hiper Limitada',
-			transferencia: '$400.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: true
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: false
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: false
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Pagos Masivos',
-			origen: '32165498',
-			destinatario: 'Administradora de Supermercados Hiper Limitada',
-			transferencia: '$1.023.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: true
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Visado',
-				nameKey: 'VISADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$450.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: true
-			},{
-				name: 'Marcela Acevedo. P',
-				status: true
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: true
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Pagos Masivos',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: true
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Visado',
-				nameKey: 'VISADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: false
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Visado',
-				nameKey: 'VISADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Alto Monto',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas: [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: false
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			}
-		},{
-			selected: false,
-			plus: false,
-			plusData: [],
-			date: '23-04-2016',
-			type: 'Pagos Masivos',
-			origen: '32165498',
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			transferencia: '$400.000',
-			firmas:  [{
-				name: 'Pablo Hernandez. A.',
-				status: true
-			},{
-				name: 'Matias Contreras. B',
-				status: true
-			},{
-				name: 'Maria Teresa Correa. R',
-				status: true
-			},{
-				name: 'Marcela Acevedo. P',
-				status: false
-			}],
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Visado',
-				nameKey: 'VISADO'
-			}
-		}
-	];
-	$scope.dummyDataHistoricos = [{
-			year: '2016',
-			month: 'Abril',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Noviembre',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Noviembre',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Noviembre',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Abril',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		}
-	];
+	self.dataTransfer = [];
+	self.dataTransferAll = [];
+	self.dataTransferPagination = false;
+	self.selectedDataTransfer = false;
+
+	self.dataDestinatarios = [];
+	self.dataDestinatariosAll = [];
+	self.dataDestinatariosPagination = false;
+
+	self.dataHistoricos = [];
+	self.dataHistoricosAll = [];
+	self.dataHistoricosPagination = false;
+
 	self.otherAccount = {
 		bank: '',
 		account: '',
 		tipo: '' 
 	};
-	$scope.dummyDataDestinatarios = [{
-			plus: false,
-			plusData: [{
-					bank: 'Banco de Credito e Invesriones',
-					account: '2403350100000000',
-					tipo: '' 
-				}
-			],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'A',
-				class: 'green',
-				text: 'Activo',
-				nameKey: 'ACTIVO'
-			},
-			account: {
-				bank: 'Banco de Credito e Invesriones',
-				accounts: ['2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			},{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			}],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'A',
-				class: 'green',
-				text: 'Activo',
-				nameKey: 'ACTIVO'
-			},
-			account: {
-				bank: 'Banco de Credito e Invesriones',
-				accounts: ['2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			}],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			},
-			account: {
-				bank: 'Banco de Credito e Invesriones',
-				accounts: ['2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			},
-			account: {
-				bank: 'Banco de Credito e Invesriones',
-				accounts: ['2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			}],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'A',
-				class: 'green',
-				text: 'Activo',
-				nameKey: 'ACTIVO'
-			},
-			account: {
-				bank: 'Banco de Credito e Invesriones',
-				accounts: ['2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			}],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'A',
-				class: 'green',
-				text: 'Activo',
-				nameKey: 'ACTIVO'
-			},
-			account: {
-				bank: 'Banco itau',
-				accounts: ['2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			}],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'A',
-				class: 'green',
-				text: 'Activo',
-				nameKey: 'ACTIVO'
-			},
-			account: {
-				bank: 'Banco de Credito e Invesriones',
-				accounts: ['2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			}],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			},
-			account: {
-				bank: 'Banco itau',
-				accounts: ['2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [{
-				bank: 'Banco de Credito e Invesriones',
-				account: '2403350100000000',
-				tipo: '' 
-			}],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'P',
-				class: 'orage',
-				text: 'Pendiente Autorización',
-				nameKey: 'AUTORIZADO'
-			},
-			account: {
-				bank: 'Banco de Chile / Edwards',
-				accounts: ['2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		},{
-			plus: false,
-			plusData: [],
-			destinatario: 'Empresa de Transportes Rurales Limitada',
-			rut: '70.569.785-9',
-			estado: {
-				icon: 'A',
-				class: 'green',
-				text: 'Activo',
-				nameKey: 'ACTIVO'
-			},
-			account: {
-				bank: 'Banco de Chile / Edwards',
-				accounts: ['2403350100000000', '2403350100000000', '2403350100000000', '2403350100000000']
-			},
-			razon: 'Transportes Rurales de Animales',
-			contact: {
-				name: 'Marcelo Arrigadad',
-				mail: 'mail@mail.cl',
-				phone: '+56 9 123 456 567'
-			}
-		}
-	];
 
-	$scope.dummyDataHistoricos = [{
-			year: '2016',
-			month: 'Abril',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Noviembre',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Noviembre',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Noviembre',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Abril',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		},{
-			year: '2016',
-			month: 'Marzo',
-			folio: '32165498'
-		}
-	];
 	$scope.toggleAll = toggleAll;
 	$scope.toggle = toggle;
 	$scope.addAccount = addAccount;
 	$scope.removeAccount = removeAccount;
 	$scope.newTransference = newTransference;
 	$scope.onTabChanges = onTabChanges;
+	$scope.pagination = pagination;
+	$scope.successTransferencia = successTransferencia;
+	$scope.successDestinatario = successDestinatario;
 	
 	activate();
 
@@ -741,7 +150,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function toggleAll(list) {
 		
-		var resetList = self.selectedDummyDataTransfer ? false : true;
+		var resetList = self.selectedDataTransfer ? false : true;
 		resetItemSelected(list, resetList);
 	}
 	function toggle(item, list, all) {
@@ -767,16 +176,15 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	}
 
 	function resetControls() {
-		// self.chequeMotivo = '';
-		// $scope.selectedCheques = [];
-		
-		// $scope.lastMovement = [];
-		// $scope.interes = [];
-		// $scope.historica = [];
-		// $scope.cheques = [];
+		self.dataTransfer = [];
+		self.dataTransferAll = [];
+		self.dataDestinatarios = [];
+		self.dataDestinatariosAll = [];
+		self.dataHistoricos = [];
+		self.dataHistoricosAll = [];
 	}
 
-	function newTransference() {
+	function newTransference(destinatario) {
 		
 		var modalInstance = $uibModal.open({
 			animation: false,
@@ -789,7 +197,10 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			windowClass: 'fullscreen',
 			resolve: {
 				action: function() {
-					return 'DESTINATARIO';
+					return 'NEW_TRANSFER';
+				},
+				destinatario: function() {
+					return destinatario
 				}
 			}
 		});
@@ -816,6 +227,109 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		return position;
 	}
 
+	function pagination(list) {
+		
+		self[list + 'All'].forEach((item) => {
+			self[list].push(item);
+		});
+		self[list + 'Pagination'] = false;
+	}
+
+
+	function successTransferencia(action, item) {
+		
+		if (action == 'APROBADO') {
+			var message = "Estimado JUAN PABLO usted ha aprobado una transferencia."; 
+			var confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: false,
+				keyboard  : false,			
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => undefined,
+					textAction: () => undefined
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+		}else {
+
+			var message = "Estimado JUAN PABLO usted ha rechazado una transferencia."; 
+			var confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: false,
+				keyboard  : false,			
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => 'CERRAR',
+					textAction: () => undefined
+				},
+				windowClass: 'bottom-danger finish'
+			});
+		}
+
+		confirmInstance.result.then(function (response) {
+			
+			if (response != undefined  && response.success) {
+				// $scope.close();
+			}
+		});
+	}
+
+	function successDestinatario(action, item) {
+		
+		if (action == 'APROBADO') {
+			var message = "Estimado JUAN PABLO usted ha aprobado un destinatario."; 
+			var confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: false,
+				keyboard  : false,			
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => undefined,
+					textAction: () => undefined
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+		}else {
+
+			var message = "Estimado JUAN PABLO usted ha rechazado un destinatario."; 
+			var confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: false,
+				keyboard  : false,			
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => 'CERRAR',
+					textAction: () => undefined
+				},
+				windowClass: 'bottom-danger finish'
+			});
+		}
+
+		confirmInstance.result.then(function (response) {
+			
+			if (response != undefined  && response.success) {
+				// $scope.close();
+			}
+		});
+	}
+
 	$scope.$on('company::change', function(data) {
 		
 		$scope.loadAccounts = true;
@@ -838,15 +352,24 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		$scope.loadTabData = false;
 
 		var dataCopy = Object.assign({}, data);
-		// $scope.lastMovement = dataCopy.account.lastMovement || [];
-		// $scope.interes = dataCopy.account.interes || [];
-		// $scope.historica = dataCopy.account.historica || [];
-		// if (dataCopy.credito.cheques.length) {
-		// 	angular.forEach(dataCopy.credito.cheques, element => {
-		// 		element.selected = false;
-		// 	});
-		// }
-		// $scope.cheques = dataCopy.credito.cheques || [];
+		if (dataCopy.transferencias.estados.length > $scope.itemPage) {
+			self.dataTransferAll = dataCopy.transferencias.estados.splice($scope.itemPage, dataCopy.transferencias.estados.length);
+			self.dataTransferPagination = true;
+		}
+		self.dataTransfer = dataCopy.transferencias.estados || [];
+
+		if (dataCopy.transferencias.destinatarios.length > $scope.itemPage) {
+			self.dataDestinatariosAll = dataCopy.transferencias.destinatarios.splice($scope.itemPage, dataCopy.transferencias.destinatarios.length);
+			self.dataDestinatariosPagination = true;
+		}
+		self.dataDestinatarios = dataCopy.transferencias.destinatarios || [];
+
+		if (dataCopy.transferencias.historicos.length > $scope.itemPage) {
+			self.dataHistoricosAll = dataCopy.transferencias.historicos.splice($scope.itemPage, dataCopy.transferencias.historicos.length);
+			self.dataHistoricosPagination = true;
+		}
+		self.dataHistoricos = dataCopy.transferencias.historicos || [];
+
 		$timeout(function(){
 			$scope.loadTabData = true;
 		}, 30);

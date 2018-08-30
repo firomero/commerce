@@ -56,22 +56,45 @@
     }
 }
 
-.modal.bottom-confirm {
+.modal {
 
-    .modal-dialog.modal-lg { 
-        width: 100%;
-        bottom: 0;
-        position: absolute;
-        margin: 0px;
+    &.bottom-confirm {
 
-        .modal-content { 
-            border-radius: 0px;
-            padding: 2rem;
-            background-color: $c-green;
+        .modal-dialog.modal-lg { 
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            margin: 0px;
 
-            .message {
-                line-height: 51px;
-                color: $c-white;
+            .modal-content { 
+                border-radius: 0px;
+                padding: 2rem;
+                background-color: $c-green;
+
+                .message {
+                    line-height: 51px;
+                    color: $c-white;
+                }
+            }
+        }
+    }
+    &.bottom-danger {
+        
+        .modal-dialog.modal-lg { 
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            margin: 0px;
+
+            .modal-content { 
+                border-radius: 0px;
+                padding: 2rem;
+                background-color: $c-red-remove;
+
+                .message {
+                    line-height: 51px;
+                    color: $c-white;
+                }
             }
         }
     }

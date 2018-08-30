@@ -4,7 +4,7 @@ export default function AccountEllipseDirective() {
 	var directive = {
 		restrict: 'E',
 		template: '<div class="account-ellipse-container" ng-if="!isEmpty">'+
-			'<span>Nº {{firstAccount}}</span>'+
+			'<span>Nº {{firstAccount.account}}</span>'+
 			'<span ng-if="cant >= 1"><a class="pointer">y {{cant}} Cuenta(s) más</a></span>'+
 		'</div>',
 		link: link,
@@ -20,9 +20,9 @@ export default function AccountEllipseDirective() {
 		$scope.cant = 0;
 		if ($scope.accounts.length) {
 
-			$scope.firstAccount = $scope.accounts.shift();
-			if ($scope.accounts.length) {
-				$scope.cant = $scope.accounts.length;
+			$scope.firstAccount = $scope.accounts[0];
+			if ($scope.accounts.length > 1) {
+				$scope.cant = $scope.accounts.length - 1;
 			}
 		}else {
 			$scope.isEmpty = true;

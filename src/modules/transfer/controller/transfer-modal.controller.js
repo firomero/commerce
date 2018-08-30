@@ -1,4 +1,4 @@
-export default function TransferModalController($scope, $timeout, $uibModal, $uibModalInstance, WizardHandler, action, BankService) {
+export default function TransferModalController($scope, $timeout, $uibModal, $uibModalInstance, WizardHandler, action, BankService, destinatario) {
 	'ngInject';
 
 	var self = this;
@@ -147,6 +147,7 @@ export default function TransferModalController($scope, $timeout, $uibModal, $ui
 				keyboard  : false,			
 				resolve: {
 					message: () => message,
+					textPrimaryAction: () => undefined,
 					textAction: () => undefined
 				},
 				windowClass: 'bottom-confirm finish'
@@ -164,6 +165,7 @@ export default function TransferModalController($scope, $timeout, $uibModal, $ui
 				keyboard  : false,			
 				resolve: {
 					message: () => message,
+					textPrimaryAction: () => undefined,
 					textAction: () => undefined
 				},
 				windowClass: 'bottom-confirm finish'

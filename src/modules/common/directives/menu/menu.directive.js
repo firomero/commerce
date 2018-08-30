@@ -70,6 +70,9 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 				resolve: {
 					action: function() {
 						return type;
+					},
+					destinatario: function() {
+						return undefined;
 					}
 				}
 			});

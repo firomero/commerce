@@ -74,6 +74,9 @@ export default function AccountListDirective($rootScope, $uibModal) {
 				resolve: {
 					action: function() {
 						return 'NEW_TRANSFER';
+					},
+					destinatario: function() {
+						return undefined;
 					}
 				}
 			});

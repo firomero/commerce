@@ -32,7 +32,7 @@ div.pos-r(ng-cloak ng-if="list.length")
               div.button-text.text-center Saldo y Movimientos
 
             div.action.text-center(ng-if="buttonTransfer")
-              md-button.md-fab.success
+              md-button.md-fab.success(ng-click="newTransference()")
                 i.material-icons.rotate90 import_export
               div.button-text.text-center Transferir
 

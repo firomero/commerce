@@ -260,6 +260,679 @@ export default class UserService {
                                 completed: true,
                                 id: 10
                             }]
+                        },
+                        transferencias: {
+                            estados: [{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: false
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 1,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$1.023.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$450.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: true
+                                    }],
+                                    firmTotal: 4,
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Aprobada',
+                                        nameKey: 'APROBADA'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas:  [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                }
+                            ],
+                            destinatarios: [{
+                                    plus: false,
+                                    plusData: [{
+                                            bank: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }
+                                    ],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco de Credito e Invesriones', 
+                                            account: '2403350100000000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    },{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco de Credito e Invesriones', 
+                                            account: '2403350100000000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco itau',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco itau',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Chile / Edwards',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Chile / Edwards',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }, {
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                }
+                            ],
+                            historicos: [{
+                                    year: '2016',
+                                    month: 'Abril',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Abril',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                }
+                            ]
                         }                     
                     },{
                         name: '5678',
@@ -504,6 +1177,679 @@ export default class UserService {
                                 completed: true,
                                 id: 20
                             }]
+                        },
+                        transferencias: {
+                            estados: [{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: false
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 1,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$1.023.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$450.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: true
+                                    }],
+                                    firmTotal: 4,
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Aprobada',
+                                        nameKey: 'APROBADA'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas:  [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    }
+                                }
+                            ],
+                            destinatarios: [{
+                                    plus: false,
+                                    plusData: [{
+                                            bank: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }
+                                    ],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    },{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco itau',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco itau',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Chile / Edwards',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Chile / Edwards',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                }
+                            ],
+                            historicos: [{
+                                    year: '2016',
+                                    month: 'Abril',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Abril',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                }
+                            ]
                         }
                     },{
                         name: '9012',
@@ -769,6 +2115,679 @@ export default class UserService {
                                 completed: true,
                                 id: 30
                             }]
+                        },
+                        transferencias: {
+                            estados: [{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: false
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Administradora de Supermercados Hiper Limitada',
+                                    transferencia: '$1.023.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$450.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: false
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Alto Monto',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas: [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: false
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 2,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                },{
+                                    selected: false,
+                                    plus: false,
+                                    plusData: [],
+                                    date: '23-04-2016',
+                                    type: 'Pagos Masivos',
+                                    origen: '32165498',
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    transferencia: '$400.000',
+                                    firmas:  [{
+                                        name: 'Pablo Hernandez. A.',
+                                        status: true
+                                    },{
+                                        name: 'Matias Contreras. B',
+                                        status: true
+                                    },{
+                                        name: 'Maria Teresa Correa. R',
+                                        status: true
+                                    },{
+                                        name: 'Marcela Acevedo. P',
+                                        status: false
+                                    }],
+                                    firmTotal: 3,
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Visado',
+                                        nameKey: 'VISADO'
+                                    }
+                                }
+                            ],
+                            destinatarios: [{
+                                    plus: false,
+                                    plusData: [{
+                                            bank: 'Banco de Credito e Invesriones',
+                                            account: '2403350100000000',
+                                            tipo: '' 
+                                        }
+                                    ],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    },{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco itau',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Credito e Invesriones',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco itau',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [{
+                                        bank: 'Banco de Credito e Invesriones',
+                                        account: '2403350100000000',
+                                        tipo: '' 
+                                    }],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'P',
+                                        class: 'orage',
+                                        text: 'Pendiente Autorización',
+                                        nameKey: 'AUTORIZADO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Chile / Edwards',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                },{
+                                    plus: false,
+                                    plusData: [],
+                                    destinatario: 'Empresa de Transportes Rurales Limitada',
+                                    rut: '70.569.785-9',
+                                    estado: {
+                                        icon: 'A',
+                                        class: 'green',
+                                        text: 'Activo',
+                                        nameKey: 'ACTIVO'
+                                    },
+                                    account: {
+                                        bank: 'Banco de Chile / Edwards',
+                                        accounts: [{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        },{
+                                            banco: 'Banco Consorcio', 
+                                            account: '2403350546780000',
+                                            type: ''
+                                        }]
+                                    },
+                                    razon: 'Transportes Rurales de Animales',
+                                    contact: {
+                                        name: 'Marcelo Arrigadad',
+                                        mail: 'mail@mail.cl',
+                                        phone: '+56 9 123 456 567'
+                                    }
+                                }
+                            ],
+                            historicos: [{
+                                    year: '2016',
+                                    month: 'Abril',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Noviembre',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Abril',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                },{
+                                    year: '2016',
+                                    month: 'Marzo',
+                                    folio: '32165498'
+                                }
+                            ]
                         }
                     },{
                         name: '9001',

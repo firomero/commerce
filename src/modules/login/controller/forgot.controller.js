@@ -55,6 +55,7 @@ export default function ForgotController($scope, $timeout, $uibModal, $uibModalI
 					keyboard  : false,
 					resolve: {
 						message: () => message,
+						textPrimaryAction: () => undefined,
 						textAction: () => undefined
 					},
 					windowClass: 'bottom-confirm'
@@ -91,6 +92,7 @@ export default function ForgotController($scope, $timeout, $uibModal, $uibModalI
 			keyboard  : false,			
 			resolve: {
 				message: () => message,
+				textPrimaryAction: () => undefined,
 				textAction: () => undefined
 			},
 			windowClass: 'bottom-confirm finish'

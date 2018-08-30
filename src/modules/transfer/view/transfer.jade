@@ -79,7 +79,7 @@ section.bg-gray.content-container
                                     thead.thead 
                                         tr.tr
                                             th.th
-                                                md-checkbox.md-primary(ng-click="toggleAll(dummyDataTransfer)" ng-model="$ctrl.selectedDummyDataTransfer") Todo 
+                                                md-checkbox.md-primary(ng-click="toggleAll($ctrl.dataTransfer)" ng-model="$ctrl.selectedDataTransfer") Todo 
                                             th.th Fecha 
                                             th.th Tipo 
                                             th.th.text-right Cuenta Origen
@@ -88,9 +88,9 @@ section.bg-gray.content-container
                                             th.th.text-center Firmas
                                             th.th Estado
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat-start="item in dummyDataTransfer" ng-class="{'odd': $index % 2 == 0}")
+                                        tr.tr.tr-container(ng-repeat-start="item in $ctrl.dataTransfer" ng-class="{'odd': $index % 2 == 0}")
                                             td.td
-                                                md-checkbox.md-primary(ng-click="toggle(item, dummyDataTransfer, 'selectedDummyDataTransfer')" ng-model="item.selected")
+                                                md-checkbox.md-primary(ng-click="toggle(item, $ctrl.dataTransfer, 'selectedDataTransfer')" ng-model="item.selected")
                                             td.td.plus-icon
                                                 i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
                                                 i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
@@ -188,7 +188,7 @@ section.bg-gray.content-container
                                                             div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
                                                                 a.pointer.link Ver Comprobante
 
-                                                div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO'")
+                                                div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO' && item.firmTotal < 4")
                                                     div.col-lg-12.col-md-12.col-sm-12.col-xs-12
                                                         div.row
                                                             div.col-lg-4.col-md-4.col-sm-12.col-xs-4
@@ -204,8 +204,12 @@ section.bg-gray.content-container
                                                                     div.form-element
                                                                         input(name="token" type="password" autocomplete="off" placeholder="********************")
                                                             div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
-                                                                button.button-success.sm.col-lg-5.col-md-6.mr-1 APROBAR / AUTORIZAR
-                                                                button.button-blue.sm.col-lg-5.col-md-5 RECHAZAR
+                                                                button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
+                                                                button.button-blue.sm.col-lg-5.col-md-5(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
+
+                                div.row.m-0.pt-1.pb-1
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataTransferPagination" ng-click="pagination('dataTransfer')") CARGAR MAS
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataTransferPagination") CARGAR MAS
 
                 md-tab(label="DESTINATARIOS" md-on-select="onTabChanges(1)")
                     md-content.poster
@@ -282,7 +286,7 @@ section.bg-gray.content-container
                                             th.th Estado
                                             th.th
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat-start="item in dummyDataDestinatarios" ng-class="{'odd': $index % 2 == 0}")
+                                        tr.tr.tr-container(ng-repeat-start="item in $ctrl.dataDestinatarios" ng-class="{'odd': $index % 2 == 0}")
                                             td.td.text-uppercase.destinatario {{item.destinatario}}
                                             td.td {{item.rut}}
                                             td.td
@@ -292,9 +296,10 @@ section.bg-gray.content-container
                                                 status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
                                             td.td
                                                 div.row
-                                                    button.button-success.sm.col-lg-9.col-md-9 TRANSFERIR
-                                                    button.button-default.icon.sm.col-lg-3.col-md-3(ng-if="!item.plus" ng-click="item.plus = !item.plus")
-                                                        i.material-icons edit
+                                                    button.button-success.sm.col-lg-9.col-md-9(ng-click="newTransference(item)") TRANSFERIR
+                                                    button.button-default.icon.sm.col-lg-3.col-md-3(ng-click="item.plus = !item.plus")
+                                                        i.material-icons(ng-if="!item.plus") edit
+                                                        i.material-icons(ng-if="item.plus") close
                                         tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
                                             td.td(colspan="5")
                                                 div.row.data-container
@@ -329,13 +334,13 @@ section.bg-gray.content-container
                                                         label.text Cuentas Asociadas
 
                                                     div.col-lg-12.pl-0
-                                                        div.row(ng-repeat="account in item.plusData")
+                                                        div.row(ng-repeat="account in item.account.accounts")
                                                             div.col-lg-4
                                                                 form.input-form
                                                                     div.form-text
                                                                         label Banco
                                                                     div.form-element
-                                                                        input(name="bank" type="text" ng-model="account.bank" autocomplete="off" placeholder="Seleccione Banco")
+                                                                        input(name="bank" type="text" ng-model="account.banco" autocomplete="off" placeholder="Seleccione Banco")
                                                             div.col-lg-4.pl-0
                                                                 form.input-form
                                                                     div.form-text
@@ -344,7 +349,7 @@ section.bg-gray.content-container
                                                                         input(name="account" type="text" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
                                                             div.col-lg-3.pl-0.pr-0
                                                                 md-input-container.input-form
-                                                                    md-select.md-no-underline(ng-model="account.tipo" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
+                                                                    md-select.md-no-underline(ng-model="account.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
                                                                         md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
 
                                                             div.col-lg-1.pt-05
@@ -381,8 +386,12 @@ section.bg-gray.content-container
                                                                     div.form-element
                                                                         input(name="token" type="password" autocomplete="off" placeholder="********************")
                                                             div.col-lg-4.pt-05.pl-0.pr-0
-                                                                button.button-success.sm.col-lg-6.mr-1 APROBAR / AUTORIZAR
-                                                                button.button-blue.sm.col-lg-5 RECHAZAR
+                                                                button.button-success.sm.col-lg-6.mr-1(ng-click="successDestinatario('APROBADO', item)") APROBAR / AUTORIZAR
+                                                                button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
+
+                                div.row.m-0.pt-1.pb-1
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataDestinatariosPagination" ng-click="pagination('dataDestinatarios')") CARGAR MAS
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
 
 
                 md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)")               
@@ -459,7 +468,7 @@ section.bg-gray.content-container
                                             th.th.text-right
                                                 div.pr-2 Documentos
                                     tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in dummyDataHistoricos" ng-class="{'odd': $index % 2 == 0}")
+                                        tr.tr.tr-container(ng-repeat="item in $ctrl.dataHistoricos" ng-class="{'odd': $index % 2 == 0}")
                                             td.td {{item.year}}
                                             td.td.text-uppercase {{item.month}}
                                             td.td {{item.folio}}
@@ -469,5 +478,9 @@ section.bg-gray.content-container
                                                         span.mr-1 Descargar
                                                         span
                                                             i.material-icons cloud_download
+
+                                div.row.m-0.pt-1.pb-1
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
+                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
                             
 

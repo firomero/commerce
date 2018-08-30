@@ -82,7 +82,10 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
             resolve: {
                 action: function() {
                     return type;
-                }
+                },
+                destinatario: function() {
+					return undefined;
+				}
             }
         });
         

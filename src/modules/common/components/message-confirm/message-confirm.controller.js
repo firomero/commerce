@@ -1,10 +1,11 @@
 export default class MessageConfirmController {
 
-	constructor($timeout, $uibModalInstance, message, textAction) {
+	constructor($timeout, $uibModalInstance, message, textPrimaryAction, textAction) {
 		'ngInject';
 		this.$timeout = $timeout;
 		this.$uibModalInstance = $uibModalInstance;
 		this.message = message;
+		this.textPrimaryAction = textPrimaryAction == undefined ? 'ACEPTAR' : textPrimaryAction;
 		this.textAction = textAction;
 	}
 
