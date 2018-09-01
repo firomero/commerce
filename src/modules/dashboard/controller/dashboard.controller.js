@@ -9,7 +9,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 	$scope.myInterval = 0;
 	$scope.noWrapSlides = false;
 	$scope.active = 0;
-	$scope.currIndex = 0; 
+	$scope.currIndex = 0;
 	$scope.slides = [{
 		image: 'images/carousel/login-background.png',
 		text: 'Hola Marcelo',
@@ -22,7 +22,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
 		id: $scope.currIndex++
-	}]; 
+	}];
 
 	$scope.rating = {
 		transferencias: {
@@ -163,6 +163,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 				$scope.currentCompany.rol = $scope.userCompanies[i].rol;
 				$scope.currentCompany.name = $scope.userCompanies[i].name;
 				$scope.currentCompany.accounts = $scope.userCompanies[i].accounts;
+				$scope.currentCompany.destinatario = $scope.userCompanies[i].destinatario;
 				break;
 			}
 		}
