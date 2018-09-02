@@ -40,10 +40,10 @@
             & .container > .sub-title {
                 text-align: center;
                 font-weight: 400;
-                font-family: Roboto;                
+                font-family: Roboto;
             }
             & .container > .title {
-                font-size: 24px;                
+                font-size: 24px;
                 color: $c-black-table-header;
                 letter-spacing: -0.05px;
             }
@@ -60,13 +60,13 @@
 
     &.bottom-confirm {
 
-        .modal-dialog.modal-lg { 
+        .modal-dialog.modal-lg {
             width: 100%;
             bottom: 0;
             position: absolute;
             margin: 0px;
 
-            .modal-content { 
+            .modal-content {
                 border-radius: 0px;
                 padding: 2rem;
                 background-color: $c-green;
@@ -79,14 +79,14 @@
         }
     }
     &.bottom-danger {
-        
-        .modal-dialog.modal-lg { 
+
+        .modal-dialog.modal-lg {
             width: 100%;
             bottom: 0;
             position: absolute;
             margin: 0px;
 
-            .modal-content { 
+            .modal-content {
                 border-radius: 0px;
                 padding: 2rem;
                 background-color: $c-red-remove;
@@ -94,6 +94,26 @@
                 .message {
                     line-height: 51px;
                     color: $c-white;
+                }
+            }
+        }
+    }
+    &.bottom-warning {
+
+        .modal-dialog.modal-lg {
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            margin: 0px;
+
+            .modal-content {
+                border-radius: 0px;
+                padding: 2rem;
+                background-color: $c-yellow-remove;
+
+                .message {
+                    line-height: 51px;
+                    color: $c-gray-txt-modal;
                 }
             }
         }
@@ -155,13 +175,13 @@
 }
 
 @media (max-width: 767px) {//col-xs
-    
+
     .modal.fullscreen {
-        
+
         .modal-dialog {
             width: 100%;
             margin: 0px auto;
-    
+
             .modal-content {
                 height: 100%;
             }
@@ -172,13 +192,13 @@
     .modal.bottom-confirm.finish .message label { line-height: 50px; }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
-    
+
     .modal.fullscreen {
-        
+
         .modal-dialog {
             width: 100%;
             margin: 0px auto;
-    
+
             .modal-content {
                 height: 100%;
             }
@@ -189,13 +209,13 @@
     .modal.bottom-confirm.finish .message label { line-height: 50px; }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
-    
+
     .modal.fullscreen {
-        
+
         .modal-dialog {
             width: 100%;
             margin: 0px auto;
-    
+
             .modal-content {
                 height: 100%;
             }
@@ -203,13 +223,13 @@
     }
 }
 @media (min-width: 1200px) {//col-lg
-    
+
     .modal.fullscreen {
-        
+
         .modal-dialog {
             width: 100%;
             margin: 0px auto;
-    
+
             .modal-content {
                 height: 100%;
             }

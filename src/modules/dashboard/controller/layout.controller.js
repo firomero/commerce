@@ -7,14 +7,20 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.currentAccount = null;
     $scope.currentCompany.nameID = $scope.userLogin.currentCompany;
     $scope.userCompanies = userLogin.companies;
-    
+    $scope.movilCodes = ["+09", "+01", "+02", "+05"];
+    $scope.fixCodes = ["+59", "+56", "+58", "+78"];
+    $scope.cities = ["Santiago", "Almeria", "Alberta", "Madrid", "Vasco"];
+    $scope.town = ["Palermo", "Kansas", "Detroit", "Manhattan"];
+    $scope.code = "+01";
+    $scope.editProfile = false;
+
     $scope.selectCompany = selectCompany;
     $scope.selectAccount = selectAccount;
     $scope.openToggle = openToggle;
     $scope.closeToggle = closeToggle;
     $scope.logout = logout;
     $scope.newTransference = newTransference;
-    
+
     activate();
 
     function activate() {
@@ -36,7 +42,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     }
 
     function selectCompany(company) {
-        
+
         $scope.currentCompany = company;
         if ($scope.currentCompany.accounts.length) {
             $scope.currentAccount = $scope.currentCompany.accounts[0];
@@ -48,17 +54,17 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     }
 
     function selectAccount(account) {
-        
+
         $scope.currentAccount = account;
     }
 
     function openToggle(position) {
-        
+
         $mdSidenav(position).toggle();
     }
-        
+
     function closeToggle(position) {
-        
+
         $mdSidenav(position).close();
     }
 
@@ -69,7 +75,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     }
 
     function newTransference(type) {
-        
+
         var modalInstance = $scope.$uibModal.open({
             animation: false,
             ariaLabelledBy: 'modal-title',
@@ -88,9 +94,9 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
 				}
             }
         });
-        
+
         // modalInstance.result.then(function (response) {
-            
+
         // 	if (response != undefined  && response.success) {
         // 		// WizardHandler.wizard().reset();
         // 		// $scope.reset();
@@ -98,4 +104,3 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         // });
     }
 }
-    

@@ -1,0 +1,15 @@
+div.row
+	div.col-lg-4.col-md-4.col-sm-6.col-xs-6.message
+		label.m-0 Has Seleccionado {{$ctrl.count}} Transferencias
+		br
+		label.m-0 por un monto total de &nbsp;
+			b ${{$ctrl.amount}}
+	div.col-lg-4.col-md-4.col-sm-6.col-xs-6.message
+		form.input-form
+			div.form-text
+				label Ingrese token
+			div.form-element
+				input(name="token" type="text" autocomplete="off" ng-model="$ctrl.token" placeholder="Token")
+	button.col-lg-2.col-md-2.col-sm-4.col-xs-4.button-default-inv(ng-click="$ctrl.confirmSecundary()") Autorizar
+	button.col-lg-1.col-md-1.col-sm-2.col-xs-2.button-default-inv(ng-click="$ctrl.cancel()") Rechazar
+	button.col-lg-1.col-md-1.col-sm-2.col-xs-2.button-default-inv(ng-click="$ctrl.cancel()") Cerrar
