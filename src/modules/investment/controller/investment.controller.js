@@ -301,9 +301,7 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 		$scope.loadAccounts = true;
 		$timeout(function(){
 			$scope.currentCompany = data.targetScope.currentCompany;
-			if (!$scope.currentCompany.accounts.length) {
-				$scope.existAccounts = false;
-			}
+			$scope.existAccounts = !$scope.currentCompany.accounts.length ? false : true;
 			self.accounts = $scope.currentCompany.accounts;
 			$scope.loadAccounts = false;
 		}, 30);
