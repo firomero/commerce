@@ -34,7 +34,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.showAuthorize = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
-	self.types = ["Cuenta Corrient"];
+	self.types = [{id: 1, name: "Cuenta Corriente"}];
 	self.chequeAccount = '';
 	self.accounts = [];
 	self.cheques = [
@@ -97,6 +97,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.removeAccount = removeAccount;
 	$scope.newTransference = newTransference;
 	$scope.onTabChanges = onTabChanges;
+	$scope.resetTab = resetTab;
 	$scope.pagination = pagination;
 	$scope.successTransferencia = successTransferencia;
 	$scope.successDestinatario = successDestinatario;
@@ -143,7 +144,15 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function onTabChanges(currentTabIndex){
 		$scope.selectedIndex = currentTabIndex;
+
     }
+
+    function resetTab() {
+			self.currentHistorico.movimientos = [];
+			self.dataHistoricos.forEach(function (value, index, array) {
+				array[index].plus = false;
+			});
+	}
 
 	function addAccount(item, save) {
 

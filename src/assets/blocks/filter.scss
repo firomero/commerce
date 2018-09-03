@@ -3,7 +3,7 @@
         font-size: 12px;
         line-height: 50px;
     }
-    .refactor-padding, .refactor-pl { padding-left: 0px; }
+    .refactor-padding, .refactor-pl { padding-left: 0px;}
 
     .radios {
         min-height: 50px;
@@ -34,7 +34,7 @@
         font-size: 25px;
         display: inline-block;
         vertical-align: top;
-        line-height: 40px;        
+        line-height: 40px;
     }
 
     .input-form .form-text label {
@@ -68,7 +68,7 @@
             font-weight: 400;
             letter-spacing: -0.41px;
             line-height: 35px;
-    
+
         }
 
         &.custom-align input {
@@ -102,7 +102,7 @@
 
     .radio-storage { padding-left: 0px; }
     .radio-container {
-        
+
         font-size: 12px;
         padding: 0px;
         min-height: 50px;
@@ -134,19 +134,19 @@
 
 @media (max-width: 767px) {//col-xs
     .filter {
-        .text { 
+        .text {
             text-align: center;
             line-height: 45px;
         }
         .input-form.refactor-bottom { margin-bottom: 0px; }
-        .refactor-padding { 
+        .refactor-padding {
             padding-left: 15px;
             padding-right: 0px;
         }
-        .refactor-pl { 
+        .refactor-pl {
             padding-left: 15px;
         }
-        .radio-storage { 
+        .radio-storage {
             padding-left: 15px !important;
             padding-bottom: 15px;
         }
@@ -161,10 +161,10 @@
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .filter {
-        
+
         .top { padding-right: 0px; }
         .radio-storage { padding-left: 15px !important; }
-        .last-filter { 
+        .last-filter {
             padding-left: 15px !important;
             padding-bottom: 15px;
         }
@@ -173,12 +173,19 @@
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     .filter {
 
-        .avanced { 
+        .avanced {
             padding-right: 8px;
         }
-        .radio-storage { 
+        .radio-storage {
             padding-left: 15px !important;
             margin-top: -15px;
         }
     }
  }
+@media (min-width: 1200px) {//col-lg
+
+	.refactor-padding, .refactor-pl {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}

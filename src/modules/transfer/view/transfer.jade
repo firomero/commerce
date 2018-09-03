@@ -351,7 +351,7 @@ section.bg-gray.content-container
 															div.col-lg-3.pl-0.pr-0
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="account.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
-																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank}}
+																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank.name}}
 
 															div.col-lg-1.pt-05
 																button.button-default.icon.sm.col-lg-3.col-md-3
@@ -395,7 +395,7 @@ section.bg-gray.content-container
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
 
 
-				md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)")
+				md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)" ng-click="resetTab()")
 					md-content.poster
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
@@ -471,10 +471,8 @@ section.bg-gray.content-container
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat="item in $ctrl.dataHistoricos" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleMovements(item)") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleMovements(item)") remove
 												span {{item.year}}
-											td.td.text-uppercase {{item.month}}
+											td.td.text-uppercase(ng-if="!item.plus" ng-click="toggleMovements(item)") {{item.month}}
 											td.td {{item.folio}}
 											td.td.text-right
 												div.arrow-container-download
@@ -500,19 +498,16 @@ section.bg-gray.content-container
 											th.th.text-right Cuenta Origen
 											th.th Destinatario
 											th.th.text-right Monto Transferencia
-											th.th.text-center Firmas
+
 											th.th Estado
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat="item in $ctrl.currentHistorico.movimientos" ng-class="{'odd': $index % 2 == 0}")
 											td.td
-												i.material-icons.remove.mr-2(ng-click="toggleMovements($ctrl.currentHistorico)") remove
 												span {{item.date}}
 											td.td.text-right {{item.type}}
 											td.td.text-right {{item.origen}}
 											td.td.text-uppercase.destinatario {{item.destinatario}}
 											td.td.text-right {{item.transferencia}}
-											td.td.text-center
-												firm(firm="item.firmas" current-company="currentCompany")
 											td.td
 												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
 								div.row.m-0.pt-1.pb-1
