@@ -204,13 +204,13 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
 															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
-																button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
-																button.button-blue.sm.col-lg-5.col-md-5(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
+																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
+																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataTransferPagination" ng-click="pagination('dataTransfer')") CARGAR M&Aacute;S
-									button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataTransferPagination") CARGAR M&Aacute;S
-									button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.showAuthorize" ng-click="authorizeTransference($ctrl.dataTransfer)")	 Autorizar
+									button.button-success.col-lg-2.col-lg-offset-7.col-md-2.col-md-offset-7.col-sm-4.col-sm-offset-3.col-xs-5(ng-if="$ctrl.showAuthorize" ng-click="authorizeTransference($ctrl.dataTransfer)")	 Autorizar
+									button.button-default.button-load.col-lg-2.col-md-2.col-sm-4.col-xs-6(ng-if="$ctrl.dataTransferPagination" ng-click="pagination('dataTransfer')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-2.col-md-2.col-sm-4.col-xs-6.disabled(ng-if="!$ctrl.dataTransferPagination") CARGAR M&Aacute;S
 
 				md-tab(label="DESTINATARIOS" md-on-select="onTabChanges(1)")
 					md-content.poster
@@ -391,8 +391,8 @@ section.bg-gray.content-container
 																button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataDestinatariosPagination" ng-click="pagination('dataDestinatarios')") CARGAR MAS
-									button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataDestinatariosPagination" ng-click="pagination('dataDestinatarios')") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
 
 
 				md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)")
@@ -516,7 +516,7 @@ section.bg-gray.content-container
 											td.td
 												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
 								div.row.m-0.pt-1.pb-1
-									button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
-									button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
 
 

@@ -405,7 +405,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				count: () => count,
 				amount: () => amount
 			},
-			windowClass: 'bottom-warning finish'
+			windowClass: 'bottom-warning finish authorize'
 		});
 		confirmInstance.result.then(() => {
 			const message = "Estimado JUAN PABLO usted ha aceptado una transferencia.";

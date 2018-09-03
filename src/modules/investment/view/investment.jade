@@ -95,8 +95,8 @@ section.bg-gray.content-container
                                             td.td {{item.saldo | currency}}
 
                                 div.row.m-0.pt-1.pb-1
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR MAS
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR MAS
+                                    button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+                                    button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 
                 md-tab(label="CARTOLA INTERESES")
                     md-content.poster
@@ -173,8 +173,8 @@ section.bg-gray.content-container
                                             td.td {{item.interes | currency}}
 
                             div.row.m-0.pt-1.pb-1
-                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.interesPagination" ng-click="pagination('interes')") CARGAR MAS
-                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.interesPagination") CARGAR MAS
+                                button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.interesPagination" ng-click="pagination('interes')") CARGAR MAS
+                                button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.interesPagination") CARGAR MAS
 
                 md-tab(label="CARTOLA HISTORICA")                
                     md-content.poster
@@ -256,8 +256,8 @@ section.bg-gray.content-container
                                                             i.material-icons cloud_download
 
                             div.row.m-0.pt-1.pb-1
-                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.historicaPagination" ng-click="pagination('historica')") CARGAR MAS
-                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.historicaPagination") CARGAR MAS
+                                button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.historicaPagination" ng-click="pagination('historica')") CARGAR MAS
+                                button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.historicaPagination") CARGAR MAS
 
                 md-tab(label="CHEQUES" ng-if="visibilityTabControl == 'ACCOUNT'")
                     md-content.poster
@@ -301,14 +301,10 @@ section.bg-gray.content-container
                                                 md-checkbox.md-primary(ng-click="toggle(item)" ng-model="item.selected")
                                             td.td(ng-disabled="item.completed" ng-class="{'disabled': item.completed}") {{item.cheque}}
                                             td.td {{item.pago}}
-                                            td.td {{item.monto}}
-
-                            div.row.m-0.pt-1.pb-1
-                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.chequesPagination" ng-click="pagination('cheques')") CARGAR MAS
-                                button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.chequesPagination") CARGAR MAS
+                                            td.td {{item.monto}}                          
 
                             div.row.m-0.pt-1.pb-1.cheque-container
-                                div.col-lg-offset-6.col-lg-6.col-md-offset-6.col-md-6.col-sm-offset-2.col-sm-10.col-xs-12
+                                div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-8.col-xs-12.adjust
                                     div.col-lg-2.col-md-2.col-sm-2.col-xs-2.motive MOTIVO
                                     div.col-lg-5.col-md-5.col-sm-5.col-xs-5.pl-0
                                         md-input-container.input-form
@@ -316,4 +312,6 @@ section.bg-gray.content-container
                                                 md-option.text-uppercase(ng-value="motivo" ng-repeat="motivo in $ctrl.motivos") {{motivo.label}}
                                     button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case(ng-if="$ctrl.chequeMotivo != '' && $ctrl.selectedCheques.length" ng-click="checkDetail()") Orden de pago
                                     button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.p-0.text-upper-case.disabled(ng-if="$ctrl.chequeMotivo == '' || !$ctrl.selectedCheques.length") Orden de pago
+                                button.button-default.button-load.col-lg-2.col-md-2.col-sm-3.col-xs-5(ng-if="$ctrl.chequesPagination" ng-click="pagination('cheques')") CARGAR MAS
+                                button.button-default.button-load.col-lg-2.col-md-2.col-sm-3.col-xs-5.disabled(ng-if="!$ctrl.chequesPagination") CARGAR MAS
 

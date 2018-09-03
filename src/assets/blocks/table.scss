@@ -3,7 +3,9 @@
 .table.custom {
 
     margin-bottom: 0px;
-    
+    md-switch.md-checked.md-primary .md-thumb {
+    background-color: $c-green-firm;
+}
     .tr {
 
         height: 50px;
@@ -77,7 +79,7 @@
                     border-radius: 2px;
                 }
                 i.add { background-color: $c-green-firm; }
-                i.remove { background-color: $c-red-remove; }
+                i.remove { background-color: $c-green-firm; }
             }
             &.destinatario {
                 color: $c-green;
