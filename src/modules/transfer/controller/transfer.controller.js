@@ -103,6 +103,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.successDestinatario = successDestinatario;
 	$scope.toggleDestiny = toggleDestiny;
 	$scope.toggleMovements = toggleMovements;
+	$scope.toggleTransference = toggleTransference;
 	$scope.authorizeTransference = authorizeTransference;
 
 	activate();
@@ -377,14 +378,14 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		}
 		item.plus = value;
 		for (let i = 0; i < item.account.accounts.length; i++) {
-			const type = self.types.filter((b) => b.toLocaleLowerCase() === item.account.accounts[i].type.toLocaleLowerCase() )[0];
+			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.toLocaleLowerCase() )[0];
 			if (type !== undefined) {
 				item.account.accounts[i].type = type;
 			}
 		}
 	}
 
-	function toggleMovements(item){
+	function toggleMovements(item) {
 		let plus = item.plus === undefined ? true : !item.plus;
 		item.plus = plus;
 		if (!plus) {
@@ -396,6 +397,14 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		else{
 			self.currentHistorico = Object.assign({},item);
 		}
+	}
+
+	function toggleTransference(item) {
+		const value = !item.plus;
+		for (let i = 0; i < self.dataTransfer.length; i++) {
+			self.dataTransfer[i].plus = false;
+		}
+		item.plus = value;
 	}
 
 	function authorizeTransference(list){

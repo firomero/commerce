@@ -92,8 +92,8 @@ section.bg-gray.content-container
 											td.td
 												md-checkbox.md-primary(ng-change="toggle(item, $ctrl.dataTransfer, 'selectedDataTransfer')" ng-model="item.selected")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleTransference(item)") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleTransference(item)") remove
 												span {{item.date}}
 											td.td.text-right {{item.type}}
 											td.td.text-right {{item.origen}}
@@ -324,7 +324,7 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Mail
 																	div.form-element
-																		input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off")
+																		input(name="mail" type="email" ng-model="item.contact.mail" autocomplete="off" )
 															div.col-lg-3.pl-0.pr-0
 																form.input-form
 																	div.form-text
