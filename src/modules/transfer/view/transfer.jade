@@ -481,16 +481,16 @@ section.bg-gray.content-container
 														span
 															i.material-icons cloud_download
 
-								table.table.custom(ng-if="$ctrl.currentHistorico.movimientos.length>0")
+								table.table.custom.movimientos(ng-if="$ctrl.currentHistorico.movimientos.length>0")
 									colgroup
-										col(width="8%")
-										col(width="11%")
+										col(width="15%")
+										col(width="10%")
 										col(width="10%")
 										col(width="12%")
 										col(width="18%")
 										col(width="15%")
 										col(width="11%")
-										col(width="15%")
+										col(width="9%")
 									thead.thead
 										tr.tr
 											th.th Fecha
@@ -498,11 +498,12 @@ section.bg-gray.content-container
 											th.th.text-right Cuenta Origen
 											th.th Destinatario
 											th.th.text-right Monto Transferencia
-
 											th.th Estado
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat="item in $ctrl.currentHistorico.movimientos" ng-class="{'odd': $index % 2 == 0}")
-											td.td
+										tr.tr.tr-container(ng-repeat-start="item in $ctrl.currentHistorico.movimientos" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus=!item.plus") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus=!item.plus") remove
 												span {{item.date}}
 											td.td.text-right {{item.type}}
 											td.td.text-right {{item.origen}}
@@ -510,6 +511,109 @@ section.bg-gray.content-container
 											td.td.text-right {{item.transferencia}}
 											td.td
 												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="6")
+												div.row.data-container
+													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Rut
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 15.980.456-8
+														div.row.mb-3
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Banco
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.text-uppercase.d-table
+																span.value Banco Santender / Chile
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Ingresado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Marcelo Rojas Arriagada
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Visado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Daniela Andrade
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Aprobación Regla
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 3A / 1B
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Aprobación Pendiente
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																aprove(aprove="item.firmas")
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Autorizado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Juan Pablo Rojas
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Autorizar Destinatario
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																md-switch.md-primary
+
+													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Tipo de Cuenta
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Cuenta Corriente
+														div.row.mb-3
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Número de Cuenta
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 234567890000909908098
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Estado
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Liberación Pendiente
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Motivo de transferencia
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Pago Proveedor
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Mensaje Destinatario
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Urgente
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Tipo de Transferencia
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Alto Monto
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Nº de Operación
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 45657678657567
+														div.row
+															div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
+																a.pointer.link Ver Comprobante
+
+												div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO' && item.firmTotal < 4")
+													div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+														div.row
+															div.col-lg-4.col-md-4.col-sm-12.col-xs-4
+																form.input-form
+																	div.form-text
+																		label Comentario
+																	div.form-element
+																		input(name="comment" type="text" autocomplete="off" placeholder="Ingrese un Comentario")
+															div.col-lg-3.col-md-3.col-sm-12.col-xs-3.pl-sm-0.pr-sm-0
+																form.input-form
+																	div.form-text
+																		label Token
+																	div.form-element
+																		input(name="token" type="password" autocomplete="off" placeholder="********************")
+															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
+																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
+																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR				
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
