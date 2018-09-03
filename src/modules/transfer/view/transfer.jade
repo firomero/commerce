@@ -1,487 +1,621 @@
 section.bg-gray.content-container
-    div.container.transfer
-        div.mt-4
-            account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-transfer-new="true" ng-if="!loadAccounts")
+	div.container.transfer
+		div.mt-4
+			account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-transfer-new="true" ng-if="!loadAccounts")
 
-        div.pos-r.account-movement(ng-if="existAccounts")
+		div.pos-r.account-movement(ng-if="existAccounts")
 
-            md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
-                md-tab(label="ESTADO ORDENES DE TRANSFERENCIAS" md-on-select="onTabChanges(0)")
-                    md-content.poster
-                        md-card.pt-15px.pos-r.filter
-                            div.row.m-0
-                                div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
-                                    div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
-                                    div.col-lg-4.col-md-3.col-sm-4.pr-0
-                                        form.input-form
-                                            div.form-text
-                                                i.material-icons.c-green event
-                                            div.form-element.custom-align
-                                                input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
+				md-tab(label="ESTADO ORDENES DE TRANSFERENCIAS" md-on-select="onTabChanges(0)")
+					md-content.poster
+						md-card.pt-15px.pos-r.filter
+							div.row.m-0
+								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
+									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
+									div.col-lg-4.col-md-3.col-sm-4.pr-0
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
-                                    div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
-                                    div.col-lg-4.col-md-3.col-sm-4.refactor-padding
-                                        form.input-form
-                                            div.form-text
-                                                i.material-icons.c-green event
-                                            div.form-element.custom-align
-                                                input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
-                                div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-                                    button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-                                    button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
-
-
-                            div.row.m-0(ng-if="$ctrl.avanzadControl")
-                                div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        form.input-form
-                                            div.form-text
-                                                label.rut Rut Destinatario
-                                            div.form-element
-                                                input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
-
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        md-input-container.input-form
-                                            md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino") 
-                                                md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
-
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        md-input-container.input-form
-                                            md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino") 
-                                                md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
-
-                                div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
-                                    div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
-                                        div Tipos
-                                        md-radio-group
-                                            md-radio-button.md-primary(value="ALL") Todas
-                                            md-radio-button.md-primary(value="TOP") Alto Monto
-                                            md-radio-button.md-primary(value="DOWN") Bajo Monto
-                                            md-radio-button.md-primary(value="EXTRA") Masivos
-
-                                    div.col-lg-12.col-md-12.col-sm-5.col-xs-12
-                                        button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
-                                        button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
-
-                        md-card.pt-15px.pl-15px.pr-15px.pos-r
-                            div.table-responsive 
-                                table.table.custom
-                                    colgroup
-                                        col(width="8%")
-                                        col(width="11%")
-                                        col(width="10%")
-                                        col(width="12%")
-                                        col(width="18%")
-                                        col(width="15%")
-                                        col(width="11%")
-                                        col(width="15%")
-                                    thead.thead 
-                                        tr.tr
-                                            th.th
-                                                md-checkbox.md-primary(ng-click="toggleAll($ctrl.dataTransfer)" ng-model="$ctrl.selectedDataTransfer") Todo 
-                                            th.th Fecha 
-                                            th.th Tipo 
-                                            th.th.text-right Cuenta Origen
-                                            th.th Destinatario
-                                            th.th.text-right Monto Transferencia
-                                            th.th.text-center Firmas
-                                            th.th Estado
-                                    tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat-start="item in $ctrl.dataTransfer" ng-class="{'odd': $index % 2 == 0}")
-                                            td.td
-                                                md-checkbox.md-primary(ng-click="toggle(item, $ctrl.dataTransfer, 'selectedDataTransfer')" ng-model="item.selected")
-                                            td.td.plus-icon
-                                                i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
-                                                i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
-                                                span {{item.date}}
-                                            td.td.text-right {{item.type}}
-                                            td.td.text-right {{item.origen}}
-                                            td.td.text-uppercase.destinatario {{item.destinatario}}
-                                            td.td.text-right {{item.transferencia}}
-                                            td.td.text-center
-                                                firm(firm="item.firmas" current-company="currentCompany")
-                                            td.td 
-                                                status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
-                                        tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
-                                            td.td(colspan="8")
-                                                div.row.data-container
-                                                    div.col-lg-6.col-md-6.col-sm-6.col-xs-6
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Rut
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value 15.980.456-8
-                                                        div.row.mb-3
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Banco
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.text-uppercase.d-table
-                                                                span.value Banco Santender / Chile
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Ingresado Por
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Marcelo Rojas Arriagada
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Visado Por
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Daniela Andrade
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Aprobación Regla
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value 3A / 1B
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Aprobación Pendiente
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                aprove(aprove="item.firmas")
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Autorizado Por
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Juan Pablo Rojas
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Autorizar Destinatario
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-                                                                md-switch.md-primary
-                                                    
-                                                    div.col-lg-6.col-md-6.col-sm-6.col-xs-6
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Tipo de Cuenta
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Cuenta Corriente
-                                                        div.row.mb-3
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Número de Cuenta
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value 234567890000909908098
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Estado
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Liberación Pendiente
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Motivo de transferencia
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Pago Proveedor
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Mensaje Destinatario
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Urgente
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Tipo de Transferencia
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value Alto Monto
-                                                        div.row
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                label.text Nº de Operación
-                                                            div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-                                                                span.value 45657678657567
-                                                        div.row
-                                                            div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
-                                                                a.pointer.link Ver Comprobante
-
-                                                div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO' && item.firmTotal < 4")
-                                                    div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-                                                        div.row
-                                                            div.col-lg-4.col-md-4.col-sm-12.col-xs-4
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Comentario
-                                                                    div.form-element
-                                                                        input(name="comment" type="text" autocomplete="off" placeholder="Ingrese un Comentario")
-                                                            div.col-lg-3.col-md-3.col-sm-12.col-xs-3.pl-sm-0.pr-sm-0(ng-if="item.estado.nameKey == 'AUTORIZADO'")
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Token
-                                                                    div.form-element
-                                                                        input(name="token" type="password" autocomplete="off" placeholder="********************")
-                                                            div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
-                                                                button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
-                                                                button.button-blue.sm.col-lg-5.col-md-5(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
-
-                                div.row.m-0.pt-1.pb-1
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataTransferPagination" ng-click="pagination('dataTransfer')") CARGAR MAS
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataTransferPagination") CARGAR MAS
-
-                md-tab(label="DESTINATARIOS" md-on-select="onTabChanges(1)")
-                    md-content.poster
-                        md-card.pt-15px.pos-r.filter
-                            div.row.m-0
-                                div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
-                                    div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
-                                    div.col-lg-4.col-md-3.col-sm-4.pr-0
-                                        form.input-form
-                                            div.form-text
-                                                i.material-icons.c-green event
-                                            div.form-element.custom-align
-                                                input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999")
-
-                                    div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
-                                    div.col-lg-4.col-md-3.col-sm-4.refactor-padding
-                                        form.input-form
-                                            div.form-text
-                                                i.material-icons.c-green event
-                                            div.form-element.custom-align
-                                                input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
-
-                                div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-                                    button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-                                    button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
+									button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
 
 
-                            div.row.m-0(ng-if="$ctrl.avanzadControl")
-                                div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        form.input-form
-                                            div.form-text
-                                                label.rut Rut Destinatario
-                                            div.form-element
-                                                input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
+							div.row.m-0(ng-if="$ctrl.avanzadControl")
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										form.input-form
+											div.form-text
+												label.rut Rut Destinatario
+											div.form-element
+												input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
 
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        md-input-container.input-form
-                                            md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino") 
-                                                md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino")
+												md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
 
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        md-input-container.input-form
-                                            md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino") 
-                                                md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino")
+												md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
 
-                                div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
-                                    div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
-                                        div Tipos
-                                        md-radio-group
-                                            md-radio-button.md-primary(value="ALL") Todas
-                                            md-radio-button.md-primary(value="TOP") Alto Monto
-                                            md-radio-button.md-primary(value="DOWN") Bajo Monto
-                                            md-radio-button.md-primary(value="EXTRA") Masivos
+								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
+									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
+										div Tipos
+										md-radio-group
+											md-radio-button.md-primary(value="ALL") Todas
+											md-radio-button.md-primary(value="TOP") Alto Monto
+											md-radio-button.md-primary(value="DOWN") Bajo Monto
+											md-radio-button.md-primary(value="EXTRA") Masivos
 
-                                    div.col-lg-12.col-md-12.col-sm-5.col-xs-12
-                                        button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
-                                        button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
+									div.col-lg-12.col-md-12.col-sm-5.col-xs-12
+										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
+										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
-                        md-card.mt-0.pt-15px.pl-15px.pr-15px.pos-r
-                            div.table-responsive 
-                                table.table.custom
-                                    colgroup
-                                        col(width="23%")
-                                        col(width="12%")
-                                        col(width="28%")
-                                        col(width="15%")
-                                        col(width="22%")
-                                    thead.thead 
-                                        tr.tr
-                                            th.th Nombre / Alias 
-                                            th.th Rut
-                                            th.th Cuentas
-                                            th.th Estado
-                                            th.th
-                                    tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat-start="item in $ctrl.dataDestinatarios" ng-class="{'odd': $index % 2 == 0}")
-                                            td.td.text-uppercase.destinatario {{item.destinatario}}
-                                            td.td {{item.rut}}
-                                            td.td
-                                                div.text-uppercase {{item.account.bank}}
-                                                div(ng-if="item.updateAccount")
-                                                    account-ellipse(accounts="item.account.accounts")
-                                            td.td 
-                                                status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
-                                            td.td
-                                                div.row
-                                                    button.button-success.sm.col-lg-9.col-md-9(ng-click="newTransference(item)") TRANSFERIR
-                                                    button.button-default.icon.sm.col-lg-3.col-md-3(ng-click="item.plus = !item.plus")
-                                                        i.material-icons(ng-if="!item.plus") edit
-                                                        i.material-icons(ng-if="item.plus") close
-                                        tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
-                                            td.td(colspan="5")
-                                                div.row.data-container
-                                                    div.col-lg-12.pb-15px
-                                                        div.row
-                                                            div.col-lg-6.d-table
-                                                                label.text Razon Social
-                                                                span.value {{item.razon}}
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="8%")
+										col(width="11%")
+										col(width="10%")
+										col(width="12%")
+										col(width="18%")
+										col(width="15%")
+										col(width="11%")
+										col(width="15%")
+									thead.thead
+										tr.tr
+											th.th
+												md-checkbox.md-primary(ng-click="toggleAll($ctrl.dataTransfer)" ng-model="$ctrl.selectedDataTransfer") Todo
+											th.th Fecha
+											th.th Tipo
+											th.th.text-right Cuenta Origen
+											th.th Destinatario
+											th.th.text-right Monto Transferencia
+											th.th.text-center Firmas
+											th.th Estado
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in $ctrl.dataTransfer" ng-class="{'odd': $index % 2 == 0}")
+											td.td
+												md-checkbox.md-primary(ng-change="toggle(item, $ctrl.dataTransfer, 'selectedDataTransfer')" ng-model="item.selected")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleTransference(item)") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleTransference(item)") remove
+												span {{item.date}}
+											td.td.text-right {{item.type}}
+											td.td.text-right {{item.origen}}
+											td.td.text-uppercase.destinatario {{item.destinatario}}
+											td.td.text-right {{item.transferencia}}
+											td.td.text-center
+												firm(firm="item.firmas" current-company="currentCompany")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="8")
+												div.row.data-container
+													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Rut
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 15.980.456-8
+														div.row.mb-3
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Banco
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.text-uppercase.d-table
+																span.value Banco Santender / Chile
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Ingresado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Marcelo Rojas Arriagada
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Visado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Daniela Andrade
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Aprobación Regla
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 3A / 1B
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Aprobación Pendiente
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																aprove(aprove="item.firmas")
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Autorizado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Juan Pablo Rojas
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Autorizar Destinatario
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																md-switch.md-primary
 
-                                                    div.col-lg-12.pl-0
-                                                        div.row
-                                                            div.col-lg-4
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Contacto
-                                                                    div.form-element
-                                                                        input(name="contact" type="text" ng-model="item.contact.name" autocomplete="off")
-                                                            div.col-lg-4.pl-0
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Mail
-                                                                    div.form-element
-                                                                        input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off")
-                                                            div.col-lg-3.pl-0.pr-0
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Celular
-                                                                    div.form-element
-                                                                        input(name="movil" type="text" ng-model="item.contact.phone" autocomplete="off")
-                                                    
-                                                    div.col-lg-12.pl-0.pb-15px
-                                                        label.text Cuentas Asociadas
+													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Tipo de Cuenta
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Cuenta Corriente
+														div.row.mb-3
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Número de Cuenta
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 234567890000909908098
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Estado
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Liberación Pendiente
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Motivo de transferencia
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Pago Proveedor
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Mensaje Destinatario
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Urgente
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Tipo de Transferencia
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Alto Monto
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Nº de Operación
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 45657678657567
+														div.row
+															div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
+																a.pointer.link Ver Comprobante
 
-                                                    div.col-lg-12.pl-0
-                                                        div.row(ng-repeat="account in item.account.accounts")
-                                                            div.col-lg-4
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Banco
-                                                                    div.form-element
-                                                                        input(name="bank" type="text" ng-model="account.banco" autocomplete="off" placeholder="Seleccione Banco")
-                                                            div.col-lg-4.pl-0
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Cuenta
-                                                                    div.form-element
-                                                                        input(name="account" type="text" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
-                                                            div.col-lg-3.pl-0.pr-0
-                                                                md-input-container.input-form
-                                                                    md-select.md-no-underline(ng-model="account.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
-                                                                        md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+												div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO' && item.firmTotal < 4")
+													div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+														div.row
+															div.col-lg-4.col-md-4.col-sm-12.col-xs-4
+																form.input-form
+																	div.form-text
+																		label Comentario
+																	div.form-element
+																		input(name="comment" type="text" autocomplete="off" placeholder="Ingrese un Comentario")
+															div.col-lg-3.col-md-3.col-sm-12.col-xs-3.pl-sm-0.pr-sm-0(ng-if="item.estado.nameKey == 'AUTORIZADO'")
+																form.input-form
+																	div.form-text
+																		label Token
+																	div.form-element
+																		input(name="token" type="password" autocomplete="off" placeholder="********************")
+															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
+																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
+																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
 
-                                                            div.col-lg-1.pt-05
-                                                                button.button-default.icon.sm.col-lg-3.col-md-3
-                                                                    i.material-icons.remove-account(ng-click="removeAccount(item, $index)") close
+								div.row.m-0.pt-1.pb-1
+									button.button-success.col-lg-2.col-lg-offset-7.col-md-2.col-md-offset-7.col-sm-4.col-sm-offset-3.col-xs-5(ng-if="$ctrl.showAuthorize" ng-click="authorizeTransference($ctrl.dataTransfer)")	 Autorizar
+									button.button-default.button-load.col-lg-2.col-md-2.col-sm-4.col-xs-6(ng-if="$ctrl.dataTransferPagination" ng-click="pagination('dataTransfer')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-2.col-md-2.col-sm-4.col-xs-6.disabled(ng-if="!$ctrl.dataTransferPagination") CARGAR M&Aacute;S
 
-                                                        div.row
-                                                            div.col-lg-4
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Banco
-                                                                    div.form-element
-                                                                        input(name="bank" type="text" ng-model="$ctrl.otherAccount.banco" autocomplete="off" placeholder="Seleccione Banco")
-                                                            div.col-lg-4.pl-0
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Cuenta
-                                                                    div.form-element
-                                                                        input(name="account" type="text" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
-                                                            div.col-lg-3.pl-0.pr-0
-                                                                md-input-container.input-form
-                                                                    md-select.md-no-underline(ng-model="$ctrl.otherAccount.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo") 
-                                                                        md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+				md-tab(label="DESTINATARIOS" md-on-select="onTabChanges(1)")
+					md-content.poster
+						md-card.pt-15px.pos-r.filter
+							div.row.m-0
+								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
+									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
+									div.col-lg-4.col-md-3.col-sm-4.pr-0
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
-                                                            div.col-lg-1.pt-05
-                                                                button.button-default.icon.sm.col-lg-3.col-md-3
-                                                                    i.material-icons.add-account(ng-click="addAccount(item, $ctrl.otherAccount)") add_circle
-                                                        
-                                                        div.row(ng-if="currentCompany.rol == 'APODERADO'")
-                                                            div.col-lg-offset-5.col-lg-3.pl-0
-                                                                form.input-form
-                                                                    div.form-text
-                                                                        label Token
-                                                                    div.form-element
-                                                                        input(name="token" type="password" autocomplete="off" placeholder="********************")
-                                                            div.col-lg-4.pt-05.pl-0.pr-0
-                                                                button.button-success.sm.col-lg-6.mr-1(ng-click="successDestinatario('APROBADO', item)") APROBAR / AUTORIZAR
-                                                                button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
+									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
-                                div.row.m-0.pt-1.pb-1
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataDestinatariosPagination" ng-click="pagination('dataDestinatarios')") CARGAR MAS
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
-
-
-                md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)")               
-                    md-content.poster
-                        md-card.pt-15px.pos-r.filter
-                            div.row.m-0
-                                div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
-                                    div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
-                                    div.col-lg-4.col-md-3.col-sm-4.pr-0
-                                        form.input-form
-                                            div.form-text
-                                                i.material-icons.c-green event
-                                            div.form-element.custom-align
-                                                input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999")
-
-                                    div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
-                                    div.col-lg-4.col-md-3.col-sm-4.refactor-padding
-                                        form.input-form
-                                            div.form-text
-                                                i.material-icons.c-green event
-                                            div.form-element.custom-align
-                                                input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
-
-                                div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-                                    button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-                                    button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
+									button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
 
 
-                            div.row.m-0(ng-if="$ctrl.avanzadControl")
-                                div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        form.input-form
-                                            div.form-text
-                                                label.rut Rut Destinatario
-                                            div.form-element
-                                                input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
+							div.row.m-0(ng-if="$ctrl.avanzadControl")
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										form.input-form
+											div.form-text
+												label.rut Rut Destinatario
+											div.form-element
+												input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
 
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        md-input-container.input-form
-                                            md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino") 
-                                                md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino")
+												md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
 
-                                    div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-                                        md-input-container.input-form
-                                            md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino") 
-                                                md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino")
+												md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
 
-                                div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
-                                    div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
-                                        div Tipos
-                                        md-radio-group
-                                            md-radio-button.md-primary(value="ALL") Todas
-                                            md-radio-button.md-primary(value="TOP") Alto Monto
-                                            md-radio-button.md-primary(value="DOWN") Bajo Monto
-                                            md-radio-button.md-primary(value="EXTRA") Masivos
+								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
+									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
+										div Tipos
+										md-radio-group
+											md-radio-button.md-primary(value="ALL") Todas
+											md-radio-button.md-primary(value="TOP") Alto Monto
+											md-radio-button.md-primary(value="DOWN") Bajo Monto
+											md-radio-button.md-primary(value="EXTRA") Masivos
 
-                                    div.col-lg-12.col-md-12.col-sm-5.col-xs-12
-                                        button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
-                                        button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
+									div.col-lg-12.col-md-12.col-sm-5.col-xs-12
+										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
+										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
-                        md-card.mt-0.pt-15px.pl-15px.pr-15px.pos-r
-                            div.table-responsive
-                                table.table.custom
-                                    colgroup
-                                        col(width="20%")
-                                        col(width="20%")
-                                        col(width="20%")
-                                        col(width="40%")
-                                    thead.thead 
-                                        tr.tr 
-                                            th.th Año
-                                            th.th Mes
-                                            th.th Folio
-                                            th.th.text-right
-                                                div.pr-2 Documentos
-                                    tbody.tbody 
-                                        tr.tr.tr-container(ng-repeat="item in $ctrl.dataHistoricos" ng-class="{'odd': $index % 2 == 0}")
-                                            td.td {{item.year}}
-                                            td.td.text-uppercase {{item.month}}
-                                            td.td {{item.folio}}
-                                            td.td.text-right
-                                                div.arrow-container-download
-                                                    a.pointer
-                                                        span.mr-1 Descargar
-                                                        span
-                                                            i.material-icons cloud_download
+						md-card.mt-0.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="23%")
+										col(width="12%")
+										col(width="28%")
+										col(width="15%")
+										col(width="22%")
+									thead.thead
+										tr.tr
+											th.th Nombre / Alias
+											th.th Rut
+											th.th Cuentas
+											th.th Estado
+											th.th
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in $ctrl.dataDestinatarios" ng-class="{'odd': $index % 2 == 0}")
+											td.td.text-uppercase.destinatario {{item.destinatario}}
+											td.td {{item.rut}}
+											td.td
+												div.text-uppercase {{item.account.bank}}
+												div(ng-if="item.updateAccount")
+													account-ellipse(accounts="item.account.accounts")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td
+												div.row
+													button.button-success.sm.col-lg-9.col-md-9(ng-click="newTransference(item)") TRANSFERIR
+													button.button-default.icon.sm.col-lg-3.col-md-3(ng-click="toggleDestiny(item)")
+														i.material-icons(ng-if="!item.plus") edit
+														i.material-icons(ng-if="item.plus") close
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="5")
+												div.row.data-container
+													div.col-lg-12.pb-15px
+														div.row
+															div.col-lg-6.d-table
+																label.text Raz&oacute;n Social
+																span.value {{item.razon}}
 
-                                div.row.m-0.pt-1.pb-1
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
-                                    button.button-success.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
-                            
+													div.col-lg-12.pl-0
+														div.row
+															div.col-lg-4
+																form.input-form
+																	div.form-text
+																		label Contacto
+																	div.form-element
+																		input(name="contact" type="text" ng-model="item.contact.name" autocomplete="off")
+															div.col-lg-4.pl-0
+																form.input-form
+																	div.form-text
+																		label Mail
+																	div.form-element
+																		input(name="mail" type="email" ng-model="item.contact.mail" autocomplete="off" )
+															div.col-lg-3.pl-0.pr-0
+																form.input-form
+																	div.form-text
+																		label Celular
+																	div.form-element
+																		input(name="movil" type="text" ng-model="item.contact.phone" autocomplete="off")
+
+													div.col-lg-12.pl-0.pb-15px
+														label.text Cuentas Asociadas
+													div.col-lg-12.pl-0
+														div.row(ng-repeat="account in item.account.accounts")
+															div.col-lg-4
+																form.input-form
+																	div.form-text
+																		label Banco
+																	div.form-element
+																		input(name="bank" type="text" ng-model="account.banco" autocomplete="off" placeholder="Seleccione Banco")
+															div.col-lg-4.pl-0
+																form.input-form
+																	div.form-text
+																		label Cuenta
+																	div.form-element
+																		input(name="account" type="text" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
+															div.col-lg-3.pl-0.pr-0
+																md-input-container.input-form
+																	md-select.md-no-underline(ng-model="account.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
+																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank.name}}
+
+															div.col-lg-1.pt-05
+																button.button-default.icon.sm.col-lg-3.col-md-3
+																	i.material-icons.remove-account(ng-click="removeAccount(item, $index)") close
+
+														div.row
+															div.col-lg-4
+																form.input-form
+																	div.form-text
+																		label Banco
+																	div.form-element
+																		input(name="bank" type="text" ng-model="$ctrl.otherAccount.banco" autocomplete="off" placeholder="Seleccione Banco")
+															div.col-lg-4.pl-0
+																form.input-form
+																	div.form-text
+																		label Cuenta
+																	div.form-element
+																		input(name="account" type="text" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
+															div.col-lg-3.pl-0.pr-0
+																md-input-container.input-form
+																	md-select.md-no-underline(ng-model="$ctrl.otherAccount.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
+																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+
+															div.col-lg-1.pt-05
+																button.button-default.icon.sm.col-lg-3.col-md-3
+																	i.material-icons.add-account(ng-click="addAccount(item, $ctrl.otherAccount)") add_circle
+
+														div.row(ng-if="currentCompany.rol == 'APODERADO'")
+															div.col-lg-offset-5.col-lg-3.pl-0
+																form.input-form
+																	div.form-text
+																		label Token
+																	div.form-element
+																		input(name="token" type="password" autocomplete="off" placeholder="********************")
+															div.col-lg-4.pt-05.pl-0.pr-0
+																button.button-success.sm.col-lg-6.mr-1(ng-click="successDestinatario('APROBADO', item)") APROBAR / AUTORIZAR
+																button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
+
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataDestinatariosPagination" ng-click="pagination('dataDestinatarios')") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
+
+
+				md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)" ng-click="resetTab()")
+					md-content.poster
+						md-card.pt-15px.pos-r.filter
+							div.row.m-0
+								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
+									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
+									div.col-lg-4.col-md-3.col-sm-4.pr-0
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+
+									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
+									button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+
+
+							div.row.m-0(ng-if="$ctrl.avanzadControl")
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										form.input-form
+											div.form-text
+												label.rut Rut Destinatario
+											div.form-element
+												input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
+
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino")
+												md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+
+									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino")
+												md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
+
+								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
+									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
+										div Tipos
+										md-radio-group
+											md-radio-button.md-primary(value="ALL") Todas
+											md-radio-button.md-primary(value="TOP") Alto Monto
+											md-radio-button.md-primary(value="DOWN") Bajo Monto
+											md-radio-button.md-primary(value="EXTRA") Masivos
+
+									div.col-lg-12.col-md-12.col-sm-5.col-xs-12
+										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
+										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
+
+						md-card.mt-0.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom(ng-if="!$ctrl.currentHistorico.movimientos.length>0")
+									colgroup
+										col(width="20%")
+										col(width="20%")
+										col(width="20%")
+										col(width="40%")
+									thead.thead
+										tr.tr
+											th.th Año
+											th.th Mes
+											th.th Folio
+											th.th.text-right
+												div.pr-2 Documentos
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat="item in $ctrl.dataHistoricos" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												span {{item.year}}
+											td.td.text-uppercase(ng-if="!item.plus" ng-click="toggleMovements(item)") {{item.month}}
+											td.td {{item.folio}}
+											td.td.text-right
+												div.arrow-container-download
+													a.pointer
+														span.mr-1 Descargar
+														span
+															i.material-icons cloud_download
+
+								table.table.custom.movimientos(ng-if="$ctrl.currentHistorico.movimientos.length>0")
+									colgroup
+										col(width="15%")
+										col(width="10%")
+										col(width="10%")
+										col(width="12%")
+										col(width="18%")
+										col(width="15%")
+										col(width="11%")
+										col(width="9%")
+									thead.thead
+										tr.tr
+											th.th Fecha
+											th.th Tipo
+											th.th.text-right Cuenta Origen
+											th.th Destinatario
+											th.th.text-right Monto Transferencia
+											th.th Estado
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in $ctrl.currentHistorico.movimientos" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus=!item.plus") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus=!item.plus") remove
+												span {{item.date}}
+											td.td.text-right {{item.type}}
+											td.td.text-right {{item.origen}}
+											td.td.text-uppercase.destinatario {{item.destinatario}}
+											td.td.text-right {{item.transferencia}}
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="6")
+												div.row.data-container
+													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Rut
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 15.980.456-8
+														div.row.mb-3
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Banco
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.text-uppercase.d-table
+																span.value Banco Santender / Chile
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Ingresado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Marcelo Rojas Arriagada
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Visado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Daniela Andrade
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Aprobación Regla
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 3A / 1B
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Aprobación Pendiente
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																aprove(aprove="item.firmas")
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Autorizado Por
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Juan Pablo Rojas
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Autorizar Destinatario
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																md-switch.md-primary
+
+													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Tipo de Cuenta
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Cuenta Corriente
+														div.row.mb-3
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Número de Cuenta
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 234567890000909908098
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Estado
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Liberación Pendiente
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Motivo de transferencia
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Pago Proveedor
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Mensaje Destinatario
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Urgente
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Tipo de Transferencia
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value Alto Monto
+														div.row
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																label.text Nº de Operación
+															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																span.value 45657678657567
+														div.row
+															div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
+																a.pointer.link Ver Comprobante
+
+												div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO' && item.firmTotal < 4")
+													div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+														div.row
+															div.col-lg-4.col-md-4.col-sm-12.col-xs-4
+																form.input-form
+																	div.form-text
+																		label Comentario
+																	div.form-element
+																		input(name="comment" type="text" autocomplete="off" placeholder="Ingrese un Comentario")
+															div.col-lg-3.col-md-3.col-sm-12.col-xs-3.pl-sm-0.pr-sm-0
+																form.input-form
+																	div.form-text
+																		label Token
+																	div.form-element
+																		input(name="token" type="password" autocomplete="off" placeholder="********************")
+															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
+																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
+																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR				
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
+
 

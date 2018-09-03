@@ -1,137 +1,139 @@
 section.bg-gray.dashboard-container
 
-  //carousel start
-  div(uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides")
-    div(uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id")
-      img(ng-src="{{slide.image}}")
-      div.carousel-caption
-        div.row.text-left
-          h4.mb-0.col-lg-10.col-md-10.text-small {{slide.text}}
-        div.row.text-left
-          h2.mb-0.col-lg-10.col-md-10.text-medium {{slide.text1}}
-        div.row.text-left
-          h1.mt-0.col-lg-10.col-md-10.text-big {{slide.text2}}
-          button.button-success.col-lg-2.col-md-2.col-sm-5.col-xs-6 SIMULAR
+	//carousel start
+	div(uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides")
+		div(uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id")
+			img(ng-src="{{slide.image}}")
+			div.carousel-caption
+				div.row.text-left
+					h4.mb-0.col-lg-10.col-md-10.text-small {{slide.text}}
+				div.row.text-left
+					h2.mb-0.col-lg-10.col-md-10.text-medium {{slide.text1}}
+				div.row.text-left
+					h1.mt-0.col-lg-10.col-md-10.text-big {{slide.text2}}
+					button.button-success.col-lg-2.col-md-2.col-sm-5.col-xs-6 SIMULAR
 
-  //carousel end
+	//carousel end
 
 
-  div.container.dashboard
-    
-    div.row.card-container
-      div.col-lg-8.col-md-8.col-sm-8
-        label.title SOLICITUDES
-      div.col-lg-4.col-md-4.col-sm-4.visible-lg.visible-md
-        label.title PRODUCTOS
-      
-    div.row
-      div.col-lg-8.col-md-8.col-sm-12.margin-sm-xs
-        div.row(ng-if="currentCompany.rol == ROL_1")
-          div.col-lg-6.col-md-6.col-sm-6.col-xs-12.poster.margin-xs
-            md-card.notification
-              div.row.p-15px
-                div.col-lg-7.col-md-7.col-sm-7.col-xs-7
-                  div
-                    label.title Transferencias
-                  div
-                    span.sub-title Por un Monto total de:
-                  div
-                    h3.mt-05.mb-05 $933.125.000
-                  div
-                    span.sub-title Lorem ipsum dolor sit amet, consectetur
+	div.container.dashboard
 
-                div.col-lg-5.col-md-5.col-sm-5.col-xs-5
-                  div
-                    ui-knob(value="rating.transferencias.value" options="rating.transferencias.options")
+		div.row.card-container
+			div.col-lg-8.col-md-8.col-sm-8
+				label.title SOLICITUDES
+			div.col-lg-4.col-md-4.col-sm-4.visible-lg.visible-md
+				label.title PRODUCTOS
 
-            div.action-container.custom.transfer
-              div.text-center
-                md-button.md-fab.success
-                  i.material-icons.rotate90 import_export
-              div.button-text.text-center(style="max-width: 100px;") Ver Transferencias
-              
-          div.col-lg-6.col-md-6.col-sm-6.col-xs-12.poster
-            md-card.notification
-              div.row.p-15px
-                div.col-lg-7.col-md-7.col-sm-7.col-xs-7.no-p-r
-                  div
-                    label.title Destinatarios
-                  div
-                    span.sub-title Nuevos usuarios estan esperando su aprobación
-                  div.mt-1
-                    span.c-green.link Marcelo Perez Ignacio Gonzalez y 2 más
-                  
-                div.col-lg-5.col-md-5.col-sm-5.col-xs-5
-                  div
-                    ui-knob(value="rating.destinatarios.value" options="rating.destinatarios.options")
-            div.action-container.custom.refactor
-              div.text-center
-                md-button.md-fab.success
-                  i.material-icons people
-              div.button-text.text-center Ver Destinatarios
+		div.row
+			div.col-lg-8.col-md-8.col-sm-12.margin-sm-xs
+				div.row(ng-if="currentCompany.rol == ROL_1")
+					div.col-lg-6.col-md-6.col-sm-6.col-xs-12.poster.margin-xs
+						md-card.notification
+							div.row.p-15px
+								div.col-lg-7.col-md-7.col-sm-7.col-xs-7
+									div
+										label.title Transferencias
+									div
+										span.sub-title Por un Monto total de:
+									div
+										h3.mt-05.mb-05 $933.125.000
+									div
+										span.sub-title Lorem ipsum dolor sit amet, consectetur
 
-        div.row(ng-if="currentCompany.rol == ROL_2")
-          div.col-lg-12.col-md-12.col-sm-12.col-xs-12.poster
-            md-card.notification.dimension
-              div.row.p-15px
-                div.col-lg-4.col-md-5.col-sm-4.text
-                  div
-                    label.title Estado de Mis Solicitudes Diarias
-                  div
-                    span.sub-title Por un Monto total de:
-                  div
-                    h3.mt-05.mb-05 $100.950.000
-                  div
-                    span.sub-title Lorem ipsum dolor sit amet, consectetur
-                div.col-lg-8.col-md-7.col-sm-8.col-xs-12.graficas
-                  div.grap(ng-repeat="grap in rating.solicitudes")
-                    ui-knob(value="grap.value" options="grap.options")
-            div.action-container.custom.solicitudes
-              div.text-center
-                md-button.md-fab.success
-                  i.material-icons list
-              div.button-text.text-center Ver Todas
+								div.col-lg-5.col-md-5.col-sm-5.col-xs-5
+									div
+										ui-knob(value="rating.transferencias.value" options="rating.transferencias.options")
 
-      div.col-lg-4.col-md-4.col-sm-12.col-xs-12
-        div.row
-          div.col-lg-12.col-md-12.col-sm-6.col-xs-12.poster
-            div.visible-sm.visible-xs
-              label.title-extra PRODUCTOS
-            md-card.notification
-              div.row.p-15px.pos-r
-                div.float-menu
-                  md-menu
-                    a.pointer(ng-click="$mdMenu.open($event)")
-                      i.material-icons more_vert
-                    md-menu-content(width="3")
-                      md-menu-item 
-                        a(ng-click="selectProduct('LEASING')") Leasing
-                      md-menu-item 
-                        a(ng-click="selectProduct('BOLETA')") Boleta de Garantia
-                      md-menu-item 
-                        a(ng-click="selectProduct('COMEX')") COMEX
-                div.col-lg-7.col-md-7.col-sm-7.col-xs-7
-                  div
-                    label.title Factoring
-                  div
-                    span.sub-title Por un Monto total de:
-                  div
-                    h3.mt-05.mb-05 $495.000.000
-                  div
-                    span.sub-title 90 días plazo
-                div.col-lg-5.col-md-5.col-sm-5.col-xs-5
-                  div
-                    ui-knob(value="rating.factoring.value" options="rating.factoring.options")
-            div.action-container.custom.productos
-              div.action.text-center
-                md-button.md-fab.success
-                div.button-text.text-center Label
+						div.action-container.custom.transfer
+							div.text-center
+								md-button.md-fab.success
+									i.material-icons.rotate90 import_export
+							div.button-text.text-center(style="max-width: 100px;") Ver Transferencias
 
-              div.action.text-center
-                md-button.md-fab.success.ml-2px
-                div.button-text.text-center Label
-                
-    //list account
-    div.mt-8
-      account-list(list="currentCompany.accounts" button-saldo="true" button-transfer="true" button-credit="true" button-credit-line="true" button-credit-line-up="true" ng-if="!loadAccounts")
-    //aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi
+					div.col-lg-6.col-md-6.col-sm-6.col-xs-12.poster
+						md-card.notification
+							div.row.p-15px
+								div.col-lg-7.col-md-7.col-sm-7.col-xs-7.no-p-r
+									div
+										label.title Destinatarios
+									div
+										span.sub-title Nuevos usuarios estan esperando su aprobación
+									div.mt-1
+										div(ng-repeat="dest in currentCompany.destinatario track by $index" ng-if="$index < 2")
+											span.c-green.link {{ dest }}
+											span.c-green.link(ng-if="currentCompany.destinatario.length > 3 && $index==1") &nbsp; y {{ currentCompany.destinatario.length - 2 }} más
+											br
+								div.col-lg-5.col-md-5.col-sm-5.col-xs-5
+									div
+										ui-knob(value="rating.destinatarios.value" options="rating.destinatarios.options")
+						div.action-container.custom.refactor
+							div.text-center
+								md-button.md-fab.success
+									i.material-icons people
+							div.button-text.text-center Ver Destinatarios
+
+				div.row(ng-if="currentCompany.rol == ROL_2")
+					div.col-lg-12.col-md-12.col-sm-12.col-xs-12.poster
+						md-card.notification.dimension
+							div.row.p-15px
+								div.col-lg-4.col-md-5.col-sm-4.text
+									div
+										label.title Estado de Mis Solicitudes Diarias
+									div
+										span.sub-title Por un Monto total de:
+									div
+										h3.mt-05.mb-05 $100.950.000
+									div
+										span.sub-title Lorem ipsum dolor sit amet, consectetur
+								div.col-lg-8.col-md-7.col-sm-8.col-xs-12.graficas
+									div.grap(ng-repeat="grap in rating.solicitudes")
+										ui-knob(value="grap.value" options="grap.options")
+						div.action-container.custom.solicitudes
+							div.text-center
+								md-button.md-fab.success
+									i.material-icons list
+							div.button-text.text-center Ver Todas
+
+			div.col-lg-4.col-md-4.col-sm-12.col-xs-12
+				div.row
+					div.col-lg-12.col-md-12.col-sm-6.col-xs-12.poster
+						div.visible-sm.visible-xs
+							label.title-extra PRODUCTOS
+						md-card.notification
+							div.row.p-15px.pos-r
+								div.float-menu
+									md-menu
+										a.pointer(ng-click="$mdMenu.open($event)")
+											i.material-icons more_vert
+										md-menu-content(width="3")
+											md-menu-item
+												a(ng-click="selectProduct('LEASING')") Leasing
+											md-menu-item
+												a(ng-click="selectProduct('BOLETA')") Boleta de Garantia
+											md-menu-item
+												a(ng-click="selectProduct('COMEX')") COMEX
+								div.col-lg-7.col-md-7.col-sm-7.col-xs-7
+									div
+										label.title Factoring
+									div
+										span.sub-title Por un Monto total de:
+									div
+										h3.mt-05.mb-05 $495.000.000
+									div
+										span.sub-title 90 días plazo
+								div.col-lg-5.col-md-5.col-sm-5.col-xs-5
+									div
+										ui-knob(value="rating.factoring.value" options="rating.factoring.options")
+						div.action-container.custom.productos
+							div.action.text-center
+								md-button.md-fab.success
+								div.button-text.text-center Label
+
+							div.action.text-center
+								md-button.md-fab.success.ml-2px
+								div.button-text.text-center Label
+
+		//list account
+		div.mt-8
+			account-list(list="currentCompany.accounts" button-saldo="true" button-transfer="true" button-credit="true" button-credit-line="true" button-credit-line-up="true" ng-if="!loadAccounts")
+		//aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi

@@ -165,6 +165,9 @@
         margin-left: 0px;
     }
     .investment .radio-container-selector { margin-bottom: 15px;position: relative; }
+    .button-default.button-load.col-lg-2.col-md-2.col-sm-3.col-xs-5 {
+        margin-top: 5px;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .investment .cheque-container {
@@ -182,6 +185,9 @@
     .investment .documents {
         padding-right: 10rem!important;
     }
+     .col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-8.col-xs-12.adjust {
+        margin-left: 6%
+    } 
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     .investment .cheque-container {
@@ -195,8 +201,13 @@
         width: 100% !important;
         margin-left: 0px;
     }
-    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }    
+    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }  
+    .col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-8.col-xs-12.adjust {
+        margin-left: 32%
+    }  
+    
 }
+
 @media (min-width: 1200px) {//col-lg
     .investment .cheque-container {
         
@@ -204,5 +215,8 @@
         padding-right: 0px;
 
         & > div { padding: 0px; }
+    }
+    .col-lg-offset-3.col-lg-6.adjust {
+        margin-left: 32%
     }
 }

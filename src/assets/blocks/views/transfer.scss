@@ -1,7 +1,7 @@
-.transfer { 
+.transfer {
 
     account-list.bg-toolbar {
-        md-tabs-canvas md-pagination-wrapper { 
+        md-tabs-canvas md-pagination-wrapper {
             right: 0;
             left: auto !important;
         }
@@ -29,14 +29,14 @@
         }
 
         &.up { color: $c-green; }
-        &.down { color: $c-red; }        
+        &.down { color: $c-red; }
     }
 
     .arrow-container-download {
 
         padding-right: 2rem;
-        
-        a { 
+
+        a {
             display: block;
 
             &:hover { text-decoration: none; }
@@ -53,7 +53,7 @@
             i { color: #9CC131; }
         }
     }
-    
+
     .input-form {
         height: 50px;
         width: 100%;
@@ -96,7 +96,13 @@
 
     .pl-sm-0 { padding-left: 0px; }
     .pr-sm-0 { padding-right: 0px; }
+
+    .button-success.sm.col-lg-5.col-md-6.mr-1.align, .button-blue.sm.col-lg-5.col-md-5.align {
+        vertical-align: middle;
+    }
+
 }
+
 
 /*MEDIA SCREEN*/
 @media (max-width: 500px) {
@@ -117,6 +123,15 @@
     .pr-sm-0 { padding-right: 15px !important; }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
+      .button-success.col-md-2.col-md-offset-7 {
+            margin-left: 65.333333%;
+    }
+    .container.transfer {
+    height: 127rem;
+}
 }
 @media (min-width: 1200px) {//col-lg
+    .button-success.col-lg-2.col-lg-offset-7 {
+            margin-left: 65.333333%;
+    }
 }

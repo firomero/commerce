@@ -1,13 +1,13 @@
 status {
 
-    .status-container { 
+    .status-container {
         position: relative;
 
-        div { 
+        div {
             display: inline-block;
             vertical-align: middle;
         }
-        div.icon { 
+        div.icon {
             width: 20px;
             height: 20px;
             text-align: center;
@@ -20,12 +20,12 @@ status {
             }
         }
         div.icon.orage {
-            background-color: #FFB000;
+            background-color: $c-orange;
         }
         div.icon.green {
             background-color: $c-green;
         }
-        div.icon.red { background-color: $c-red; }
+        div.icon.red { background-color: $c-red-plus; }
         div.text { width: 70%; }
     }
 }

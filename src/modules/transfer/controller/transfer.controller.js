@@ -1,9 +1,11 @@
+import TransferAuthorizeController from "./transfer-authorize-modal";
+
 export default function TransferController($scope, $rootScope, $stateParams, userLogin, $timeout, $uibModal, BankService) {
 	'ngInject';
 
 	var self = this;
 
-	$scope.itemPage = 5;
+	$scope.itemPage = 6;
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
@@ -11,17 +13,17 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.visibilityTabControl = 'ACCOUNT';
 	$scope.selectedCheques = [];
 	$scope.userLogin = userLogin;
-	
+
 	$scope.lastMovement = [];
 	$scope.interes = [];
 	$scope.historica = [];
 	$scope.cheques = [];
 
-	self.chequeMotivo = '';	
+	self.chequeMotivo = '';
 	self.motivos = [
 		{text: 'Perdida o Extravio', label: 'PERDIDA O EXTRAVIO', id: 1},
 		{text: 'Robo', label: 'ROBO', id: 2},
-		{text: 'Hurto', label: 'HURTO', id: 3},		
+		{text: 'Hurto', label: 'HURTO', id: 3},
 		{text: 'Incumplimiento Comercial', label: 'INCUMPLIMIENTO COMERCIAL', id: 4},
 		{text: 'Otros no especificados', label: 'OTROS NO ESPECIFICADOS', id: 5},
 		{text: 'Alteración o falsificación', label: 'ALTERACIÓN O FALSIFICACIÓN', id: 6}
@@ -29,18 +31,23 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.dateStart = '';
 	self.dateEnd = '';
 	self.avanzadControl = false;
+	self.showAuthorize = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
+	self.types = [{id: 1, name: "Cuenta Corriente"}];
 	self.chequeAccount = '';
 	self.accounts = [];
-	self.cheques = [{
+	self.cheques = [
+		{
 			id: 1,
 			name: '123456789000000000'
-		},{
+		},
+		{
 			id: 2,
 			name: '123456789001111000'
 		}];
-	self.chequeras = [{
+	self.chequeras = [
+		{
 			id: 1,
 			name: '123456789034567'
 		},{
@@ -62,7 +69,9 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			id: 7,
 			name: '890765678943213'
 	}];
-	
+    self.currentHistorico = {
+    	movimientos: []
+	};
 	self.dataTransfer = [];
 	self.dataTransferAll = [];
 	self.dataTransferPagination = false;
@@ -79,7 +88,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.otherAccount = {
 		banco: '',
 		account: '',
-		type: '' 
+		type: ''
 	};
 
 	$scope.toggleAll = toggleAll;
@@ -88,27 +97,32 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.removeAccount = removeAccount;
 	$scope.newTransference = newTransference;
 	$scope.onTabChanges = onTabChanges;
+	$scope.resetTab = resetTab;
 	$scope.pagination = pagination;
 	$scope.successTransferencia = successTransferencia;
 	$scope.successDestinatario = successDestinatario;
-	
+	$scope.toggleDestiny = toggleDestiny;
+	$scope.toggleMovements = toggleMovements;
+	$scope.toggleTransference = toggleTransference;
+	$scope.authorizeTransference = authorizeTransference;
+
 	activate();
 
 	switch($stateParams.id) {
 		case 'resumen': {
 			$scope.selectedIndex = 0;
-			break;	
+			break;
 		}
 		case 'destinatarios': {
 			$scope.selectedIndex = 1;
-			break;	
+			break;
 		}
 		case 'historicas': {
 			$scope.selectedIndex = 2;
-			break;	
+			break;
 		}
 	}
-	
+
 	function activate() {
 
 		$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
@@ -131,7 +145,15 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function onTabChanges(currentTabIndex){
 		$scope.selectedIndex = currentTabIndex;
+
     }
+
+    function resetTab() {
+			self.currentHistorico.movimientos = [];
+			self.dataHistoricos.forEach(function (value, index, array) {
+				array[index].plus = false;
+			});
+	}
 
 	function addAccount(item, save) {
 
@@ -141,10 +163,10 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			self.otherAccount = {
 				banco: '',
 				account: '',
-				type: '' 
+				type: ''
 			};
 			item.updateAccount = true;
-		}, 30);		
+		}, 30);
 	}
 
 	function removeAccount(item, $index) {
@@ -152,18 +174,20 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		$timeout(function(){
 			item.account.accounts.splice($index, 1);
 			item.updateAccount = true;
-		}, 30);		
+		}, 30);
 	}
 
 	function toggleAll(list) {
-		
+
 		var resetList = self.selectedDataTransfer ? false : true;
 		resetItemSelected(list, resetList);
 	}
+
 	function toggle(item, list, all) {
 
 		var count = countSelectedItems(list);
 		self[all] = (!item.selected && count == list.length - 1) ? true : false;
+		self.showAuthorize = count>0;
 	}
 
 	function countSelectedItems(list) {
@@ -175,8 +199,19 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 		return count;
 	}
+
+	function sumSelectedItems(list) {
+
+		let amount =0;
+		const selecteds = list.filter((item) => item.selected );
+		for (let i = 0; i < selecteds.length;i++) {
+			amount += Number(selecteds[i].transferencia.split('$')[1]);
+		}
+		return amount;
+	}
+
 	function resetItemSelected(list, action) {
-		
+
 		for(var i = 0; i < list.length; i++) {
 			list[i].selected = action;
 		}
@@ -192,7 +227,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	}
 
 	function newTransference(destinatario) {
-		
+
 		var modalInstance = $uibModal.open({
 			animation: false,
 			ariaLabelledBy: 'modal-title',
@@ -211,9 +246,9 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				}
 			}
 		});
-		
+
 		modalInstance.result.then(function (response) {
-			
+
 			if (response != undefined  && response.success) {
 				// WizardHandler.wizard().reset();
 				// $scope.reset();
@@ -235,18 +270,17 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	}
 
 	function pagination(list) {
-		
+
 		self[list + 'All'].forEach((item) => {
 			self[list].push(item);
 		});
 		self[list + 'Pagination'] = false;
 	}
 
-
 	function successTransferencia(action, item) {
-		
+
 		if (action == 'APROBADO') {
-			var message = "Estimado JUAN PABLO usted ha aprobado una transferencia."; 
+			var message = "Estimado JUAN PABLO usted ha aprobado una transferencia.";
 			var confirmInstance = $uibModal.open({
 				ariaDescribedBy: 'modal-body',
 				template: require('../../common/components/message-confirm/message-confirm.jade')(),
@@ -254,7 +288,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,			
+				keyboard  : false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => undefined,
@@ -264,7 +298,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			});
 		}else {
 
-			var message = "Estimado JUAN PABLO usted ha rechazado una transferencia."; 
+			var message = "Estimado JUAN PABLO usted ha rechazado una transferencia.";
 			var confirmInstance = $uibModal.open({
 				ariaDescribedBy: 'modal-body',
 				template: require('../../common/components/message-confirm/message-confirm.jade')(),
@@ -272,7 +306,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,			
+				keyboard  : false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => 'CERRAR',
@@ -283,7 +317,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		}
 
 		confirmInstance.result.then(function (response) {
-			
+
 			if (response != undefined  && response.success) {
 				// $scope.close();
 			}
@@ -291,9 +325,9 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	}
 
 	function successDestinatario(action, item) {
-		
+
 		if (action == 'APROBADO') {
-			var message = "Estimado JUAN PABLO usted ha aprobado un destinatario."; 
+			var message = "Estimado JUAN PABLO usted ha aprobado un destinatario.";
 			var confirmInstance = $uibModal.open({
 				ariaDescribedBy: 'modal-body',
 				template: require('../../common/components/message-confirm/message-confirm.jade')(),
@@ -301,7 +335,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,			
+				keyboard  : false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => undefined,
@@ -311,7 +345,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			});
 		}else {
 
-			var message = "Estimado JUAN PABLO usted ha rechazado un destinatario."; 
+			var message = "Estimado JUAN PABLO usted ha rechazado un destinatario.";
 			var confirmInstance = $uibModal.open({
 				ariaDescribedBy: 'modal-body',
 				template: require('../../common/components/message-confirm/message-confirm.jade')(),
@@ -319,7 +353,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,			
+				keyboard  : false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => 'CERRAR',
@@ -330,15 +364,90 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		}
 
 		confirmInstance.result.then(function (response) {
-			
+
 			if (response != undefined  && response.success) {
 				// $scope.close();
 			}
 		});
 	}
 
+	function toggleDestiny(item){
+		const value = !item.plus;
+		for (let i = 0; i < self.dataDestinatarios.length; i++) {
+			self.dataDestinatarios[i].plus = false;
+		}
+		item.plus = value;
+		for (let i = 0; i < item.account.accounts.length; i++) {
+			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.toLocaleLowerCase() )[0];
+			if (type !== undefined) {
+				item.account.accounts[i].type = type;
+			}
+		}
+	}
+
+	function toggleMovements(item) {
+		let plus = item.plus === undefined ? true : !item.plus;
+		item.plus = plus;
+		if (!plus) {
+			self.currentHistorico.movimientos = [];
+			self.dataHistoricos.forEach(function (value, index, array) {
+				array[index].plus = false;
+			})
+		}
+		else{
+			self.currentHistorico = Object.assign({},item);
+		}
+	}
+
+	function toggleTransference(item) {
+		const value = !item.plus;
+		for (let i = 0; i < self.dataTransfer.length; i++) {
+			self.dataTransfer[i].plus = false;
+		}
+		item.plus = value;
+	}
+
+	function authorizeTransference(list){
+		const count = countSelectedItems(list);
+		const amount = sumSelectedItems(list);
+		const confirmInstance = $uibModal.open({
+			ariaDescribedBy: 'modal-body',
+			template: require('../view/authorize-modal.jade')(),
+			controller: 'TransferAuthorizeController',
+			controllerAs: '$ctrl',
+			size: 'lg',
+			backdrop: false,
+			keyboard  : false,
+			resolve: {
+				textPrimaryAction: () => undefined,
+				textAction: () => undefined,
+				count: () => count,
+				amount: () => amount
+			},
+			windowClass: 'bottom-warning finish authorize'
+		});
+		confirmInstance.result.then(() => {
+			const message = "Estimado JUAN PABLO usted ha aceptado una transferencia.";
+			const instance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: false,
+				keyboard  : false,
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => 'CERRAR',
+					textAction: () => undefined
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+		})
+	}
+
 	$scope.$on('company::change', function(data) {
-		
+
 		$scope.loadAccounts = true;
 		$timeout(function(){
 			$scope.currentCompany = data.targetScope.currentCompany;
