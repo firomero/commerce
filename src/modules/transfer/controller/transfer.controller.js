@@ -379,7 +379,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		}
 		item.plus = value;
 		for (let i = 0; i < item.account.accounts.length; i++) {
-			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.toLocaleLowerCase() )[0];
+			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.name.toLocaleLowerCase() )[0];
 			if (type !== undefined) {
 				item.account.accounts[i].type = type;
 			}

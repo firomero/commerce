@@ -203,7 +203,7 @@ section.bg-gray.content-container
 																		label Token
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
-															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
+															div.col-lg-5.col-md-5.col-sm-12.col-xs-5
 																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
 
@@ -320,11 +320,11 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="contact" type="text" ng-model="item.contact.name" autocomplete="off")
 															div.col-lg-4.pl-0
-																form.input-form
+																form.input-form(name="mailForm")
 																	div.form-text
 																		label Mail
 																	div.form-element
-																		input(name="mail" type="email" ng-model="item.contact.mail" autocomplete="off" auto-focus required)
+																		input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required)
 															div.col-lg-3.pl-0.pr-0
 																form.input-form
 																	div.form-text
@@ -386,7 +386,7 @@ section.bg-gray.content-container
 																		label Token
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
-															div.col-lg-4.pt-05.pl-0.pr-0
+															div.col-lg-4.pl-0.pr-0
 																button.button-success.sm.col-lg-6.mr-1(ng-click="successDestinatario('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
 
@@ -611,7 +611,7 @@ section.bg-gray.content-container
 																		label Token
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
-															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-05
+															div.col-lg-5.col-md-5.col-sm-12.col-xs-5
 																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
 								div.row.m-0.pt-1.pb-1
