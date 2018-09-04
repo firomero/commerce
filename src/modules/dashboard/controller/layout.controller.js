@@ -68,6 +68,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
 
     function closeToggle(position) {
 
+    	$scope.editProfile = false;
         $mdSidenav(position).close();
     }
 

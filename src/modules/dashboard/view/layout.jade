@@ -288,18 +288,18 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				md-input-container.input-form.cell
 					md-select.md-no-underline.md-select(ng-model="code")
 						md-option.text-uppercase(ng-value="code" ng-repeat="code in movilCodes") {{code}}
-				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.9999" placeholder="99.999.9999" class="ml-1")
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="2 15845" placeholder="2 15845" class="ml-1")
 			div.pl-2.mt-2
 				span.sub-title Tel&eacute;fono Fijo
 			div.pl-2.mt-0
 				md-input-container.input-form.phone
 					md-select.md-no-underline.md-select(ng-model="fix")
 						md-option.text-uppercase(ng-value="code" ng-repeat="code in fixCodes") {{code}}
-				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.9999" placeholder="99.999.9999" class="ml-1")
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="2 158455678" placeholder="2 158455678" class="ml-1")
 			div.pl-2.mt-2
 				span Correo electr&oacute;nico
 			div.pl-2.mt-0
-				input.email(name="rut" type="email" autocomplete="off" ng-model="rut" mask="mail@mail.com.us" placeholder="mil@mail.com" required)
+				input.email(name="rut" type="email" autocomplete="off" ng-model="rut" mask="mail@mail.com.us" placeholder="jprojas@gmail.com" required)
 			div.pl-2.mt-2
 				span.city Ciudad
 				span.town Comuna
@@ -313,13 +313,13 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 			div.pl-2.mt-2
 				span Calle
 			div.pl-2.mt-0
-				input.street(name="rut" type="text" autocomplete="off" ng-model="rut" )
+				input.street(name="rut" type="text" autocomplete="off" ng-model="rut" placeholder="Av. Santa Maria" )
 			div.pl-2.mt-2
 				span N&uacute;mero
 				span.casa Depto / Casa
 			div.pl-2.mt-0
-				input.numero(name="rut" type="text" autocomplete="off" ng-model="rut" mask="999.999.999" placeholder="9999")
-				input.casa(name="rut" type="text" autocomplete="off" ng-model="rut" mask="999.999.999" placeholder="9999" class="ml-2")
+				input.numero(name="rut" type="text" autocomplete="off" ng-model="rut" mask="9200" placeholder="9200")
+				input.casa(name="rut" type="text" autocomplete="off" ng-model="rut" mask="567" placeholder="567" class="ml-2")
 
 	md-divider.divider(ng-if="editProfile === true")
 	div.p-2(ng-if="editProfile === true")

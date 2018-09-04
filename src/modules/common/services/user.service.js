@@ -38,7 +38,8 @@ export default class UserService {
 							interes: '3,5%'
 						},
 						account: {
-							lastMovement: [{
+							lastMovement: [
+								{
 								date: '23-04-2016',
 								description: 'Abono de Terceros',
 								serie: '00000000000015',
@@ -5038,7 +5039,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5052,11 +5053,11 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}, {
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5086,7 +5087,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5102,23 +5103,23 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco de Crédito e Inversiones',
 										account: '2403350100000000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5162,7 +5163,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5196,7 +5197,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5226,7 +5227,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5246,7 +5247,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5260,7 +5261,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5276,11 +5277,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5310,11 +5311,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5340,19 +5341,19 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5366,7 +5367,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}
 								],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
@@ -5383,11 +5384,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco de Crédito e Inversiones',
 										account: '2403350100000000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5401,11 +5402,11 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}, {
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									tipo: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5421,7 +5422,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco de Crédito e Inversiones',
 										account: '2403350100000000',
-										tipo: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -14485,6 +14486,355 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
+									type: {id: 2, name: "Cuenta Corriente 2"}
+								}
+								],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'A',
+									class: 'green',
+									text: 'Activo',
+									nameKey: 'ACTIVO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Crédito e Inversiones',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									type: {id: 1, name: "Cuenta Corriente"}
+								}, {
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									type: {id: 2, name: "Cuenta Corriente 2"}
+								}],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'A',
+									class: 'green',
+									text: 'Activo',
+									nameKey: 'ACTIVO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Crédito e Inversiones',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									type: {id: 1, name: "Cuenta Corriente"}
+								}],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'P',
+									class: 'orage',
+									text: 'Pendiente Autorización',
+									nameKey: 'AUTORIZADO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Crédito e Inversiones',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'P',
+									class: 'orage',
+									text: 'Pendiente Autorización',
+									nameKey: 'AUTORIZADO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Crédito e Inversiones',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									tipo: ''
+								}],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'A',
+									class: 'green',
+									text: 'Activo',
+									nameKey: 'ACTIVO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Crédito e Inversiones',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									tipo: ''
+								}],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'A',
+									class: 'green',
+									text: 'Activo',
+									nameKey: 'ACTIVO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco itau',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									tipo: ''
+								}],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'A',
+									class: 'green',
+									text: 'Activo',
+									nameKey: 'ACTIVO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Crédito e Inversiones',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									tipo: ''
+								}],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'P',
+									class: 'orage',
+									text: 'Pendiente Autorización',
+									nameKey: 'AUTORIZADO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco itau',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
+									tipo: ''
+								}],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'P',
+									class: 'orage',
+									text: 'Pendiente Autorización',
+									nameKey: 'AUTORIZADO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Chile / Edwards',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [],
+								destinatario: 'Empresa de Transportes Rurales Limitada',
+								rut: '70.569.785-9',
+								estado: {
+									icon: 'A',
+									class: 'green',
+									text: 'Activo',
+									nameKey: 'ACTIVO'
+								},
+								updateAccount: true,
+								account: {
+									bank: 'Banco de Chile / Edwards',
+									accounts: [{
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 2, name: "Cuenta Corriente 2"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}, {
+										banco: 'Banco Consorcio',
+										account: '2403350546780000',
+										type: {id: 1, name: "Cuenta Corriente"}
+									}]
+								},
+								razon: 'Transportes Rurales de Animales',
+								contact: {
+									name: 'Marcelo Arrigadad',
+									mail: 'mail@mail.cl',
+									phone: '+56 9 123 456 567'
+								}
+							}, {
+								plus: false,
+								plusData: [{
+									bank: 'Banco de Crédito e Inversiones',
+									account: '2403350100000000',
 									tipo: ''
 								}
 								],
@@ -14502,11 +14852,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 2, name: "Cuenta Corriente 2"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -14540,356 +14890,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'P',
-									class: 'orage',
-									text: 'Pendiente Autorización',
-									nameKey: 'AUTORIZADO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Crédito e Inversiones',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'P',
-									class: 'orage',
-									text: 'Pendiente Autorización',
-									nameKey: 'AUTORIZADO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Crédito e Inversiones',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'A',
-									class: 'green',
-									text: 'Activo',
-									nameKey: 'ACTIVO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Crédito e Inversiones',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'A',
-									class: 'green',
-									text: 'Activo',
-									nameKey: 'ACTIVO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco itau',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'A',
-									class: 'green',
-									text: 'Activo',
-									nameKey: 'ACTIVO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Crédito e Inversiones',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'P',
-									class: 'orage',
-									text: 'Pendiente Autorización',
-									nameKey: 'AUTORIZADO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco itau',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'P',
-									class: 'orage',
-									text: 'Pendiente Autorización',
-									nameKey: 'AUTORIZADO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Chile / Edwards',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'A',
-									class: 'green',
-									text: 'Activo',
-									nameKey: 'ACTIVO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Chile / Edwards',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}
-								],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'A',
-									class: 'green',
-									text: 'Activo',
-									nameKey: 'ACTIVO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Crédito e Inversiones',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}, {
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
-									}]
-								},
-								razon: 'Transportes Rurales de Animales',
-								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
-									phone: '+56 9 123 456 567'
-								}
-							}, {
-								plus: false,
-								plusData: [{
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}, {
-									bank: 'Banco de Crédito e Inversiones',
-									account: '2403350100000000',
-									tipo: ''
-								}],
-								destinatario: 'Empresa de Transportes Rurales Limitada',
-								rut: '70.569.785-9',
-								estado: {
-									icon: 'A',
-									class: 'green',
-									text: 'Activo',
-									nameKey: 'ACTIVO'
-								},
-								updateAccount: true,
-								account: {
-									bank: 'Banco de Crédito e Inversiones',
-									accounts: [{
-										banco: 'Banco Consorcio',
-										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -23224,11 +23225,11 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23262,7 +23263,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23292,7 +23293,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
@@ -23300,15 +23301,15 @@ export default class UserService {
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23334,11 +23335,11 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23368,11 +23369,11 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23402,7 +23403,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 2, name: "Cuenta Corriente 2"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23432,11 +23433,11 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23466,11 +23467,11 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23500,11 +23501,11 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23530,19 +23531,19 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23573,11 +23574,11 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23611,7 +23612,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: ''
+									type: {id: 1, name: "Cuenta Corriente"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
