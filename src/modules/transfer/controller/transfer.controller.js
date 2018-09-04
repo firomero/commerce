@@ -34,7 +34,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.showAuthorize = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
-	self.types = [{id: 1, name: "Cuenta Corriente"}];
+	self.types = [{id: 1, name: "Cuenta Corriente"} , {id: 2, name: "Cuenta Corriente 2"}];
 	self.chequeAccount = '';
 	self.accounts = [];
 	self.cheques = [
@@ -104,6 +104,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.toggleDestiny = toggleDestiny;
 	$scope.toggleMovements = toggleMovements;
 	$scope.toggleTransference = toggleTransference;
+	$scope.toggleHistorical = toggleHistorical;
 	$scope.authorizeTransference = authorizeTransference;
 
 	activate();
@@ -403,6 +404,14 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		const value = !item.plus;
 		for (let i = 0; i < self.dataTransfer.length; i++) {
 			self.dataTransfer[i].plus = false;
+		}
+		item.plus = value;
+	}
+
+	function toggleHistorical(item) {
+		const value = !item.plus;
+		for (let i = 0; i < self.currentHistorico.movimientos.length; i++) {
+			self.currentHistorico.movimientos[i].plus = false;
 		}
 		item.plus = value;
 	}

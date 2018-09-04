@@ -5034,7 +5034,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco de Crédito e Inversiones',
 										account: '2403350100000000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -5043,8 +5043,8 @@ export default class UserService {
 								},
 								razon: 'Transportes Rurales de Animales',
 								contact: {
-									name: 'Marcelo Arrigadad',
-									mail: 'mail@mail.cl',
+									name: 'Juan Arrigadad',
+									mail: 'juan@mail.cl',
 									phone: '+56 9 123 456 567'
 								}
 							}, {
@@ -5072,7 +5072,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco de Crédito e Inversiones',
 										account: '2403350100000000',
-										tipo: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5144,11 +5144,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5178,11 +5178,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5212,7 +5212,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: ''
+										type: {id: 1, name: "Cuenta Corriente"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',

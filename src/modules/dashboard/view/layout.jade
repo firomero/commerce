@@ -285,9 +285,63 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 			div.pl-2.mt-0
 				span.sub-title Tel&eacute;fono Celular
 			div.pl-2.mt-0
-				md-input-container.input-form
+				md-input-container.input-form.cell
 					md-select.md-no-underline.md-select(ng-model="code")
 						md-option.text-uppercase(ng-value="code" ng-repeat="code in movilCodes") {{code}}
-				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.9999" placeholder="99.999.9999")
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.9999" placeholder="99.999.9999" class="ml-1")
+			div.pl-2.mt-2
+				span.sub-title Tel&eacute;fono Fijo
+			div.pl-2.mt-0
+				md-input-container.input-form.phone
+					md-select.md-no-underline.md-select(ng-model="fix")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in fixCodes") {{code}}
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.9999" placeholder="99.999.9999" class="ml-1")
+			div.pl-2.mt-2
+				span Correo electr&oacute;nico
+			div.pl-2.mt-0
+				input.email(name="rut" type="email" autocomplete="off" ng-model="rut" mask="mail@mail.com.us" placeholder="mil@mail.com")
+			div.pl-2.mt-2
+				span.city Ciudad
+				span.town Comuna
+			div.pl-2.mt-0
+				md-input-container.city.input-form
+					md-select.md-no-underline.md-select(ng-model="city")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in cities") {{code}}
+				md-input-container.town.input-form
+					md-select.md-no-underline.md-select(ng-model="town")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in towns") {{code}}
+			div.pl-2.mt-2
+				span Calle
+			div.pl-2.mt-0
+				input.street(name="rut" type="text" autocomplete="off" ng-model="rut" )
+			div.pl-2.mt-2
+				span N&uacute;mero
+				span.casa Depto / Casa
+			div.pl-2.mt-0
+				input.numero(name="rut" type="text" autocomplete="off" ng-model="rut" mask="999.999.999" placeholder="9999")
+				input.casa(name="rut" type="text" autocomplete="off" ng-model="rut" mask="999.999.999" placeholder="9999" class="ml-2")
+
+	md-divider.divider(ng-if="editProfile === true")
+	div.p-2(ng-if="editProfile === true")
+		div.row.communication.pl-2.pr-2
+			div.pl-2.mt-0
+				span.cabecera.token Confirmar
+				p Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',
+			div.pl-2.mt-2
+				span.token.number Token
+			div.pl-2.mt-1
+				span.val J1
+				span.val C1
+				span.val E3
+			div.pl-2.mt-1
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+		div.row.mt-5
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right')") GUARDAR
+			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
+
+
+
 
 

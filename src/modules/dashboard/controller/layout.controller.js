@@ -10,8 +10,11 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.movilCodes = ["+09", "+01", "+02", "+05"];
     $scope.fixCodes = ["+59", "+56", "+58", "+78"];
     $scope.cities = ["Santiago", "Almeria", "Alberta", "Madrid", "Vasco"];
-    $scope.town = ["Palermo", "Kansas", "Detroit", "Manhattan"];
+    $scope.towns = ["Palermo", "Kansas", "Detroit", "Manhattan"];
     $scope.code = "+01";
+    $scope.fix = "+78";
+    $scope.town = $scope.towns[0];
+    $scope.city = $scope.cities[0];
     $scope.editProfile = false;
 
     $scope.selectCompany = selectCompany;
