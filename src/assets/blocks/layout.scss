@@ -117,12 +117,16 @@ md-sidenav.md-sidenav-left {
 md-sidenav.md-sidenav-right {
 
 	$base_ml: 2.5em;
+	$base_pl: 1em;
 	md-input-container{
 		color: white;
 		border: solid 0.5px #394F6F;
 		border-radius: 4px;
 		margin-right: 5px;
 		background-color: rgba(57,79,111,.6);
+	}
+	input {
+		padding-left: $base_pl;
 	}
 	.input-form {
 		width: 50px;
@@ -170,6 +174,10 @@ md-sidenav.md-sidenav-right {
 		&.val {
 			width: 20%;
 		}
+	}
+
+	.md-select-value {
+		padding: 2px 4px 1px;
 	}
 	md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value {
 		color: white;

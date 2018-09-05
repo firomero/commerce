@@ -5039,7 +5039,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5053,7 +5053,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}, {
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
@@ -5087,7 +5087,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -5115,11 +5115,11 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5277,7 +5277,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -5311,7 +5311,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -5345,7 +5345,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -5384,11 +5384,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco de Crédito e Inversiones',
 										account: '2403350100000000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -5402,7 +5402,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}, {
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
@@ -14486,7 +14486,7 @@ export default class UserService {
 								plusData: [{
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}
 								],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
@@ -14503,7 +14503,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14525,7 +14525,7 @@ export default class UserService {
 								}, {
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 3, name: "Cuenta Electrónica"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -14541,7 +14541,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -14571,7 +14571,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14579,7 +14579,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14613,7 +14613,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14711,7 +14711,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14745,7 +14745,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14779,7 +14779,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14809,11 +14809,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14852,11 +14852,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 2, name: "Cuenta Corriente 2"}
+										type: {id: 3, name: "Cuenta Electrónica"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -23225,7 +23225,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 3, name: "Cuenta Electrónica"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
@@ -23293,7 +23293,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 3, name: "Cuenta Electrónica"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
@@ -23301,7 +23301,7 @@ export default class UserService {
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
@@ -23339,7 +23339,7 @@ export default class UserService {
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23373,7 +23373,7 @@ export default class UserService {
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 3, name: "Cuenta Electrónica"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
@@ -23403,7 +23403,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 2, name: "Cuenta Corriente 2"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
