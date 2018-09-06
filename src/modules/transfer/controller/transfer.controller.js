@@ -425,6 +425,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			controller: 'TransferAuthorizeController',
 			controllerAs: '$ctrl',
 			size: 'lg',
+			backdrop: 'static',
 			keyboard  : false,
 			resolve: {
 				textPrimaryAction: () => undefined,
@@ -442,6 +443,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controller: 'MessageConfirmController',
 				controllerAs: '$ctrl',
 				size: 'lg',
+				backdrop: 'static',
 				keyboard  : false,
 				resolve: {
 					message: () => message,
