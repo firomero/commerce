@@ -211,28 +211,90 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 					i.material-icons.edit edit
 		div.row.data.pl-2.pr-2(ng-if="editProfile === false")
 			div.pl-4.mt-4
-				span.sub-title Telefono Celular
+				span.sub-title Tel&eacute;fono Celular
 			div.pl-4.mt-05
-				span.sub-title-value +5691584599
+				span.sub-title-value +56 9 1584599
 
 			div.pl-4.mt-2
-				span.sub-title Telefono Fijo
+				span.sub-title Tel&eacute;fono Fijo
 			div.pl-4.mt-05
-				span.sub-title-value +5691584599
+				span.sub-title-value +56 2 1584599
 
 			div.pl-4.mt-2
-				span.sub-title Correo Electronico
+				span.sub-title Correo Electr&oacute;nico
 			div.pl-4.mt-05
-				span.sub-title-value +5691584599
+				span.sub-title-value jprojas@gmail.com
 
 			div.pl-4.mt-2
-				span.sub-title Direccion
+				span.sub-title Direcci&oacute;n
 			div.pl-4.mt-05
-				span.sub-title-value +5691584599
+				span.sub-title-value Av SantaMaria 9200
+				br
+				span.sub-title-value Depto41 &nbsp;-Vitacura
 
-	md-divider.divider(ng-if="editProfile === false")
+	div.p-2(ng-if="editProfile === true")
+		div.row.communication.pl-2.pr-2
+			div.pl-2.mt-0
+				span.sub-title Tel&eacute;fono Celular
+			div.pl-2.mt-0
+				md-input-container.input-form.cell
+					md-select.md-no-underline.md-select(ng-model="code")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in movilCodes") {{code}}
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="userMovil" mask="2 15845" placeholder="2 15845" class="ml-1")
+			div.pl-2.mt-2
+				span.sub-title Tel&eacute;fono Fijo
+			div.pl-2.mt-0
+				md-input-container.input-form.phone
+					md-select.md-no-underline.md-select(ng-model="fix")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in fixCodes") {{code}}
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="userPhone" mask="2 158455678" placeholder="2 158455678" class="ml-1")
+			div.pl-2.mt-2
+				span Correo electr&oacute;nico
+			div.pl-2.mt-0
+				input.email(name="rut" type="email" autocomplete="off" ng-model="userMail" placeholder="jprojas@gmail.com" required)
+			div.pl-2.mt-2
+				span.city Ciudad
+				span.town Comuna
+			div.pl-2.mt-0
+				md-input-container.city.input-form
+					md-select.md-no-underline.md-select(ng-model="city")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in cities") {{code}}
+				md-input-container.town.input-form
+					md-select.md-no-underline.md-select(ng-model="town")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in towns") {{code}}
+			div.pl-2.mt-2
+				span Calle
+			div.pl-2.mt-0
+				input.street(name="rut" type="text" autocomplete="off" ng-model="userStreet" placeholder="Av. Santa Maria" )
+			div.pl-2.mt-2
+				span N&uacute;mero
+				span.casa Depto / Casa
+			div.pl-2.mt-0
+				input.numero(name="rut" type="text" autocomplete="off" ng-model="userHome" mask="9200" placeholder="9200")
+				input.casa(name="rut" type="text" autocomplete="off" ng-model="userApto" mask="41" placeholder="41" class="ml-2")
 
-	div.p-2(ng-if="editProfile === false")
+	md-divider.divider(ng-if="editProfile === true")
+	div.p-2(ng-if="editProfile === true")
+		div.row.communication.pl-2.pr-2
+			div.pl-2.mt-0
+				span.cabecera.token Confirmar
+				p Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',
+			div.pl-2.mt-2
+				span.token.number Token
+			div.pl-2.mt-1
+				span.val J1
+				span.val C1
+				span.val E3
+			div.pl-2.mt-1
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+		div.row.mt-5
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right')") GUARDAR
+			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
+
+	md-divider.divider
+	div.p-2
 		div.row.pass.pl-2.pr-2
 			div.pos-r
 				span.mr-2
@@ -251,9 +313,8 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 			div.pl-4.mt-05
 				span.sub-title-value Habilitada
 
-	md-divider.divider(ng-if="editProfile === false")
-
-	div.p-2(ng-if="editProfile === false")
+	md-divider.divider
+	div.p-2
 		div.row.communication.pl-2.pr-2
 			div.pos-r
 				span.mr-2
@@ -280,14 +341,7 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 		div.row.mt-5
 			button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle('right')") CONTACTAR A EJECUTIVO
 
-	div.p-2(ng-if="editProfile === true")
-		div.row.communication.pl-2.pr-2
-			div.pl-2.mt-0
-				span.sub-title Tel&eacute;fono Celular
-			div.pl-2.mt-0
-				md-input-container.input-form
-					md-select.md-no-underline.md-select(ng-model="code")
-						md-option.text-uppercase(ng-value="code" ng-repeat="code in movilCodes") {{code}}
-				input.phone(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.9999" placeholder="99.999.9999")
+
+
 
 

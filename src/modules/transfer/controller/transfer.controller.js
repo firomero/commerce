@@ -34,7 +34,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.showAuthorize = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
-	self.types = [{id: 1, name: "Cuenta Corriente"}];
+	self.types = [{id: 1, name: "Cuenta Corriente"} , {id: 2, name: "Cuenta Vista"}, {id: 3, name: "Cuenta Electrónica"}];
 	self.chequeAccount = '';
 	self.accounts = [];
 	self.cheques = [
@@ -104,6 +104,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.toggleDestiny = toggleDestiny;
 	$scope.toggleMovements = toggleMovements;
 	$scope.toggleTransference = toggleTransference;
+	$scope.toggleHistorical = toggleHistorical;
 	$scope.authorizeTransference = authorizeTransference;
 
 	activate();
@@ -378,7 +379,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		}
 		item.plus = value;
 		for (let i = 0; i < item.account.accounts.length; i++) {
-			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.toLocaleLowerCase() )[0];
+			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.name.toLocaleLowerCase() )[0];
 			if (type !== undefined) {
 				item.account.accounts[i].type = type;
 			}
@@ -407,6 +408,14 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		item.plus = value;
 	}
 
+	function toggleHistorical(item) {
+		const value = !item.plus;
+		for (let i = 0; i < self.currentHistorico.movimientos.length; i++) {
+			self.currentHistorico.movimientos[i].plus = false;
+		}
+		item.plus = value;
+	}
+
 	function authorizeTransference(list){
 		const count = countSelectedItems(list);
 		const amount = sumSelectedItems(list);
@@ -416,7 +425,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			controller: 'TransferAuthorizeController',
 			controllerAs: '$ctrl',
 			size: 'lg',
-			backdrop: false,
+			backdrop: 'static',
 			keyboard  : false,
 			resolve: {
 				textPrimaryAction: () => undefined,
@@ -434,7 +443,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controller: 'MessageConfirmController',
 				controllerAs: '$ctrl',
 				size: 'lg',
-				backdrop: false,
+				backdrop: 'static',
 				keyboard  : false,
 				resolve: {
 					message: () => message,

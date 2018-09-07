@@ -112,7 +112,7 @@
             display: inline-block;
             vertical-align: top;
             margin-bottom: 0px;
-            margin-right: .5rem;
+            margin-right: 1.2rem;
             margin-top: 5px;
         }
     }
@@ -157,6 +157,11 @@
         .last-filter {
             padding-left: 15px;
         }
+		.radio-container {
+			md-radio-button {
+				margin-right: .5rem;
+			}
+		}
     }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm

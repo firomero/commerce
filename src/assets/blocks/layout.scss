@@ -116,12 +116,17 @@ md-sidenav.md-sidenav-left {
 
 md-sidenav.md-sidenav-right {
 
+	$base_ml: 2.5em;
+	$base_pl: 1em;
 	md-input-container{
 		color: white;
 		border: solid 0.5px #394F6F;
 		border-radius: 4px;
 		margin-right: 5px;
 		background-color: rgba(57,79,111,.6);
+	}
+	input {
+		padding-left: $base_pl;
 	}
 	.input-form {
 		width: 50px;
@@ -150,7 +155,71 @@ md-sidenav.md-sidenav-right {
 		border-radius: 4px;
 		background-color: rgba(57,79,111,0.6);
 	}
+	input.email, input.street {
+		width: 90%;
+		height: 34px;
+		border: solid 0.5px #394F6F;
+		border-radius: 4px;
+		background-color: rgba(57,79,111,0.6);
+	}
+	input.street {
+		font-weight: 900;
+	}
+	input.numero, input.casa {
+		width: 41%;
+		height: 34px;
+		border: solid 0.5px #394F6F;
+		border-radius: 4px;
+		background-color: rgba(57,79,111,0.6);
+		&.val {
+			width: 20%;
+		}
+	}
+
 	md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value {
+		color: white;
+	}
+	md-input-container.city,md-input-container.town {
+		width: 43%;
+		margin: 3px 0;
+	}
+
+	md-input-container.cell, md-input-container.phone{
+		margin: 3px 0;
+	}
+	md-input-container.town {
+		margin-left: 1rem;
+	}
+	span.town, span.numero, span.town {
+		margin-left: 6.5rem;
+	}
+	span.casa{ margin-left: 4.5em; }
+
+	span.val{ margin-left: $base_ml ; }
+	span.val:nth-child(2){ margin-left: $base_ml + 1 ; }
+	span.val:nth-child(3){ margin-left: $base_ml + 1; }
+
+	md-select.md-default-theme .md-select-icon, md-select .md-select-icon {
+		color: white;
+	}
+
+	.token {
+		color: #74859B;
+	}
+
+	span.token {
+		margin-left: 5em;
+		&.cabecera {
+			text-transform: uppercase;
+		}
+	}
+
+	.col-offset{
+		margin-left: 1em;
+	}
+
+	button.button-default.custom{
+		border: 1px solid white;
 		color: white;
 	}
 }

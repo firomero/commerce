@@ -7,11 +7,20 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.currentAccount = null;
     $scope.currentCompany.nameID = $scope.userLogin.currentCompany;
     $scope.userCompanies = userLogin.companies;
-    $scope.movilCodes = ["+09", "+01", "+02", "+05"];
+    $scope.movilCodes = ["+09", "+01", "+02", "+05" , "+56"];
     $scope.fixCodes = ["+59", "+56", "+58", "+78"];
     $scope.cities = ["Santiago", "Almeria", "Alberta", "Madrid", "Vasco"];
-    $scope.town = ["Palermo", "Kansas", "Detroit", "Manhattan"];
-    $scope.code = "+01";
+    $scope.towns = ["Palermo", "Kansas", "Detroit", "Manhattan"];
+    $scope.code = "+56";
+    $scope.fix = "+56";
+    $scope.userMovil = " 9 1584599";
+    $scope.userMail = "jprojas@gmail.com";
+    $scope.userPhone = " 2 1584599";
+    $scope.userStreet = "Av. Santa Maria";
+    $scope.userHome = "9200";
+    $scope.userApto = "41";
+    $scope.town = $scope.towns[0];
+    $scope.city = $scope.cities[0];
     $scope.editProfile = false;
 
     $scope.selectCompany = selectCompany;
@@ -65,6 +74,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
 
     function closeToggle(position) {
 
+    	$scope.editProfile = false;
         $mdSidenav(position).close();
     }
 
