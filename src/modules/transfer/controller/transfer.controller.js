@@ -6,7 +6,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	var self = this;
 
 	$scope.itemPage = 6;
-	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
+	$scope.currentCompany = {nameID: null, name: '', rol: '', accounts: []};
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
@@ -34,7 +34,10 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.showAuthorize = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
-	self.types = [{id: 1, name: "Cuenta Corriente"} , {id: 2, name: "Cuenta Vista"}, {id: 3, name: "Cuenta Electrónica"}];
+	self.types = [{id: 1, name: "Cuenta Corriente"}, {id: 2, name: "Cuenta Vista"}, {
+		id: 3,
+		name: "Cuenta Electrónica"
+	}];
 	self.chequeAccount = '';
 	self.accounts = [];
 	self.cheques = [
@@ -50,27 +53,27 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		{
 			id: 1,
 			name: '123456789034567'
-		},{
+		}, {
 			id: 2,
 			name: '234567654324567'
-		},{
+		}, {
 			id: 3,
 			name: '987656789342345'
-		},{
+		}, {
 			id: 4,
 			name: '451239456709821'
-		},{
+		}, {
 			id: 5,
 			name: '234567654312345'
-		},{
+		}, {
 			id: 6,
 			name: '323456098765432'
-		},{
+		}, {
 			id: 7,
 			name: '890765678943213'
-	}];
-    self.currentHistorico = {
-    	movimientos: []
+		}];
+	self.currentHistorico = {
+		movimientos: []
 	};
 	self.dataTransfer = [];
 	self.dataTransferAll = [];
@@ -109,7 +112,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	activate();
 
-	switch($stateParams.id) {
+	switch ($stateParams.id) {
 		case 'resumen': {
 			$scope.selectedIndex = 0;
 			break;
@@ -126,9 +129,9 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function activate() {
 
-		$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
+		$scope.currentCompany = {nameID: null, name: '', rol: '', accounts: []};
 		$scope.currentCompany.nameID = userLogin.currentCompany;
-		for(var i = 0;i < userLogin.companies.length;i++) {
+		for (var i = 0; i < userLogin.companies.length; i++) {
 
 			if (userLogin.companies[i].nameID == $scope.currentCompany.nameID) {
 				$scope.currentCompany.rol = userLogin.companies[i].rol;
@@ -144,22 +147,22 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		}
 	}
 
-	function onTabChanges(currentTabIndex){
+	function onTabChanges(currentTabIndex) {
 		$scope.selectedIndex = currentTabIndex;
 
-    }
+	}
 
-    function resetTab() {
-			self.currentHistorico.movimientos = [];
-			self.dataHistoricos.forEach(function (value, index, array) {
-				array[index].plus = false;
-			});
+	function resetTab() {
+		self.currentHistorico.movimientos = [];
+		self.dataHistoricos.forEach(function (value, index, array) {
+			array[index].plus = false;
+		});
 	}
 
 	function addAccount(item, save) {
 
 		item.updateAccount = false;
-		$timeout(function(){
+		$timeout(function () {
 			item.account.accounts.push(save);
 			self.otherAccount = {
 				banco: '',
@@ -172,7 +175,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function removeAccount(item, $index) {
 		item.updateAccount = false;
-		$timeout(function(){
+		$timeout(function () {
 			item.account.accounts.splice($index, 1);
 			item.updateAccount = true;
 		}, 30);
@@ -188,13 +191,13 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 		var count = countSelectedItems(list);
 		self[all] = (!item.selected && count == list.length - 1) ? true : false;
-		self.showAuthorize = count>0;
+		self.showAuthorize = count > 0;
 	}
 
 	function countSelectedItems(list) {
 
 		var count = 0;
-		for(var i = 0; i < list.length; i++) {
+		for (var i = 0; i < list.length; i++) {
 			if (list[i].selected) count++;
 		}
 
@@ -203,17 +206,20 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 	function sumSelectedItems(list) {
 
-		let amount =0;
-		const selecteds = list.filter((item) => item.selected );
-		for (let i = 0; i < selecteds.length;i++) {
-			amount += Number(selecteds[i].transferencia.split('$')[1]);
+		let amount = 0;
+		const selecteds = list.filter((item) => item.selected);
+		for (let i = 0; i < selecteds.length; i++) {
+			let stringNumber = selecteds[i].transferencia.split('$')[1].split('.');
+			stringNumber.pop();
+			stringNumber = stringNumber.join('');
+			amount += Number(stringNumber);
 		}
 		return amount;
 	}
 
 	function resetItemSelected(list, action) {
 
-		for(var i = 0; i < list.length; i++) {
+		for (var i = 0; i < list.length; i++) {
 			list[i].selected = action;
 		}
 	}
@@ -239,10 +245,10 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			size: 'lg',
 			windowClass: 'fullscreen',
 			resolve: {
-				action: function() {
+				action: function () {
 					return 'NEW_TRANSFER';
 				},
-				destinatario: function() {
+				destinatario: function () {
 					return destinatario
 				}
 			}
@@ -250,7 +256,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 		modalInstance.result.then(function (response) {
 
-			if (response != undefined  && response.success) {
+			if (response != undefined && response.success) {
 				// WizardHandler.wizard().reset();
 				// $scope.reset();
 			}
@@ -260,7 +266,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	function inArray(array, key, value) {
 
 		var position = false;
-		for(var i = 0; i < array.length; i++) {
+		for (var i = 0; i < array.length; i++) {
 			if (array[i][key] == value) {
 				position = i;
 				break;
@@ -289,7 +295,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,
+				keyboard: false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => undefined,
@@ -297,7 +303,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				},
 				windowClass: 'bottom-confirm finish'
 			});
-		}else {
+		} else {
 
 			var message = "Estimado JUAN PABLO usted ha rechazado una transferencia.";
 			var confirmInstance = $uibModal.open({
@@ -307,7 +313,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,
+				keyboard: false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => 'CERRAR',
@@ -319,7 +325,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 		confirmInstance.result.then(function (response) {
 
-			if (response != undefined  && response.success) {
+			if (response != undefined && response.success) {
 				// $scope.close();
 			}
 		});
@@ -336,7 +342,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,
+				keyboard: false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => undefined,
@@ -344,7 +350,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				},
 				windowClass: 'bottom-confirm finish'
 			});
-		}else {
+		} else {
 
 			var message = "Estimado JUAN PABLO usted ha rechazado un destinatario.";
 			var confirmInstance = $uibModal.open({
@@ -354,7 +360,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controllerAs: '$ctrl',
 				size: 'lg',
 				backdrop: false,
-				keyboard  : false,
+				keyboard: false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => 'CERRAR',
@@ -366,20 +372,20 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 
 		confirmInstance.result.then(function (response) {
 
-			if (response != undefined  && response.success) {
+			if (response != undefined && response.success) {
 				// $scope.close();
 			}
 		});
 	}
 
-	function toggleDestiny(item){
+	function toggleDestiny(item) {
 		const value = !item.plus;
 		for (let i = 0; i < self.dataDestinatarios.length; i++) {
 			self.dataDestinatarios[i].plus = false;
 		}
 		item.plus = value;
 		for (let i = 0; i < item.account.accounts.length; i++) {
-			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.name.toLocaleLowerCase() )[0];
+			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.name.toLocaleLowerCase())[0];
 			if (type !== undefined) {
 				item.account.accounts[i].type = type;
 			}
@@ -395,8 +401,8 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				array[index].plus = false;
 			})
 		}
-		else{
-			self.currentHistorico = Object.assign({},item);
+		else {
+			self.currentHistorico = Object.assign({}, item);
 		}
 	}
 
@@ -416,7 +422,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		item.plus = value;
 	}
 
-	function authorizeTransference(list){
+	function authorizeTransference(list) {
 		const count = countSelectedItems(list);
 		const amount = sumSelectedItems(list);
 		const confirmInstance = $uibModal.open({
@@ -426,7 +432,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			controllerAs: '$ctrl',
 			size: 'lg',
 			backdrop: 'static',
-			keyboard  : false,
+			keyboard: false,
 			resolve: {
 				textPrimaryAction: () => undefined,
 				textAction: () => undefined,
@@ -435,41 +441,61 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			},
 			windowClass: 'bottom-warning finish authorize'
 		});
-		confirmInstance.result.then(() => {
-			const message = "Estimado JUAN PABLO usted ha aceptado una transferencia.";
-			const instance = $uibModal.open({
-				ariaDescribedBy: 'modal-body',
-				template: require('../../common/components/message-confirm/message-confirm.jade')(),
-				controller: 'MessageConfirmController',
-				controllerAs: '$ctrl',
-				size: 'lg',
-				backdrop: 'static',
-				keyboard  : false,
-				resolve: {
-					message: () => message,
-					textPrimaryAction: () => 'CERRAR',
-					textAction: () => undefined
-				},
-				windowClass: 'bottom-confirm finish'
-			});
-		})
+		confirmInstance.result.then((data) => {
+			if (data.action === 'primary') {
+				const message = "TOAST de flujo realizado con Éxito, se debe considerar uno para, Éxito de transferencias, Autorizaciones, Visados, Creación de Usuarios, Reglas, Etc";
+				const instance = $uibModal.open({
+					ariaDescribedBy: 'modal-body',
+					template: require('../../common/components/message-confirm/message-confirm.jade')(),
+					controller: 'MessageConfirmController',
+					controllerAs: '$ctrl',
+					size: 'lg',
+					backdrop: 'static',
+					keyboard: false,
+					resolve: {
+						message: () => message,
+						textPrimaryAction: () => 'CERRAR',
+						textAction: () => undefined
+					},
+					windowClass: 'bottom-confirm finish'
+				});
+			}
+			else {
+				const message = "Estimado JUAN PABLO, has RECHAZADO la solicitud de Transferencia.";
+				const confirmInstance = $uibModal.open({
+					ariaDescribedBy: 'modal-body',
+					template: require('../../common/components/message-confirm/message-confirm.jade')(),
+					controller: 'MessageConfirmController',
+					controllerAs: '$ctrl',
+					size: 'lg',
+					backdrop: 'static',
+					keyboard: false,
+					resolve: {
+						message: () => message,
+						textPrimaryAction: () => 'CERRAR',
+						textAction: () => undefined
+					},
+					windowClass: 'bottom-danger finish'
+				});
+			}
+		});
 	}
 
-	$scope.$on('company::change', function(data) {
+	$scope.$on('company::change', function (data) {
 
 		$scope.loadAccounts = true;
-		$timeout(function(){
+		$timeout(function () {
 			$scope.currentCompany = data.targetScope.currentCompany;
 			if (!$scope.currentCompany.accounts.length) {
 				$scope.existAccounts = false;
-			}else {
+			} else {
 				$scope.existAccounts = true;
 			}
 			self.accounts = $scope.currentCompany.accounts;
 			$scope.loadAccounts = false;
 		}, 30);
 	});
-	$scope.$on('account::change', function(e, data) {
+	$scope.$on('account::change', function (e, data) {
 		e.preventDefault();
 		e.stopPropagation();
 
@@ -495,7 +521,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		}
 		self.dataHistoricos = dataCopy.transferencias.historicos || [];
 
-		$timeout(function(){
+		$timeout(function () {
 			$scope.loadTabData = true;
 		}, 30);
 	});

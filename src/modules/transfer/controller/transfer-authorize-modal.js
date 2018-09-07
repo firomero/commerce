@@ -13,6 +13,6 @@ export default class TransferAuthorizeController {
 	$onInit = () => {};
 
 	cancel() { this.$uibModalInstance.dismiss(); }
-	confirm() { this.$uibModalInstance.close({'success': true}); }
-	confirmSecundary() { this.$uibModalInstance.close({'success': true, action: 'secundary'}); }
+	confirm() { this.$uibModalInstance.close({'success': true, action: 'primary' }); }
+	confirmSecundary() { this.$uibModalInstance.close({'success': true, action: 'secondary' }); }
 }
