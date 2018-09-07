@@ -210,7 +210,6 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		const selecteds = list.filter((item) => item.selected);
 		for (let i = 0; i < selecteds.length; i++) {
 			let stringNumber = selecteds[i].transferencia.split('$')[1].split('.');
-			stringNumber.pop();
 			stringNumber = stringNumber.join('');
 			amount += Number(stringNumber);
 		}
