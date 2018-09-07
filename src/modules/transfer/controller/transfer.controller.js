@@ -87,6 +87,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.dataHistoricos = [];
 	self.dataHistoricosAll = [];
 	self.dataHistoricosPagination = false;
+	self.isSwicthActive = false;
 
 	self.otherAccount = {
 		banco: '',
@@ -109,6 +110,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.toggleTransference = toggleTransference;
 	$scope.toggleHistorical = toggleHistorical;
 	$scope.authorizeTransference = authorizeTransference;
+	$scope.authorizeDestiny = authorizeDestiny;
 
 	activate();
 
@@ -436,7 +438,9 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				textPrimaryAction: () => undefined,
 				textAction: () => undefined,
 				count: () => count,
-				amount: () => amount
+				amount: () => amount,
+				name: () => null,
+
 			},
 			windowClass: 'bottom-warning finish authorize'
 		});
@@ -480,10 +484,54 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		});
 	}
 
+	function authorizeDestiny(item){
+		if (item.aproved) {
+			const confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../view/destinatario-modal.jade')(),
+				controller: 'TransferAuthorizeController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: 'static',
+				keyboard: false,
+				resolve: {
+					textPrimaryAction: () => undefined,
+					textAction: () => undefined,
+					count: () => 0,
+					amount: () => 0,
+					name: () => item.destinatario
+				},
+				windowClass: 'bottom-warning finish authorize'
+			});
+			confirmInstance.result.then((data) => {
+				if (data.action === 'primary') {
+					const message = "Estimado JUAN PABLO el destinatario "+name+" ha sido Autorizado";
+					const instance = $uibModal.open({
+						ariaDescribedBy: 'modal-body',
+						template: require('../../common/components/message-confirm/message-confirm.jade')(),
+						controller: 'MessageConfirmController',
+						controllerAs: '$ctrl',
+						size: 'lg',
+						backdrop: 'static',
+						keyboard: false,
+						resolve: {
+							message: () => message,
+							textPrimaryAction: () => 'CERRAR',
+							textAction: () => undefined
+						},
+						windowClass: 'bottom-confirm finish'
+					});
+				}
+			});
+		}
+	}
+
 	$scope.$on('company::change', function (data) {
 
 		$scope.loadAccounts = true;
 		self.showAuthorize = false;
+		resetItemSelected(self.dataTransfer, false);
+		self.selectedDataTransfer = false;
 		$timeout(function () {
 			$scope.currentCompany = data.targetScope.currentCompany;
 			if (!$scope.currentCompany.accounts.length) {

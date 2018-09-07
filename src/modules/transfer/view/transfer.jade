@@ -146,7 +146,7 @@ section.bg-gray.content-container
 															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																label.text Autorizar Destinatario
 															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																md-switch.md-primary
+																md-switch.md-primary(ng-model="item.aproved", ng-change="authorizeDestiny(item)")
 
 													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 														div.row
