@@ -286,15 +286,15 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	function successTransferencia(action, item) {
 
 		if (action == 'APROBADO') {
-			var message = "Estimado JUAN PABLO usted ha aprobado una transferencia.";
+			var message = "TOAST de Flujo realizado con Exito, se debe considerar uno para, Exito de transferencias , Autorizaciones, Visados, Creación de Usuarios, Reglas ,Etc";
 			var confirmInstance = $uibModal.open({
 				ariaDescribedBy: 'modal-body',
 				template: require('../../common/components/message-confirm/message-confirm.jade')(),
 				controller: 'MessageConfirmController',
 				controllerAs: '$ctrl',
 				size: 'lg',
-				backdrop: false,
-				keyboard: false,
+				backdrop: 'static',
+				keyboard  : false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => undefined,
@@ -311,8 +311,8 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 				controller: 'MessageConfirmController',
 				controllerAs: '$ctrl',
 				size: 'lg',
-				backdrop: false,
-				keyboard: false,
+				backdrop: 'static',
+				keyboard  : false,
 				resolve: {
 					message: () => message,
 					textPrimaryAction: () => 'CERRAR',
