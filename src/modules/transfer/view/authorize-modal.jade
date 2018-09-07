@@ -9,7 +9,7 @@ div.row
 			div.form-text
 				label Ingrese token
 			div.form-element
-				input(name="token" type="text" autocomplete="off" ng-model="$ctrl.token" placeholder="Token")
+				input(name="token" type="password" autocomplete="off" ng-model="$ctrl.token" placeholder="********************")
 	button.col-lg-1.col-md-1.col-sm-2.col-xs-4.button-default-inv(ng-click="$ctrl.confirm()") Autorizar
-	button.col-lg-1.col-md-1.col-sm-2.col-xs-4.button-default-inv(ng-click="$ctrl.cancel()") Rechazar
+	button.col-lg-1.col-md-1.col-sm-2.col-xs-4.button-default-inv(ng-click="$ctrl.confirmSecundary()") Rechazar
 	button.col-lg-1.col-md-1.col-sm-2.col-xs-1.button-default-inv(ng-click="$ctrl.cancel()") Cerrar

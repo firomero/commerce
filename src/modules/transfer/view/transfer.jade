@@ -146,7 +146,7 @@ section.bg-gray.content-container
 															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																label.text Autorizar Destinatario
 															div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																md-switch.md-primary
+																md-switch.md-primary(ng-model="item.aproved", ng-change="authorizeDestiny(item)")
 
 													div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 														div.row
@@ -188,7 +188,7 @@ section.bg-gray.content-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
 																a.pointer.link Ver Comprobante
 
-												div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO' && item.firmTotal < 4")
+												div.row.inputs-container(ng-if="item.firmTotal < 4")
 													div.col-lg-12.col-md-12.col-sm-12.col-xs-12
 														div.row
 															div.col-lg-4.col-md-4.col-sm-12.col-xs-4
@@ -197,7 +197,7 @@ section.bg-gray.content-container
 																		label Comentario
 																	div.form-element
 																		input(name="comment" type="text" autocomplete="off" placeholder="Ingrese un Comentario")
-															div.col-lg-3.col-md-3.col-sm-12.col-xs-3.pl-sm-0.pr-sm-0(ng-if="item.estado.nameKey == 'AUTORIZADO'")
+															div.col-lg-3.col-md-3.col-sm-12.col-xs-3.pl-sm-0.pr-sm-0(ng-if="item.estado.nameKey == 'AUTORIZADO' && currentCompany.rol == 'APODERADO'")
 																form.input-form
 																	div.form-text
 																		label Token
@@ -596,7 +596,7 @@ section.bg-gray.content-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right.d-table
 																a.pointer.link Ver Comprobante
 
-												div.row.inputs-container(ng-if="currentCompany.rol == 'APODERADO' && item.firmTotal < 4")
+												div.row.inputs-container(ng-if="item.firmTotal < 4")
 													div.col-lg-12.col-md-12.col-sm-12.col-xs-12
 														div.row
 															div.col-lg-4.col-md-4.col-sm-12.col-xs-4

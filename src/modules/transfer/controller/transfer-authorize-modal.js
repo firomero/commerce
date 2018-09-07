@@ -1,6 +1,6 @@
 export default class TransferAuthorizeController {
 
-	constructor($timeout, $uibModalInstance, textPrimaryAction, textAction, count, amount) {
+	constructor($timeout, $uibModalInstance, textPrimaryAction, textAction, count, amount, name) {
 		'ngInject';
 		this.$timeout = $timeout;
 		this.$uibModalInstance = $uibModalInstance;
@@ -8,11 +8,12 @@ export default class TransferAuthorizeController {
 		this.textAction = textAction;
 		this.count = count;
 		this.amount = amount;
+		this.name = name;
 	}
 
 	$onInit = () => {};
 
 	cancel() { this.$uibModalInstance.dismiss(); }
-	confirm() { this.$uibModalInstance.close({'success': true}); }
-	confirmSecundary() { this.$uibModalInstance.close({'success': true, action: 'secundary'}); }
+	confirm() { this.$uibModalInstance.close({'success': true, action: 'primary' }); }
+	confirmSecundary() { this.$uibModalInstance.close({'success': true, action: 'secondary' }); }
 }
