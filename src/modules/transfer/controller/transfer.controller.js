@@ -483,6 +483,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.$on('company::change', function (data) {
 
 		$scope.loadAccounts = true;
+		self.showAuthorize = false;
 		$timeout(function () {
 			$scope.currentCompany = data.targetScope.currentCompany;
 			if (!$scope.currentCompany.accounts.length) {
