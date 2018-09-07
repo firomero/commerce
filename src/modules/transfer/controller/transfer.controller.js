@@ -505,7 +505,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			});
 			confirmInstance.result.then((data) => {
 				if (data.action === 'primary') {
-					const message = "Estimado JUAN PABLO el destinatario "+name+" ha sido Autorizado";
+					const message = "Estimado JUAN PABLO el destinatario "+item.destinatario+" ha sido Autorizado";
 					const instance = $uibModal.open({
 						ariaDescribedBy: 'modal-body',
 						template: require('../../common/components/message-confirm/message-confirm.jade')(),
