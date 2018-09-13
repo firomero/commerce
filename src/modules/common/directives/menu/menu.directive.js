@@ -29,6 +29,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 		$scope.showPrice = showPrice;
 		$scope.toggleDropdown = toggleDropdown;
 		$scope.newTransference = newTransference;
+		$scope.newUser = newUser;
 		$scope.$uibModal = $uibModal;
 		activate();
 
@@ -75,6 +76,26 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 						return undefined;
 					}
 				}
+			});
+			
+			// modalInstance.result.then(function (response) {
+				
+			// 	if (response != undefined  && response.success) {
+			// 		// WizardHandler.wizard().reset();
+			// 		// $scope.reset();
+			// 	}
+			// });
+		}
+
+		function newUser() {
+			
+			var modalInstance = $scope.$uibModal.open({
+				animation: false,
+				template: require('../../../user/view/user-modal.jade')(),
+				controller: 'UserModalController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				windowClass: 'fullscreen'
 			});
 			
 			// modalInstance.result.then(function (response) {
