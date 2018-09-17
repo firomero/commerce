@@ -270,8 +270,8 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				span N&uacute;mero
 				span.casa Depto / Casa
 			div.pl-2.mt-0
-				input.numero(name="rut" type="text" autocomplete="off" ng-model="userHome" mask="9200" placeholder="9200")
-				input.casa(name="rut" type="text" autocomplete="off" ng-model="userApto" mask="41" placeholder="41" class="ml-2")
+				input.numero(name="rut" type="number" autocomplete="off" ng-model="userHome"  placeholder="9200")
+				input.casa(name="rut" type="number" autocomplete="off" ng-model="userApto"  placeholder="41" class="ml-2")
 
 	md-divider.divider(ng-if="editProfile === true")
 	div.p-2(ng-if="editProfile === true")
