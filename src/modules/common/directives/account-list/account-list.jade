@@ -27,7 +27,7 @@ div.pos-r(ng-cloak ng-if="list.length")
 
           div.action-container
             div.action.text-center(ng-if="buttonSaldo")
-              md-button.md-fab.success
+              md-button.md-fab.success(ng-click="goTo('account')")
                 i.material-icons timeline
               div.button-text.text-center Saldo y Movimientos
 

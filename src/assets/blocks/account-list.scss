@@ -24,7 +24,7 @@ account-list {
     .action-container {
         position: absolute;
         right: -4!important;
-        bottom: -69px;
+        bottom: -57px;
 
         .pagar {
 
@@ -125,13 +125,14 @@ account-list {
 
 account-list.bg-toolbar {
     md-card {background-color: $c-blue-toolbar !important;}
+    md-card.not-found {background-color: $c-white !important;}
     small.card-text, div.price, .tag-text, .tag-value {color: $c-white;}
     .md-button.md-fab.success {background-color: $c-button-gray;}
 }
 
 @media (max-width: 500px) {//col-xs
     account-list .action-container {
-        bottom: -75px !important;
+        bottom: -50px !important;
         right: -1px !important;
     }
     account-list .action-container .pagar .button-text.text-center {

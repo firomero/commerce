@@ -1,4 +1,4 @@
-export default function DashboardController(userLogin, $scope, $timeout, $mdSidenav, UserService) {
+export default function DashboardController(userLogin, $scope, $timeout, $state, $mdSidenav, UserService) {
 	'ngInject';
 
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
@@ -150,6 +150,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 	};
 
 	$scope.selectProduct = selectProduct;
+	$scope.goTo = goTo;
 	activate();
 
 	function activate() {
@@ -166,6 +167,20 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 				$scope.currentCompany.destinatario = $scope.userCompanies[i].destinatario;
 				break;
 			}
+		}
+	}
+
+	function goTo(state) {
+
+		switch(state) {
+			case 'resumen': 
+				$state.go('app.transfer', {id: 'resumen'})
+				break;
+			case 'destinatarios': 
+				$state.go('app.transfer', {id: 'destinatarios'})
+				break;
+			default:
+				break;
 		}
 	}
 
