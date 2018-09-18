@@ -389,6 +389,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.name.toLocaleLowerCase())[0];
 			if (type !== undefined) {
 				item.account.accounts[i].type = type;
+				item.account.accounts[i].account = Number(item.account.accounts[i].account);
 			}
 		}
 	}

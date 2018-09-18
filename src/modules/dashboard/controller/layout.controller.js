@@ -17,8 +17,8 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.userMail = "jprojas@gmail.com";
     $scope.userPhone = " 2 1584599";
     $scope.userStreet = "Av. Santa Maria";
-    $scope.userHome = "9200";
-    $scope.userApto = "41";
+    $scope.userHome = 9200;
+    $scope.userApto = 41;
     $scope.town = $scope.towns[0];
     $scope.city = $scope.cities[0];
     $scope.editProfile = false;

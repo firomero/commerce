@@ -5,7 +5,7 @@ div.container.transfer-modal
     div.close
       i.material-icons(ng-click="close()") close
 
-  div.title.mb-3 
+  div.title.mb-3
     h3 Transferencias
 
   div.indicator-container
@@ -17,7 +17,7 @@ div.container.transfer-modal
       div.col-lg-offset-3.col-lg-2.col-md-offset-3.col-md-2.col-sm-offset-3.col-sm-2.col-xs-4.indicator.pending
         span.icon(ng-if="!stepData[0].completed") 1
         span.icon(ng-if="stepData[0].completed")
-          i.material-icons check  
+          i.material-icons check
         span.sub-title {{optionTitle}}
 
       div.col-lg-offset-2.col-lg-2.col-md-offset-2.col-md-2.col-sm-offset-2.col-sm-2.col-xs-offset-4.col-xs-4.indicator(ng-class="{'pending': stepData[0].completed}")
@@ -36,20 +36,20 @@ div.container.transfer-modal
               md-radio-group(ng-model="$ctrl.action" ng-change="changeTitle()")
                 md-radio-button.md-primary(value="NEW_TRANSFER") Nueva Transferencia
                 md-radio-button.md-primary(value="NOMINA") Nomina
-          
+
           form.row(name="form" ng-if="$ctrl.action == 'NEW_TRANSFER'")
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
               div.placeholder-select
                 label Tipo de Transferencia
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.type" ng-model-options="{trackBy: '$value.id'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.type" ng-model-options="{trackBy: '$value.id'}")
                   md-option.text-uppercase(ng-value="type" ng-repeat="type in types") {{type.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
               div.placeholder-select
                 label Cuenta de Origen
               md-input-container.input-form.yellow
-                md-select.md-no-underline(ng-model="stepData[0].data.account" ng-model-options="{trackBy: '$value.name'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.account" ng-model-options="{trackBy: '$value.name'}")
                   md-option.text-uppercase(ng-value="account" ng-repeat="account in accounts") {{account.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account(ng-if="stepData[0].data.account")
@@ -74,7 +74,7 @@ div.container.transfer-modal
               div.placeholder-select
                 label Destinatario
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.destinatario" ng-model-options="{trackBy: '$value.id'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.destinatario" ng-model-options="{trackBy: '$value.id'}")
                   md-option.text-uppercase(ng-value="dest" ng-repeat="dest in destinatarios") {{dest.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0(ng-if="stepData[0].data.destinatario.id == 0")
@@ -95,7 +95,7 @@ div.container.transfer-modal
               div.placeholder-select
                 label Banco
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.bank" ng-model-options="{trackBy: '$value.id'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.bank" ng-model-options="{trackBy: '$value.id'}")
                     md-option.text-uppercase(ng-value="bank" ng-repeat="bank in banks") {{bank.name}}
 
             div.col-lg-2.col-md-2.col-sm-3.col-xs-12.padding-right-0(ng-if="stepData[0].data.destinatario.id == 0")
@@ -110,7 +110,7 @@ div.container.transfer-modal
                 div.form-text
                     label.rut Monto
                 div.form-element
-                    input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.montoTrans")
+                    input(name="monto" type="number" autocomplete="off" ng-model="stepData[0].data.montoTrans" pattern="/^\\d+$/")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
               div.input-form
@@ -144,14 +144,14 @@ div.container.transfer-modal
               div.placeholder-select
                 label Tipo de Pago
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.pagoT" ng-model-options="{trackBy: '$value.id'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.pagoT" ng-model-options="{trackBy: '$value.id'}")
                   md-option.text-uppercase(ng-value="pago" ng-repeat="pago in pagos") {{pago.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
               div.placeholder-select
                 label Forma de Pago
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.pagoF" ng-model-options="{trackBy: '$value.id'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.pagoF" ng-model-options="{trackBy: '$value.id'}")
                   md-option.text-uppercase(ng-value="forma" ng-repeat="forma in formas") {{forma.name}}
 
             div.col-lg-offset-3.col-lg-3.col-md-offset-2.col-md-4.col-sm-offset-1.col-sm-5.padding-left-0
@@ -165,7 +165,7 @@ div.container.transfer-modal
               div.placeholder-select
                 label Modo de Ingreso
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.pagoTSelect" ng-model-options="{trackBy: '$value.id'}" placeholder="Seleccione") 
+                md-select.md-no-underline(ng-model="stepData[0].data.pagoTSelect" ng-model-options="{trackBy: '$value.id'}" placeholder="Seleccione")
                   md-option.text-uppercase(ng-value="ingreso" ng-repeat="ingreso in ingresos") {{ingreso.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.padding-0.abono-pago-type(ng-if="stepData[0].data.pagoTSelect")
@@ -193,7 +193,7 @@ div.container.transfer-modal
                   div.col-xs-12.user-add
                     span.text Usuarios Ingresados
                     span.count {{userList.length}} usuario(s)
-                  
+
                 div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
                   div.input-form
                     div.form-text
@@ -226,7 +226,7 @@ div.container.transfer-modal
                   div.placeholder-select.refactor
                     label Banco
                   md-input-container.input-form
-                    md-select.md-no-underline(ng-model="userForm.bank" ng-model-options="{trackBy: '$value.id'}") 
+                    md-select.md-no-underline(ng-model="userForm.bank" ng-model-options="{trackBy: '$value.id'}")
                         md-option.text-uppercase(ng-value="bank" ng-repeat="bank in banks") {{bank.name}}
 
                 div.col-lg-5.col-md-5.col-sm-5.col-xs-12.p-0
@@ -234,14 +234,14 @@ div.container.transfer-modal
                     div.form-text
                         label.rut Nº Cuenta
                     div.form-element
-                        input(name="nAccount" type="text" autocomplete="off" ng-model="userForm.account")
+                        input(name="nAccount" type="number" autocomplete="off" ng-model="userForm.account")
 
                 div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
                   div.input-form
                     div.form-text
                         label.rut Monto
                     div.form-element
-                        input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.montoNomina" placeholder="Ingresar")
+                        input(name="monto" type="number" autocomplete="off" ng-model="stepData[0].data.montoNomina" placeholder="Ingresar")
 
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-8.padding-left-0.pos-r.extra-row
                   div.col-lg-6.col-md-6.col-sm-6.col-xs-8.p-0
@@ -261,11 +261,11 @@ div.container.transfer-modal
           div.row.modal-check-detail(ng-if="$ctrl.action == 'NEW_TRANSFER'")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
-          
+
               div.row.mb-2
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-5.text Fecha
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.value {{now | date:'dd-MM-yyyy'}}
-              
+
               div.row.mb-2.modal-check-detail-cheques
                 div.col-lg-4.col-md-4.col-sm-4.col-xs-6.text Destinatario
                 div.col-lg-8.col-md-8.col-sm-8.col-xs-6.text-right.value {{stepData[0].data.destinatario.name || '- -'}}
@@ -274,22 +274,22 @@ div.container.transfer-modal
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Monto
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'DESTINATARIO'") ${{stepData[0].data.monto || 0}}
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'NEW_TRANSFER'") ${{stepData[0].data.montoTrans || 0}}
-              
+
               div.col-lg-offset-2.col-lg-8.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
                 button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(wz-reset="backStep()") CANCELAR
                 input.button-success.col-lg-8.col-md-8.col-sm-8.col-xs-6(type="submit" ng-click="finish()" value="ENVIAR AUTORIZACIÓN" ng-if="!saving")
                 button.button-success.spinner-custom.col-lg-4(ng-if="saving")
                   img(src="images/spinner.gif")
-          
+
           h4(ng-if="$ctrl.action == 'NOMINA'").text-center.mb-2 Estos son los Datos de La Nomina
           div.row.modal-check-detail(ng-if="$ctrl.action == 'NOMINA'")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-offset-1.col-xs-10
-          
+
               div.row.mb-1
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-5.text Motivo de Abono
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.value {{stepData[0].data.pagoT.text}}
-              
+
               div.row.mb-1.modal-check-detail-cheques
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Forma de Pago
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{stepData[0].data.pagoF.name}}
@@ -309,7 +309,7 @@ div.container.transfer-modal
               div.row.mb-1
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha de Abono
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value {{stepData[0].data.abono || '--'}}
-              
+
               div.row.mb-1
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text Fecha de Creación
                 div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value 10 / 05 / 2018
@@ -322,4 +322,4 @@ div.container.transfer-modal
               button.button-default.col-lg-offset-2.col-lg-4.col-md-offset-2.col-md-4.col-sm-offset-2.col-sm-4.col-xs-6(wz-reset="backStep()") VOLVER
               input.button-success.col-lg-4.col-md-4.col-sm-4.col-xs-6(type="submit" ng-click="finish()" value="CREAR" ng-if="!saving")
               button.button-success.spinner-custom.col-lg-4(ng-if="saving")
-                img(src="images/spinner.gif")          
+                img(src="images/spinner.gif")

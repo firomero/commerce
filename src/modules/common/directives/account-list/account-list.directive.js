@@ -1,4 +1,4 @@
-export default function AccountListDirective($rootScope, $uibModal) {
+export default function AccountListDirective($rootScope, $state, $uibModal) {
 	'ngInject';
 	
 	var directive = {
@@ -53,7 +53,8 @@ export default function AccountListDirective($rootScope, $uibModal) {
 		
 		$scope.$uibModal = $uibModal;
 		$scope.onTabSelected = onTabSelected;
-		$scope.newTransference = newTransference;		
+		$scope.newTransference = newTransference;
+		$scope.goTo = goTo;	
 		
 		function onTabSelected(item) {
 
@@ -80,6 +81,17 @@ export default function AccountListDirective($rootScope, $uibModal) {
 					}
 				}
 			});
+		}
+
+		function goTo(state) {
+			
+			switch(state) {
+				case 'account': 
+					$state.go('app.investment', {id: 'account'})
+					break;
+				default:
+					break;
+			}
 		}
 	}
 

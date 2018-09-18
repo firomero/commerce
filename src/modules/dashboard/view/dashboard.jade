@@ -46,7 +46,7 @@ section.bg-gray.dashboard-container
 
 						div.action-container.custom.transfer
 							div.text-center
-								md-button.md-fab.success
+								md-button.md-fab.success(ng-click="goTo('resumen')")
 									i.material-icons.rotate90 import_export
 							div.button-text.text-center(style="max-width: 100px;") Ver Transferencias
 
@@ -68,7 +68,7 @@ section.bg-gray.dashboard-container
 										ui-knob(value="rating.destinatarios.value" options="rating.destinatarios.options")
 						div.action-container.custom.refactor
 							div.text-center
-								md-button.md-fab.success
+								md-button.md-fab.success(ng-click="goTo('destinatarios')")
 									i.material-icons people
 							div.button-text.text-center Ver Destinatarios
 
@@ -135,5 +135,5 @@ section.bg-gray.dashboard-container
 
 		//list account
 		div.mt-8
-			account-list(list="currentCompany.accounts" button-saldo="true" button-transfer="true" button-credit="true" button-credit-line="true" button-credit-line-up="true" ng-if="!loadAccounts")
+			account-list(list="currentCompany.accounts" button-saldo="true" button-transfer="true" ng-if="!loadAccounts")
 		//aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi
