@@ -121,6 +121,15 @@
             }
         }
     }
+    span.rule {
+        vertical-align: bottom;
+    }
+    .left-adjust {
+        margin-left: 24%;
+    }
+    .lh-1 {
+        line-height: 2.1em;
+    }
 }
 
 .firm-detail {
@@ -266,6 +275,15 @@ input::-webkit-inner-spin-button {
 
     .modal.bottom-confirm .message label { line-height: 18px; }
     .modal.bottom-confirm.finish .message label { line-height: 50px; }
+
+    .modal {
+          .left-adjust {
+        margin-left: -2%;
+        }
+        .lh-1 {
+            line-height: 1.1em;
+        }
+    }
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
 
@@ -283,6 +301,19 @@ input::-webkit-inner-spin-button {
 
     .modal.bottom-confirm .message label { line-height: 18px; }
     .modal.bottom-confirm.finish .message label { line-height: 50px; }
+
+    .modal {
+        .left-adjust {
+        margin-left: 7%;
+       }
+      .md-left {
+        margin-left: 0.8em;
+      }
+      .lh-1 {
+            line-height: 2.1em;
+        }
+    }
+ 
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
 

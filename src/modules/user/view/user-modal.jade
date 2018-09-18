@@ -5,7 +5,7 @@ div.container.user-modal
     div.close
       i.material-icons(ng-click="close()") close
 
-  div.title.mb-3 
+  div.title.mb-3
     h3 Perfilamiento de Usuario
 
   div.indicator-container
@@ -18,7 +18,7 @@ div.container.user-modal
       div.col-lg-offset-4.col-lg-1.col-md-offset-4.col-md-1.col-sm-offset-2.col-sm-2.col-xs-3.indicator.pending
         span.icon(ng-if="!stepData[0].completed") 1
         span.icon(ng-if="stepData[0].completed")
-          i.material-icons check  
+          i.material-icons check
         span.sub-title Usuario
 
       div.col-lg-1.col-md-1.col-sm-2.col-xs-3.indicator(ng-class="{'pending': stepData[0].completed}")
@@ -44,7 +44,7 @@ div.container.user-modal
       wizard(on-finish="finishedWizard()" hide-indicators="true")
         wz-step(canexit="exitValidation")
           h4.text-center.mb-2 Seleccione el Tipo de usuario ( solicitud Nº {{userRequest}} )
-          
+
           form.row(name="form")
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
               div.account-container
@@ -55,21 +55,21 @@ div.container.user-modal
               div.placeholder-select
                 label Usuario
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
                   md-option.text-uppercase(ng-value="type" ng-repeat="type in userTypes") {{type.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-3(ng-if="stepData[0].data.userType.id == 1")
               div.placeholder-select
                 label Tipo de Apoderado
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
                   md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-3(ng-if="stepData[0].data.userType.id == 2")
               div.placeholder-select
                 label Tipo de Operador
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
                   md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
 
             div.col-lg-offset-3.col-lg-4.col-md-offset-3.col-md-4.col-sm-offset-1.col-sm-6.col-xs-12.center-xs
@@ -138,7 +138,7 @@ div.container.user-modal
                 div.placeholder-select
                   label Sexo
                 md-input-container.input-form
-                  md-select.md-no-underline(ng-model="stepData[0].data.gender" ng-model-options="{trackBy: '$value.name'}") 
+                  md-select.md-no-underline(ng-model="stepData[0].data.gender" ng-model-options="{trackBy: '$value.name'}")
                     md-option.text-uppercase(ng-value="gender" ng-repeat="gender in genders") {{gender.name}}
 
               div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
@@ -162,7 +162,7 @@ div.container.user-modal
               div.col-lg-4.col-md-6.col-sm-12.col-xs-6.pt-025
                 label.text Todas las Cuentas
               div.col-lg-2.col-md-6.col-sm-12.col-xs-6.pl-0
-                md-switch.md-primary(ng-model="stepData[1].data.checkAllAccount", ng-change="checkAll(stepData[1].data.accountStorage, 'checkAllAccount')")
+                md-switch.md-primary(ng-model="stepData[1].data.checkAllAccount", ng-change="checkAll(stepData[1].data.accountStorage, 'checkAllAccount', 1)")
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.account-check
               div.col-lg-6.col-md-6.col-sm-6.col-xs-6(ng-repeat="account in stepData[1].data.accountStorage")
@@ -170,22 +170,22 @@ div.container.user-modal
 
 
             div.col-lg-offset-3.col-lg-3.col-md-offset-3.col-md-3.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1.mt-1
-              
+
               div.col-lg-8.col-md-6.col-sm-12.col-xs-6.pt-025.mb-1
                 label.text Todas los Modulos
               div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
-                md-switch.md-primary(ng-model="stepData[1].data.checkAllModule", ng-change="checkAll(stepData[1].data.moduleStorage, 'checkAllModule')")
+                md-switch.md-primary(ng-model="stepData[1].data.checkAllModule", ng-change="checkAll(stepData[1].data.moduleStorage, 'checkAllModule', 1)")
 
               div.col-lg-12.col-md-12.col-sm-12.col-xs-12.account-check(ng-repeat="module in stepData[1].data.moduleStorage")
                 md-checkbox.md-primary(ng-change="check(stepData[1].data.moduleStorage, 'checkAllModule')" ng-model="module.selected") {{module.name}}
 
-            
+
             div.col-lg-3.col-md-3.col-sm-3.col-xs-12.padding-0.pos-r.mb-1.mt-1
-              
+
               div.col-lg-9.col-md-6.col-sm-12.col-xs-6.pt-025.mb-1
                 label.text Modulo Transferencias
               div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
-                md-switch.md-primary(ng-model="stepData[1].data.checkAllTransferModule", ng-change="checkAll(stepData[1].data.moduleTransferStorage, 'checkAllTransferModule')")
+                md-switch.md-primary(ng-model="stepData[1].data.checkAllTransferModule", ng-change="checkAll(stepData[1].data.moduleTransferStorage, 'checkAllTransferModule', 1)")
 
               div.col-lg-12.col-md-12.col-sm-12.col-xs-12.account-check(ng-repeat="module in stepData[1].data.moduleTransferStorage")
                 md-checkbox.md-primary(ng-change="check(stepData[1].data.moduleTransferStorage, 'checkAllTransferModule')" ng-model="module.selected") {{module.name}}
@@ -206,18 +206,79 @@ div.container.user-modal
               div.placeholder-select
                 label Tipo de Apoderado
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
                   md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r(ng-if="stepData[0].data.userType.id == 2")
               div.placeholder-select
                 label Tipo de Operador
               md-input-container.input-form
-                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}") 
+                md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
                   md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
 
             div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1
               div.col-lg-5.col-md-6.col-sm-12.col-xs-6.pt-025
                 label.text Asignar todas las Reglas
-              div.col-lg-2.col-md-6.col-sm-12.col-xs-6.pl-0
-                md-switch.md-primary(ng-model="stepData[2].data.checkAllRule", ng-change="checkAll(stepData[2].data.ruleStorage, 'checkAllRule')")
+              div.col-lg-2.col-md-6.col-sm-12.col-xs-6.pl-0.md-left
+                md-switch.md-primary(ng-model="stepData[2].data.checkAllRule", ng-change="checkAll(stepData[2].data.ruleStorage, 'checkAllRule', 2)")
+            div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-7.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1.left-adjust
+                div.table-responsive.with-scroll(perfect-scroll)
+                  table.table.custom
+                    colgroup                     
+                      col(width="25%")
+                      col(width="25%")
+                      col(width="25%")
+                      col(width="25%")
+                    thead.thead
+                      tr.tr                                 
+                        th.th.text-left Regla
+                        th.th.text-center Montos M&iacute;nimos
+                        th.th.text-center Montos M&aacute;ximos
+                        th.th.text-right Estado
+                    tbody.tbody
+                      tr.tr.tr-container(ng-repeat = "item in stepData[2].data.ruleStorage")                     
+                        td.td.text-left 
+                          md-checkbox.md-primary( ng-model="item.selected")
+                          span.rule {{ item.rule }}
+                        td.td.text-right {{item.minAmmount}}
+                        td.td.text-right {{item.maxAmmount}}
+                        td.td.text-right {{item.active === true ? 'Habilitado': 'Deshabilitado'}}
+            div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
+              div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+                button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATR&Aacute;S
+                input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
+                button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
+                  img(src="images/spinner.gif")
+
+        wz-step( canexit="exitValidation")
+          h4.text-center.mb-2
+            b Etapas de Transferencia
+            form.row(name="form")
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Usuario
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 APODERADO
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Tipo
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 A
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1 
+              b Reglas
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 3
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Rut
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 12345675-7
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Nombres
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 Marcelo Andr&eacute;s
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Apellidos
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 Arriagada Gonzales
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Fecha Nacimiento
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 11-08-80
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-md-offset-2.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Email
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 mail@mail.com
+            div.col-lg-2.col-lg-offset-3.col-md-4.col-sm-5.col-sm-offset-1.col-xs-6.text-left.lh-1
+              b Tel&eacute;fono
+            div.col-lg-2.col-lg-offset-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 +56 9 123456789
+

@@ -34,7 +34,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		{id: 1, name: 'Masculino'},
 		{id: 1, name: 'Femenino'}
 	];
-	$scope.accountStorage = 
+	$scope.accountStorage =
 	// $scope.pagos = [
 	// 	{
 	// 		id: 1,
@@ -187,11 +187,12 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	$scope.setLoadingStep = setLoadingStep;
 	$scope.checkAll = checkAll;
 	$scope.check = check;
+	$scope.updateUserType = updateUserType;
 
 	activate();
 
 	function activate() {
-		
+
 		$scope.userRequest = randomString(10, "N");
 		$scope.userTypeText = $scope.stepData[0].data.userType.id == 1 ? 'Apoderado' : 'Operador';
 	}
@@ -237,10 +238,10 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		}, 1000);
 	}
 
-	function checkAll(list, controlValue) {
+	function checkAll(list, controlValue, index) {
 
 		for (var i = 0; i < list.length; i++) {
-			list[i].selected = $scope.stepData[1].data[controlValue];
+			list[i].selected = $scope.stepData[index].data[controlValue];
 		}
 	}
 
@@ -252,6 +253,10 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		}
 
 		$scope.stepData[1].data[controlValue] = list.length == count ? true : false;
+	}
+
+	function updateUserType($event) {
+		$scope.userTypeText = $event.id == 1 ? 'Apoderado' : 'Operador';
 	}
 
 	// function addUser(user) {
