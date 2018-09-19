@@ -1,6 +1,6 @@
 .transfer-modal {
 
-    .radio-container { 
+    .radio-container {
 
         md-radio-group {
             display: table;
@@ -14,7 +14,7 @@
                 &:first-child {
                     width: 40%;
                 }
-                &:last-child { 
+                &:last-child {
                     float: right;
                     margin-right: 30px;
                     margin-top: 15px;
@@ -71,7 +71,7 @@
             font-weight: 700;
         }
         .text {
-            color: $c-black-table-header;            
+            color: $c-black-table-header;
         }
         .count {
             float: right;
@@ -101,7 +101,7 @@
                 font-weight: 400;
                 margin-bottom: 1.5rem;
             }
-            
+
             a.link {
                 color: $c-green;
 
@@ -110,7 +110,7 @@
         }
     }
     .extra-row {
-        label.text { 
+        label.text {
             line-height: 50px;
             color: $c-black-table-header;
             font-family: Roboto;
@@ -263,14 +263,20 @@
         text-align: center;
         padding-top: 15px;
     }
-    .transfer-modal .radio-container md-radio-group md-radio-button:first-child { width: 100%; }
-    .transfer-modal .radio-container md-radio-group { 
+    .transfer-modal .radio-container md-radio-group md-radio-button:first-child {
+		width: 100%;
+		margin-right: .5em;
+	}
+    .transfer-modal .radio-container md-radio-group {
         display: block;
         width: 170px;
-        margin: 0 auto;
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 0;
+		margin-bottom: .6em;
     }
     .transfer-modal .radio-container md-radio-group md-radio-button {
-        display: block;
+        display: inline;
         width: 100%;
     }
     .transfer-modal .radio-container md-radio-group md-radio-button:last-child {

@@ -37,7 +37,7 @@
     .poster {
         position: relative;
 
-        
+
 
         .action-container.custom {
             position: absolute;
@@ -51,7 +51,7 @@
         }
         .action-container.custom.transfer { right: 6px; }
         .action-container.custom.refactor { right: 9px; }
-        .action-container.custom.solicitudes { right: 13px; } 
+        .action-container.custom.solicitudes { right: 13px; }
         .action-container.custom.productos { right: 13px; }
 
         .grap {
@@ -126,19 +126,19 @@
 }
 @media (max-width: 500px) {//col-xs
 
-    .dashboard-container .poster .action-container.custom.transfer { 
+    .dashboard-container .poster .action-container.custom.transfer {
         bottom: -38px;
         right: 0px;
     }
-    .dashboard-container .poster .action-container.custom.refactor { 
+    .dashboard-container .poster .action-container.custom.refactor {
         bottom: -48px;
         right: 13px;
     }
     .dashboard-container .poster .action-container.custom.solicitudes {
         bottom: -37px;
         right: 13px;
-    } 
-    .dashboard-container .poster .action-container.custom.productos { 
+    }
+    .dashboard-container .poster .action-container.custom.productos {
         bottom: -38px;
         right: 13px;
     }
@@ -160,6 +160,9 @@
         .text-small { font-size: 20px; }
         .text-medium { font-size: 25px;margin-top: 12px; }
         .text-big { font-size: 30px; }
+		.row.p-15px.pos-r {
+			margin-left: 1em;
+		}
     }
     .dashboard-container .poster .grap {
         margin-right: 4.5rem;
@@ -189,7 +192,7 @@
     .dashboard-container {
 
         padding-top: 80px;
-        
+
         .text-small, .text-medium, .text-big {
             padding-left: 0px;
         }

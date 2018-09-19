@@ -50,3 +50,14 @@
 md-switch.md-checked.md-primary .md-thumb {
     background-color: $c-blue-toolbar;
 }
+
+input.has-error {
+	color: red;
+	box-shadow: inset 0 1px 1px red;
+	border-color: red;
+	&:focus {
+		border-color: red;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px red;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px red;
+	}
+}
