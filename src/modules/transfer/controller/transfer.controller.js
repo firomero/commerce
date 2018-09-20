@@ -35,10 +35,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.showAuthorize = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
-	self.types = [{id: 1, name: "Cuenta Corriente"}, {id: 2, name: "Cuenta Vista"}, {
-		id: 3,
-		name: "Cuenta Electrónica"
-	}];
+	self.types = [{id: 1, name: "Cuenta Corriente"}, {id: 2, name: "Cuenta Vista"}];
 	self.chequeAccount = '';
 	self.accounts = [];
 	self.cheques = [
