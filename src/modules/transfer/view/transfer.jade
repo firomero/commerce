@@ -325,7 +325,7 @@ section.bg-gray.content-container
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required)
-															div.col-lg-3.pl-0.pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -348,7 +348,7 @@ section.bg-gray.content-container
 																		label Cuenta
 																	div.form-element
 																		input(name="account" type="number" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
-															div.col-lg-3.pl-0.pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="account.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank.name}}
@@ -370,7 +370,7 @@ section.bg-gray.content-container
 																		label Cuenta
 																	div.form-element
 																		input(name="account" type="number" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
-															div.col-lg-3.pl-0.pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="$ctrl.otherAccount.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
@@ -618,5 +618,4 @@ section.bg-gray.content-container
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
 	div.container.transfer.fake(ng-if="!loadTabData")
-
 

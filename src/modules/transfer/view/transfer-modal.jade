@@ -32,7 +32,7 @@ div.container.transfer-modal
 				wz-step(canexit="exitValidation")
 					h4.text-center.mb-2 Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do
 					div.row
-						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.radio-container
+						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-8.col-xs-offset-2.radio-container
 							md-radio-group(ng-model="$ctrl.action" ng-change="changeTitle()")
 								md-radio-button.md-primary(value="NEW_TRANSFER") Nueva Transferencia
 								md-radio-button.md-primary(value="NOMINA") Nomina
@@ -106,11 +106,11 @@ div.container.transfer-modal
 									input(name="nAccount" type="text" autocomplete="off" ng-model="stepData[0].data.nAccount" mask="999.999-99")
 
 						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
-							div.input-form
+							div.input-form(ng-class="{'has-error': form.monto.$error.integer }")
 								div.form-text
 									label.rut Monto
 								div.form-element
-									input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.montoTrans" integer-validation ng-class="{'has-error': form.monto.$error.integer }")
+									input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.montoTrans" integer-validation)
 						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
 							div.input-form
 								div.form-text
@@ -229,18 +229,18 @@ div.container.transfer-modal
 											md-option.text-uppercase(ng-value="bank" ng-repeat="bank in banks") {{bank.name}}
 
 								div.col-lg-5.col-md-5.col-sm-5.col-xs-12.p-0
-									div.input-form
+									div.input-form(ng-class="{'has-error': form.nAccount.$error.integer }")
 										div.form-text
 											label.rut Nº Cuenta
 										div.form-element
-											input(name="nAccount" type="text" autocomplete="off" ng-model="userForm.account" integer-validation ng-class="{'has-error': form.nAccount.$error.integer }")
+											input(name="nAccount" type="text" autocomplete="off" ng-model="userForm.account" integer-validation)
 
 								div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
-									div.input-form
+									div.input-form(ng-class="{'has-error': form.nomina.$error.integer }")
 										div.form-text
 											label.rut Monto
 										div.form-element
-											input(name="nomina" type="text" autocomplete="off" ng-model="stepData[0].data.montoNomina" placeholder="Ingresar" integer-validation ng-class="{'has-error': form.nomina.$error.integer }")
+											input(name="nomina" type="text" autocomplete="off" ng-model="stepData[0].data.montoNomina" placeholder="Ingresar" integer-validation)
 
 								div.col-lg-6.col-md-6.col-sm-6.col-xs-8.padding-left-0.pos-r.extra-row
 									div.col-lg-6.col-md-6.col-sm-6.col-xs-8.p-0
@@ -275,7 +275,7 @@ div.container.transfer-modal
 								div.col-lg-6.col-md-6.col-sm-6.col-xs-6.text-right.value(ng-if="$ctrl.action == 'NEW_TRANSFER'") ${{stepData[0].data.montoTrans || 0}}
 
 							div.col-lg-offset-2.col-lg-8.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-								button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-4(wz-reset="backStep()") CANCELAR
+								button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-12(wz-reset="backStep()") CANCELAR
 								input.button-success.col-lg-8.col-md-8.col-sm-8.col-xs-12(type="submit" ng-click="finish()" value="ENVIAR AUTORIZACIÓN" ng-if="!saving")
 								button.button-success.spinner-custom.col-lg-8.col-md-8.col-sm-8.col-xs-8(ng-if="saving")
 									img(src="images/spinner.gif")
