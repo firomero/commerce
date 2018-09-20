@@ -327,7 +327,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		confirmInstance.result.then(function (response) {
 
 			if (response != undefined && response.success) {
-				// $scope.close();
+				 $scope.close();
 			}
 		});
 	}
