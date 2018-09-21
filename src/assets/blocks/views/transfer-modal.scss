@@ -263,8 +263,8 @@
     .padding-right-0 { padding-right: 0px; }
     .padding-left-0 { padding-left: 0px; }
 }
-
 /*MEDIA SCREEN*/
+
 @media (max-width: 767px) {//col-xs
     .transfer-modal .padding-0 { padding: 0px 15px; }
     .transfer-modal .placeholder-select { left: 22px; }
@@ -281,7 +281,8 @@
     }
     .transfer-modal .radio-container md-radio-group md-radio-button:first-child {
 		width: 100%;
-		margin-right: .5em;
+		margin-left: -1.5em;
+		margin-right: 1.6em;
 	}
     .transfer-modal .radio-container md-radio-group {
         display: block;
@@ -300,6 +301,14 @@
         margin-right: 0px;
         margin-top: 0px;
     }
+}
+@media (max-width: 320px) and (min-height:258px ){
+	.transfer-modal .radio-container md-radio-group md-radio-button:first-child {
+		width: 100%;
+		margin-left: -3.5em;
+		margin-right: 1.6em;
+	}
+
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
 }
