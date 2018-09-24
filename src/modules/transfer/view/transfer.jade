@@ -10,7 +10,7 @@ section.bg-gray.content-container
 					md-content.poster
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
-								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
+								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
 									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
 									div.col-lg-4.col-md-3.col-sm-4.pr-0
 										form.input-form
@@ -29,11 +29,11 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
 
 
 							div.row.m-0(ng-if="$ctrl.avanzadControl")
-								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
 										form.input-form
 											div.form-text
@@ -53,7 +53,7 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
-										div Tipos
+										div.tipo Tipo
 										md-radio-group
 											md-radio-button.md-primary(value="ALL") Todas
 											md-radio-button.md-primary(value="TOP") Alto Monto
@@ -61,8 +61,8 @@ section.bg-gray.content-container
 											md-radio-button.md-primary(value="EXTRA") Masivos
 
 									div.col-lg-12.col-md-12.col-sm-5.col-xs-12
-										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
-										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
+										button.button-success.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-5.col-sm-6.col-xs-6.col-md-4-less(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
+										button.button-default.col-lg-3.col-md-3.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -216,7 +216,7 @@ section.bg-gray.content-container
 					md-content.poster
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
-								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
+								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
 									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
 									div.col-lg-4.col-md-3.col-sm-4.pr-0
 										form.input-form
@@ -235,11 +235,11 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
 
 
 							div.row.m-0(ng-if="$ctrl.avanzadControl")
-								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
 										form.input-form
 											div.form-text
@@ -259,7 +259,7 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
-										div Tipos
+										div.tipo Tipo
 										md-radio-group
 											md-radio-button.md-primary(value="ALL") Todas
 											md-radio-button.md-primary(value="TOP") Alto Monto
@@ -267,8 +267,8 @@ section.bg-gray.content-container
 											md-radio-button.md-primary(value="EXTRA") Masivos
 
 									div.col-lg-12.col-md-12.col-sm-5.col-xs-12
-										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
-										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
+										button.button-success.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-5.col-sm-6.col-xs-6.col-md-4-less(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
+										button.button-default.col-lg-3.col-md-3.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
 						md-card.mt-0.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -313,19 +313,19 @@ section.bg-gray.content-container
 
 													div.col-lg-12.pl-0
 														div.row
-															div.col-lg-4
+															div.col-lg-4.pr-sm-0
 																form.input-form
 																	div.form-text
 																		label Contacto
 																	div.form-element
 																		input(name="contact" type="text" ng-model="item.contact.name" autocomplete="off")
-															div.col-lg-4.pl-0
+															div.col-lg-4.pl-0.pr-sm-0
 																form.input-form(name="mailForm")
 																	div.form-text
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required)
-															div.col-lg-3.pl-0.pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -336,19 +336,19 @@ section.bg-gray.content-container
 														label.text Cuentas Asociadas
 													div.col-lg-12.pl-0
 														div.row(ng-repeat="account in item.account.accounts")
-															div.col-lg-4
+															div.col-lg-4.col-lg-4-less.pr-sm-0
 																form.input-form
 																	div.form-text
 																		label Banco
 																	div.form-element
 																		input(name="bank" type="text" ng-model="account.banco" autocomplete="off" placeholder="Seleccione Banco")
-															div.col-lg-4.pl-0
+															div.col-lg-4.col-lg-4-less.pl-0.pr-sm-0
 																form.input-form
 																	div.form-text
 																		label Cuenta
 																	div.form-element
 																		input(name="account" type="number" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
-															div.col-lg-3.pl-0.pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="account.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank.name}}
@@ -358,19 +358,19 @@ section.bg-gray.content-container
 																	i.material-icons.remove-account(ng-click="removeAccount(item, $index)") close
 
 														div.row
-															div.col-lg-4
+															div.col-lg-4.col-lg-4-less.pr-sm-0
 																form.input-form
 																	div.form-text
 																		label Banco
 																	div.form-element
 																		input(name="bank" type="text" ng-model="$ctrl.otherAccount.banco" autocomplete="off" placeholder="Seleccione Banco")
-															div.col-lg-4.pl-0
+															div.col-lg-4.col-lg-4-less.pl-0.pr-sm-0
 																form.input-form
 																	div.form-text
 																		label Cuenta
 																	div.form-element
 																		input(name="account" type="number" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
-															div.col-lg-3.pl-0.pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="$ctrl.otherAccount.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
@@ -380,13 +380,13 @@ section.bg-gray.content-container
 																	i.material-icons.add-account(ng-click="addAccount(item, $ctrl.otherAccount)") add_circle
 
 														div.row(ng-if="currentCompany.rol == 'APODERADO'")
-															div.col-lg-offset-5.col-lg-3.pl-0
+															div.col-lg-offset-5.col-lg-3.pl-0.pr-sm-0.sm-4-pr-0
 																form.input-form
 																	div.form-text
 																		label Token
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
-															div.col-lg-4.pl-0.pr-0
+															div.col-lg-4.pl-0.pr-0.pb-e8
 																button.button-success.sm.col-lg-6.mr-1(ng-click="successDestinatario('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
 
@@ -399,7 +399,7 @@ section.bg-gray.content-container
 					md-content.poster
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
-								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top
+								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
 									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
 									div.col-lg-4.col-md-3.col-sm-4.pr-0
 										form.input-form
@@ -418,11 +418,11 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-5.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
 
 
 							div.row.m-0(ng-if="$ctrl.avanzadControl")
-								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
 										form.input-form
 											div.form-text
@@ -442,7 +442,7 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container
-										div Tipos
+										div.tipo Tipo
 										md-radio-group
 											md-radio-button.md-primary(value="ALL") Todas
 											md-radio-button.md-primary(value="TOP") Alto Monto
@@ -450,8 +450,8 @@ section.bg-gray.content-container
 											md-radio-button.md-primary(value="EXTRA") Masivos
 
 									div.col-lg-12.col-md-12.col-sm-5.col-xs-12
-										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
-										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
+										button.button-success.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-5.col-sm-6.col-xs-6.col-md-4-less(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
+										button.button-default.col-lg-3.col-md-3.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
 						md-card.mt-0.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -618,5 +618,4 @@ section.bg-gray.content-container
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
 	div.container.transfer.fake(ng-if="!loadTabData")
-
 

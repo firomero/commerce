@@ -9,6 +9,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	$scope.currentCompany = {nameID: null, name: '', rol: '', accounts: []};
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
+	$scope.pushFooter = false;
 	$scope.existAccounts = false;
 	$scope.visibilityTabControl = 'ACCOUNT';
 	$scope.selectedCheques = [];
@@ -34,10 +35,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	self.showAuthorize = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
-	self.types = [{id: 1, name: "Cuenta Corriente"}, {id: 2, name: "Cuenta Vista"}, {
-		id: 3,
-		name: "Cuenta Electrónica"
-	}];
+	self.types = [{id: 1, name: "Cuenta Corriente"}, {id: 2, name: "Cuenta Vista"}];
 	self.chequeAccount = '';
 	self.accounts = [];
 	self.cheques = [
@@ -327,7 +325,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 		confirmInstance.result.then(function (response) {
 
 			if (response != undefined && response.success) {
-				// $scope.close();
+				 $scope.close();
 			}
 		});
 	}
@@ -385,6 +383,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 			self.dataDestinatarios[i].plus = false;
 		}
 		item.plus = value;
+		$scope.pushFooter = value;
 		for (let i = 0; i < item.account.accounts.length; i++) {
 			const type = self.types.filter((b) => b.name.toLocaleLowerCase() === item.account.accounts[i].type.name.toLocaleLowerCase())[0];
 			if (type !== undefined) {

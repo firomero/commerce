@@ -249,7 +249,13 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
-
+@media  (max-width: 766px){//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+}
 @media (max-width: 767px) {//col-xs
 
     .modal.fullscreen {
@@ -265,7 +271,34 @@ input::-webkit-inner-spin-button {
     }
 
     .modal.bottom-confirm .message label { line-height: 18px; }
-    .modal.bottom-confirm.finish .message label { line-height: 50px; }
+    .modal.bottom-confirm.finish .message label { line-height: 15px; }
+    .modal.bottom-danger.finish .message label { line-height: 15px; }
+	.modal {
+		 .button-default-inv {
+			height: 10px;
+		
+		}
+		.modal-content {
+			padding: 1rem;
+			.message {
+				line-height: 10px;
+				margin-bottom: .6em;
+				.input-form {
+					height: 35px;
+				}
+			}
+		}
+
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form{
+		height: 35px;
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form .form-text label {
+		line-height: 25px;
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form .form-element input {
+		line-height: 27px;
+	}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
 
@@ -280,6 +313,9 @@ input::-webkit-inner-spin-button {
             }
         }
     }
+	.col-sm-5.col-sm-5-less{
+		width: 39.666667%;
+	}
 
     .modal.bottom-confirm .message label { line-height: 18px; }
     .modal.bottom-confirm.finish .message label { line-height: 50px; }

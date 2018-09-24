@@ -4589,7 +4589,7 @@ export default class UserService {
 								pago: 'Sin Información',
 								monto: '$100.000',
 								selected: false,
-								id: 3
+								id: 2
 							}, {
 								cheque: '123456789000000000',
 								pago: 'Sin Información',
@@ -5277,7 +5277,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -5345,7 +5345,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -5384,11 +5384,11 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco de Crédito e Inversiones',
 										account: '2403350100000000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -14525,7 +14525,7 @@ export default class UserService {
 								}, {
 									bank: 'Banco de Crédito e Inversiones',
 									account: '2403350100000000',
-									type: {id: 3, name: "Cuenta Electrónica"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}],
 								destinatario: 'Empresa de Transportes Rurales Limitada',
 								rut: '70.569.785-9',
@@ -14541,7 +14541,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -14571,7 +14571,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14579,7 +14579,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14809,7 +14809,7 @@ export default class UserService {
 									accounts: [{
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
@@ -14856,7 +14856,7 @@ export default class UserService {
 									}, {
 										banco: 'Banco Consorcio',
 										account: '2403350546780000',
-										type: {id: 3, name: "Cuenta Electrónica"}
+										type: {id: 2, name: "Cuenta Vista"}
 									}]
 								},
 								razon: 'Transportes Rurales de Animales',
@@ -22779,57 +22779,57 @@ export default class UserService {
 							monto: '$100.000',
 							selected: false,
 							completed: true,
-							id: 31
+							id: 21
 						}, {
 							cheque: '123456789000000000',
 							pago: 'Sin Información',
 							monto: '$100.000',
 							selected: false,
-							id: 32
+							id: 22
 						}, {
 							cheque: '123456789000000000',
 							pago: 'Sin Información',
 							monto: '$100.000',
 							selected: false,
-							id: 33
+							id: 23
 						}, {
 							cheque: '123456789000000000',
 							pago: 'Sin Información',
 							monto: '$100.000',
 							selected: false,
-							id: 34
+							id: 24
 						}, {
 							cheque: '123456789000000000',
 							pago: '23-04-2016',
 							monto: '$100.000',
 							selected: false,
 							completed: true,
-							id: 35
+							id: 25
 						}, {
 							cheque: '123456789000000000',
 							pago: '23-04-2016',
 							monto: '$100.000',
 							selected: false,
 							completed: true,
-							id: 36
+							id: 26
 						}, {
 							cheque: '123456789000000000',
 							pago: '23-04-2016',
 							monto: 'Sin Información',
 							selected: false,
-							id: 37
+							id: 27
 						}, {
 							cheque: '123456789001111000',
 							pago: '23-04-2016',
 							monto: 'Sin Información',
 							selected: false,
-							id: 38
+							id: 28
 						}, {
 							cheque: '123456789001111000',
 							pago: '23-04-2016',
 							monto: 'Sin Información',
 							selected: false,
-							id: 39
+							id: 29
 						}, {
 							cheque: '123456789001111000',
 							pago: '23-04-2016',
@@ -23225,7 +23225,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 3, name: "Cuenta Electrónica"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
@@ -23293,7 +23293,7 @@ export default class UserService {
 								accounts: [{
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 3, name: "Cuenta Electrónica"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
@@ -23373,7 +23373,7 @@ export default class UserService {
 								}, {
 									banco: 'Banco Consorcio',
 									account: '2403350546780000',
-									type: {id: 3, name: "Cuenta Electrónica"}
+									type: {id: 2, name: "Cuenta Vista"}
 								}]
 							},
 							razon: 'Transportes Rurales de Animales',
