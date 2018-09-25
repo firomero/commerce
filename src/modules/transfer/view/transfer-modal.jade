@@ -32,11 +32,10 @@ div.container.transfer-modal
 				wz-step(canexit="exitValidation")
 					h4.text-center.mb-2 Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do
 					div.row
-						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-8.col-xs-offset-2.radio-container
+						div.col-lg-offset-3.col-lg-6.col-md-7.col-md-offset-3.col-sm-7.col-sm-offset-3.col-xs-6.col-xs-offset-2.padding-right-0.radio-container
 							md-radio-group(ng-model="$ctrl.action" ng-change="changeTitle()")
 								md-radio-button.md-primary(value="NEW_TRANSFER") Nueva Transferencia
 								md-radio-button.md-primary(value="NOMINA") Nomina
-
 					form.row(name="form" ng-if="$ctrl.action == 'NEW_TRANSFER'")
 						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
 							div.placeholder-select
