@@ -131,7 +131,16 @@
         padding: 0px 0px;
     }
 }
-
+@media (max-width: 375px){
+    .filter {
+        .radio-container {
+			md-radio-button {
+                display: block;
+                margin-bottom: 1.2em;
+			}
+		}
+    }
+}
 @media (max-width: 767px) {//col-xs
     .filter {
         .text {
@@ -159,7 +168,7 @@
         }
 		.radio-container {
 			md-radio-button {
-				margin-right: .5rem;
+				margin-right: .9rem;
 			}
 		}
     }
@@ -177,6 +186,11 @@
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     .filter {
+        .text {
+        font-size: 12px;
+        line-height: 5em;
+        letter-spacing: -0.5px
+    }
 
         .avanced {
             padding-right: 8px;

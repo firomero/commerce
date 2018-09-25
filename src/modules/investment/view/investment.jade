@@ -95,8 +95,8 @@ section.bg-gray.content-container
 											td.td {{item.saldo | currency}}
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 
 				md-tab(label="CARTOLA INTERESES")
 					md-content.poster
@@ -173,8 +173,8 @@ section.bg-gray.content-container
 											td.td {{item.interes | currency}}
 
 							div.row.m-0.pt-1.pb-1
-								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.interesPagination" ng-click="pagination('interes')") CARGAR MAS
-								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.interesPagination") CARGAR MAS
+								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.interesPagination" ng-click="pagination('interes')") CARGAR MAS
+								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.interesPagination") CARGAR MAS
 
 				md-tab(label="CARTOLA HISTORICA")
 					md-content.poster
@@ -256,8 +256,8 @@ section.bg-gray.content-container
 															i.material-icons cloud_download
 
 							div.row.m-0.pt-1.pb-1
-								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.historicaPagination" ng-click="pagination('historica')") CARGAR MAS
-								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.historicaPagination") CARGAR MAS
+								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.historicaPagination" ng-click="pagination('historica')") CARGAR MAS
+								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.historicaPagination") CARGAR MAS
 
 				md-tab(label="CHEQUES" ng-if="visibilityTabControl == 'ACCOUNT'")
 					md-content.poster
