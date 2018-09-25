@@ -314,8 +314,25 @@
 
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .transfer-modal .radio-container md-radio-group md-radio-button:last-child {
+        
+        margin-right: 7em;
+        
+    }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
+     .transfer-modal .radio-container md-radio-group md-radio-button:last-child {
+        
+        margin-right: 14em;
+        
+    }
+
 }
 @media (min-width: 1200px) {//col-lg
+     .transfer-modal .radio-container md-radio-group md-radio-button:last-child {
+        
+        margin-right: 14em;
+        
+    }
+
 }
