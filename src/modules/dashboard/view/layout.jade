@@ -118,13 +118,13 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
 						span.label Inicio
 					li.link
 						span.label
-							a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
+							a(ui-sref="app.dashboard" ui-sref-active="active")(ng-click="closeToggle('left')") Resumen
 					li.link
 						span.label
-							a(ui-sref="app.investment({id:'account'})" ui-sref-active="active") Saldo y Movimientos
+							a(ui-sref="app.investment({id:'account'})" ui-sref-active="active")(ng-click="closeToggle('left')") Saldo y Movimientos
 					li.link
 						span.label
-							a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active") Línea de Crédito
+							a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active")(ng-click="closeToggle('left')") Línea de Crédito
 
 				ul.menu-list
 					li.grouping
@@ -146,10 +146,10 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
 						span.label Transferencias
 					li.link
 						span.label
-							a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active") Resumen
+							a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active" ng-click="closeToggle('left')") Resumen
 					li.link
 						span.label
-							a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
+							a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active" ng-click="closeToggle('left')") Históricas
 					li.link
 						span.label
 							a.pointer(ng-click="newTransference('NEW_TRANSFER')") Transferir
@@ -163,7 +163,7 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
 						span.label Destinatarios
 					li.link
 						span.label
-							a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active") Lista de Destinatarios
+							a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active" ng-click="closeToggle('left')") Lista de Destinatarios
 
 			div.panel-default(uib-accordion-group)
 				uib-accordion-heading

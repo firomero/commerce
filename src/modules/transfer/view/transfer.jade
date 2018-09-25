@@ -320,11 +320,11 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="contact" type="text" ng-model="item.contact.name" autocomplete="off")
 															div.col-lg-4.pl-0.pr-sm-0
-																form.input-form(name="mailForm")
+																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
 																	div.form-text
 																		label Mail
 																	div.form-element
-																		input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required)
+																		input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
 															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
 																form.input-form
 																	div.form-text
@@ -343,11 +343,11 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="bank" type="text" ng-model="account.banco" autocomplete="off" placeholder="Seleccione Banco")
 															div.col-lg-4.col-lg-4-less.pl-0.pr-sm-0
-																form.input-form
+																form.input-form(name="form" ng-class="{'has-error': form.account.$error.integer }")
 																	div.form-text
 																		label Cuenta
 																	div.form-element
-																		input(name="account" type="number" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
+																		input(name="account" type="text" ng-model="account.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta" integer-validation)
 															div.col-lg-3.pl-0.pr-0.col-md-12
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="account.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
@@ -365,11 +365,11 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="bank" type="text" ng-model="$ctrl.otherAccount.banco" autocomplete="off" placeholder="Seleccione Banco")
 															div.col-lg-4.col-lg-4-less.pl-0.pr-sm-0
-																form.input-form
+																form.input-form(name="form" ng-class="{'has-error': form.account.$error.integer }")
 																	div.form-text
 																		label Cuenta
 																	div.form-element
-																		input(name="account" type="number" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta")
+																		input(name="account" type="text" ng-model="$ctrl.otherAccount.account" autocomplete="off" placeholder="Ingrese Nº de Cuenta" integer-validation)
 															div.col-lg-3.pl-0.pr-0.col-md-12
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="$ctrl.otherAccount.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
@@ -391,8 +391,8 @@ section.bg-gray.content-container
 																button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataDestinatariosPagination" ng-click="pagination('dataDestinatarios')") CARGAR MAS
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.dataDestinatariosPagination" ng-click="pagination('dataDestinatarios')") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.dataDestinatariosPagination") CARGAR MAS
 
 
 				md-tab(label="HISTORICAS" md-on-select="onTabChanges(2)" ng-click="resetTab()")
@@ -615,7 +615,7 @@ section.bg-gray.content-container
 																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-4.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.dataHistoricosPagination" ng-click="pagination('dataHistoricos')") CARGAR MAS
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.dataHistoricosPagination") CARGAR MAS
 	div.container.transfer.fake(ng-if="!loadTabData")
 

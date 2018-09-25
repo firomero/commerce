@@ -262,6 +262,9 @@
     .padding-0 { padding: 0px; }
     .padding-right-0 { padding-right: 0px; }
     .padding-left-0 { padding-left: 0px; }
+    md-switch.md-checked.md-primary .md-thumb {
+        background-color: $c-green-firm;
+    }
 }
 /*MEDIA SCREEN*/
 

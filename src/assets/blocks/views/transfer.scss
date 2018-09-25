@@ -66,6 +66,21 @@
         position: relative;
 
         md-select { width: 100%; }
+        &.has-error {
+			color: $has-error-color;
+			box-shadow: 0 0 7px red;
+			border-color: $has-error-color;
+			&:focus {
+				border-color: red;
+				-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+				box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+			}
+			.form-text {
+				label {
+					color: $has-error-fore-color;
+				}
+			}
+		}
     }
 
     .remove-account {
@@ -214,7 +229,10 @@
 			}
 			.col-lg-4.col-lg-4-less {
 				width: 30%;
-			}
+            }
+            .col-lg-4.pr-sm-0, .pr-sm-0.sm-4-pr-0 {
+		        padding-right: 1em !important;
+	        }
 		}
 	}
 }

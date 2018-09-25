@@ -78,18 +78,18 @@ div.container.transfer-modal
 									md-option.text-uppercase(ng-value="dest" ng-repeat="dest in destinatarios") {{dest.name}}
 
 						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0(ng-if="stepData[0].data.destinatario.id == 0")
-							div.input-form
+							div.input-form(ng-class="{'has-error': form.razon.$error.social }")
 								div.form-text
 									label.rut Nombre o Razón Social
 								div.form-element
-									input(name="razon" type="text" autocomplete="off" ng-model="stepData[0].data.razon" placeholder="Ingresar")
+									input(name="razon" type="text" autocomplete="off" ng-model="stepData[0].data.razon" placeholder="Ingresar" social-validation)
 
 						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0(ng-if="stepData[0].data.destinatario.id == 0")
-							div.input-form
+							div.input-form(ng-class="{'has-error': form.rut.$error.integer }")
 								div.form-text
 									label.rut Rut
 								div.form-element
-									input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut" mask="99.999.999-9" placeholder="Ingresar")
+									input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut"  placeholder="Ingresar" integer-validation)
 
 						div.col-lg-offset-3.col-lg-4.col-md-offset-2.col-md-6.col-sm-offset-1.col-sm-7.col-xs-12.padding-0.pos-r(ng-if="stepData[0].data.destinatario.id == 0")
 							div.placeholder-select
@@ -99,11 +99,11 @@ div.container.transfer-modal
 									md-option.text-uppercase(ng-value="bank" ng-repeat="bank in banks") {{bank.name}}
 
 						div.col-lg-2.col-md-2.col-sm-3.col-xs-12.padding-right-0(ng-if="stepData[0].data.destinatario.id == 0")
-							div.input-form
+							div.input-form(ng-class="{'has-error': form.nAccount.$error.integer }")
 								div.form-text
 									label.rut Nº Cuenta
 								div.form-element
-									input(name="nAccount" type="text" autocomplete="off" ng-model="stepData[0].data.nAccount" mask="999.999-99")
+									input(name="nAccount" type="text" autocomplete="off" ng-model="stepData[0].data.nAccount" integer-validation)
 
 						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
 							div.input-form(ng-class="{'has-error': form.monto.$error.integer }")
@@ -194,32 +194,32 @@ div.container.transfer-modal
 										span.count {{userList.length}} usuario(s)
 
 								div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
-									div.input-form
+									div.input-form(ng-class="{'has-error': form.razon.$error.social }")
 										div.form-text
 											label.rut Nombre o Razón Social
 										div.form-element
-											input(name="razon" type="text" autocomplete="off" ng-model="userForm.razon" placeholder="Ingresar")
+											input(name="razon" type="text" autocomplete="off" ng-model="userForm.razon" placeholder="Ingresar" social-validation)
 
 								div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
-									div.input-form
+									div.input-form(ng-class="{'has-error': form.userRut.$error.integer }")
 										div.form-text
 											label.rut Rut
 										div.form-element
-											input(name="rut" type="text" autocomplete="off" ng-model="userForm.rut" mask="99.999.999-9" placeholder="Ingresar")
+											input(name="userRut" type="text" autocomplete="off" ng-model="userForm.rut"  placeholder="Ingresar" integer-validation)
 
 								div.col-lg-7.col-md-7.col-sm-7.col-xs-12.pl-0.padding-rigth-xs-0
-									div.input-form
+									div.input-form(ng-class="{'has-error': form.mail.$error.mail }")
 										div.form-text
 											label.rut Mail
 										div.form-element
-											input(name="mail" type="text" autocomplete="off" ng-model="userForm.mail" placeholder="Ingrese")
+											input(name="mail" type="text" autocomplete="off" ng-model="userForm.mail" placeholder="Ingrese" mail-validation)
 
 								div.col-lg-5.col-md-5.col-sm-5.col-xs-12.p-0
-									div.input-form
+									div.input-form(ng-class="{'has-error': form.forma.$error.integer }")
 										div.form-text
 											label.rut Forma de Abono
 										div.form-element
-											input(name="forma" type="text" autocomplete="off" ng-model="userForm.forma" placeholder="Ingrese")
+											input(name="forma" type="text" autocomplete="off" ng-model="userForm.forma" placeholder="Ingrese" integer-validation)
 
 								div.col-lg-7.col-md-7.col-sm-7.col-xs-12.pl-0.pos-r.padding-rigth-xs-0
 									div.placeholder-select.refactor
