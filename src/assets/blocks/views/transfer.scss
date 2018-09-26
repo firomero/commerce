@@ -1,3 +1,4 @@
+$md-font-size: 25px;
 .transfer {
 
     account-list.bg-toolbar {
@@ -77,7 +78,7 @@
 			}
 			.form-text {
 				label {
-					color: $has-error-fore-color;
+					color: $has-error-fore-color !important;
 				}
 			}
 		}
@@ -85,12 +86,12 @@
 
     .remove-account {
         color: $c-remove;
-        font-size: 34px;
+        font-size: $md-font-size;
     }
 
     .add-account {
         color: $c-add;
-        font-size: 34px;
+        font-size: $md-font-size;
     }
 
     md-input-container.input-form {
@@ -178,7 +179,12 @@
 		padding-left: 0;
 		padding-right: 0;
 		margin-left: 1em;
-	}
+    }
+    .transfer {
+        .radio-container.adjust {
+            margin-left: 1.5em;
+        }
+    }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
       .button-success.col-md-2.col-md-offset-7 {

@@ -1,3 +1,4 @@
+$line-height-message: 25px;
 .modal.fullscreen {
 
     .modal-dialog {
@@ -73,7 +74,7 @@
                 border: none;
 
                 .message {
-                    line-height: 51px;
+                    line-height: $line-height-message;
                     color: $c-white;
                 }
             }
@@ -94,7 +95,7 @@
                 border: none;
 
                 .message {
-                    line-height: 51px;
+                    line-height: $line-height-message;
                     color: $c-white;
                 }
             }
@@ -115,7 +116,7 @@
                 border: none;
 
                 .message {
-                    line-height: 51px;
+                    line-height: $line-height-message;
                     color: $c-gray-txt-modal;
                 }
             }
@@ -249,13 +250,29 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
-@media  (max-width: 766px){//col-xs-xs
+@media (max-width: 375px) {//col-xs-xs
 	.modal{
 		.button-default-inv {
 			margin-left: 0;
 		}
 	}
 }
+@media  (min-width: 376px) and (max-width: 764px){//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: -7px;
+		}
+	}
+}
+
+@media (max-width: 766px) and (min-width: 765px){//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+}
+
 @media (max-width: 767px) {//col-xs
 
     .modal.fullscreen {
@@ -318,7 +335,7 @@ input::-webkit-inner-spin-button {
 	}
 
     .modal.bottom-confirm .message label { line-height: 18px; }
-    .modal.bottom-confirm.finish .message label { line-height: 50px; }
+    .modal.bottom-confirm.finish .message label { line-height: $line-height-message; }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
 
