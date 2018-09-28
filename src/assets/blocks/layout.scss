@@ -155,7 +155,7 @@ md-sidenav.md-sidenav-right {
 		border-radius: 4px;
 		background-color: rgba(57,79,111,0.6);
 	}
-	input.email, input.street {
+	input.email, input.street, input.password, input.answer {
 		width: 90%;
 		height: 34px;
 		border: solid 0.5px #394F6F;
@@ -182,6 +182,14 @@ md-sidenav.md-sidenav-right {
 	md-input-container.city,md-input-container.town {
 		width: 43%;
 		margin: 3px 0;
+    }
+    
+    md-input-container.question {
+		width: 90%;
+        margin: 0;
+        .md-select-icon {           
+            margin: 0 -1em;
+        }
 	}
 
 	md-input-container.cell, md-input-container.phone{

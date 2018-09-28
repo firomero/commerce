@@ -11,16 +11,22 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.fixCodes = ["+59", "+56", "+58", "+78"];
     $scope.cities = ["Santiago", "Almeria", "Alberta", "Madrid", "Vasco"];
     $scope.towns = ["Palermo", "Kansas", "Detroit", "Manhattan"];
+    $scope.secretQuestions = ["¿Cómo se llama tu hermano?", "¿Quién fue tu primera maestra?", "¿En cuál ciudad naciste?", "¿Dónde te casaste?"];
+    $scope.secretQuestion = $scope.secretQuestions[0];
     $scope.code = "+56";
     $scope.fix = "+56";
     $scope.userMovil = " 9 1584599";
     $scope.userMail = "jprojas@gmail.com";
+    $scope.cartolaMail = "jprojas@gmail.com";
+    $scope.eterpriseMail = "jprojas@gmail.com";
+    $scope.creditMail = "jprojas@gmail.com";
     $scope.userPhone = " 2 1584599";
     $scope.userStreet = "Av. Santa Maria";
     $scope.userHome = 9200;
     $scope.userApto = 41;
     $scope.town = $scope.towns[0];
     $scope.city = $scope.cities[0];
+    $scope.answer = "Juana";
     $scope.editProfile = false;
 
     $scope.selectCompany = selectCompany;
@@ -29,6 +35,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.closeToggle = closeToggle;
     $scope.logout = logout;
     $scope.newTransference = newTransference;
+    $scope.toggleProfile = toggleProfile;
 
     activate();
 
@@ -76,6 +83,10 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
 
     	$scope.editProfile = false;
         $mdSidenav(position).close();
+    }
+
+    function toggleProfile() {
+        $scope.editProfile = !$scope.editProfile;
     }
 
     function logout() {
