@@ -11,8 +11,14 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.fixCodes = ["+59", "+56", "+58", "+78"];
     $scope.cities = ["Santiago", "Almeria", "Alberta", "Madrid", "Vasco"];
     $scope.towns = ["Palermo", "Kansas", "Detroit", "Manhattan"];
+    $scope.communications = [{ name: "Correo electrónico", selected : true }, { name: "Dirección particular" }, { name: "Dirección comercial" }, { name: "Celular (Notificación push)"}];
+    $scope.communicationsEnterprise = [{ name: "Correo electrónico", selected: true }, { name: "Dirección particular" }, { name: "Dirección comercial" }, { name: "Celular (Notificación push)"}];
+    $scope.communicationsCredits = [{ name: "Correo electrónico", selected: true }, { name: "Dirección particular", selected: true }, { name: "Dirección comercial" }, { name: "Celular (Notificación push)"}];
     $scope.secretQuestions = ["¿Cómo se llama tu hermano?", "¿Quién fue tu primera maestra?", "¿En cuál ciudad naciste?", "¿Dónde te casaste?"];
     $scope.secretQuestion = $scope.secretQuestions[0];
+    $scope.cartolaCom = [{ name: "Correo electrónico" }];
+    $scope.cartolaEnterprise = [{ name: "Correo electrónico" }];
+    $scope.cartolaCredit = [{ name: "Correo electrónico" }, { name: "Dirección particular" }];
     $scope.code = "+56";
     $scope.fix = "+56";
     $scope.userMovil = " 9 1584599";
@@ -28,7 +34,8 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.city = $scope.cities[0];
     $scope.answer = "Juana";
     $scope.editProfile = false;
-
+    $scope.editToken = false;
+    $scope.editCom = false;
     $scope.selectCompany = selectCompany;
     $scope.selectAccount = selectAccount;
     $scope.openToggle = openToggle;
@@ -36,6 +43,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.logout = logout;
     $scope.newTransference = newTransference;
     $scope.toggleProfile = toggleProfile;
+    $scope.changeCom = changeCom;
 
     activate();
 
@@ -85,8 +93,60 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         $mdSidenav(position).close();
     }
 
-    function toggleProfile() {
-        $scope.editProfile = !$scope.editProfile;
+    function toggleProfile(section) {
+        switch (section) {
+            case 'profile':
+                $scope.editProfile = !$scope.editProfile;
+                break;
+            case 'token':
+                $scope.editToken = !$scope.editToken;
+                break;
+            case 'comm':
+                $scope.editCom = !$scope.editCom;
+                break;    
+            default:
+                $scope.editProfile = !$scope.editProfile;
+                break;
+        }
+       
+    }
+
+    function changeCom($item, model) {
+        switch (model) {
+            case 'cartolaCom':
+                if ($scope.cartolaCom.indexOf($item) === -1){
+                    $scope.cartolaCom.push($item);
+                }
+                else{
+                    const index = $scope.cartolaCom.indexOf($item);
+                    $scope.cartolaCom.splice(index,1);
+
+                }
+                
+                break;
+            case 'cartolaEnterprise':
+                if ($scope.cartolaEnterprise.indexOf($item) === -1) {
+                    $scope.cartolaEnterprise.push($item);
+                }
+                else {
+                    const index = $scope.cartolaEnterprise.indexOf($item);
+                    $scope.cartolaEnterprise.splice(index, 1);
+
+                }
+                
+                break;
+            case 'cartolaCredit':
+                if ($scope.cartolaCredit.indexOf($item) === -1) {
+                    $scope.cartolaCredit.push($item);
+                }
+                else {
+                    const index = $scope.cartolaCredit.indexOf($item);
+                    $scope.cartolaCredit.splice(index, 1);
+                }                
+                break;        
+            default:
+                break;
+        }
     }
 
     function logout() {

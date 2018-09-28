@@ -207,7 +207,7 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				span
 					i.material-icons account_circle
 				span.title DATOS
-				span.pull-right(ng-click="toggleProfile()")
+				span.pull-right(ng-click="toggleProfile('profile')")
 					i.material-icons.edit edit
 		div.row.data.pl-2.pr-2(ng-if="editProfile === false")
 			div.pl-4.mt-4
@@ -294,13 +294,13 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
 
 	md-divider.divider
-	div.p-2(ng-if="editProfile === false")
+	div.p-2(ng-if="editToken === false")
 		div.row.pass.pl-2.pr-2
 			div.pos-r
 				span.mr-2
 					i.material-icons vpn_key
 				span.title CLAVES
-				span.pull-right(ng-click="toggleProfile()")
+				span.pull-right(ng-click="toggleProfile('token')")
 					i.material-icons.edit create
 
 			div.pl-4.mt-4
@@ -312,13 +312,13 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				span.sub-title Preguntas Secretas
 			div.pl-4.mt-05
 				span.sub-title-value Habilitada
-	div.p-2(ng-if="editProfile === true")
+	div.p-2(ng-if="editToken === true")
 		div.row.pass.pl-2.pr-2
 			div.pos-r
 				span.mr-2
 					i.material-icons vpn_key
 				span.title CLAVES
-				span.pull-right(ng-click="toggleProfile()")
+				span.pull-right(ng-click="toggleProfile('token')")
 					i.material-icons.edit create
 			div.pl-4.mt-4
 				span Clave		
@@ -336,52 +336,57 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 						md-option.text-uppercase(ng-value="question" ng-repeat="question in secretQuestions") {{question}}
 			div.pl-4.mt-2
 				input.answer(name="answer" type="text" autocomplete="off" ng-model="answer"  required)
+		div.row.mt-5
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right')") GUARDAR
+			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
 	md-divider.divider
-	div.p-2(ng-if="editProfile === true")
+	div.p-2(ng-if="editCom === true")
 		div.row.communication.pl-2.pr-2
 			div.pos-r
 				span.mr-2
 					i.material-icons markunread_mailbox
 				span.title COMUNICACIONES
-				span.pull-right(ng-click="toggleProfile()")
+				span.pull-right(ng-click="toggleProfile('comm')")
 					i.material-icons.edit create
 
 			div.pl-4.mt-4
 				span Cartolas
 			div.pl-4.mt-05
-				input.email(name="rut" type="email" autocomplete="off" ng-model="cartolaMail" placeholder="jprojas@gmail.com" required)
-
+				md-checkbox.md-primary(value="com" ng-repeat="com in communications"  ng-model="com.selected" ng-change="changeCom(com, 'cartolaCom')") {{com.name}}
 			div.pl-4.mt-2
 				span Cuenta Empresa
-			div.pl-4.mt-05
-				input.email(name="rut" type="email" autocomplete="off" ng-model="eterpriseMail" placeholder="jprojas@gmail.com" required)
-
+			div.pl-4.mt-05			
+				md-checkbox.md-primary(value="com" ng-repeat="com in communicationsEnterprise" ng-model="com.selected" ng-change="changeCom(com, 'cartolaEnterprise')") {{com.name}}
 			div.pl-4.mt-2
 				span Cr&eacute;ditos
-			div.pl-4.mt-05
-				input.email(name="rut" type="email" autocomplete="off" ng-model="creditMail" placeholder="jprojas@gmail.com" required)		
-	div.p-2(ng-if="editProfile === false")
+			div.pl-4.mt-05				
+				md-checkbox.md-primary(value="com" ng-repeat="com in communicationsCredits" ng-model="com.selected" ng-change="changeCom(com, 'cartolaCredit')") {{com.name}}
+				
+		div.row.mt-5
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right')") GUARDAR
+			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
+	div.p-2(ng-if="editCom === false")
 		div.row.communication.pl-2.pr-2
 			div.pos-r
 				span.mr-2
 					i.material-icons markunread_mailbox
 				span.title COMUNICACIONES
-				span.pull-right(ng-click="toggleProfile()")
+				span.pull-right(ng-click="toggleProfile('comm')")
 					i.material-icons.edit create
 
 			div.pl-4.mt-4
 				span.sub-title Cartolas
 			div.pl-4.mt-05
-				span.sub-title-value Mail
+				span.sub-title-value.repeater-hyphen(ng-repeat="com in cartolaCom") {{com.name}}
 
 			div.pl-4.mt-2
 				span.sub-title Cuenta Empresa
 			div.pl-4.mt-05
-				span.sub-title-value Mail
+				span.sub-title-value.reprepeater-hypheneater(ng-repeat="com in cartolaEnterprise") {{com.name}}
 
 			div.pl-4.mt-2
 				span.sub-title Cr&eacute;ditos
 			div.pl-4.mt-05
-				span.sub-title-value Mail - Direcci&oacute;n Particular
+				span.sub-title-value.repeater-hyphen(ng-repeat="com in cartolaCredit") {{com.name}}
 		div.row.mt-5
 			button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle('right')") CONTACTAR A EJECUTIVO

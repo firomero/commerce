@@ -229,7 +229,26 @@ md-sidenav.md-sidenav-right {
 	button.button-default.custom{
 		border: 1px solid white;
 		color: white;
-	}
+    }
+    md-checkbox:not([disabled]).md-primary.md-checked .md-ink-ripple {
+        color: #0b2c4d;
+        border: 2px solid #B0B4BD;
+    }
+    md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
+         background-color: transparent;
+    }
+    md-checkbox:not([disabled]).md-primary:not(.md-checked) .md-icon {
+         border-color: #B0B4BD;
+    }
+    md-checkbox.md-checked .md-icon:after {       
+        left: 2.66667px;     
+    }
+    .repeater-hyphen::after {
+        content: "  -  "
+    }
+    .repeater-hyphen:last-child::after {
+        content: "   "
+    }
 }
 
 /*MEDIA SCREEN*/
