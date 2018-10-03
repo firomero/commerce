@@ -87,12 +87,30 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
         $mdSidenav(position).toggle();
     }
 
-    function closeToggle(position) {
+    function closeToggle(position, action) {
 
     	$scope.editProfile = false;
         $scope.editToken = false;
         $scope.editCom = false;
         $mdSidenav(position).close();
+        if (action === 'save') {
+            const message = "Cambios guardados.";
+            const confirmInstance = $uibModal.open({
+                ariaDescribedBy: 'modal-body',
+                template: require('../../common/components/message-confirm/message-success-alert.jade')(),
+                controller: 'MessageConfirmController',
+                controllerAs: '$ctrl',
+                size: 'lg',
+                backdrop: 'static',
+                keyboard: false,
+                resolve: {
+                    message: () => message,
+                    textPrimaryAction: () => undefined,
+                    textAction: () => undefined
+                },
+                windowClass: 'bottom-confirm finish'
+            });
+        }
     }
 
     function toggleProfile(section) {

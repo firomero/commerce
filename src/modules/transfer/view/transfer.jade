@@ -72,7 +72,7 @@ section.bg-gray.content-container
 										col(width="11%")
 										col(width="10%")
 										col(width="12%")
-										col(width="18%")
+										col(width="22%")
 										col(width="15%")
 										col(width="11%")
 										col(width="15%")
@@ -80,7 +80,7 @@ section.bg-gray.content-container
 										tr.tr
 											th.th
 												md-checkbox.md-primary(ng-click="toggleAll($ctrl.dataTransfer)" ng-model="$ctrl.selectedDataTransfer") Todo
-											th.th Fecha
+											th.th.fecha Fecha
 											th.th Tipo
 											th.th.text-right Cuenta Origen
 											th.th Destinatario
@@ -91,7 +91,7 @@ section.bg-gray.content-container
 										tr.tr.tr-container(ng-repeat-start="item in $ctrl.dataTransfer" ng-class="{'odd': $index % 2 == 0}")
 											td.td
 												md-checkbox.md-primary(ng-change="toggle(item, $ctrl.dataTransfer, 'selectedDataTransfer')" ng-model="item.selected")
-											td.td.plus-icon
+											td.td.plus-icon.fecha
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleTransference(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleTransference(item)") remove
 												span {{item.date}}
@@ -203,7 +203,7 @@ section.bg-gray.content-container
 																		label Token
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
-															div.col-lg-5.col-md-5.col-sm-12.col-xs-5
+															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-em
 																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
 
@@ -386,7 +386,7 @@ section.bg-gray.content-container
 																		label Token
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
-															div.col-lg-4.pl-0.pr-0.pb-e8
+															div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
 																button.button-success.sm.col-lg-6.mr-1(ng-click="successDestinatario('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5(ng-click="successDestinatario('RECHAZADO', item)") RECHAZAR
 
@@ -484,13 +484,12 @@ section.bg-gray.content-container
 								table.table.custom.movimientos(ng-if="$ctrl.currentHistorico.movimientos.length>0")
 									colgroup
 										col(width="15%")
-										col(width="10%")
-										col(width="10%")
-										col(width="12%")
-										col(width="18%")
 										col(width="15%")
 										col(width="11%")
-										col(width="9%")
+										col(width="27%")
+										col(width="17%")
+										col(width="15%")
+										
 									thead.thead
 										tr.tr
 											th.th Fecha
@@ -501,7 +500,7 @@ section.bg-gray.content-container
 											th.th Estado
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat-start="item in $ctrl.currentHistorico.movimientos" ng-class="{'odd': $index % 2 == 0}")
-											td.td.plus-icon
+											td.td.plus-icon.sm-fecha
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleHistorical(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleHistorical(item)") remove
 												span {{item.date}}
@@ -611,7 +610,7 @@ section.bg-gray.content-container
 																		label Token
 																	div.form-element
 																		input(name="token" type="password" autocomplete="off" placeholder="********************")
-															div.col-lg-5.col-md-5.col-sm-12.col-xs-5
+															div.col-lg-5.col-md-5.col-sm-12.col-xs-5.pt-em
 																button.button-success.sm.col-lg-5.col-md-6.mr-1.align(ng-click="successTransferencia('APROBADO', item)") APROBAR / AUTORIZAR
 																button.button-blue.sm.col-lg-5.col-md-5.align(ng-click="successTransferencia('RECHAZADO', item)") RECHAZAR
 								div.row.m-0.pt-1.pb-1

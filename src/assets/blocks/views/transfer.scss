@@ -127,7 +127,10 @@ $md-font-size: 34px;
 
 	.pb-e8 {
 		padding-bottom: .8em;
-	}
+    }
+    .pb-e8.pt-em,  .pt-em {
+        padding-top: .4em;
+    }
 }
 .fake {
 	height: 200em;
@@ -184,6 +187,11 @@ $md-font-size: 34px;
         .radio-container.adjust {
             margin-left: 1.5em;
         }
+        .table.custom {
+            td.sm-fecha {
+                width: 27%;
+            }
+        }
     }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
@@ -220,7 +228,12 @@ $md-font-size: 34px;
 			}
 
 
-		}
+        }
+        .table.custom {
+            td.fecha {
+                width: 16%;
+            }
+        }
 	}
 
 }

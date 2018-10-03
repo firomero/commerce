@@ -10,6 +10,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $state,
 	$scope.noWrapSlides = false;
 	$scope.active = 0;
 	$scope.currIndex = 0;
+	$scope.product = 'Factoring';
 	$scope.slides = [{
 		image: 'images/carousel/login-background.png',
 		text: 'Hola Marcelo',
@@ -185,7 +186,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $state,
 	}
 
 	function selectProduct(product) {
-
+		$scope.product = product;
 		console.log(product);
 	}
 

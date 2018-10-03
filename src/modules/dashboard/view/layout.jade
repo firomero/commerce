@@ -290,7 +290,7 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
 				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
 		div.row.mt-5
-			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right')") GUARDAR
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right', 'save')") GUARDAR
 			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
 
 	md-divider.divider
@@ -337,7 +337,7 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 			div.pl-4.mt-2
 				input.answer(name="answer" type="text" autocomplete="off" ng-model="answer"  required)
 		div.row.mt-5
-			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right')") GUARDAR
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right', 'save')") GUARDAR
 			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
 	md-divider.divider
 	div.p-2(ng-if="editCom === true")
@@ -363,7 +363,7 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				md-checkbox.md-primary(value="com" ng-repeat="com in communicationsCredits" ng-model="com.selected" ng-change="changeCom(com, 'cartolaCredit')") {{com.name}}
 				
 		div.row.mt-5
-			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right')") GUARDAR
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right', 'save')") GUARDAR
 			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
 	div.p-2(ng-if="editCom === false")
 		div.row.communication.pl-2.pr-2

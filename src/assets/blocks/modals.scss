@@ -292,7 +292,11 @@ input::-webkit-inner-spin-button {
     .modal.bottom-danger.finish .message label { line-height: 15px; }
 	.modal {
 		 .button-default-inv {
-			height: 10px;
+            height: 10px;
+            &.with-icon {
+                margin-left: -3em;
+                margin-top: -.2em;
+            }
 		
 		}
 		.modal-content {
@@ -328,6 +332,9 @@ input::-webkit-inner-spin-button {
             .modal-content {
                 height: 100%;
             }
+            label {
+                margin-top: .8em !important;
+            }
         }
     }
 	.col-sm-5.col-sm-5-less{
@@ -336,6 +343,15 @@ input::-webkit-inner-spin-button {
 
     .modal.bottom-confirm .message label { line-height: 18px; }
     .modal.bottom-confirm.finish .message label { line-height: $line-height-message; }
+    .modal-dialog {
+        label {
+            margin-top: .8em;
+            vertical-align: middle;
+            span.transfer {
+                margin-left: -.3em;
+            }
+        }
+    }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
 
@@ -350,6 +366,15 @@ input::-webkit-inner-spin-button {
             }
         }
     }
+     .modal-dialog {
+        label {
+            margin-top: .8em;
+            vertical-align: middle;
+            span.transfer {
+                margin-left: -.3em;
+            }
+        }
+    }
 }
 @media (min-width: 1200px) {//col-lg
 
@@ -361,6 +386,19 @@ input::-webkit-inner-spin-button {
 
             .modal-content {
                 height: 100%;
+            }
+        }
+    }
+
+    .modal-dialog {
+        label {
+            margin-top: .8em;
+            vertical-align: middle;           
+            &.pt-em {
+                 padding-top: .5em;
+            }
+            span.transfer {
+                margin-left: -.3em;
             }
         }
     }
