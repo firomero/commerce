@@ -234,6 +234,11 @@
     .dashboard-container md-card.notification.dimension .graficas {
         padding-left: 40px;
     }
+	.dashboard {
+		div.row.p-15px.text-center.md-left {
+			text-align: left;
+		}
+	}
 }
 @media (min-width: 1200px) {//col-lg
     .carousel-caption {
@@ -248,4 +253,9 @@
              }
         }
     }
+	.dashboard {
+		div.row.p-15px.text-center.md-left {
+			text-align: left;
+		}
+	}
 }
