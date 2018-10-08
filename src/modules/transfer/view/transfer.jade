@@ -354,8 +354,8 @@ section.bg-gray.content-container
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank.name}}
 
 															div.col-lg-1.pt-05
-																button.button-default.icon.sm.col-lg-3.col-md-3
-																	i.material-icons.remove-account(ng-click="removeAccount(item, $index)") close
+																button.button-default.icon.sm.col-lg-3.col-md-3(ng-click="removeAccount(item, $index)")
+																	i.material-icons.remove-account close
 
 														div.row
 															div.col-lg-4.col-lg-4-less.pr-sm-0
@@ -376,8 +376,8 @@ section.bg-gray.content-container
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
 
 															div.col-lg-1.pt-05
-																button.button-default.icon.sm.col-lg-3.col-md-3
-																	i.material-icons.add-account(ng-click="addAccount(item, $ctrl.otherAccount)") add_circle
+																button.button-default.icon.sm.col-lg-3.col-md-3(ng-click="addAccount(item, $ctrl.otherAccount)")
+																	i.material-icons.add-account add_circle
 
 														div.row(ng-if="currentCompany.rol == 'APODERADO'")
 															div.col-lg-offset-5.col-lg-3.pl-0.pr-sm-0.sm-4-pr-0
@@ -489,7 +489,7 @@ section.bg-gray.content-container
 										col(width="27%")
 										col(width="17%")
 										col(width="15%")
-										
+
 									thead.thead
 										tr.tr
 											th.th Fecha
