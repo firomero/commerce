@@ -392,8 +392,10 @@ input::-webkit-inner-spin-button {
 
     .modal-dialog {
         label {
-            margin-top: .8em;
-            vertical-align: middle;           
+            vertical-align: middle;  
+            &.pt-em, &.pt-emx {
+                margin-top: .8em;
+            }           
             &.pt-em {
                  padding-top: .5em;
             }
