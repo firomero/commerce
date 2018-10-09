@@ -354,7 +354,7 @@ section.bg-gray.content-container
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank.name}}
 
 															div.col-lg-1.pt-05
-																button.button-default.icon.sm.col-lg-3.col-md-3(ng-click="removeAccount(item, $index)")
+																button.button-default.icon.sm.col-lg-12.col-md-12(ng-click="removeAccount(item, $index)")
 																	i.material-icons.remove-account close
 
 														div.row
@@ -376,7 +376,7 @@ section.bg-gray.content-container
 																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
 
 															div.col-lg-1.pt-05
-																button.button-default.icon.sm.col-lg-3.col-md-3(ng-click="addAccount(item, $ctrl.otherAccount)")
+																button.button-default.icon.sm.col-lg-12.col-md-12(ng-click="addAccount(item, $ctrl.otherAccount)")
 																	i.material-icons.add-account add_circle
 
 														div.row(ng-if="currentCompany.rol == 'APODERADO'")
