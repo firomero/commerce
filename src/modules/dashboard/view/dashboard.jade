@@ -113,14 +113,14 @@ section.bg-gray.dashboard-container
 											md-menu-item
 												a(ng-click="selectProduct('COMEX')") COMEX
 											md-menu-item
-												a(ng-click="selectProduct('Factoring')") Factoring
+												a(ng-click="selectProduct('FACTORING')") Factoring
 								div.col-lg-7.col-md-7.col-sm-7.col-xs-7
 									div
-										label.title {{product}}
+										label.title {{product.name}}
 									div
 										span.sub-title Por un Monto total de:
 									div
-										h3.mt-05.mb-05 $495.000.000
+										h3.mt-05.mb-05 {{product.value}}
 									div
 										span.sub-title 90 días plazo
 								div.col-lg-5.col-md-5.col-sm-5.col-xs-5
