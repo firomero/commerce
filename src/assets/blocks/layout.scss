@@ -155,7 +155,7 @@ md-sidenav.md-sidenav-right {
 		border-radius: 4px;
 		background-color: rgba(57,79,111,0.6);
 	}
-	input.email, input.street {
+	input.email, input.street, input.password, input.answer {
 		width: 90%;
 		height: 34px;
 		border: solid 0.5px #394F6F;
@@ -182,6 +182,14 @@ md-sidenav.md-sidenav-right {
 	md-input-container.city,md-input-container.town {
 		width: 43%;
 		margin: 3px 0;
+    }
+    
+    md-input-container.question {
+		width: 90%;
+        margin: 0;
+        .md-select-icon {           
+            margin: 0 -1em;
+        }
 	}
 
 	md-input-container.cell, md-input-container.phone{
@@ -221,7 +229,26 @@ md-sidenav.md-sidenav-right {
 	button.button-default.custom{
 		border: 1px solid white;
 		color: white;
-	}
+    }
+    md-checkbox:not([disabled]).md-primary.md-checked .md-ink-ripple {
+        color: #0b2c4d;
+        border: 2px solid #B0B4BD;
+    }
+    md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
+         background-color: transparent;
+    }
+    md-checkbox:not([disabled]).md-primary:not(.md-checked) .md-icon {
+         border-color: #B0B4BD;
+    }
+    md-checkbox.md-checked .md-icon:after {       
+        left: 2.66667px;     
+    }
+    .repeater-hyphen::after {
+        content: "  -  "
+    }
+    .repeater-hyphen:last-child::after {
+        content: "   "
+    }
 }
 
 /*MEDIA SCREEN*/

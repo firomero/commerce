@@ -23,6 +23,10 @@ import UploadInputDirective from './directives/upload-input/upload-input.directi
 import MessageConfirmController from './components/message-confirm/message-confirm.controller';
 import FirmDetailController from './directives/firm/firm-detail/firm-detail.controller';
 import StatusDetailController from './directives/status/status-detail/status-detail.controller';
+import integerValidationDirective from './directives/integer-validation/integer-validation';
+import dateValidationDirective from './directives/date-validation/date-validation';
+import mailValidationDirective from './directives/mail-validation/mail-validation';
+import socialValidationDirective from './directives/social-validation/social-validation';
 
 const commonModule = angular.module('app.common', [
 	'ui.router'
@@ -54,6 +58,10 @@ commonModule.directive('status', StatusDirective);
 commonModule.directive('aprove', AproveDirective);
 commonModule.directive('accountEllipse', AccountEllipseDirective);
 commonModule.directive('uploadInput', UploadInputDirective);
+commonModule.directive('integerValidation', integerValidationDirective);
+commonModule.directive('dateValidation', dateValidationDirective);
+commonModule.directive('mailValidation', mailValidationDirective);
+commonModule.directive('socialValidation', socialValidationDirective);
 
 commonModule.controller('MessageConfirmController', MessageConfirmController);
 

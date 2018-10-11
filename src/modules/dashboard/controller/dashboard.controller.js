@@ -1,4 +1,4 @@
-export default function DashboardController(userLogin, $scope, $timeout, $mdSidenav, UserService) {
+export default function DashboardController(userLogin, $scope, $timeout, $state, $mdSidenav, UserService) {
 	'ngInject';
 
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
@@ -10,6 +10,29 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 	$scope.noWrapSlides = false;
 	$scope.active = 0;
 	$scope.currIndex = 0;
+	$scope.products = [
+		{
+			name: 'Factoring',
+			value: '$495.000.000',
+			key: 'FACTORING'
+		},
+		{
+			name: 'Leasing',
+			value: '$500.000.000',
+			key: 'LEASING'
+		},
+		{
+			name: 'Boleta de Garantia',
+			value: '$495.800.000',
+			key: 'BOLETA'
+		},
+		{
+			name: 'COMEX',
+			value: '$952.325.000',
+			key: 'COMEX'
+		}
+	];
+	$scope.product = $scope.products[0]
 	$scope.slides = [{
 		image: 'images/carousel/login-background.png',
 		text: 'Hola Marcelo',
@@ -150,6 +173,7 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 	};
 
 	$scope.selectProduct = selectProduct;
+	$scope.goTo = goTo;
 	activate();
 
 	function activate() {
@@ -169,9 +193,24 @@ export default function DashboardController(userLogin, $scope, $timeout, $mdSide
 		}
 	}
 
-	function selectProduct(product) {
+	function goTo(state) {
 
-		console.log(product);
+		switch(state) {
+			case 'resumen':
+				$state.go('app.transfer', {id: 'resumen'})
+				break;
+			case 'destinatarios':
+				$state.go('app.transfer', {id: 'destinatarios'})
+				break;
+			default:
+				break;
+		}
+	}
+
+	function selectProduct(product) {
+		$scope.product =  $scope.products.filter(function (v) {
+			return v.key === product;
+		})[0];
 	}
 
 	$scope.$on('company::change', function(data) {

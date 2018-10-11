@@ -1,3 +1,4 @@
+$line-height-message: 25px;
 .modal.fullscreen {
 
     .modal-dialog {
@@ -73,7 +74,7 @@
                 border: none;
 
                 .message {
-                    line-height: 51px;
+                    line-height: $line-height-message;
                     color: $c-white;
                 }
             }
@@ -94,7 +95,7 @@
                 border: none;
 
                 .message {
-                    line-height: 51px;
+                    line-height: $line-height-message;
                     color: $c-white;
                 }
             }
@@ -115,20 +116,11 @@
                 border: none;
 
                 .message {
-                    line-height: 51px;
+                    line-height: $line-height-message;
                     color: $c-gray-txt-modal;
                 }
             }
         }
-    }
-    span.rule {
-        vertical-align: bottom;
-    }
-    .left-adjust {
-        margin-left: 24%;
-    }
-    .lh-1 {
-        line-height: 2.1em;
     }
 }
 
@@ -258,6 +250,28 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
+@media (max-width: 375px) {//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+}
+@media  (min-width: 376px) and (max-width: 764px){//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: -7px;
+		}
+	}
+}
+
+@media (max-width: 766px) and (min-width: 765px){//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+}
 
 @media (max-width: 767px) {//col-xs
 
@@ -274,16 +288,38 @@ input::-webkit-inner-spin-button {
     }
 
     .modal.bottom-confirm .message label { line-height: 18px; }
-    .modal.bottom-confirm.finish .message label { line-height: 50px; }
+    .modal.bottom-confirm.finish .message label { line-height: 15px; }
+    .modal.bottom-danger.finish .message label { line-height: 15px; }
+	.modal {
+		 .button-default-inv {
+            height: 10px;
+            &.with-icon {
+                margin-left: -3em;
+                margin-top: -.2em;
+            }
+		
+		}
+		.modal-content {
+			padding: 1rem;
+			.message {
+				line-height: 10px;
+				margin-bottom: .6em;
+				.input-form {
+					height: 35px;
+				}
+			}
+		}
 
-    .modal {
-          .left-adjust {
-        margin-left: -2%;
-        }
-        .lh-1 {
-            line-height: 1.1em;
-        }
-    }
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form{
+		height: 35px;
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form .form-text label {
+		line-height: 25px;
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form .form-element input {
+		line-height: 27px;
+	}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
 
@@ -296,24 +332,26 @@ input::-webkit-inner-spin-button {
             .modal-content {
                 height: 100%;
             }
+            label {
+                margin-top: .8em !important;
+            }
         }
     }
+	.col-sm-5.col-sm-5-less{
+		width: 39.666667%;
+	}
 
     .modal.bottom-confirm .message label { line-height: 18px; }
-    .modal.bottom-confirm.finish .message label { line-height: 50px; }
-
-    .modal {
-        .left-adjust {
-        margin-left: 7%;
-       }
-      .md-left {
-        margin-left: 0.8em;
-      }
-      .lh-1 {
-            line-height: 2.1em;
+    .modal.bottom-confirm.finish .message label { line-height: $line-height-message; }
+    .modal-dialog {
+        label {
+            margin-top: .8em;
+            vertical-align: middle;
+            span.transfer {
+                margin-left: -.3em;
+            }
         }
     }
- 
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
 
@@ -328,6 +366,15 @@ input::-webkit-inner-spin-button {
             }
         }
     }
+     .modal-dialog {
+        label {
+            margin-top: .8em;
+            vertical-align: middle;
+            span.transfer {
+                margin-left: -.3em;
+            }
+        }
+    }
 }
 @media (min-width: 1200px) {//col-lg
 
@@ -339,6 +386,21 @@ input::-webkit-inner-spin-button {
 
             .modal-content {
                 height: 100%;
+            }
+        }
+    }
+
+    .modal-dialog {
+        label {
+            vertical-align: middle;  
+            &.pt-em, &.pt-emx {
+                margin-top: .8em;
+            }           
+            &.pt-em {
+                 padding-top: .5em;
+            }
+            span.transfer {
+                margin-left: -.3em;
             }
         }
     }

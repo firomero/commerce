@@ -29,3 +29,32 @@ status {
         div.text { width: 70%; }
     }
 }
+@media (max-width: 767px) { //col-xs
+	status {
+		.status-container {
+			div.text {
+				width: 70%;
+				white-space: pre-wrap;
+				margin-right: .8em;
+			}
+		}
+	}
+
+ }
+@media (min-width: 768px) and (max-width: 991px) {//sm
+	status {
+		.status-container {
+				margin-right: 1.3em;
+			div.text {
+				width: 64%;
+			}
+		}
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {//md
+	status {
+		.status-container {
+			padding-right: 1.6em;
+		}
+	}
+}

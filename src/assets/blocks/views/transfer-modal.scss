@@ -1,6 +1,6 @@
 .transfer-modal {
 
-    .radio-container { 
+    .radio-container {
 
         md-radio-group {
             display: table;
@@ -14,7 +14,7 @@
                 &:first-child {
                     width: 40%;
                 }
-                &:last-child { 
+                &:last-child {
                     float: right;
                     margin-right: 30px;
                     margin-top: 15px;
@@ -71,7 +71,7 @@
             font-weight: 700;
         }
         .text {
-            color: $c-black-table-header;            
+            color: $c-black-table-header;
         }
         .count {
             float: right;
@@ -101,7 +101,7 @@
                 font-weight: 400;
                 margin-bottom: 1.5rem;
             }
-            
+
             a.link {
                 color: $c-green;
 
@@ -110,7 +110,7 @@
         }
     }
     .extra-row {
-        label.text { 
+        label.text {
             line-height: 50px;
             color: $c-black-table-header;
             font-family: Roboto;
@@ -133,6 +133,22 @@
         position: relative;
 
         md-select { width: 100%; }
+
+		&.has-error {
+			color: $has-error-color;
+			box-shadow: 0 0 7px red;
+			border-color: $has-error-color;
+			&:focus {
+				border-color: red;
+				-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+				box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+			}
+			.form-text {
+				label {
+					color: $has-error-fore-color;
+				}
+			}
+		}
     }
 
     .input-form.yellow {
@@ -246,9 +262,12 @@
     .padding-0 { padding: 0px; }
     .padding-right-0 { padding-right: 0px; }
     .padding-left-0 { padding-left: 0px; }
+    md-switch.md-checked.md-primary .md-thumb {
+        background-color: $c-green-firm;
+    }
 }
-
 /*MEDIA SCREEN*/
+
 @media (max-width: 767px) {//col-xs
     .transfer-modal .padding-0 { padding: 0px 15px; }
     .transfer-modal .placeholder-select { left: 22px; }
@@ -263,14 +282,21 @@
         text-align: center;
         padding-top: 15px;
     }
-    .transfer-modal .radio-container md-radio-group md-radio-button:first-child { width: 100%; }
-    .transfer-modal .radio-container md-radio-group { 
+    .transfer-modal .radio-container md-radio-group md-radio-button:first-child {
+		width: 100%;
+		margin-left: -1.5em;
+		margin-right: 1.6em;
+	}
+    .transfer-modal .radio-container md-radio-group {
         display: block;
         width: 170px;
-        margin: 0 auto;
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 0;
+		margin-bottom: .6em;
     }
     .transfer-modal .radio-container md-radio-group md-radio-button {
-        display: block;
+        display: inline;
         width: 100%;
     }
     .transfer-modal .radio-container md-radio-group md-radio-button:last-child {
@@ -279,9 +305,34 @@
         margin-top: 0px;
     }
 }
+@media (max-width: 320px) and (min-height:258px ){
+	.transfer-modal .radio-container md-radio-group md-radio-button:first-child {
+		width: 100%;
+		margin-left: -3.5em;
+		margin-right: 1.6em;
+	}
+
+}
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .transfer-modal .radio-container md-radio-group md-radio-button:last-child {
+        
+        margin-right: 7em;
+        
+    }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
+     .transfer-modal .radio-container md-radio-group md-radio-button:last-child {
+        
+        margin-right: 14em;
+        
+    }
+
 }
 @media (min-width: 1200px) {//col-lg
+     .transfer-modal .radio-container md-radio-group md-radio-button:last-child {
+        
+        margin-right: 14em;
+        
+    }
+
 }

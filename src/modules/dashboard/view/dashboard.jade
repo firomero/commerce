@@ -46,7 +46,7 @@ section.bg-gray.dashboard-container
 
 						div.action-container.custom.transfer
 							div.text-center
-								md-button.md-fab.success
+								md-button.md-fab.success(ng-click="goTo('resumen')")
 									i.material-icons.rotate90 import_export
 							div.button-text.text-center(style="max-width: 100px;") Ver Transferencias
 
@@ -68,14 +68,14 @@ section.bg-gray.dashboard-container
 										ui-knob(value="rating.destinatarios.value" options="rating.destinatarios.options")
 						div.action-container.custom.refactor
 							div.text-center
-								md-button.md-fab.success
+								md-button.md-fab.success(ng-click="goTo('destinatarios')")
 									i.material-icons people
 							div.button-text.text-center Ver Destinatarios
 
 				div.row(ng-if="currentCompany.rol == ROL_2")
 					div.col-lg-12.col-md-12.col-sm-12.col-xs-12.poster
 						md-card.notification.dimension
-							div.row.p-15px
+							div.row.p-15px.text-center.md-left
 								div.col-lg-4.col-md-5.col-sm-4.text
 									div
 										label.title Estado de Mis Solicitudes Diarias
@@ -112,13 +112,15 @@ section.bg-gray.dashboard-container
 												a(ng-click="selectProduct('BOLETA')") Boleta de Garantia
 											md-menu-item
 												a(ng-click="selectProduct('COMEX')") COMEX
+											md-menu-item
+												a(ng-click="selectProduct('FACTORING')") Factoring
 								div.col-lg-7.col-md-7.col-sm-7.col-xs-7
 									div
-										label.title Factoring
+										label.title {{product.name}}
 									div
 										span.sub-title Por un Monto total de:
 									div
-										h3.mt-05.mb-05 $495.000.000
+										h3.mt-05.mb-05 {{product.value}}
 									div
 										span.sub-title 90 días plazo
 								div.col-lg-5.col-md-5.col-sm-5.col-xs-5
@@ -135,5 +137,5 @@ section.bg-gray.dashboard-container
 
 		//list account
 		div.mt-8
-			account-list(list="currentCompany.accounts" button-saldo="true" button-transfer="true" button-credit="true" button-credit-line="true" button-credit-line-up="true" ng-if="!loadAccounts")
+			account-list(list="currentCompany.accounts" button-saldo="true" button-transfer="true" ng-if="!loadAccounts")
 		//aca es donde debo ponwe el ui-view para que todas las rutas entren por ahi

@@ -1,5 +1,5 @@
-account-list { 
-    
+account-list {
+
     .title {
         display: inline;
         position: absolute;
@@ -16,7 +16,7 @@ account-list {
     md-tab-content.md-active {
         padding-bottom: 70px;
     }
-    
+
     md-tabs-wrapper {
         margin-left: 25rem;
     }
@@ -24,7 +24,7 @@ account-list {
     .action-container {
         position: absolute;
         right: -4!important;
-        bottom: -69px;
+        bottom: -57px;
 
         .pagar {
 
@@ -101,7 +101,7 @@ account-list {
         line-height: 16px;
         padding-right: 0px;
     }
-      
+
     .tag-value {
         font-family: Roboto;
         font-style: normal;
@@ -125,13 +125,14 @@ account-list {
 
 account-list.bg-toolbar {
     md-card {background-color: $c-blue-toolbar !important;}
+    md-card.not-found {background-color: $c-white !important;}
     small.card-text, div.price, .tag-text, .tag-value {color: $c-white;}
     .md-button.md-fab.success {background-color: $c-button-gray;}
 }
 
 @media (max-width: 500px) {//col-xs
     account-list .action-container {
-        bottom: -75px !important;
+        bottom: -50px !important;
         right: -1px !important;
     }
     account-list .action-container .pagar .button-text.text-center {
@@ -143,7 +144,7 @@ account-list.bg-toolbar {
     account-list .action-container .transfer .md-fab.success {
         margin-right: 7px !important;
     }
-    
+
 }
 /*MEDIA SCREEN*/
 @media (max-width: 767px) {//col-xs
@@ -152,7 +153,7 @@ account-list.bg-toolbar {
     }
     account-list md-tab-item { margin: 0 10px; }
     account-list md-tab-item:first-child { margin-left: 0px; }
-    account-list md-tabs-wrapper {  
+    account-list md-tabs-wrapper {
         width: 100% !important;
         margin-left: 0px;
     }
@@ -171,7 +172,7 @@ account-list.bg-toolbar {
     }
     account-list md-tab-item { margin: 0 10px; }
     account-list md-tab-item:first-child { margin-left: 0px; }
-    account-list md-tabs-wrapper {  
+    account-list md-tabs-wrapper {
         width: 100% !important;
         margin-left: 0px;
     }
@@ -184,6 +185,6 @@ account-list.bg-toolbar {
         min-height: 400px;
     }
     account-list md-tab-item { margin: 0 10px; }
-    account-list md-tabs-wrapper {  width: calc(100% - 25rem) !important; }
+    account-list md-tabs-wrapper {  width: calc(100% - 20rem) !important; }
     .border-left {margin-top: 2rem;border-left: none !important;}
 }
