@@ -191,6 +191,23 @@
      .col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-8.col-xs-12.adjust {
         margin-left: 6%
     }
+    .investment {
+        .radio-container.adjust {
+            margin-left: 1.5em;
+        }
+        .row {
+            div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0.check {
+            margin-left: -4em;
+            }
+            .col-lg-3.col-md-3.col-sm-4.col-xs-12.last-filter{
+                float: right;
+                margin-right: 5.5em;
+            }
+            .col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
+                margin-left: -1em;
+            }
+        }
+    }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     .investment .cheque-container {
@@ -235,7 +252,13 @@
 			}
 
 
-		}
+        }
+        div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0.check {
+            margin-left: -4em;
+        }
+       div.col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
+            margin-left: 1.2em;
+        }
 	}
 
 }
@@ -257,6 +280,12 @@
 		}
 		.col-lg-4.col-lg-4-less {
 			width: 30%;
-		}
+        }
+        .col-md-offset-2.middle-offset {
+            margin-left: 0;
+        }
+        .text.refactor-all.visible-lg.visible-md.visible-sm {
+            margin-left: 0.6em
+        }
 	}
 }

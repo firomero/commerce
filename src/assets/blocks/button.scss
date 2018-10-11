@@ -3,7 +3,7 @@
     border-radius: 3px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
     text-transform: uppercase;
-    display: -webkit-inline-box;
+    display: inline-block;
     border: none;
     font-size: 14px;
     font-family: Roboto-Medium;
@@ -12,7 +12,7 @@
     line-height: 17px;
 
     &.spinner, &.spinner-custom {
-        
+
         img {
             width: 28px;
             height: 28px;
@@ -23,12 +23,12 @@
     }
 
     &.spinner-custom {
-        
+
         img { margin-top: 3px; }
     }
 }
-.button-success.sm, 
-.button-default.sm, 
+.button-success.sm,
+.button-default.sm,
 .button-default-inv.sm,
 .button-blue.sm {
     font-size: 12px;
@@ -47,8 +47,8 @@
     background-color: $c-green-disabled;
 }
 
-.button-default { 
-    background-color: transparent; 
+.button-default {
+    background-color: transparent;
     color: $c-green;
     box-shadow: none;
 }
@@ -56,7 +56,7 @@
     color: #E1E1E1;
 }
 .button-default-inv {
-    background-color: transparent; 
+    background-color: transparent;
     color: $c-white;
     box-shadow: none;
 }

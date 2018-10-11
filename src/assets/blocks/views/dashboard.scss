@@ -234,10 +234,28 @@
     .dashboard-container md-card.notification.dimension .graficas {
         padding-left: 40px;
     }
+	.dashboard {
+		div.row.p-15px.text-center.md-left {
+			text-align: left;
+		}
+	}
 }
 @media (min-width: 1200px) {//col-lg
     .carousel-caption {
         left: 15%;
         bottom: 25%;
     }
+    .dashboard-container {
+        .carousel {
+             .carousel-indicators {
+                left: 50%;
+                top: 25%;
+             }
+        }
+    }
+	.dashboard {
+		div.row.p-15px.text-center.md-left {
+			text-align: left;
+		}
+	}
 }

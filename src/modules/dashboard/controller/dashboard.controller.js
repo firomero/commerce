@@ -10,6 +10,29 @@ export default function DashboardController(userLogin, $scope, $timeout, $state,
 	$scope.noWrapSlides = false;
 	$scope.active = 0;
 	$scope.currIndex = 0;
+	$scope.products = [
+		{
+			name: 'Factoring',
+			value: '$495.000.000',
+			key: 'FACTORING'
+		},
+		{
+			name: 'Leasing',
+			value: '$500.000.000',
+			key: 'LEASING'
+		},
+		{
+			name: 'Boleta de Garantia',
+			value: '$495.800.000',
+			key: 'BOLETA'
+		},
+		{
+			name: 'COMEX',
+			value: '$952.325.000',
+			key: 'COMEX'
+		}
+	];
+	$scope.product = $scope.products[0]
 	$scope.slides = [{
 		image: 'images/carousel/login-background.png',
 		text: 'Hola Marcelo',
@@ -173,10 +196,10 @@ export default function DashboardController(userLogin, $scope, $timeout, $state,
 	function goTo(state) {
 
 		switch(state) {
-			case 'resumen': 
+			case 'resumen':
 				$state.go('app.transfer', {id: 'resumen'})
 				break;
-			case 'destinatarios': 
+			case 'destinatarios':
 				$state.go('app.transfer', {id: 'destinatarios'})
 				break;
 			default:
@@ -185,8 +208,9 @@ export default function DashboardController(userLogin, $scope, $timeout, $state,
 	}
 
 	function selectProduct(product) {
-
-		console.log(product);
+		$scope.product =  $scope.products.filter(function (v) {
+			return v.key === product;
+		})[0];
 	}
 
 	$scope.$on('company::change', function(data) {

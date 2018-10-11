@@ -1,3 +1,4 @@
+$md-font-size: 34px;
 .transfer {
 
     account-list.bg-toolbar {
@@ -66,16 +67,31 @@
         position: relative;
 
         md-select { width: 100%; }
+        &.has-error {
+			color: $has-error-color;
+			box-shadow: 0 0 7px red;
+			border-color: $has-error-color;
+			&:focus {
+				border-color: red;
+				-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+				box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+			}
+			.form-text {
+				label {
+					color: $has-error-fore-color !important;
+				}
+			}
+		}
     }
 
     .remove-account {
         color: $c-remove;
-        font-size: 34px;
+        font-size: $md-font-size;
     }
 
     .add-account {
         color: $c-add;
-        font-size: 34px;
+        font-size: $md-font-size;
     }
 
     md-input-container.input-form {
@@ -111,7 +127,10 @@
 
 	.pb-e8 {
 		padding-bottom: .8em;
-	}
+    }
+    .pb-e8.pt-em,  .pt-em {
+        padding-top: .4em;
+    }
 }
 .fake {
 	height: 200em;
@@ -163,7 +182,17 @@
 		padding-left: 0;
 		padding-right: 0;
 		margin-left: 1em;
-	}
+    }
+    .transfer {
+        .radio-container.adjust {
+            margin-left: 1.5em;
+        }
+        .table.custom {
+            td.sm-fecha {
+                width: 27%;
+            }
+        }
+    }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
       .button-success.col-md-2.col-md-offset-7 {
@@ -199,7 +228,12 @@
 			}
 
 
-		}
+        }
+        .table.custom {
+            td.fecha {
+                width: 16%;
+            }
+        }
 	}
 
 }
@@ -214,7 +248,14 @@
 			}
 			.col-lg-4.col-lg-4-less {
 				width: 30%;
-			}
+            }
+            .col-lg-4.pr-sm-0, .pr-sm-0.sm-4-pr-0 {
+		        padding-right: 1em !important;
+            }
+            .col-lg-3.col-lg-3-less {
+                padding-left: 0;
+                padding-right: 0!important;
+            }
 		}
 	}
 }
