@@ -359,11 +359,9 @@ section.bg-gray.content-container
 
 														div.row
 															div.col-lg-4.col-lg-4-less.pr-sm-0
-																form.input-form
-																	div.form-text
-																		label Banco
-																	div.form-element
-																		input(name="bank" type="text" ng-model="$ctrl.otherAccount.banco" autocomplete="off" placeholder="Seleccione Banco")
+																md-input-container.input-form
+																	md-select.md-no-underline(ng-model="$ctrl.otherAccount.banco" ng-model-options="{trackBy: '$value.id'}" placeholder="Seleccione Banco")
+																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
 															div.col-lg-4.col-lg-4-less.pl-0.pr-sm-0
 																form.input-form(name="form" ng-class="{'has-error': form.account.$error.integer }")
 																	div.form-text
@@ -373,7 +371,7 @@ section.bg-gray.content-container
 															div.col-lg-3.pl-0.pr-0.col-md-12
 																md-input-container.input-form
 																	md-select.md-no-underline(ng-model="$ctrl.otherAccount.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Tipo")
-																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
+																		md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.types") {{bank.name}}
 
 															div.col-lg-1.pt-05
 																button.button-default.icon.sm.col-lg-12.col-md-12(ng-click="addAccount(item, $ctrl.otherAccount)")

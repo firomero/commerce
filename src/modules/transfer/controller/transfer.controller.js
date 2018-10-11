@@ -162,6 +162,7 @@ export default function TransferController($scope, $rootScope, $stateParams, use
 	function addAccount(item, save) {
 
 		item.updateAccount = false;
+		save.banco = save.banco.name;
 		$timeout(function () {
 			item.account.accounts.push(save);
 			self.otherAccount = {
