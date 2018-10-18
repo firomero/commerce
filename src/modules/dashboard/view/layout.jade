@@ -130,10 +130,11 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
 					li.grouping
 						i.material-icons.icon person_add
 						span.label Perfilamiento
-					li.link
+					li.link(ng-click="newUser()")
 						span.label Crear Usuario
 					li.link
-						span.label Usuarios
+						span.label
+							a (ui-sref="app.user({id:'list'})" ui-sref-active="active")(ng-click="closeToggle('left')") Usuarios
 
 			div.panel-default(uib-accordion-group)
 				uib-accordion-heading
@@ -321,11 +322,11 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				span.pull-right(ng-click="toggleProfile('token')")
 					i.material-icons.edit create
 			div.pl-4.mt-4
-				span Clave		
+				span Clave
 			div.pl-4
 				input.password(name="password" type="password" autocomplete="off" ng-model="userPassword" placeholder="**********" required)
 			div.pl-4.mt-2
-				span Repetir Clave		
+				span Repetir Clave
 			div.pl-4
 				input.password(name="password" type="password" autocomplete="off" ng-model="userRepeatPassword" placeholder="**********" required)
 			div.pl-4.mt-2
@@ -355,13 +356,13 @@ md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-sc
 				md-checkbox.md-primary(value="com" ng-repeat="com in communications"  ng-model="com.selected" ng-change="changeCom(com, 'cartolaCom')") {{com.name}}
 			div.pl-4.mt-2
 				span Cuenta Empresa
-			div.pl-4.mt-05			
+			div.pl-4.mt-05
 				md-checkbox.md-primary(value="com" ng-repeat="com in communicationsEnterprise" ng-model="com.selected" ng-change="changeCom(com, 'cartolaEnterprise')") {{com.name}}
 			div.pl-4.mt-2
 				span Cr&eacute;ditos
-			div.pl-4.mt-05				
+			div.pl-4.mt-05
 				md-checkbox.md-primary(value="com" ng-repeat="com in communicationsCredits" ng-model="com.selected" ng-change="changeCom(com, 'cartolaCredit')") {{com.name}}
-				
+
 		div.row.mt-5
 			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right', 'save')") GUARDAR
 			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR

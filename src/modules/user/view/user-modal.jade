@@ -238,7 +238,7 @@ div.container.user-modal
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat = "item in stepData[2].data.ruleStorage")
 											td.td.text-left
-												md-checkbox.md-primary( ng-model="item.selected")
+												md-checkbox.md-primary( ng-model="item.selected" ng-change="updateRules(item)")
 												span.rule {{ item.rule }}
 											td.td.text-right {{item.minAmmount}}
 											td.td.text-right {{item.maxAmmount}}

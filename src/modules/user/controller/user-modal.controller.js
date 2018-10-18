@@ -188,6 +188,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	$scope.checkAll = checkAll;
 	$scope.check = check;
 	$scope.updateUserType = updateUserType;
+	$scope.updateRules = updateRules;
 
 	activate();
 
@@ -261,6 +262,16 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 
 	function updateUserType($event) {
 		$scope.userTypeText = $event.id == 1 ? 'Apoderado' : 'Operador';
+	}
+
+	function updateRules(item) {
+		let count = 0;
+		let list = $scope.stepData[2].data.ruleStorage;
+		for (let i = 0; i < list.length; i++) {
+			if (list[i].selected) count++;
+		}
+		$scope.stepData[2].data.checkAllRule = count === list.length ;
+
 	}
 
 	// function addUser(user) {

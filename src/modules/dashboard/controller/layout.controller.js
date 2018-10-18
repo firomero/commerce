@@ -1,4 +1,4 @@
-export default function LayoutController(userLogin, $scope, $mdSidenav, $location, $uibModal, UserService) {
+export default function LayoutController(userLogin, $scope, $mdSidenav, $location, $uibModal, $timeout, UserService) {
     'ngInject';
 
     $scope.userLogin = userLogin;
@@ -44,6 +44,47 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.newTransference = newTransference;
     $scope.toggleProfile = toggleProfile;
     $scope.changeCom = changeCom;
+	$scope.newUser = newUser;
+
+	function newUser() {
+
+		const modalInstance = $uibModal.open({
+			animation: false,
+			template: require('../../user/view/user-modal.jade')(),
+			controller: 'UserModalController',
+			controllerAs: '$ctrl',
+			size: 'lg',
+			windowClass: 'fullscreen'
+		});
+
+		modalInstance.result.then(() => {
+			let message = "Estimado Juan Pablo El Apoderado Marcelo se ha creado correctamente, Se ha enviado un respaldo a tu correo jor****@gmail.com";
+			let confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm-two-action.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: 'static',
+				keyboard  : false,
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => 'ACEPTAR',
+					textAction: () => 'CREAR OTRO USUARIO'
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+			confirmInstance.result.then((response) =>
+			{
+				$timeout(() => {
+					if (response.action === 'secundary')
+					{
+						newUser();
+					}
+				},1000)
+			});
+		});
+	}
 
     activate();
 
@@ -123,12 +164,12 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
                 break;
             case 'comm':
                 $scope.editCom = !$scope.editCom;
-                break;    
+                break;
             default:
                 $scope.editProfile = !$scope.editProfile;
                 break;
         }
-       
+
     }
 
     function changeCom($item, model) {
@@ -142,7 +183,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
                     $scope.cartolaCom.splice(index,1);
 
                 }
-                
+
                 break;
             case 'cartolaEnterprise':
                 if ($scope.cartolaEnterprise.indexOf($item) === -1) {
@@ -153,7 +194,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
                     $scope.cartolaEnterprise.splice(index, 1);
 
                 }
-                
+
                 break;
             case 'cartolaCredit':
                 if ($scope.cartolaCredit.indexOf($item) === -1) {
@@ -162,8 +203,8 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
                 else {
                     const index = $scope.cartolaCredit.indexOf($item);
                     $scope.cartolaCredit.splice(index, 1);
-                }                
-                break;        
+                }
+                break;
             default:
                 break;
         }
