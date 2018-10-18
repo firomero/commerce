@@ -129,11 +129,13 @@ section.bg-gray.dashboard-container
 						div.action-container.custom.productos
 							div.action.text-center
 								md-button.md-fab.success
-								div.button-text.text-center Label
+									i.material-icons.rotate90 settings
+								div.button-text.text-center Crear Regla
 
 							div.action.text-center
-								md-button.md-fab.success.ml-2px
-								div.button-text.text-center Label
+								md-button.md-fab.success.ml-2px(ng-click="newUser()")
+									i.material-icons person_add
+								div.button-text.text-center Crear perfil
 
 		//list account
 		div.mt-8

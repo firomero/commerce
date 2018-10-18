@@ -1,4 +1,4 @@
-export default function DashboardController(userLogin, $scope, $timeout, $state, $mdSidenav, UserService) {
+export default function DashboardController(userLogin, $scope, $timeout, $state, $uibModal, $mdSidenav, UserService) {
 	'ngInject';
 
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
@@ -32,21 +32,23 @@ export default function DashboardController(userLogin, $scope, $timeout, $state,
 			key: 'COMEX'
 		}
 	];
-	$scope.product = $scope.products[0]
-	$scope.slides = [{
+	$scope.product = $scope.products[0];
+	$scope.slides = [
+		{
 		image: 'images/carousel/login-background.png',
 		text: 'Hola Marcelo',
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
 		id: $scope.currIndex++
-	  },{
+	  },
+		{
 		image: 'images/carousel/creditcard-advance-background.jpg',
 		text: 'Hola Marcelo',
 		text1: 'Servicio de leasing',
 		text2: 'Tu mejor alternativa de Financiamiento',
 		id: $scope.currIndex++
-	}];
-
+	}
+	];
 	$scope.rating = {
 		transferencias: {
 			value: 30,
@@ -174,6 +176,47 @@ export default function DashboardController(userLogin, $scope, $timeout, $state,
 
 	$scope.selectProduct = selectProduct;
 	$scope.goTo = goTo;
+	$scope.newUser = newUser;
+
+	function newUser() {
+
+		const modalInstance = $scope.$uibModal.open({
+			animation: false,
+			template: require('../../user/view/user-modal.jade')(),
+			controller: 'UserModalController',
+			controllerAs: '$ctrl',
+			size: 'lg',
+			windowClass: 'fullscreen'
+		});
+
+		modalInstance.result.then(() => {
+			let message = "Estimado Juan Pablo El Apoderado Marcelo se ha creado correctamente, Se ha enviado un respaldo a tu correo jor****@gmail.com";
+			let confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm-two-action.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: 'static',
+				keyboard  : false,
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => 'ACEPTAR',
+					textAction: () => 'CREAR OTRO USUARIO'
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+			confirmInstance.result.then((response) =>
+			{
+				$timeout(() => {
+					if (response.action === 'secundary')
+					{
+						newUser();
+					}
+				},1000)
+			});
+		});
+	}
 	activate();
 
 	function activate() {
