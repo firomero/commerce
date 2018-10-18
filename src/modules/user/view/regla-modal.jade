@@ -6,7 +6,7 @@ div.container.user-modal
 			i.material-icons(ng-click="close()") close
 
 	div.title.mb-3
-		h3 Perfilamiento de Usuario
+		h3 Crear Regla
 
 	div.indicator-container.ajust
 		div.row.step-strip
@@ -43,7 +43,7 @@ div.container.user-modal
 		div.col-lg-12
 			wizard(on-finish="finishedWizard()" hide-indicators="true")
 				wz-step(canexit="exitValidation")
-					h4.text-center.mb-2 Seleccione el Tipo de usuario ( solicitud Nº {{userRequest}} )
+					h4.text-center.mb-2 Creación Nueva Regla, Solicitud Nº {{userRequest}} )
 
 					form.row(name="form")
 						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
@@ -53,93 +53,25 @@ div.container.user-modal
 
 						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
 							div.placeholder-select
-								label Usuario
+								label Producto
 							md-input-container.input-form
 								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in userTypes") {{type.name}}
 
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-3(ng-if="stepData[0].data.userType.id == 1")
-							div.placeholder-select
-								label Tipo de Apoderado
-							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
-									md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-3(ng-if="stepData[0].data.userType.id == 2")
-							div.placeholder-select
-								label Tipo de Operador
-							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
-									md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
-
-						div.col-lg-offset-3.col-lg-4.col-md-offset-3.col-md-4.col-sm-offset-1.col-sm-6.col-xs-12.center-xs
-							span.radio-text Copiar Funciones de otro Usuario {{userTypeText}}
-						div.col-lg-2.col-md-2.col-sm-4.col-xs-12.destinatario
-							md-radio-group(ng-model="stepData[0].data.copyFunction")
-								md-radio-button.md-primary(value="SI") Si
-								md-radio-button.md-primary(value="NO") No
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.padding-0.abono-pago-type
-							div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
-								div.col-xs-12.user-add
-									span.text Usuarios Ingresados
-									span.count {{userList.length}} usuario(s)
 
 							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
 								div.input-form(ng-class="{'has-error': form.rut.$error.integer }")
 									div.form-text
-										label.rut Rut
+										label.rut Monto Desde
 									div.form-element
-										input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut" placeholder="Ingresar" integer-validation)
+										input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.rut" placeholder="$0" integer-validation)
 
 							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
 								div.input-form
 									div.form-text
-										label.rut Forma de Abono
+										label.rut Hasta
 									div.form-element
-										input(name="name" type="text" autocomplete="off" ng-model="stepData[0].data.forma" placeholder="Ingresar")
-
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
-								div.input-form
-									div.form-text
-										label.rut Apellido Paterno
-									div.form-element
-										input(name="firstName" type="text" autocomplete="off" ng-model="stepData[0].data.firstName" placeholder="Ingresar")
-
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
-								div.input-form
-									div.form-text
-										label.rut Apellido Materno
-									div.form-element
-										input(name="lastName" type="text" autocomplete="off" ng-model="stepData[0].data.lastName" placeholder="Ingresar")
-
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
-								div.input-form
-									div.form-text
-										label.rut Fecha de Nac.
-									div.form-element
-										input(name="nac" type="text" autocomplete="off" ng-model="stepData[0].data.nac" mask="99 / 99 / 9999" placeholder="_ / _ / _")
-
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
-								div.input-form(ng-class="{'has-error': form.email.$error.mail }")
-									div.form-text
-										label.rut Email
-									div.form-element
-										input(name="email" type="text" autocomplete="off" ng-model="stepData[0].data.email" placeholder="Ingresar" mail-validation)
-
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
-								div.input-form
-									div.form-text
-										label.rut Teléfono
-									div.form-element
-										input(name="phone" type="text" autocomplete="off" ng-model="stepData[0].data.phone" placeholder="Ingresar")
-
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
-								div.placeholder-select
-									label Sexo
-								md-input-container.input-form
-									md-select.md-no-underline(ng-model="stepData[0].data.gender" ng-model-options="{trackBy: '$value.name'}")
-										md-option.text-uppercase(ng-value="gender" ng-repeat="gender in genders") {{gender.name}}
+										input(name="name" type="text" autocomplete="off" ng-model="stepData[0].data.forma" placeholder="$500.000")
 
 							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
