@@ -179,7 +179,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	// 	}
 	// }
 
-	// $scope.finish = finish;
+	$scope.done = done;
 	$scope.close = close;
 	// $scope.addUser = addUser;
 	// $scope.changeTitle = changeTitle;
@@ -218,6 +218,10 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 
 	function close() {
 
+		$uibModalInstance.dismiss();
+	}
+
+	function done() {
 		$uibModalInstance.close();
 	}
 

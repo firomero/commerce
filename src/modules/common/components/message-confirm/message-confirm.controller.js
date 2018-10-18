@@ -10,8 +10,8 @@ export default class MessageConfirmController {
 	}
 
 	$onInit = () => {};
-	
-	cancel() { this.$uibModalInstance.close(); }
+
+	cancel() { this.$uibModalInstance.dismiss(); }
 	confirm() { this.$uibModalInstance.close({'success': true}); }
 	confirmSecundary() { this.$uibModalInstance.close({'success': true, action: 'secundary'}); }
 }

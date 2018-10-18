@@ -1,134 +1,135 @@
-//menu start 
+//menu start
 div.menu
-  div.date 
-    i.material-icons access_time
-    label Al 17 de Abril del 2018 / 14:34 hrs
-  div.container
-    md-tabs.tabs
-      md-tab(label="{{item.text}}" ng-click="toggleDropdown(item)" ng-disabled="item.disabled" ng-repeat="item in menuItems")
-      md-tab(label="DOCUMENTS" ng-click="toggleDropdown()" ng-disabled="true")
+	div.date
+		i.material-icons access_time
+		label Al 17 de Abril del 2018 / 14:34 hrs
+	div.container
+		md-tabs.tabs
+			md-tab(label="{{item.text}}" ng-click="toggleDropdown(item)" ng-disabled="item.disabled" ng-repeat="item in menuItems")
+			md-tab(label="DOCUMENTS" ng-click="toggleDropdown()" ng-disabled="true")
 
 //marketina start
 div.marketina-group(ng-if="tooglePrice")
-  div.marketina.background    
-  div.marketina-container.container
-    div.prices.pl-0.pr-0.pt-1.pb-1.w-100
-      md-tabs
-        md-tab(ng-disabled="true" ng-repeat="change in moneyChange")
-          md-tab-label
-            div
-              span.mr-1.money {{change.text}}
-              span.percent {{change.porcent}}%
-            div.text-left 
-              span.price {{change.cash | currency }}
+	div.marketina.background
+	div.marketina-container.container
+		div.prices.pl-0.pr-0.pt-1.pb-1.w-100
+			md-tabs
+				md-tab(ng-disabled="true" ng-repeat="change in moneyChange")
+					md-tab-label
+						div
+							span.mr-1.money {{change.text}}
+							span.percent {{change.porcent}}%
+						div.text-left
+							span.price {{change.cash | currency }}
 div.pos-rel
-  a.toggle-price(ng-click="showPrice()")
-    span Indicadores
-    span.icon.pull-right(ng-if="tooglePrice")
-      i.material-icons arrow_drop_up
-    span.icon.pull-right(ng-if="!tooglePrice")
-      i.material-icons arrow_drop_down
+	a.toggle-price(ng-click="showPrice()")
+		span Indicadores
+		span.icon.pull-right(ng-if="tooglePrice")
+			i.material-icons arrow_drop_up
+		span.icon.pull-right(ng-if="!tooglePrice")
+			i.material-icons arrow_drop_down
 //marketina end
 
 
 div.menu-collapse
-  div(uib-collapse="isopen")
-    div.shadow
-    
-    div.menu-body
-      uib-accordion(close-others="true")
-        div(uib-accordion-group is-open="menuActive == 'INICIO'")
-          div.row.m-0
-            div.col-lg-3.pt-3.pl-8
-              div.title 
-                i.material-icons home
-                label Inicio
-              span.link.mt-3 
-                a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
-              span.link
-                a(ui-sref="app.investment({id:'account'})" ui-sref-active="active") Saldo y Movimientos
-              span.link 
-                a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active") Línea de Crédito
+	div(uib-collapse="isopen")
+		div.shadow
 
-            div.col-lg-3.pl-2.pt-3
-              div.title 
-                i.material-icons person_add
-                label Perfilamiento
-              span.link.mt-3 
-                a.pointer(ng-click="newUser()") Crear Usuario
-              span.link Usuarios
-            div.col-lg-6.col-md-6.picture.inicio
-              div.text-container
-                div.container-inner
-                  label.title-text.mt-2 baja Nuestra APP
-                  p.middle-text Úsala donde quieras y siempre paga en cuotas
-                  p.text-extra.mb-4 Con tu Tarjeta de Crédito Consorcio Visa Filial Banco Consorcio puedes acceder a un mundo de oportunidades, ya no necesitarás comprar con cheques ni efectivo.
-                  div.row.ml-0
-                    div.col-lg-6.pl-0.pr-025
-                      button.google
-                        img(src="images/googleplay.png")
-                        small GET IT ON
-                        span Google Play
-                    div.col-lg-6.pr-0.pl-025
-                      button.store
-                        img(src="images/apple.png")
-                        small Donwload on the
-                        span App Store
+		div.menu-body
+			uib-accordion(close-others="true")
+				div(uib-accordion-group is-open="menuActive == 'INICIO'")
+					div.row.m-0
+						div.col-lg-3.pt-3.pl-8
+							div.title
+								i.material-icons home
+								label Inicio
+							span.link.mt-3
+								a(ui-sref="app.dashboard" ui-sref-active="active") Resumen
+							span.link
+								a(ui-sref="app.investment({id:'account'})" ui-sref-active="active") Saldo y Movimientos
+							span.link
+								a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active") Línea de Crédito
 
-        div(uib-accordion-group is-open="menuActive == 'TRANSFERENCIAS'")
-          div.row.m-0
-            div.col-lg-3.pt-3.pl-8
-              div.title 
-                i.material-icons.rotate90 import_export
-                label Transferencias
-              span.link.mt-3 
-                a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active") Resumen
-              span.link 
-                a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
-              span.link
-                a.pointer(ng-click="newTransference('NEW_TRANSFER')") Transferir
-              span.link 
-                a.pointer(ng-click="newTransference('NOMINA')") Crear Nómina
+						div.col-lg-3.pl-2.pt-3
+							div.title
+								i.material-icons person_add
+								label Perfilamiento
+							span.link.mt-3
+								a.pointer(ng-click="newUser()") Crear Usuario
+							span.link
+								a(ui-sref="app.user({id: 'list'})" ui-sref-active="active") Usuarios
+						div.col-lg-6.col-md-6.picture.inicio
+							div.text-container
+								div.container-inner
+									label.title-text.mt-2 baja Nuestra APP
+									p.middle-text Úsala donde quieras y siempre paga en cuotas
+									p.text-extra.mb-4 Con tu Tarjeta de Crédito Consorcio Visa Filial Banco Consorcio puedes acceder a un mundo de oportunidades, ya no necesitarás comprar con cheques ni efectivo.
+									div.row.ml-0
+										div.col-lg-6.pl-0.pr-025
+											button.google
+												img(src="images/googleplay.png")
+												small GET IT ON
+												span Google Play
+										div.col-lg-6.pr-0.pl-025
+											button.store
+												img(src="images/apple.png")
+												small Donwload on the
+												span App Store
 
-            div.col-lg-3.pl-2.pt-3
-              div.title 
-                i.material-icons people
-                label Destinatarios
-              span.link.mt-3 
-                a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active") Lista de Destinatarios
+				div(uib-accordion-group is-open="menuActive == 'TRANSFERENCIAS'")
+					div.row.m-0
+						div.col-lg-3.pt-3.pl-8
+							div.title
+								i.material-icons.rotate90 import_export
+								label Transferencias
+							span.link.mt-3
+								a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active") Resumen
+							span.link
+								a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active") Históricas
+							span.link
+								a.pointer(ng-click="newTransference('NEW_TRANSFER')") Transferir
+							span.link
+								a.pointer(ng-click="newTransference('NOMINA')") Crear Nómina
 
-            div.col-lg-6.picture.transferencia
-              div.text-container
-                div.container-inner
-                  label.title-text.mt-2 Transferencias
-                  p.middle-text Lorem ipsum dolor sit amet, consectetur
-                  p.text-extra.mb-4 Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur amet
-                  div.row.ml-0
-                    button.button-success.col-lg-9(ng-click="newTransference('NEW_TRANSFER')") TRANSFERIR
+						div.col-lg-3.pl-2.pt-3
+							div.title
+								i.material-icons people
+								label Destinatarios
+							span.link.mt-3
+								a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active") Lista de Destinatarios
 
-        div(uib-accordion-group is-open="menuActive == 'PRODUCTOS'")
-          div.row.m-0
-            div.col-lg-3.pt-3.pl-8
-              div.title 
-                i.material-icons home
-                label Productos
-              span.link.mt-3 Crédito Comercial
-              span.link Depósito a plazo
-              span.link Forward
-              span.link Leasing
+						div.col-lg-6.picture.transferencia
+							div.text-container
+								div.container-inner
+									label.title-text.mt-2 Transferencias
+									p.middle-text Lorem ipsum dolor sit amet, consectetur
+									p.text-extra.mb-4 Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur amet
+									div.row.ml-0
+										button.button-success.col-lg-9(ng-click="newTransference('NEW_TRANSFER')") TRANSFERIR
 
-            div.col-lg-3.pl-2.not-title.pt-3
-              span.link.mt-4-5 Factoring
-              span.link Mesa
-              span.link Boleta de Garantia
-              span.link Comex
+				div(uib-accordion-group is-open="menuActive == 'PRODUCTOS'")
+					div.row.m-0
+						div.col-lg-3.pt-3.pl-8
+							div.title
+								i.material-icons home
+								label Productos
+							span.link.mt-3 Crédito Comercial
+							span.link Depósito a plazo
+							span.link Forward
+							span.link Leasing
 
-            div.col-lg-6.picture.product
-              div.text-container
-                div.container-inner
-                  label.title-text.mt-2 Crédito Comercial
-                  p.middle-text Ut enim ad minim veniam, quis nostrud exercitation 
-                  p.text-extra.mb-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  div.row.ml-0
-                    button.button-success.col-lg-9 CTA
+						div.col-lg-3.pl-2.not-title.pt-3
+							span.link.mt-4-5 Factoring
+							span.link Mesa
+							span.link Boleta de Garantia
+							span.link Comex
+
+						div.col-lg-6.picture.product
+							div.text-container
+								div.container-inner
+									label.title-text.mt-2 Crédito Comercial
+									p.middle-text Ut enim ad minim veniam, quis nostrud exercitation
+									p.text-extra.mb-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+									div.row.ml-0
+										button.button-success.col-lg-9 CTA
 //menu end
