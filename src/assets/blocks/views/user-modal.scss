@@ -6,6 +6,23 @@
     md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
         background-color: $c-green-firm;
     }
+	.text{
+		letter-spacing: -.03px;
+		font-weight: 700;
+		color: #4a4a4a;
+		font-family: Roboto;
+		font-size: 13px;
+	}
+	.value{
+		letter-spacing: -.29px;
+		font-weight: 400;
+		color: #4a4a4a;
+		font-family: Roboto;
+		font-size: 13px;
+	}
+	.space{
+		margin-top: 3em;
+	}
 
     .account-check {
 
@@ -289,7 +306,7 @@
 		}
 	}
 	.table-responsive.with-scroll, .tbody {
-		height: 500px;
+		height: 230px;
 	}
 	.mt-em {
 		margin-bottom:.7em;
@@ -308,14 +325,23 @@
         text-align: center;
         padding-top: 15px;
     }
+	.indicator-container.ajust {
+		width: 90%;
+	}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
+	.p-0 {
+		padding: 0em !important;
+	}
+
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
     .user-modal .destinatario md-radio-group md-radio-button:last-child {
         margin-left: 4rem;
     }
+	.user-modal .input-form {
+		width: 111%;
+	}
 }
 @media (min-width: 1200px) {//col-lg
-
 }

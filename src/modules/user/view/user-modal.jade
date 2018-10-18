@@ -8,7 +8,7 @@ div.container.user-modal
 	div.title.mb-3
 		h3 Perfilamiento de Usuario
 
-	div.indicator-container
+	div.indicator-container.ajust
 		div.row.step-strip
 			div.strip.col-lg-offset-4-5.col-lg-1.col-md-offset-4-5.col-md-1.col-sm-offset-3.col-sm-2.col-xs-offset-1-5.col-xs-3(ng-class="{'pending': stepData[0].completed}")
 			div.strip.col-lg-1.col-md-1.col-sm-2.col-xs-3(ng-class="{'pending': stepData[1].completed}")
@@ -250,37 +250,37 @@ div.container.user-modal
 								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
 									img(src="images/spinner.gif")
 
-				wz-step( canexit="exitValidation")
+				wz-step.space( canexit="exitValidation")
 					h4.text-center.mb-2
 						b Etapas de Transferencia
-						form.row(name="form")
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1
+						form.row.space(name="form")
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
 								b Usuario
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 APODERADO
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value APODERADO
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
 								b Tipo
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1 A
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value A
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
 								b Reglas
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 3
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value 3
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
 								b Rut
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1 12345675-7
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value 12345675-7
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
 								b Nombres
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 Marcelo Andr&eacute;s
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value Marcelo Andr&eacute;s
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
 								b Apellidos
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1 Arriagada Gonzales
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value Arriagada Gonzales
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
 								b Fecha Nacimiento
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 11-08-80
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value 11-08-80
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
 								b Email
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1 mail@mail.com
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value mail@mail.com
+							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
 								b Tel&eacute;fono
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1 +56 9 123456789
+							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value +56 9 123456789
 							div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
 								div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 									button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATR&Aacute;S
