@@ -1,5 +1,9 @@
 .user-modal {
 
+	.space.stretch-child {
+		width: 75%;
+		margin-left: 9em;
+	}
     md-switch.md-checked.md-primary .md-thumb {
         background-color: $c-green-firm;
     }

@@ -7,38 +7,6 @@ div.container.user-modal
 
 	div.title.mb-3
 		h3 Crear Regla
-
-	div.indicator-container.ajust
-		div.row.step-strip
-			div.strip.col-lg-offset-4-5.col-lg-1.col-md-offset-4-5.col-md-1.col-sm-offset-3.col-sm-2.col-xs-offset-1-5.col-xs-3(ng-class="{'pending': stepData[0].completed}")
-			div.strip.col-lg-1.col-md-1.col-sm-2.col-xs-3(ng-class="{'pending': stepData[1].completed}")
-			div.strip.col-lg-1.col-md-1.col-sm-2.col-xs-3(ng-class="{'pending': stepData[2].completed}")
-
-		div.row.step-indicators
-			div.col-lg-offset-4.col-lg-1.col-md-offset-4.col-md-1.col-sm-offset-2.col-sm-2.col-xs-3.indicator.pending
-				span.icon(ng-if="!stepData[0].completed") 1
-				span.icon(ng-if="stepData[0].completed")
-					i.material-icons check
-				span.sub-title Usuario
-
-			div.col-lg-1.col-md-1.col-sm-2.col-xs-3.indicator(ng-class="{'pending': stepData[0].completed}")
-				span.icon(ng-if="!stepData[1].completed") 2
-				span.icon(ng-if="stepData[1].completed")
-					i.material-icons check
-				span.sub-title Funciones
-
-			div.col-lg-1.col-md-1.col-sm-2.col-xs-3.indicator(ng-class="{'pending': stepData[1].completed}")
-				span.icon(ng-if="!stepData[2].completed") 3
-				span.icon(ng-if="stepData[2].completed")
-					i.material-icons check
-				span.sub-title Reglas
-
-			div.col-lg-1.col-md-1.col-sm-2.col-xs-3.indicator(ng-class="{'pending': stepData[2].completed}")
-				span.icon(ng-if="!stepData[3].completed") 4
-				span.icon(ng-if="stepData[3].completed")
-					i.material-icons check
-				span.sub-title Confirmación
-
 	div.row.mb-6
 		div.col-lg-12
 			wizard(on-finish="finishedWizard()" hide-indicators="true")
@@ -60,163 +28,23 @@ div.container.user-modal
 
 
 							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
-								div.input-form(ng-class="{'has-error': form.rut.$error.integer }")
+								div.input-form(ng-class="{'has-error': form.monto.$error.integer }")
 									div.form-text
 										label.rut Monto Desde
 									div.form-element
 										input(name="monto" type="text" autocomplete="off" ng-model="stepData[0].data.rut" placeholder="$0" integer-validation)
 
 							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
-								div.input-form
+								div.input-form(ng-class="{'has-error': form.rut.$error.integer }")
 									div.form-text
 										label.rut Hasta
 									div.form-element
-										input(name="name" type="text" autocomplete="off" ng-model="stepData[0].data.forma" placeholder="$500.000")
+										input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.forma" placeholder="$500.000" integer-validation)
 
 							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
-								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="GUARDAR" ng-if="!saving")
 								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
 									img(src="images/spinner.gif")
 
-				wz-step(canexit="exitValidation")
-					h4.text-center.mb-2 Asignación de Funcionalidades Cuenta Corriente
-
-					form.row(name="form")
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.padding-0.abono-pago-type
-							div.col-lg-12.col-md-12.col-sm-12.col-xs-12.p-0
-								div.col-xs-12.user-add
-									span.text Usuarios Ingresados
-									span.count {{userList.length}} usuario(s)
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1
-							div.col-lg-4.col-md-6.col-sm-12.col-xs-6.pt-025
-								label.text Todas las Cuentas
-							div.col-lg-2.col-md-6.col-sm-12.col-xs-6.pl-0
-								md-switch.md-primary(ng-model="stepData[1].data.checkAllAccount", ng-change="checkAll(stepData[1].data.accountStorage, 'checkAllAccount', 1)")
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.account-check
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-6(ng-repeat="account in stepData[1].data.accountStorage")
-								md-checkbox.md-primary(ng-change="check(stepData[1].data.accountStorage, 'checkAllAccount')" ng-model="account.selected") {{account.account}}
-
-
-						div.col-lg-offset-3.col-lg-3.col-md-offset-3.col-md-3.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1.mt-1
-
-							div.col-lg-8.col-md-6.col-sm-12.col-xs-6.pt-025.mb-1
-								label.text Todas los Modulos
-							div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
-								md-switch.md-primary(ng-model="stepData[1].data.checkAllModule", ng-change="checkAll(stepData[1].data.moduleStorage, 'checkAllModule', 1)")
-
-							div.col-lg-12.col-md-12.col-sm-12.col-xs-12.account-check(ng-repeat="module in stepData[1].data.moduleStorage")
-								md-checkbox.md-primary(ng-change="check(stepData[1].data.moduleStorage, 'checkAllModule')" ng-model="module.selected") {{module.name}}
-
-
-						div.col-lg-3.col-md-3.col-sm-3.col-xs-12.padding-0.pos-r.mb-1.mt-1
-
-							div.col-lg-9.col-md-6.col-sm-12.col-xs-6.pt-025.mb-1
-								label.text Modulo Transferencias
-							div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
-								md-switch.md-primary(ng-model="stepData[1].data.checkAllTransferModule", ng-change="checkAll(stepData[1].data.moduleTransferStorage, 'checkAllTransferModule', 1)")
-
-							div.col-lg-12.col-md-12.col-sm-12.col-xs-12.account-check(ng-repeat="module in stepData[1].data.moduleTransferStorage")
-								md-checkbox.md-primary(ng-change="check(stepData[1].data.moduleTransferStorage, 'checkAllTransferModule')" ng-model="module.selected") {{module.name}}
-
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
-							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATRAS
-								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
-								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
-									img(src="images/spinner.gif")
-
-				wz-step(canexit="exitValidation")
-					h4.text-center.mb-2 Tipo de Apoderado y Reglas
-
-					form.row(name="form")
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r(ng-if="stepData[0].data.userType.id == 1")
-							div.placeholder-select
-								label Tipo de Apoderado
-							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
-									md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r(ng-if="stepData[0].data.userType.id == 2")
-							div.placeholder-select
-								label Tipo de Operador
-							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userTypeSelected" ng-model-options="{trackBy: '$value.name'}")
-									md-option.text-uppercase(ng-value="account" ng-repeat="account in userTypeSelected") {{account.name}}
-
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1
-							div.col-lg-5.col-md-6.col-sm-12.col-xs-6.pt-025
-								label.text Asignar todas las Reglas
-							div.col-lg-2.col-md-6.col-sm-12.col-xs-6.pl-0.md-left
-								md-switch.md-primary(ng-model="stepData[2].data.checkAllRule", ng-change="checkAll(stepData[2].data.ruleStorage, 'checkAllRule', 2)")
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-7.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1.left-adjust
-							div.table-responsive.with-scroll(perfect-scroll)
-								table.table.custom
-									colgroup
-										col(width="25%")
-										col(width="25%")
-										col(width="25%")
-										col(width="25%")
-									thead.thead
-										tr.tr
-											th.th.text-left Regla
-											th.th.text-center Montos M&iacute;nimos
-											th.th.text-center Montos M&aacute;ximos
-											th.th.text-right Estado
-									tbody.tbody
-										tr.tr.tr-container(ng-repeat = "item in stepData[2].data.ruleStorage")
-											td.td.text-left
-												md-checkbox.md-primary( ng-model="item.selected")
-												span.rule {{ item.rule }}
-											td.td.text-right {{item.minAmmount}}
-											td.td.text-right {{item.maxAmmount}}
-											td.td.text-right {{item.active === true ? 'Habilitado': 'Deshabilitado'}}
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
-							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATR&Aacute;S
-								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
-								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
-									img(src="images/spinner.gif")
-
-				wz-step.space( canexit="exitValidation")
-					h4.text-center.mb-2
-						b Etapas de Transferencia
-						form.row.space(name="form")
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Usuario
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value APODERADO
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Tipo
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value A
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Reglas
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value 3
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Rut
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value 12345675-7
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Nombres
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value Marcelo Andr&eacute;s
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Apellidos
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value Arriagada Gonzales
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Fecha Nacimiento
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value 11-08-80
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Email
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value mail@mail.com
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Tel&eacute;fono
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value +56 9 123456789
-							div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
-								div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-									button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATR&Aacute;S
-									input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="done()" value="CREAR REGLA" ng-if="!saving")
-									button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
-										img(src="images/spinner.gif")
 

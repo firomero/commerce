@@ -6,7 +6,6 @@ $line-height-message: 25px;
         margin: 0px auto;
         position: absolute;
         min-height: 100vh !important;
-
         .modal-content {
             height: 100%;
             border-radius: 0px;
@@ -54,9 +53,17 @@ $line-height-message: 25px;
                 letter-spacing: -0.03px;
             }
         }
+		.message {
+			line-height: 27px;
+		}
     }
 }
-
+.two-action {
+	button.button-default-inv {
+		margin-top: -0.4em;
+		vertical-align: middle;
+	}
+}
 .modal {
 
     &.bottom-confirm {
@@ -297,7 +304,7 @@ input::-webkit-inner-spin-button {
                 margin-left: -3em;
                 margin-top: -.2em;
             }
-		
+
 		}
 		.modal-content {
 			padding: 1rem;
@@ -392,10 +399,10 @@ input::-webkit-inner-spin-button {
 
     .modal-dialog {
         label {
-            vertical-align: middle;  
+            vertical-align: middle;
             &.pt-em, &.pt-emx {
                 margin-top: .8em;
-            }           
+            }
             &.pt-em {
                  padding-top: .5em;
             }

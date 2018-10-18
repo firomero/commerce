@@ -30,6 +30,8 @@ export default function MenuDirective($uibModal, MoneyChangeService, $timeout) {
 		$scope.toggleDropdown = toggleDropdown;
 		$scope.newTransference = newTransference;
 		$scope.newUser = newUser;
+		$scope.createRule = createRule;
+
 		$scope.$uibModal = $uibModal;
 		activate();
 
@@ -133,6 +135,16 @@ export default function MenuDirective($uibModal, MoneyChangeService, $timeout) {
 			// 		// $scope.reset();
 			// 	}
 			// });
+		}
+
+		function createRule() {
+			const rule = $scope.$uibModal.open({
+				animation: false,
+				template: require('../../../user/view/regla-modal.jade')(),
+				controller: 'ReglaModalController',
+				size: 'lg',
+				windowClass: 'fullscreen'
+			});
 		}
 
 		var inputElement = $element[0].querySelector('.dropdown-menu');

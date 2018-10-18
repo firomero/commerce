@@ -1,101 +1,13 @@
-export default function UserModalController($scope, $timeout, $uibModal, $uibModalInstance, WizardHandler) {
+export default function ReglaModalController($scope, $timeout, $uibModal, $uibModalInstance, WizardHandler) {
 	'ngInject';
 
-	var self = this;
-	// $scope.accounts = JSON.parse(localStorage.getItem('accounts'));
-	// $scope.banks = BankService.getBanks();
 	$scope.saving = false;
-	// $scope.now = new Date();
-	$scope.userTypes = [
-		{
-			id: 1,
-			name: 'APODERADO'
-		},
-		{
-			id: 2,
-			name: 'OPERADOR'
-		}
-	];
-	$scope.userTypeSelected = [
-		{
-			id: 1,
-			name: 'A'
-		},
-		{
-			id: 2,
-			name: 'B'
-		},
-		{
-			id: 3,
-			name: 'C'
-		}
-	];
+
 	$scope.genders = [
 		{id: 1, name: 'Masculino'},
 		{id: 1, name: 'Femenino'}
 	];
-	$scope.accountStorage =
-	// $scope.pagos = [
-	// 	{
-	// 		id: 1,
-	// 		name: 'PAGO PROVEEDORES',
-	// 		text: 'Pago Proveedores'
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		name: 'PAGO REMUNERADOS',
-	// 		text: 'Pago Remunerados'
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		name: 'OTROS PAGOS',
-	// 		text: 'Otros Pagos'
-	// 	}
-	// ];
-	// $scope.formas = [
-	// 	{
-	// 		id: 1,
-	// 		name: 'Cargo a la Cuenta Nº 7003456780000'
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		name: 'Cargo a la Cuenta Nº 7003456235659'
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		name: 'Cargo a la Cuenta Nº 7002332780000'
-	// 	}
-	// ];
-	// $scope.ingresos = [
-	// 	{
-	// 		id: 1,
-	// 		name: 'DOCUMENTO EXCELL',
-	// 		text: 'Documento Excell'
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		name: 'DIGITACIÓN',
-	// 		text: 'en Digitación'
-	// 	}
-	// ];
-	// $scope.destinatarios = [
-	// 	{
-	// 		id: 0,
-	// 		name: 'NUEVO DESTINATARIO'
-	// 	},
-	// 	{
-	// 		id: 1,
-	// 		name: 'EMPRESA DE TRANSPORTES RURALES LIMITADA'
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		name: 'COMPASS GROPU SA ASES DE INVERSIONES'
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		name: 'EXPORTADORA SUBSOLE S.A'
-	// 	}
-	// ];
+	$scope.accountStorage =[];
 	$scope.selectedStep = 1;
 	$scope.stepData = [
 		{step: 1, completed: false, data: {userType: {id: 1,name: 'APODERADO'}, copyFunction: 'NO'}},
@@ -163,31 +75,15 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		}},
 		{step: 4, completed: false, data: {}}
 	];
-	// $scope.userForm = {
-	// 	utilFactura: false
-	// };
-	$scope.userList = [];
-	// self.action = action;
-	// switch (self.action) {
-	// 	case 'NOMINA': {
-	// 		$scope.optionTitle = 'Tipo Nomina';
-	// 		break;
-	// 	}
-	// 	default: {
-	// 		$scope.optionTitle = 'Destinatario';
-	// 		break;
-	// 	}
-	// }
+
+
 
 	$scope.done = done;
 	$scope.close = close;
-	// $scope.addUser = addUser;
-	// $scope.changeTitle = changeTitle;
-	$scope.backStep = backStep;
+
 	$scope.setLoadingStep = setLoadingStep;
-	$scope.checkAll = checkAll;
-	$scope.check = check;
-	$scope.updateUserType = updateUserType;
+
+
 
 	activate();
 
@@ -225,10 +121,6 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		$uibModalInstance.close();
 	}
 
-	function backStep() {
-		$scope.stepData[$scope.selectedStep - 2].completed = false;
-		$scope.selectedStep--;
-	}
 
 	function setLoadingStep() {
 
@@ -242,123 +134,4 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		}, 1000);
 	}
 
-	function checkAll(list, controlValue, index) {
-
-		for (var i = 0; i < list.length; i++) {
-			list[i].selected = $scope.stepData[index].data[controlValue];
-		}
-	}
-
-	function check(list, controlValue) {
-
-		var count = 0;
-		for (var i = 0; i < list.length; i++) {
-			if (list[i].selected) count++;
-		}
-
-		$scope.stepData[1].data[controlValue] = list.length == count ? true : false;
-	}
-
-	function updateUserType($event) {
-		$scope.userTypeText = $event.id == 1 ? 'Apoderado' : 'Operador';
-	}
-
-	// function addUser(user) {
-	// 	$scope.userList.push(user);
-	// 	$scope.userForm = {
-	// 		utilFactura: false,
-	// 		razon: '',
-	// 		rut: '',
-	// 		mail: '',
-	// 		forma: '',
-	// 		bank: '',
-	// 		account: '',
-	// 		monto: ''
-	// 	};
-
-	// 	var message = "Estimado Marcelo se ha ingresado un nuevo Usuario a la nomina";
-	// 	var confirmInstance = $uibModal.open({
-	// 		ariaDescribedBy: 'modal-body',
-	// 		template: require('../../common/components/message-confirm/message-confirm-two-action.jade')(),
-	// 		controller: 'MessageConfirmController',
-	// 		controllerAs: '$ctrl',
-	// 		size: 'lg',
-	// 		backdrop: false,
-	// 		keyboard: false,
-	// 		resolve: {
-	// 			message: () => message,
-	// 			textAction: () => 'CREAR OTRO USUARIO'
-	// 		},
-	// 		windowClass: 'bottom-confirm'
-	// 	});
-
-	// 	confirmInstance.result.then(function (response) {
-
-	// 		if (response != undefined && response.success) {
-	// 			// $scope.enableNextStep();
-	// 		}
-	// 	});
-	// }
-
-	// function finish() {
-
-	// 	if (self.action == 'NEW_TRANSFER') {
-	// 		var message = "Estimado JUAN PABLO Tú Solicitud se ha pasado a estado de AUTORIZACIÓN, se te enviará una notificación cuando los usuarios responsables Autorizen tú transferencia.";
-	// 		var confirmInstance = $uibModal.open({
-	// 			ariaDescribedBy: 'modal-body',
-	// 			template: require('../../common/components/message-confirm/message-confirm.jade')(),
-	// 			controller: 'MessageConfirmController',
-	// 			controllerAs: '$ctrl',
-	// 			size: 'lg',
-	// 			backdrop: false,
-	// 			keyboard: false,
-	// 			resolve: {
-	// 				message: () => message,
-	// 				textPrimaryAction: () => undefined,
-	// 				textAction: () => undefined
-	// 			},
-	// 			windowClass: 'bottom-confirm finish'
-	// 		});
-	// 	} else {
-
-	// 		var message = "Estimado Marcelo su Nomina ha sido Creada Exitosamente a Tú Correo Jpr******@gmail.com.";
-	// 		var confirmInstance = $uibModal.open({
-	// 			ariaDescribedBy: 'modal-body',
-	// 			template: require('../../common/components/message-confirm/message-confirm.jade')(),
-	// 			controller: 'MessageConfirmController',
-	// 			controllerAs: '$ctrl',
-	// 			size: 'lg',
-	// 			backdrop: false,
-	// 			keyboard: false,
-	// 			resolve: {
-	// 				message: () => message,
-	// 				textPrimaryAction: () => undefined,
-	// 				textAction: () => undefined
-	// 			},
-	// 			windowClass: 'bottom-confirm finish'
-	// 		});
-	// 	}
-
-	// 	confirmInstance.result.then(function (response) {
-
-	// 		if (response != undefined && response.success) {
-	// 			$uibModalInstance.close({success: true});
-	// 		}
-	// 	});
-
-	// }
-
-	// function changeTitle() {
-
-	// 	switch (self.action) {
-	// 		case 'NOMINA': {
-	// 			$scope.optionTitle = 'Tipo Nomina';
-	// 			break;
-	// 		}
-	// 		default: {
-	// 			$scope.optionTitle = 'Destinatario';
-	// 			break;
-	// 		}
-	// 	}
-	// }
 }

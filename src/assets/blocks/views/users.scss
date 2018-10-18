@@ -151,7 +151,7 @@
 		&.check {
 			margin-left: -8em;
 			.md-primary:not(.md-checked) {
-				color: $c-gray;
+				color: $c-gray-unchecked;
 			}
 		}
 	}
