@@ -19,6 +19,45 @@
   font-family: HelveticaNeue;
   src: url('fonts/HelveticaNeue.ttf');
 }
+// md-icons
+@font-face {
+   font-family: 'Material Icons';
+   font-style: normal;
+   font-weight: 400;
+   src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+   src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url('fonts/MaterialIcons-Regular.woff2') format('woff2'),
+        url('fonts/MaterialIcons-Regular.woff') format('woff'),
+        url('fonts/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+// md-icons
 
 /*===========================================
 ========= Loading Bootstrap Styles ==========
@@ -43,6 +82,7 @@
 @import 'blocks/extra-layout';
 @import 'blocks/modals';
 @import 'blocks/account-list';
+@import 'blocks/user-profiler';
 @import 'blocks/flex-grid';
 @import 'blocks/table';
 @import 'blocks/tabs';
@@ -66,6 +106,7 @@
 @import 'blocks/views/transfer';
 @import 'blocks/views/transfer-modal';
 @import 'blocks/views/user-modal';
+@import 'blocks/views/users';
 
 .is-focused {
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -85,10 +126,10 @@ md-menu-content {
 
     padding: 0px;
 
-    md-menu-item { 
+    md-menu-item {
 
         cursor: pointer;
-        
+
         a, a:hover {
             color: $c-black;
             text-decoration: none;
@@ -96,7 +137,7 @@ md-menu-content {
     }
 
     md-menu-item.selected {
-        
+
         background-color: $c-gray-light;
     }
 }

@@ -1,6 +1,6 @@
-export default function MenuDirective($uibModal, MoneyChangeService) {
+export default function MenuDirective($uibModal, MoneyChangeService, $timeout) {
 	'ngInject';
-	
+
 	var directive = {
 		restrict: 'E',
 		template: require('./menu.jade')(),
@@ -16,7 +16,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 		$scope.tooglePrice = false;
 		$scope.menuActive = 'INICIO';
 		$scope.menuItems = [{
-			text: 'INICIO', 
+			text: 'INICIO',
 			disabled: false
 		},{
 			text: 'TRANSFERENCIAS',
@@ -25,7 +25,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 			text: 'PRODUCTOS',
 			disabled: false
 		}];
-		
+
 		$scope.showPrice = showPrice;
 		$scope.toggleDropdown = toggleDropdown;
 		$scope.newTransference = newTransference;
@@ -36,11 +36,11 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 		function activate() {
 			$scope.moneyChange = MoneyChangeService.getMoneyChange();
 		}
-		
-		function showPrice() {			
+
+		function showPrice() {
 			$scope.tooglePrice = !$scope.tooglePrice;
 		}
-	
+
 		function toggleDropdown(item) {
 
 			if ($scope.isopen) {
@@ -50,7 +50,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 					$scope.isopen = !$scope.isopen;
 				}
 			}
-			
+
 			if (!$scope.isopen && $scope.tooglePrice) {
 				$scope.tooglePrice = !$scope.tooglePrice;
 			}
@@ -58,7 +58,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 		}
 
 		function newTransference(type) {
-			
+
 			var modalInstance = $scope.$uibModal.open({
 				animation: false,
 				ariaLabelledBy: 'modal-title',
@@ -77,9 +77,9 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 					}
 				}
 			});
-			
+
 			// modalInstance.result.then(function (response) {
-				
+
 			// 	if (response != undefined  && response.success) {
 			// 		// WizardHandler.wizard().reset();
 			// 		// $scope.reset();
@@ -88,7 +88,7 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 		}
 
 		function newUser() {
-			
+
 			var modalInstance = $scope.$uibModal.open({
 				animation: false,
 				template: require('../../../user/view/user-modal.jade')(),
@@ -97,9 +97,37 @@ export default function MenuDirective($uibModal, MoneyChangeService) {
 				size: 'lg',
 				windowClass: 'fullscreen'
 			});
-			
+
+			modalInstance.result.then(() => {
+				let message = "Estimado Juan Pablo El Apoderado Marcelo se ha creado correctamente, Se ha enviado un respaldo a tu correo jor****@gmail.com";
+				let confirmInstance = $uibModal.open({
+					ariaDescribedBy: 'modal-body',
+					template: require('../../components/message-confirm/message-confirm-two-action.jade')(),
+					controller: 'MessageConfirmController',
+					controllerAs: '$ctrl',
+					size: 'lg',
+					backdrop: 'static',
+					keyboard  : false,
+					resolve: {
+						message: () => message,
+						textPrimaryAction: () => 'ACEPTAR',
+						textAction: () => 'CREAR OTRO USUARIO'
+					},
+					windowClass: 'bottom-confirm finish'
+				});
+				confirmInstance.result.then((response) =>
+				{
+					$timeout(() => {
+						if (response.action === 'secundary')
+						{
+							newUser();
+						}
+					},1000)
+				});
+			});
+
 			// modalInstance.result.then(function (response) {
-				
+
 			// 	if (response != undefined  && response.success) {
 			// 		// WizardHandler.wizard().reset();
 			// 		// $scope.reset();

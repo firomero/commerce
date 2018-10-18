@@ -1,0 +1,134 @@
+section.bg-gray.content-container
+	div.container.users
+		div.mt-4
+			user-profiler.bg-toolbar(list="currentCompany.accounts" title="Usuarios Perfilados" rating="rating")
+		div.pos-r.account-movement(ng-if="existAccounts")
+			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData")
+				md-tab(label="ADMINISTRADORES")
+					md-content.poster
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									thead.thead
+										tr.tr
+											th.th Rut
+											th.th Nombres
+											th.th A. Paterno
+											th.th A. Materno
+											th.th Tipo Apoderado
+											th.th Estado
+											th.th Telefono
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat="item in users" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
+												span {{item.rut}}
+											td.td {{item.nombre}}
+											td.td {{item.padre}}
+											td.td {{item.madre}}
+											td.td
+												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td {{item.tel}}
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
+
+				md-tab(label="APODERADOS")
+					md-content.poster
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									thead.thead
+										tr.tr
+											th.th Rut
+											th.th Nombres
+											th.th A. Paterno
+											th.th A. Materno
+											th.th Tipo Apoderado
+											th.th Estado
+											th.th Telefono
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat="item in users" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
+												span {{item.rut}}
+											td.td {{item.nombre}}
+											td.td {{item.padre}}
+											td.td {{item.madre}}
+											td.td
+												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td {{item.tel}}
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
+
+				md-tab(label="OPERADORES")
+					md-content.poster
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="20%")
+										col(width="20%")
+										col(width="20%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+									thead.thead
+										tr.tr
+											th.th Rut
+											th.th Nombres
+											th.th A. Paterno
+											th.th A. Materno
+											th.th Tipo Apoderado
+											th.th Estado
+											th.th Telefono
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in users" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
+												span {{item.rut}}
+											td.td {{item.nombre}}
+											td.td {{item.padre}}
+											td.td {{item.madre}}
+											td.td
+												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td {{item.tel}}
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td
+												div.row.data-container
+													div.col-lg-12.pl-0
+														div.row
+															div.col-lg-4
+																form.input-form
+																	div.form-text
+																		label Tipo
+																	div.form-element
+																		input(name="contact" type="text" ng-model="item.contact.name" autocomplete="off")
+															div.col-lg-4.pl-0.pr-sm-0
+																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
+																	div.form-text
+																		label Mail
+																	div.form-element
+																		input(name="mail" type="text" ng-model="item.contact.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
+																form.input-form
+																	div.form-text
+																		label Celular
+																	div.form-element
+																		input(name="movil" type="text" ng-model="item.contact.phone" autocomplete="off")
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
+
+

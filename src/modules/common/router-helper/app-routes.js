@@ -35,6 +35,12 @@ export default [
 			controller: 'TransferController',
 			controllerAs: '$ctrl',
 			template: require('../../transfer/view/transfer.jade')(),
-		}]
+		},
+			{
+				name: 'app.user',
+				url: 'user/:id',
+				controller: 'UserController',
+				template: require('../../user/view/user.jade')(),
+			}]
 	}
 ];
