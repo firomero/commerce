@@ -145,6 +145,35 @@ export default function MenuDirective($uibModal, MoneyChangeService, $timeout) {
 				size: 'lg',
 				windowClass: 'fullscreen'
 			});
+
+			rule.result.then(()=>{
+				let message = "Estimado Marcelo, se ha ingresado una Nueva Regla al Sistema.";
+				let confirmInstance = $uibModal.open({
+					ariaDescribedBy: 'modal-body',
+					template: require('../../components/message-confirm/message-confirm-two-action.jade')(),
+					controller: 'MessageConfirmController',
+					controllerAs: '$ctrl',
+					size: 'lg',
+					backdrop: 'static',
+					keyboard  : false,
+					resolve: {
+						message: () => message,
+						textPrimaryAction: () => 'ACEPTAR',
+						textAction: () => 'CREAR OTRO REGLA'
+					},
+					windowClass: 'bottom-confirm finish'
+				});
+
+				confirmInstance.result.then((response) =>
+				{
+					$timeout(() => {
+						if (response.action === 'secundary')
+						{
+							createRule();
+						}
+					})
+				});
+			})
 		}
 
 		var inputElement = $element[0].querySelector('.dropdown-menu');
