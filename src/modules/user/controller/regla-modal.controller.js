@@ -75,6 +75,44 @@ export default function ReglaModalController($scope, $timeout, $uibModal, $uibMo
 		}},
 		{step: 4, completed: false, data: {}}
 	];
+	$scope.reglaTypes = [
+		{
+			id: 1,
+			name: 'Cuenta Corrienta'
+		},
+		{
+			id: 2,
+			name: 'Cuenta Vista'
+		}
+	];
+	$scope.noTypes = [
+		{
+			id: 1,
+			name: '1'
+		},
+		{
+			id: 2,
+			name: '2'
+		},
+		{
+			id: 3,
+			name: '3'
+		}
+	];
+	$scope.typeTypes = [
+		{
+			id: 1,
+			name: 'Tipo A'
+		},
+		{
+			id: 2,
+			name: 'Tipo B'
+		},
+		{
+			id: 3,
+			name: 'Tipo C'
+		}
+	];
 
 
 

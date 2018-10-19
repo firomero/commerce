@@ -11,7 +11,7 @@ div.container.user-modal
 		div.col-lg-12
 			wizard(on-finish="finishedWizard()" hide-indicators="true")
 				wz-step(canexit="exitValidation")
-					h4.text-center.mb-2 Creación Nueva Regla, Solicitud Nº {{userRequest}} )
+					h4.text-center.mb-2 Creación Nueva Regla, Solicitud Nº {{userRequest}}
 
 					form.row(name="form")
 						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
@@ -24,7 +24,7 @@ div.container.user-modal
 								label Producto
 							md-input-container.input-form
 								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
-									md-option.text-uppercase(ng-value="type" ng-repeat="type in userTypes") {{type.name}}
+									md-option.text-uppercase(ng-value="type" ng-repeat="type in reglaTypes") {{type.name}}
 
 
 							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
@@ -40,10 +40,63 @@ div.container.user-modal
 										label.rut Hasta
 									div.form-element
 										input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.forma" placeholder="$500.000" integer-validation)
+							form.row.space.stretch-child(name="form")
+								div.col-lg-8.col-md-8.col-sm-8.col-xs-8.text-left.lh-1.text.ajust1
+									b Regla
+								div.col-lg-4.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value
+									b (1A o 1B) y 1C
+						div.col-lg-offset-3.col-lg-1-edit.col-md-offset-3.col-md-1.col-sm-offset-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right1.cornered
+							div.placeholder-select
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+									md-option.text-uppercase(ng-value="type" ng-repeat="type in noTypes")
+										span N
+										sup o
+										span &nbsp; {{type.name}}
 
+						div.col-lg-1.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right2
+							div.placeholder-select
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+									md-option.text-uppercase(ng-value="type" ng-repeat="type in typeTypes") {{type.name}}
+								label.aling-o
+									normal 0
+
+						div.col-lg-1-edit.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right1
+							div.placeholder-select
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+									md-option.text-uppercase(ng-value="type" ng-repeat="type in noTypes")
+										span N
+										sup o
+										span &nbsp; {{type.name}}
+
+						div.col-lg-1.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right2
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+									md-option.text-uppercase(ng-value="type" ng-repeat="type in typeTypes") {{type.name}}
+								label.aling-y
+									normal y
+
+						div.col-lg-1-edit.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right1
+							div.placeholder-select
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+									md-option.text-uppercase(ng-value="type" ng-repeat="type in noTypes")
+										span N
+										sup o
+										span &nbsp; {{type.name}}
+
+						div.col-lg-1.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r
+							div.placeholder-select
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+									md-option.text-uppercase(ng-value="type" ng-repeat="type in typeTypes") {{type.name}}
+
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
 							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
-								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="GUARDAR" ng-if="!saving")
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Guardar" ng-if="!saving")
 								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
 									img(src="images/spinner.gif")
 
