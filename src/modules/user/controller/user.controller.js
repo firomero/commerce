@@ -68,14 +68,17 @@ export default function UserController($scope, userLogin) {
 			}
 		}
 	};
-	$scope.users = [];
+	$scope.administrador = [];
+	$scope.apoderados = [];
+	$scope.operadores = [];
 
 	$scope.toggleUser = toggleUser;
+	$scope.onTabChanges = onTabChanges;
 
-	function toggleUser(item) {
+	function toggleUser(item, collection) {
 		const value = !item.plus;
-		for (let i = 0; i < $scope.users.length; i++) {
-			$scope.users[i].plus = false;
+		for (let i = 0; i < $scope[collection].length; i++) {
+			$scope[collection][i].plus = false;
 		}
 		item.plus = value;
 	}
@@ -102,7 +105,7 @@ export default function UserController($scope, userLogin) {
 
 		for (let i = 0; i < 10 ; i++)
 		{
-			$scope.users.push({
+			$scope.administrador.push({
 				rut: getRandomArbitrary(i,1000),
 				nombre: 'Andres Claudio',
 				padre: 'Gonzales',
@@ -123,7 +126,14 @@ export default function UserController($scope, userLogin) {
 				mail: 'andres.gonzales@gmail.com'
 			})
 		}
+		$scope.apoderados = angular.copy($scope.administrador);
+		$scope.operadores = angular.copy($scope.administrador);
 		$scope.loadTabData = true;
+	}
+
+	function onTabChanges(currentTabIndex) {
+		$scope.selectedIndex = currentTabIndex;
+
 	}
 
 	function getRandomArbitrary(min, max) {

@@ -4,7 +4,7 @@ section.bg-gray.content-container
 			user-profiler.bg-toolbar(list="currentCompany.accounts" title="Usuarios Perfilados" rating="rating")
 		div.pos-r.account-movement(ng-if="existAccounts")
 			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData")
-				md-tab(label="ADMINISTRADORES")
+				md-tab(label="ADMINISTRADORES" md-on-select="onTabChanges(0)")
 					md-content.poster
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -23,14 +23,14 @@ section.bg-gray.content-container
 											th.th Nombres
 											th.th A. Paterno
 											th.th A. Materno
-											th.th Tipo Apoderado
+											th.th Tipo Administrador
 											th.th Estado
 											th.th Telefono
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in users" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in administrador" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item)") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item)") remove
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item, 'administrador')") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item, 'administrador')") remove
 												span {{item.rut}}
 											td.td {{item.nombre}}
 											td.td {{item.padre}}
@@ -146,10 +146,10 @@ section.bg-gray.content-container
 											th.th Estado
 											th.th Telefono
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in users" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in apoderados" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item)") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item)") remove
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item, 'apoderados')") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item, 'apoderados')") remove
 												span {{item.rut}}
 											td.td {{item.nombre}}
 											td.td {{item.padre}}
@@ -261,14 +261,14 @@ section.bg-gray.content-container
 											th.th Nombres
 											th.th A. Paterno
 											th.th A. Materno
-											th.th Tipo Apoderado
+											th.th Tipo Operador
 											th.th Estado
 											th.th Telefono
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in users" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in operadores" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item)") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item)") remove
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item, 'operadores')") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item, 'operadores')") remove
 												span {{item.rut}}
 											td.td {{item.nombre}}
 											td.td {{item.padre}}
