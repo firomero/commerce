@@ -159,7 +159,7 @@ export default function MenuDirective($uibModal, MoneyChangeService, $timeout) {
 					resolve: {
 						message: () => message,
 						textPrimaryAction: () => 'ACEPTAR',
-						textAction: () => 'CREAR OTRO REGLA'
+						textAction: () => 'CREAR OTRA REGLA'
 					},
 					windowClass: 'bottom-confirm finish'
 				});

@@ -45,6 +45,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     $scope.toggleProfile = toggleProfile;
     $scope.changeCom = changeCom;
 	$scope.newUser = newUser;
+	$scope.createRule = createRule;
 
 	function newUser() {
 
@@ -86,7 +87,47 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
 		});
 	}
 
-    activate();
+	function createRule() {
+		const rule = $scope.$uibModal.open({
+			animation: false,
+			template: require('../../user/view/regla-modal.jade')(),
+			controller: 'ReglaModalController',
+			size: 'lg',
+			windowClass: 'fullscreen'
+		});
+
+		rule.result.then(()=>{
+			let message = "Estimado Marcelo, se ha ingresado una Nueva Regla al Sistema.";
+			let confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm-two-action.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: 'static',
+				keyboard  : false,
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => 'ACEPTAR',
+					textAction: () => 'CREAR OTRA REGLA'
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+
+			confirmInstance.result.then((response) =>
+			{
+				$timeout(() => {
+					if (response.action === 'secundary')
+					{
+						createRule();
+					}
+				})
+			});
+		})
+	}
+
+
+	activate();
 
     function activate() {
         for(var i = 0;i < $scope.userCompanies.length;i++) {

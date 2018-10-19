@@ -132,6 +132,8 @@ md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-b
 						span.label Perfilamiento
 					li.link(ng-click="newUser()")
 						span.label Crear Usuario
+					li.link(ng-click="createRule()")
+						span.label Crear Regla
 					li.link
 						span.label
 							a(ui-sref="app.user({id:'list'})" ui-sref-active="active")(ng-click="closeToggle('left')") Usuarios

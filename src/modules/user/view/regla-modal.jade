@@ -44,11 +44,11 @@ div.container.user-modal
 								div.col-lg-8.col-md-8.col-sm-8.col-xs-8.text-left.lh-1.text.ajust1
 									b Regla
 								div.col-lg-4.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value
-									b (1A o 1B) y 1C
+									b ({{ruleComponent1.name}}{{ruleComponentA.name}} o {{ruleComponent2.name}}{{ruleComponentB.name}}) y {{ruleComponent3.name}}{{ruleComponentC.name}}
 						div.col-lg-offset-3.col-lg-1-edit.col-md-offset-3.col-md-1.col-sm-offset-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right1.cornered
 							div.placeholder-select
 							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+								md-select.md-no-underline(ng-model="ruleComponent1" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in noTypes")
 										span N
 										sup o
@@ -57,7 +57,7 @@ div.container.user-modal
 						div.col-lg-1.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right2
 							div.placeholder-select
 							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+								md-select.md-no-underline(ng-model="ruleComponentA" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in typeTypes") {{type.name}}
 								label.aling-o
 									normal 0
@@ -65,7 +65,7 @@ div.container.user-modal
 						div.col-lg-1-edit.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right1
 							div.placeholder-select
 							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+								md-select.md-no-underline(ng-model="ruleComponent2" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in noTypes")
 										span N
 										sup o
@@ -73,7 +73,7 @@ div.container.user-modal
 
 						div.col-lg-1.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right2
 							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+								md-select.md-no-underline(ng-model="ruleComponentB" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in typeTypes") {{type.name}}
 								label.aling-y
 									normal y
@@ -81,7 +81,7 @@ div.container.user-modal
 						div.col-lg-1-edit.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r.space-right1
 							div.placeholder-select
 							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+								md-select.md-no-underline(ng-model="ruleComponent3" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in noTypes")
 										span N
 										sup o
@@ -90,7 +90,7 @@ div.container.user-modal
 						div.col-lg-1.col-md-1.col-sm-1.col-xs-1.padding-0.pos-r
 							div.placeholder-select
 							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+								md-select.md-no-underline(ng-model="ruleComponentC" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in typeTypes") {{type.name}}
 
 						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
