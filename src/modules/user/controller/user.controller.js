@@ -1,6 +1,7 @@
 export default function UserController($scope, userLogin) {
 	'ngInject';
 
+	let self = this;
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
@@ -144,6 +145,14 @@ export default function UserController($scope, userLogin) {
 		min = Math.ceil(min);
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function pagination(list) {
+
+		self[list + 'All'].forEach((item) => {
+			self[list].push(item);
+		});
+		self[list + 'Pagination'] = false;
 	}
 
 }
