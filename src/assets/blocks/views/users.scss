@@ -185,6 +185,7 @@
 }
 
 /*MEDIA SCREEN*/
+
 @media (max-width: 500px) {
 	.users user-profiler.bg-toolbar .action-container {
 		bottom: -50px!important;
@@ -193,6 +194,17 @@
 	.users .account-movement { margin-top: -30px; }
 	.users .documents {
 		padding-right: 2rem!important;
+	}
+	.users {
+		.adjust-type {
+
+			padding-left: 0em;
+		}
+		 md-switch.adjust-pendiente {
+			 .md-label {
+					 margin-left: 3em;
+			 }
+		 }
 	}
 }
 @media (min-width: 501px) and (max-width: 766px)  {
@@ -214,6 +226,7 @@
 		width: 100% !important;
 		margin-left: 0px;
 	}
+
 	.users .radio-container-selector { margin-bottom: 15px;position: relative; }
 	.button-default.button-load.col-lg-2.col-md-2.col-sm-3.col-xs-5 {
 		margin-top: 5px;
@@ -258,6 +271,9 @@
 				margin-left: -1em;
 			}
 		}
+		.adjust-type {
+			width: 102%;
+		}
 	}
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
@@ -301,8 +317,12 @@
 			.col-md-12.pl-0.pr-0 {
 				padding-left: 1em!important;
 			}
-
-
+		}
+		.adjust-cel {
+			width: 98%;
+		}
+		.mt-5a {
+			margin-top: 5.7em;
 		}
 		div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0.check {
 			margin-left: -4em;

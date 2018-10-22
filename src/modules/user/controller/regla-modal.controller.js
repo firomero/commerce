@@ -102,15 +102,18 @@ export default function ReglaModalController($scope, $timeout, $uibModal, $uibMo
 	$scope.typeTypes = [
 		{
 			id: 1,
-			name: 'A'
+			name: 'Tipo A',
+			key: 'A'
 		},
 		{
 			id: 2,
-			name: 'B'
+			name: 'Tipo B',
+			key: 'B'
 		},
 		{
 			id: 3,
-			name: 'C'
+			name: 'Tipo C',
+			key: 'C'
 		}
 	];
     $scope.ruleComponent1 = $scope.noTypes[0];

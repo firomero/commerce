@@ -159,6 +159,42 @@ user-profiler.bg-toolbar {
 
 }
 /*MEDIA SCREEN*/
+@media (max-width: 320px) { //col-xs
+	.col-xs-4 {
+		width: 60.333333%;
+	}
+}
+@media (max-width: 375px) { //col-xs
+	user-profiler  {
+		.tag-value.aling1 {
+			padding-left: 3em;
+		}
+		.tag-value.aling {
+			margin-left: -3.7em;
+		}
+		.tag-value.aling2 {
+			padding-left: 2em;
+		}
+	}
+	.mt-5a {
+		margin-top: 6em;
+	}
+	.row {
+		.xs-ajust {
+			width: 105%;
+		}
+	}
+}
+@media (max-width: 425px) { //col-xs
+	user-profiler  {
+		.tag-value.aling {
+			padding-left: 7.8em;
+		}
+	}
+	.mt-5a {
+		margin-top: 6em;
+	}
+}
 @media (max-width: 767px) {//col-xs
 	user-profiler md-tab-content {
 		min-height: 430px;
@@ -191,11 +227,17 @@ user-profiler.bg-toolbar {
 	user-profiler .title { position: relative; }
 	user-profiler  {
 		.tag-value.aling {
-			margin-left: -2.1em;
+			margin-left: 0em;
+		}
+		.tag-value.aling1 {
+			margin-left: -2em;
 		}
 	}
 	user-profiler md-tabs { margin-top: 1rem; }
 	.border-left {margin-top: 2rem;border-left: none !important;}
+	.mt-5a {
+		margin-top: 6.5em;
+	}
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
 	user-profiler md-tab-content {

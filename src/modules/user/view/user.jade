@@ -45,7 +45,7 @@ section.bg-gray.content-container
 												div.row.data-container
 													div.col-lg-12.pl-0
 														div.row
-															div.col-lg-4
+															div.col-lg-4.adjust-type
 																form.input-form
 																	div.form-text
 																		label Tipo
@@ -57,7 +57,7 @@ section.bg-gray.content-container
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -81,7 +81,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Estado
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		md-switch.md-primary Pendiente a Autorizaci&oacute;n
+																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Reglas
@@ -121,7 +121,7 @@ section.bg-gray.content-container
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('administrador')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 				md-tab(label="APODERADOS" md-on-select="onTabChanges(1)" ng-disabled="currentCompany.rol !== 'APODERADO'")
 					md-content.poster
@@ -164,7 +164,7 @@ section.bg-gray.content-container
 												div.row.data-container
 													div.col-lg-12.pl-0
 														div.row
-															div.col-lg-4
+															div.col-lg-4.adjust-type
 																form.input-form
 																	div.form-text
 																		label Tipo
@@ -176,7 +176,7 @@ section.bg-gray.content-container
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -240,7 +240,7 @@ section.bg-gray.content-container
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('apoderados')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 				md-tab(label="OPERADORES" md-on-select="onTabChanges(2)" ng-disabled="currentCompany.rol !== 'OPERADOR'")
 					md-content.poster
@@ -283,7 +283,7 @@ section.bg-gray.content-container
 												div.row.data-container
 													div.col-lg-12.pl-0
 														div.row
-															div.col-lg-4
+															div.col-lg-4.adjust-type
 																form.input-form
 																	div.form-text
 																		label Tipo
@@ -295,7 +295,7 @@ section.bg-gray.content-container
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -359,7 +359,7 @@ section.bg-gray.content-container
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('operadores')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 
 
