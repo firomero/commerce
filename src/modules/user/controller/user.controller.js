@@ -1,6 +1,7 @@
 export default function UserController($scope, userLogin) {
 	'ngInject';
 
+	let self = this;
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
@@ -68,14 +69,18 @@ export default function UserController($scope, userLogin) {
 			}
 		}
 	};
-	$scope.users = [];
+	$scope.administrador = [];
+	$scope.apoderados = [];
+	$scope.operadores = [];
+	$scope.labels = ['ADMINISTRADOR', 'APODERADO', 'OPERADOR'];
 
 	$scope.toggleUser = toggleUser;
+	$scope.onTabChanges = onTabChanges;
 
-	function toggleUser(item) {
+	function toggleUser(item, collection) {
 		const value = !item.plus;
-		for (let i = 0; i < $scope.users.length; i++) {
-			$scope.users[i].plus = false;
+		for (let i = 0; i < $scope[collection].length; i++) {
+			$scope[collection][i].plus = false;
 		}
 		item.plus = value;
 	}
@@ -94,6 +99,7 @@ export default function UserController($scope, userLogin) {
 				break;
 			}
 		}
+		$scope.selectedIndex = $scope.labels.indexOf($scope.currentCompany.rol);
 
 		if ($scope.currentCompany.accounts.length) {
 			$scope.existAccounts = true;
@@ -102,7 +108,7 @@ export default function UserController($scope, userLogin) {
 
 		for (let i = 0; i < 10 ; i++)
 		{
-			$scope.users.push({
+			$scope.administrador.push({
 				rut: getRandomArbitrary(i,1000),
 				nombre: 'Andres Claudio',
 				padre: 'Gonzales',
@@ -123,7 +129,14 @@ export default function UserController($scope, userLogin) {
 				mail: 'andres.gonzales@gmail.com'
 			})
 		}
+		$scope.apoderados = angular.copy($scope.administrador);
+		$scope.operadores = angular.copy($scope.administrador);
 		$scope.loadTabData = true;
+	}
+
+	function onTabChanges(currentTabIndex) {
+		$scope.selectedIndex = currentTabIndex;
+
 	}
 
 	function getRandomArbitrary(min, max) {
@@ -135,5 +148,30 @@ export default function UserController($scope, userLogin) {
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
+
+	function pagination(list) {
+
+		self[list + 'All'].forEach((item) => {
+			self[list].push(item);
+		});
+		self[list + 'Pagination'] = false;
+	}
+
+	$scope.$on('company::change', function (data) {
+
+		$scope.loadAccounts = true;
+		self.showAuthorize = false;
+
+		$timeout(function () {
+			$scope.currentCompany = data.targetScope.currentCompany;
+			if (!$scope.currentCompany.accounts.length) {
+				$scope.existAccounts = false;
+			} else {
+				$scope.existAccounts = true;
+			}
+			self.accounts = $scope.currentCompany.accounts;
+			$scope.loadAccounts = false;
+		}, 30);
+	});
 
 }

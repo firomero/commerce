@@ -1,0 +1,127 @@
+div.container.sii-modal
+	div.header.mt-2.mb-0
+		div.logo
+			img.logo(src="images/isologo-premium-modal.png")
+		div.close
+			i.material-icons(ng-click="close()") close
+
+	div.title.mb-3
+		h3 Pago de SII
+
+	div.indicator-container.ajust
+		div.row.step-strip
+			div.strip.col-lg-offset-4-5.col-lg-1.col-md-offset-4-5.col-md-1.col-sm-offset-3.col-sm-2.col-xs-offset-1-5.col-xs-3(ng-class="{'pending': stepData[0].completed}")
+			div.strip.col-lg-1.col-md-1.col-sm-2.col-xs-3(ng-class="{'pending': stepData[1].completed}")
+		div.row.step-indicators
+			div.col-lg-offset-4.col-lg-1.col-md-offset-4.col-md-1.col-sm-offset-2.col-sm-2.col-xs-3.indicator.pending
+				span.icon(ng-if="!stepData[0].completed") 1
+				span.icon(ng-if="stepData[0].completed")
+					i.material-icons check
+				span.sub-title Usuario
+
+			div.col-lg-1.col-md-1.col-sm-2.col-xs-3.indicator(ng-class="{'pending': stepData[0].completed}")
+				span.icon(ng-if="!stepData[1].completed") 2
+				span.icon(ng-if="stepData[1].completed")
+					i.material-icons check
+				span.sub-title Empresa
+
+			div.col-lg-1.col-md-1.col-sm-2.col-xs-3.indicator(ng-class="{'pending': stepData[1].completed}")
+				span.icon(ng-if="!stepData[2].completed") 3
+				span.icon(ng-if="stepData[2].completed")
+					i.material-icons check
+				span.sub-title Confirmación
+
+	div.row.mb-6
+		div.col-lg-12
+			wizard(on-finish="finishedWizard()" hide-indicators="true")
+				wz-step(canexit="exitValidation")
+					h4.text-center.mb-2  Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do
+					form.row(name="form")
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+							div.input-form(ng-class="{'has-error': form.rut.$error.integer }")
+								div.form-text
+									i.material-icons.cso-form-glass__input-icon account_circle
+									label.rut Rut
+								div.form-element
+									input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut"  placeholder="Ingresar" integer-validation)
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
+							div.input-form
+								div.form-text
+									i.material-icons.cso-form-glass__input-icon https
+									label.rut Clave
+								div.form-element
+									input(name="motivo" type="text" autocomplete="off" ng-model="stepData[0].data.password")
+
+							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
+								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
+									img(src="images/spinner.gif")
+
+				wz-step(canexit="exitValidation")
+					h4.text-center.mb-2  Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do
+					form.row(name="form")
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+							div.placeholder-select
+								label Empresa
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="stepData[1].data.enterprise" ng-model-options="{trackBy: '$value.name'}" ng-change="stepAccount(stepData[1].data.enterprise)")
+									md-option.text-uppercase(ng-value="enterprise" ng-repeat="enterprise in enterprises") {{enterprise.name}}
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.backem
+							div.placeholder-select
+									label Cuenta
+							md-input-container.input-form
+								md-select.md-no-underline(ng-model="selectedAccount" ng-model-options="{trackBy: '$value.number'}")
+									md-option.text-uppercase(ng-value="account" ng-repeat="account in accounts") {{account.number}}
+
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.backem
+							div.input-form
+								div.form-text
+									label.rut Saldo Disponible
+								div.form-element
+									input(name="motivo" type="text" autocomplete="off" ng-model="selectedAccount.amount")
+
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
+							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATRAS
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
+								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
+									img(src="images/spinner.gif")
+
+				wz-step.space( canexit="exitValidation")
+					h4.text-center.mb-5  Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do
+					div.row
+						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+							form.space.stretch-child(name="form")
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Concepto
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Concepto
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Concepto
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Concepto
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Concepto
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Concepto
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+					div.row
+									div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
+										div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+											button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATR&Aacute;S
+											input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="done()" value="INGRESAR PAGO" ng-if="!saving")
+											button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
+												img(src="images/spinner.gif")
+

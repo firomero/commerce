@@ -51,14 +51,14 @@ div.container.user-modal
 								label.mb-0 Estimado cliente
 								p.mb-0 La siguiente solicitud posee un tiempo de Aprobación de 48 horas habiles, desde la entrega del documento a las dependencias del Banco Consorcio.
 
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.adjust-field3
 							div.placeholder-select
 								label Usuario
 							md-input-container.input-form
 								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in userTypes") {{type.name}}
 
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-3(ng-if="stepData[0].data.userType.id == 1")
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.adjust-field3.mb-3(ng-if="stepData[0].data.userType.id == 1")
 							div.placeholder-select
 								label Tipo de Apoderado
 							md-input-container.input-form
@@ -85,56 +85,56 @@ div.container.user-modal
 									span.text Usuarios Ingresados
 									span.count {{userList.length}} usuario(s)
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0.adjust-field1
 								div.input-form(ng-class="{'has-error': form.rut.$error.integer }")
 									div.form-text
 										label.rut Rut
 									div.form-element
 										input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut" placeholder="Ingresar" integer-validation)
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0.adjust-field2
 								div.input-form
 									div.form-text
 										label.rut Forma de Abono
 									div.form-element
 										input(name="name" type="text" autocomplete="off" ng-model="stepData[0].data.forma" placeholder="Ingresar")
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0.adjust-field1
 								div.input-form
 									div.form-text
 										label.rut Apellido Paterno
 									div.form-element
 										input(name="firstName" type="text" autocomplete="off" ng-model="stepData[0].data.firstName" placeholder="Ingresar")
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0.adjust-field2
 								div.input-form
 									div.form-text
 										label.rut Apellido Materno
 									div.form-element
 										input(name="lastName" type="text" autocomplete="off" ng-model="stepData[0].data.lastName" placeholder="Ingresar")
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0.adjust-field1
 								div.input-form
 									div.form-text
 										label.rut Fecha de Nac.
 									div.form-element
 										input(name="nac" type="text" autocomplete="off" ng-model="stepData[0].data.nac" mask="99 / 99 / 9999" placeholder="_ / _ / _")
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0.adjust-field2
 								div.input-form(ng-class="{'has-error': form.email.$error.mail }")
 									div.form-text
 										label.rut Email
 									div.form-element
 										input(name="email" type="text" autocomplete="off" ng-model="stepData[0].data.email" placeholder="Ingresar" mail-validation)
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0.adjust-field1
 								div.input-form
 									div.form-text
 										label.rut Teléfono
 									div.form-element
 										input(name="phone" type="text" autocomplete="off" ng-model="stepData[0].data.phone" placeholder="Ingresar")
 
-							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0
+							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0.adjust-field2
 								div.placeholder-select
 									label Sexo
 								md-input-container.input-form
@@ -253,38 +253,50 @@ div.container.user-modal
 				wz-step.space( canexit="exitValidation")
 					h4.text-center.mb-2
 						b Etapas de Transferencia
-						form.row.space.stretch-child(name="form")
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Usuario
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value APODERADO
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Tipo
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value A
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Reglas
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value 3
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Rut
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value 12345675-7
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Nombres
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value Marcelo Andr&eacute;s
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Apellidos
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value Arriagada Gonzales
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Fecha Nacimiento
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value 11-08-80
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-8.text-left.lh-1.text
-								b Email
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-4.text-right.lh-1.value mail@mail.com
-							div.mt-em.col-lg-6.col-lg-offset-2.col-md-6.col-sm-6.col-sm-offset-1.col-xs-6.text-left.lh-1.text
-								b Tel&eacute;fono
-							div.col-lg-2.col-md-4.col-sm-5.col-xs-6.text-right.lh-1.value +56 9 123456789
-							div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
-								div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
-									button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATR&Aacute;S
-									input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="done()" value="CREAR USUARIO" ng-if="!saving")
-									button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
-										img(src="images/spinner.gif")
+					div.row
+						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+							form.space.stretch-child(name="form")
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Usuario
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value APODERADO
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Tipo
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value A
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Reglas
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 3
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Rut
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 12345675-7
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Nombres
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value Marcelo Andr&eacute;s
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Apellidos
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value Arriagada Gonzales
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Fecha Nacimiento
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 11-08-80
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Email
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value mail@mail.com
+								div.row
+									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
+										b Tel&eacute;fono
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value +56 9 123456789
+					div.row
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
+							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
+								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATR&Aacute;S
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="done()" value="CREAR USUARIO" ng-if="!saving")
+								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
+									img(src="images/spinner.gif")
 

@@ -1,9 +1,9 @@
 .user-modal {
-
-	.space.stretch-child {
+     overflow: hidden;
+	/*.space.stretch-child {
 		width: 75%;
 		margin-left: 9em;
-	}
+	}*/
     md-switch.md-checked.md-primary .md-thumb {
         background-color: $c-green-firm;
     }
@@ -318,6 +318,7 @@
 }
 
 /*MEDIA SCREEN*/
+
 @media (max-width: 767px) {//col-xs
     .user-modal .padding-0 { padding: 0px 15px; }
     .user-modal .placeholder-select { left: 22px; }
@@ -339,7 +340,32 @@
 	}
 
 }
-@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+@media (min-width: 992px) and (max-width: 1024px)  {//col-sm
+	.user-modal {
+		.adjust-field2 {
+			width: 43%;
+			margin-left: 2em;
+		}
+		.adjust-field1 {
+			width: 46%;
+		}
+		.adjust-field3 {
+			width: 45%;
+		}
+	}
+	.user-modal .destinatario md-radio-group md-radio-button:last-child {
+		margin-left: 4rem;
+	}
+	.user-modal .input-form {
+		width: 111%;
+	}
+
+	.user-modal .placeholder-select label, .user-modal .input-form .form-text label {
+		line-height: 27px;
+	}
+
+}
+@media (min-width: 1025px) and (max-width: 1199px)  {//col-md
     .user-modal .destinatario md-radio-group md-radio-button:last-child {
         margin-left: 4rem;
     }

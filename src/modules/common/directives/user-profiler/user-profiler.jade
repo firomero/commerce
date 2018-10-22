@@ -8,14 +8,13 @@ div.pos-r
 								small.card-text.mb-1.col-xs-12 Vigentes
 								div.price.col-xs-12 54 Usuarios
 									i.material-icons.green check
-
 							div.row
 								span.tag.col-lg-6.col-md-4.col-xs-7.mt-1
 									small.tag-text.col-xs-6 Administradores
-									small.tag-value.col-xs-6 4
+									small.tag-value.aling1.col-xs-6 4
 								span.tag.col-lg-6.col-md-3.col-xs-5.mt-1
 									small.tag-text.col-xs-7 Operadores
-									small.tag-value.col-xs-5 40
+									small.tag-value.aling2.col-xs-5 40
 								span.tag.col-lg-10.col-md-6.col-xs-6.mt-1
 									small.tag-text.col-xs-6 Apoderados
 									small.tag-value.aling.col-xs-6 10
@@ -24,7 +23,7 @@ div.pos-r
 							div.row.mb-1
 								small.card-text.mb-1.col-xs-12 Solicitudes
 
-							div.row
+							div.row.xs-ajust
 								div.col-xs-4.mt-1
 									ui-knob(value="rating.admin.value" options="rating.admin.options")
 								div.col-xs-4.mt-1
@@ -34,7 +33,7 @@ div.pos-r
 
 					div.action-container
 						div.action.text-center
-							md-button.md-fab.success
+							md-button.md-fab.success(ng-click="createRule()")
 								i.material-icons.rotate90 settings
 							div.button-text.text-center Crear regla
 						div.action.text-center

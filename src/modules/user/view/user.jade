@@ -3,8 +3,8 @@ section.bg-gray.content-container
 		div.mt-4
 			user-profiler.bg-toolbar(list="currentCompany.accounts" title="Usuarios Perfilados" rating="rating")
 		div.pos-r.account-movement(ng-if="existAccounts")
-			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData")
-				md-tab(label="ADMINISTRADORES")
+			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
+				md-tab(label="ADMINISTRADORES" md-on-select="onTabChanges(0)" ng-disabled="currentCompany.rol !== 'ADMINISTRADOR'")
 					md-content.poster
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -23,14 +23,14 @@ section.bg-gray.content-container
 											th.th Nombres
 											th.th A. Paterno
 											th.th A. Materno
-											th.th Tipo Apoderado
+											th.th Tipo Administrador
 											th.th Estado
 											th.th Telefono
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in users" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in administrador" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item)") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item)") remove
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item, 'administrador')") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item, 'administrador')") remove
 												span {{item.rut}}
 											td.td {{item.nombre}}
 											td.td {{item.padre}}
@@ -45,7 +45,7 @@ section.bg-gray.content-container
 												div.row.data-container
 													div.col-lg-12.pl-0
 														div.row
-															div.col-lg-4
+															div.col-lg-4.adjust-type
 																form.input-form
 																	div.form-text
 																		label Tipo
@@ -57,7 +57,7 @@ section.bg-gray.content-container
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -81,7 +81,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Estado
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		md-switch.md-primary Pendiente a Autorizaci&oacute;n
+																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Reglas
@@ -121,9 +121,9 @@ section.bg-gray.content-container
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('administrador')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
-				md-tab(label="APODERADOS")
+				md-tab(label="APODERADOS" md-on-select="onTabChanges(1)" ng-disabled="currentCompany.rol !== 'APODERADO'")
 					md-content.poster
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -146,10 +146,10 @@ section.bg-gray.content-container
 											th.th Estado
 											th.th Telefono
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in users" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in apoderados" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item)") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item)") remove
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item, 'apoderados')") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item, 'apoderados')") remove
 												span {{item.rut}}
 											td.td {{item.nombre}}
 											td.td {{item.padre}}
@@ -164,7 +164,7 @@ section.bg-gray.content-container
 												div.row.data-container
 													div.col-lg-12.pl-0
 														div.row
-															div.col-lg-4
+															div.col-lg-4.adjust-type
 																form.input-form
 																	div.form-text
 																		label Tipo
@@ -176,7 +176,7 @@ section.bg-gray.content-container
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -240,9 +240,9 @@ section.bg-gray.content-container
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('apoderados')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
-				md-tab(label="OPERADORES")
+				md-tab(label="OPERADORES" md-on-select="onTabChanges(2)" ng-disabled="currentCompany.rol !== 'OPERADOR'")
 					md-content.poster
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -261,14 +261,14 @@ section.bg-gray.content-container
 											th.th Nombres
 											th.th A. Paterno
 											th.th A. Materno
-											th.th Tipo Apoderado
+											th.th Tipo Operador
 											th.th Estado
 											th.th Telefono
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in users" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in operadores" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item)") add
-												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item)") remove
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleUser(item, 'operadores')") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleUser(item, 'operadores')") remove
 												span {{item.rut}}
 											td.td {{item.nombre}}
 											td.td {{item.padre}}
@@ -283,7 +283,7 @@ section.bg-gray.content-container
 												div.row.data-container
 													div.col-lg-12.pl-0
 														div.row
-															div.col-lg-4
+															div.col-lg-4.adjust-type
 																form.input-form
 																	div.form-text
 																		label Tipo
@@ -295,7 +295,7 @@ section.bg-gray.content-container
 																		label Mail
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
@@ -359,7 +359,7 @@ section.bg-gray.content-container
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('operadores')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 
 
