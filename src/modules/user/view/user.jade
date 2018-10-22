@@ -3,8 +3,8 @@ section.bg-gray.content-container
 		div.mt-4
 			user-profiler.bg-toolbar(list="currentCompany.accounts" title="Usuarios Perfilados" rating="rating")
 		div.pos-r.account-movement(ng-if="existAccounts")
-			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData")
-				md-tab(label="ADMINISTRADORES" md-on-select="onTabChanges(0)")
+			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
+				md-tab(label="ADMINISTRADORES" md-on-select="onTabChanges(0)" ng-disabled="currentCompany.rol !== 'ADMINISTRADOR'")
 					md-content.poster
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -123,7 +123,7 @@ section.bg-gray.content-container
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
-				md-tab(label="APODERADOS")
+				md-tab(label="APODERADOS" md-on-select="onTabChanges(1)" ng-disabled="currentCompany.rol !== 'APODERADO'")
 					md-content.poster
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
@@ -242,7 +242,7 @@ section.bg-gray.content-container
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
-				md-tab(label="OPERADORES")
+				md-tab(label="OPERADORES" md-on-select="onTabChanges(2)" ng-disabled="currentCompany.rol !== 'OPERADOR'")
 					md-content.poster
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive

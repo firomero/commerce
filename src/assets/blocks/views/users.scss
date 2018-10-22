@@ -161,6 +161,7 @@
 	.pb-e8.pt-em,  .pt-em {
 		padding-top: .4em;
 	}
+
 }
 
 
@@ -216,6 +217,10 @@
 	.users .radio-container-selector { margin-bottom: 15px;position: relative; }
 	.button-default.button-load.col-lg-2.col-md-2.col-sm-3.col-xs-5 {
 		margin-top: 5px;
+	}
+	.button-load {
+		float: none;
+		left: 250%;
 	}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm

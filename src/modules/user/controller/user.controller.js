@@ -71,6 +71,7 @@ export default function UserController($scope, userLogin) {
 	$scope.administrador = [];
 	$scope.apoderados = [];
 	$scope.operadores = [];
+	$scope.labels = ['ADMINISTRADOR', 'APODERADO', 'OPERADOR'];
 
 	$scope.toggleUser = toggleUser;
 	$scope.onTabChanges = onTabChanges;
@@ -97,6 +98,7 @@ export default function UserController($scope, userLogin) {
 				break;
 			}
 		}
+		$scope.selectedIndex = $scope.labels.indexOf($scope.currentCompany.rol);
 
 		if ($scope.currentCompany.accounts.length) {
 			$scope.existAccounts = true;
@@ -145,5 +147,22 @@ export default function UserController($scope, userLogin) {
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
+
+	$scope.$on('company::change', function (data) {
+
+		$scope.loadAccounts = true;
+		self.showAuthorize = false;
+		
+		$timeout(function () {
+			$scope.currentCompany = data.targetScope.currentCompany;
+			if (!$scope.currentCompany.accounts.length) {
+				$scope.existAccounts = false;
+			} else {
+				$scope.existAccounts = true;
+			}
+			self.accounts = $scope.currentCompany.accounts;
+			$scope.loadAccounts = false;
+		}, 30);
+	});
 
 }
