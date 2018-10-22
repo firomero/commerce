@@ -42,13 +42,13 @@
 				}
 			}
         }
-        
+
         .form-text i {
             color: $sill-color;
             font-size: 25px;
             display: inline-block;
             vertical-align: top;
-            line-height: 34px;        
+            line-height: 34px;
         }
 
         .form-text label {
@@ -81,7 +81,7 @@
                 font-weight: 400;
                 letter-spacing: -0.41px;
                 line-height: 32px;
-        
+
                 &::-webkit-input-placeholder { color: $c-white; }
                 &::-moz-placeholder { color: $c-white; }
                 &::-ms-input-placeholder { color: $c-white; }
@@ -206,6 +206,16 @@
     md-switch.md-checked.md-primary .md-thumb {
         background-color: $c-green-firm;
     }
+	.backem {
+		border-radius: 5px;
+		background-color: #ffffe5;
+		border: 1px solid #fbf065;
+		color: #4a4a4a;
+		md-input-container, .input-form {
+			background-color: #ffffe5;
+		}
+
+	}
 
 }
 /*MEDIA SCREEN*/
@@ -257,24 +267,24 @@
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
     .sii-modal .radio-container md-radio-group md-radio-button:last-child {
-        
+
         margin-right: 7em;
-        
+
     }
 }
 @media (min-width: 992px) and (max-width: 1199px)  {//col-md
      .sii-modal .radio-container md-radio-group md-radio-button:last-child {
-        
+
         margin-right: 14em;
-        
+
     }
 
 }
 @media (min-width: 1200px) {//col-lg
      .sii-modal .radio-container md-radio-group md-radio-button:last-child {
-        
+
         margin-right: 14em;
-        
+
     }
 
 }
