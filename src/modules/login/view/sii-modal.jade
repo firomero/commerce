@@ -37,24 +37,24 @@ div.container.sii-modal
 				wz-step(canexit="exitValidation")
 					h4.text-center.mb-2  Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do
 					form.row(name="form")
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.adjust-rut
 							div.input-form(ng-class="{'has-error': form.rut.$error.integer }")
 								div.form-text
 									i.material-icons.cso-form-glass__input-icon account_circle
 									label.rut Rut
 								div.form-element
-									input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut"  placeholder="Ingresar" integer-validation)
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0
+									input(name="rut" type="text" autocomplete="off" ng-model="stepData[0].data.rut"  placeholder="Ingresar" mask="99.999.999-9" required="required")
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.adjust-pass
 							div.input-form
 								div.form-text
 									i.material-icons.cso-form-glass__input-icon https
 									label.rut Clave
 								div.form-element
-									input(name="motivo" type="text" autocomplete="off" ng-model="stepData[0].data.password")
+									input(name="motivo" type="text" autocomplete="off" ng-model="stepData[0].data.password" required="required")
 
 							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
-								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!form.rut.$valid")
 								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
 									img(src="images/spinner.gif")
 
@@ -67,15 +67,15 @@ div.container.sii-modal
 							md-input-container.input-form
 								md-select.md-no-underline(ng-model="stepData[1].data.enterprise" ng-model-options="{trackBy: '$value.name'}" ng-change="stepAccount(stepData[1].data.enterprise)")
 									md-option.text-uppercase(ng-value="enterprise" ng-repeat="enterprise in enterprises") {{enterprise.name}}
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.backem
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
 							div.placeholder-select
 									label Cuenta
-							md-input-container.input-form
+							md-input-container.input-form.yellow
 								md-select.md-no-underline(ng-model="selectedAccount" ng-model-options="{trackBy: '$value.number'}")
 									md-option.text-uppercase(ng-value="account" ng-repeat="account in accounts") {{account.number}}
 
-						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.backem
-							div.input-form
+						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.mt-minus-1
+							div.input-form.yellow
 								div.form-text
 									label.rut Saldo Disponible
 								div.form-element
@@ -84,7 +84,7 @@ div.container.sii-modal
 						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
 							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(wz-previous="backStep()") ATRAS
-								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving" ng-disabled="!stepData[1].data.enterprise")
 								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
 									img(src="images/spinner.gif")
 
@@ -96,27 +96,27 @@ div.container.sii-modal
 								div.row
 									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
 										b Concepto
-									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value $78565652849587
 								div.row
 									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
 										b Concepto
-									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value $78565652849587
 								div.row
 									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
 										b Concepto
-									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value $78565652849587
 								div.row
 									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
 										b Concepto
-									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value $78565652849587
 								div.row
 									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
 										b Concepto
-									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value $78565652849587
 								div.row
 									div.mb-2.mt-em.col-lg-6.col-md-6.col-sm-6.col-xs-5.text-left.lh-1.text
 										b Concepto
-									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value 78565652849587
+									div.col-lg-6.col-md-6.col-sm-6.col-xs-7.text-right.lh-1.value $78565652849587
 					div.row
 									div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
 										div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2

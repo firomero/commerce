@@ -211,6 +211,13 @@
 	.users .documents {
 		padding-right: 10rem!important;
 	}
+	.users {
+		md-switch.adjust-pendiente {
+			.md-label {
+				margin-left: 3em;
+			}
+		}
+	}
 }
 @media (max-width: 767px) {//col-xs
 	.users .cheque-container {
@@ -233,7 +240,21 @@
 	}
 	.button-load {
 		float: none;
-		left: 250%;
+		left: -27%;
+	}
+	.users {
+		md-tabs {
+			margin-top: 5em;
+		}
+		md-switch.adjust-pendiente {
+			.md-label {
+				margin-left: 3em;
+			}
+		}
+		.col-lg-4.pl-0.pr-0.pb-e8.pt-em {
+			float: right;
+			right: 1.3em;
+		}
 	}
 }
 @media (min-width: 768px) and (max-width: 991px)  {//col-sm
@@ -273,6 +294,15 @@
 		}
 		.adjust-type {
 			width: 102%;
+		}
+
+		md-tabs {
+			margin-top: 5em;
+		}
+		md-switch.adjust-pendiente {
+			.md-label {
+				margin-left: 0;
+			}
 		}
 	}
 }
@@ -329,6 +359,14 @@
 		}
 		div.col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
 			margin-left: 1.2em;
+		}
+		md-tabs {
+			margin-top: 5em;
+		}
+		md-switch.adjust-pendiente {
+			.md-label {
+				margin-left: 3em;
+			}
 		}
 	}
 
