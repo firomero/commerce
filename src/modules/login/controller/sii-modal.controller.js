@@ -87,6 +87,7 @@ export default function SIIModalController($scope, $timeout, $uibModal, $uibModa
     function stepAccount (enterprise) {
         $scope.accounts = enterprise.accounts;
         $scope.selectedEnterprise = enterprise;
+
     }
 
     function stepAmount(account) {

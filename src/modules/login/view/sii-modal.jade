@@ -65,7 +65,7 @@ div.container.sii-modal
 							div.placeholder-select
 								label Empresa
 							md-input-container.input-form
-								md-select.md-no-underline(ng-model="stepData[1].data.enterprise" ng-model-options="{trackBy: '$value.name'}" ng-change="stepAccount(stepData[1].data.enterprise)")
+								md-select.md-no-underline(ng-model="stepData[1].data.enterprise" ng-model-options="{trackBy: '$value.name'}" ng-change="stepAccount(stepData[1].data.enterprise); selectedAccount.amount = ''")
 									md-option.text-uppercase(ng-value="enterprise" ng-repeat="enterprise in enterprises") {{enterprise.name}}
 						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
 							div.placeholder-select
@@ -89,7 +89,7 @@ div.container.sii-modal
 									img(src="images/spinner.gif")
 
 				wz-step.space( canexit="exitValidation")
-					h4.text-center.mb-5  Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do
+					h4.text-center.mb-2  Hola Juan Pablo, psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do psum dolor sit amet, consectetur adipiscing elit, sed do
 					div.row
 						div.col-lg-offset-3.col-lg-6.col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r
 							form.space.stretch-child(name="form")
