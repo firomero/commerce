@@ -125,6 +125,7 @@ export default function SIIModalController($scope, $timeout, $uibModal, $uibModa
 			$timeout(() => {
 				if (response.action === 'secundary')
 				{
+					$scope.model = UserService.login();
 					$scope.model.currentCompany = $scope.enterprises.filter((c) => {
 						return c.nameID === $scope.selectedEnterprise.nameID;
 					})[0];
