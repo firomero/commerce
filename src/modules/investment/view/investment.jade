@@ -1,7 +1,7 @@
 section.bg-gray.content-container
 	div.container.investment
 		div.mt-4
-			account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="buttonCreditSubmit" button-transfer-new="true" ng-if="!loadAccounts")
+			account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="false" button-transfer-new="true" ng-if="!loadAccounts")
 
 		div.pos-r.account-movement(ng-if="existAccounts")
 			div.radio-container-selector
@@ -31,12 +31,10 @@ section.bg-gray.content-container
 											div.form-element.custom-align
 												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
-								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
-
-
-							div.row.m-0(ng-if="$ctrl.avanzadControl")
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6.search BUSCAR
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;" ng-if="false") BUSQUEDA AVANZADA
+							div.row.m-0(ng-if="false")
 								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
 										form.input-form
@@ -98,7 +96,7 @@ section.bg-gray.content-container
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 
-				md-tab(label="CARTOLA INTERESES")
+				md-tab(label="CARTOLA INTERESES" ng-if="visibilityTabControl === 'CREDIT'")
 					md-content.poster
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
@@ -108,16 +106,16 @@ section.bg-gray.content-container
 										form.input-form
 											div.form-text
 												i.material-icons.c-green event
-												label.rut.year Año
 											div.form-element.custom-align
-												input(name="yearStart" type="text" autocomplete="off" ng-model="$ctrl.yearStart" placeholder=" _" mask="9999")
+												input.yearStart(name="yearStart" type="text" autocomplete="off" ng-model="$ctrl.yearStart" placeholder=" _" mask="9999")
+												label.rut.year Año
 									div.col-lg-3.col-md-3.col-sm-4.refactor-padding
 										form.input-form
 											div.form-text
 												i.material-icons.c-green event
-												label.rut.month Mes
 											div.form-element.custom-align
-												input(name="monthStart" type="text" autocomplete="off" ng-model="$ctrl.monthStart"  placeholder="_ / _ /" mask="99 / 99 ")
+												input(name="monthStart" type="text" autocomplete="off" ng-model="$ctrl.monthStart"  placeholder="_ " mask="99")
+												label.rut.month Mes
 
 								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
@@ -144,12 +142,6 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container.adjust
-										div.tipo Tipo
-										md-radio-group
-											md-radio-button.md-primary(value="ALL") Todas
-											md-radio-button.md-primary(value="TOP") Alto Monto
-											md-radio-button.md-primary(value="DOWN") Bajo Monto
-											md-radio-button.md-primary(value="EXTRA") Masivos
 									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.mb-1
 										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
 										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
@@ -182,22 +174,22 @@ section.bg-gray.content-container
 										form.input-form
 											div.form-text
 												i.material-icons.c-green event
-												label.rut.year Año
 											div.form-element.custom-align
-												input(name="yearStart" type="text" autocomplete="off" ng-model="$ctrl.yearStart" placeholder=" _" mask="9999")
+												input.yearStart(name="yearStart" type="text" autocomplete="off" ng-model="$ctrl.yearStart" placeholder=" _" mask="9999")
+												label.rut.year Año
 									div.col-lg-3.col-md-3.col-sm-4.refactor-padding.month
 										form.input-form
 											div.form-text
 												i.material-icons.c-green event
-												label.rut.month Mes
 											div.form-element.custom-align
-												input(name="monthStart" type="text" autocomplete="off" ng-model="$ctrl.monthStart"  placeholder="_ / _ /" mask="99 / 99 ")
-								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="setAdvancedSearch(true);") BUSQUEDA AVANZADA
+												input(name="monthStart" type="text" autocomplete="off" ng-model="$ctrl.monthStart"  placeholder="_ " mask="99 ")
+												label.rut.month Mes
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6.search BUSCAR
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="setAdvancedSearch(true);" ng-if="false") BUSQUEDA AVANZADA
 
 
-							div.row.m-0(ng-if="$ctrl.avanzadControl")
+							div.row.m-0(ng-if="false")
 								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
 									div.col-lg-4.col-md-3.col-sm-4.pr-0
@@ -216,12 +208,6 @@ section.bg-gray.content-container
 												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container.adjust
-										div.tipo Tipo
-										md-radio-group
-											md-radio-button.md-primary(value="ALL") Todas
-											md-radio-button.md-primary(value="TOP") Alto Monto
-											md-radio-button.md-primary(value="DOWN") Bajo Monto
-											md-radio-button.md-primary(value="EXTRA") Masivos
 									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.mb-1
 										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
 										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR

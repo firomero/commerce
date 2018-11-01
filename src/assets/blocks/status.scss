@@ -47,6 +47,9 @@ status {
 				background-color: $c-green-firm;
 				color: white;
 			}
+			&.transparent {
+				font-weight: normal;
+			}
 		}
 	}
 }

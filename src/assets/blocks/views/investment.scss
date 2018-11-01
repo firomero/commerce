@@ -148,11 +148,25 @@
     .investment .documents {
         padding-right: 2rem!important;
     }
+	.investment {
+		.filter {
+			.button-success.search {
+				float:right;
+			}
+		}
+	}
 }
 @media (min-width: 501px) and (max-width: 766px)  {
     .investment .documents {
         padding-right: 10rem!important;
     }
+	.investment {
+		.filter {
+			.button-success.search {
+				float:right;
+			}
+		}
+	}
 }
 @media (max-width: 767px) {//col-xs
     .investment .cheque-container {
@@ -186,7 +200,14 @@
 					label.rut.month {
 						margin-left: 23.5em;
 					}
-				}
+                }
+                label.rut.year, label.rut.month {
+                    margin-top: -1.9em;
+                    font-weight: normal;
+                }
+			}
+			.button-success.search {
+				float:right;
 			}
 		}
 	}
@@ -238,8 +259,16 @@
 					}
 					label.rut.month {
 						margin-left: 13.5em;
-					}
-				}
+                    }
+                }
+                label.rut.year, label.rut.month {
+                    margin-top: -1.9em;
+                    font-weight: normal;
+                }
+			}
+			.button-success.search {
+				float:right;
+				margin-right: 1em;
 			}
 		}
     }
@@ -304,8 +333,20 @@
 					}
 					label.rut.month {
 						margin-left: 4.5em;
-					}
-				}
+                    }
+                }
+                input.yearStart {
+                    padding-right: 2em;
+                }
+                label.rut.year, label.rut.month {
+                    margin-top: -1.9em;
+                    font-weight: normal;
+                }
+			}
+
+			.button-success.search {
+				float:right;
+				margin-right: -11em;
 			}
 		}
 	}
@@ -352,6 +393,13 @@
 					 margin-left: 9em;
 				 }
 				}
+				label.rut.year, label.rut.month {
+					margin-top: -1.9em;
+					font-weight: normal;
+				}
+			}
+			.button-success.search {
+				float:right;
 			}
 		}
 	}

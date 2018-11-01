@@ -48,7 +48,7 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	self.dateStart = formatDate(dateStart,'dd/MM/yyyy' );
 	self.dateEnd = formatDate(dateEnd,'dd/MM/yyyy' );
 	self.yearStart = dateStart.getFullYear();
-	self.monthStart = formatDate(dateStart,'dd/MM' );
+	self.monthStart = formatDate(dateStart,'MM' );
 	self.avanzadControl = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
@@ -342,10 +342,9 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	function setAdvancedSearch(calculate) {
 		self.avanzadControl = !self.avanzadControl;
 		if (calculate) {
-			self.dateStart = self.monthStart + '/ ' + self.yearStart;
-			const parts = self.dateStart.split('/');
-			const dateV = new Date(parts[2],parts[1]-1,parts[0]);
-			const dateVEnd  = new Date(dateV.getFullYear(), dateV.getMonth() +1 , 0);
+			const startDate = new Date(self.yearStart,self.monthStart-1,1 );
+			self.dateStart = formatDate(startDate,'dd/MM/yyyy');
+			const dateVEnd  = new Date(startDate.getFullYear(), startDate.getMonth()+1  , 0);
 			self.dateEnd = formatDate(dateVEnd,'dd/MM/yyyy' );
 		}
 	}
@@ -468,7 +467,6 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 		];
 		for (let i = 0; i < self.cheques.length; i++) {
 			const a = getRandomIntInclusive(0,2);
-			console.log(a);
 			self.cheques[i].estado = states[a];
 		}
 		$timeout(function(){
