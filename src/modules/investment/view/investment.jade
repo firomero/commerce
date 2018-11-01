@@ -121,7 +121,7 @@ section.bg-gray.content-container
 
 								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="setAdvancedSearch(true);") BUSQUEDA AVANZADA
 
 
 							div.row.m-0(ng-if="$ctrl.avanzadControl")
@@ -194,7 +194,7 @@ section.bg-gray.content-container
 												input(name="monthStart" type="text" autocomplete="off" ng-model="$ctrl.monthStart"  placeholder="_ / _ /" mask="99 / 99 ")
 								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="setAdvancedSearch(true);") BUSQUEDA AVANZADA
 
 
 							div.row.m-0(ng-if="$ctrl.avanzadControl")

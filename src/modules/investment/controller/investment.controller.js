@@ -34,13 +34,21 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 		{text: 'Otros no especificados', label: 'OTROS NO ESPECIFICADOS', id: 5},
 		{text: 'Alteración o falsificación', label: 'ALTERACIÓN O FALSIFICACIÓN', id: 6}
 	];
+	var monthNames = [
+		"January", "February", "March", "April", "May", "June", "July",
+		"August", "September", "October", "November", "December"
+	];
+	var dayOfWeekNames = [
+		"Sunday", "Monday", "Tuesday",
+		"Wednesday", "Thursday", "Friday", "Saturday"
+	];
 	var date = new Date();
 	const dateStart  = new Date(date.getFullYear(), date.getMonth(), 1);
 	const dateEnd  = new Date(date.getFullYear(), date.getMonth() +1 , 0);
-	self.dateStart = '0'+dateStart.getDate()+ ' / 0'+ dateStart.getMonth() + '/ ' + dateStart.getFullYear();
-	self.dateEnd = '0'+dateEnd.getDate()+ ' / 0'+ dateEnd.getMonth() + '/ ' + dateEnd.getFullYear();
+	self.dateStart = formatDate(dateStart,'dd/MM/yyyy' );
+	self.dateEnd = formatDate(dateEnd,'dd/MM/yyyy' );
 	self.yearStart = dateStart.getFullYear();
-	self.monthStart = '0'+dateStart.getDay()+ ' / 0'+ dateStart.getMonth();
+	self.monthStart = formatDate(dateStart,'dd/MM' );
 	self.avanzadControl = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
@@ -214,6 +222,7 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	$scope.checkDetail = checkDetail;
 	$scope.pagination = pagination;
 	$scope.updateVisible = updateVisible;
+	$scope.setAdvancedSearch = setAdvancedSearch;
 	activate();
 
 	function activate() {
@@ -330,6 +339,17 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 		return position;
 	}
 
+	function setAdvancedSearch(calculate) {
+		self.avanzadControl = !self.avanzadControl;
+		if (calculate) {
+			self.dateStart = self.monthStart + '/ ' + self.yearStart;
+			const parts = self.dateStart.split('/');
+			const dateV = new Date(parts[2],parts[1]-1,parts[0]);
+			const dateVEnd  = new Date(dateV.getFullYear(), dateV.getMonth() +1 , 0);
+			self.dateEnd = formatDate(dateVEnd,'dd/MM/yyyy' );
+		}
+	}
+
 	function getRandomIntInclusive(min, max) {
 		min = Math.ceil(min);
 		max = Math.floor(max);
@@ -337,13 +357,53 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	}
 
 	function updateVisible(value) {
-		if (value === 'CREDIT')
-		{
-			$scope.buttonCreditSubmit = true;
+		$scope.buttonCreditSubmit = value === 'CREDIT';
+	}
+
+	function formatDate(date, patternStr){
+		if (!patternStr) {
+			patternStr = 'dd/mm/yyyy';
 		}
-		else{
-			$scope.buttonCreditSubmit = false;
-		}
+		var day = date.getDate(),
+			month = date.getMonth(),
+			year = date.getFullYear(),
+			hour = date.getHours(),
+			minute = date.getMinutes(),
+			second = date.getSeconds(),
+			miliseconds = date.getMilliseconds(),
+			h = hour % 12,
+			hh = twoDigitPad(h),
+			HH = twoDigitPad(hour),
+			mm = twoDigitPad(minute),
+			ss = twoDigitPad(second),
+			aaa = hour < 12 ? 'AM' : 'PM',
+			EEEE = dayOfWeekNames[date.getDay()],
+			EEE = EEEE.substr(0, 3),
+			dd = twoDigitPad(day),
+			M = month + 1,
+			MM = twoDigitPad(M),
+			MMMM = monthNames[month],
+			MMM = MMMM.substr(0, 3),
+			yyyy = year + "",
+			yy = yyyy.substr(2, 2)
+			;
+		return patternStr
+			.replace('hh', hh).replace('h', h)
+			.replace('HH', HH).replace('H', hour)
+			.replace('mm', mm).replace('m', minute)
+			.replace('ss', ss).replace('s', second)
+			.replace('S', miliseconds)
+			.replace('dd', dd).replace('d', day)
+			.replace('MMMM', MMMM).replace('MMM', MMM).replace('MM', MM).replace('M', M)
+			.replace('EEEE', EEEE).replace('EEE', EEE)
+			.replace('yyyy', yyyy)
+			.replace('yy', yy)
+			.replace('aaa', aaa)
+			;
+	}
+
+	function twoDigitPad(num) {
+		return num < 10 ? "0" + num : num;
 	}
 
 	$scope.$on('company::change', function(data) {
