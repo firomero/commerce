@@ -73,7 +73,7 @@ menu {
             margin-top: 0px;
             background-color: $c-white;
 
-            .panel-group { 
+            .panel-group {
                 margin-bottom: 0px;
 
                 .panel { margin: 0px;border: none; }
@@ -86,8 +86,8 @@ menu {
                 display: block;
             }
 
-            .title{  
-                
+            .title{
+
                 position: relative;
 
                 i {
@@ -141,10 +141,13 @@ menu {
             .link a, .link a:hover {
                 text-decoration: none;
             }
-            .link a.active { color: $c-blue-light; }
+            .link a.active {
+				color: $c-blue-light;
+				font-weight: bold;
+			}
 
             .picture {
-                padding-right: 0px;                
+                padding-right: 0px;
                 background-size: cover;
                 height: 100%;
             }
@@ -160,7 +163,7 @@ menu {
                     width: 100%;
                     background: linear-gradient(90deg, $c-white 54%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
-                
+
                     .container-inner { width: 320px; }
 
                     .title-text {
@@ -215,7 +218,7 @@ menu {
                         }
                     }
                     button.google { width: 140px; }
-                    button.store { width: 131px; }         
+                    button.store { width: 131px; }
                 }
             }
             .picture.transferencia {
@@ -231,7 +234,7 @@ menu {
                     padding-right: 100px;
                     background: linear-gradient(90deg, $c-white 52%, rgba(15, 42, 79, 0) 100%);
                     padding-top: 8px;
-                    
+
                     .container-inner { width: 320px; }
 
                     .title-text {
@@ -278,7 +281,7 @@ menu {
                     padding-top: 8px;
 
                     .container-inner { width: 320px; }
-                    
+
                     .title-text {
                         color: $c-black-light;
                         font-family: Roboto;
@@ -308,7 +311,7 @@ menu {
                     button.button-success { height: 45px; }
                 }
             }
-            
+
         }
     }
 
@@ -331,7 +334,7 @@ menu {
 
             .prices {
 
-                md-tabs {                
+                md-tabs {
 
                     .md-tab {
                         padding: 0px 24px;
@@ -343,11 +346,11 @@ menu {
                     }
                     md-tabs-canvas { height: 35px; }
                     md-tab-item > div {
-                        
+
                         color: $c-black;
                         font-weight: 700;
                         line-height: 18px;
-        
+
                         .money, .price {color: #000;}
                         .money, .percent { font-size: 10px;font-family: Roboto; }
                         .price { font-size: 12px;font-family: Roboto; }

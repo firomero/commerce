@@ -6,11 +6,11 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
-	$scope.existAccounts = false;	
+	$scope.existAccounts = false;
 	self.selectedCheques = [];
 	$scope.userLogin = userLogin;
 	$scope.itemPage = 6;
-	
+
 	self.lastMovement = [];
 	self.lastMovementAll = [];
 	self.lastMovementPagination = false;
@@ -23,18 +23,24 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	self.cheques = [];
 	self.chequesAll = [];
 	self.chequesPagination = false;
+	self.buttonCreditSubmit = false;
 
-	self.chequeMotivo = '';	
+	self.chequeMotivo = '';
 	self.motivos = [
 		{text: 'Perdida o Extravio', label: 'PERDIDA O EXTRAVIO', id: 1},
 		{text: 'Robo', label: 'ROBO', id: 2},
-		{text: 'Hurto', label: 'HURTO', id: 3},		
+		{text: 'Hurto', label: 'HURTO', id: 3},
 		{text: 'Incumplimiento Comercial', label: 'INCUMPLIMIENTO COMERCIAL', id: 4},
 		{text: 'Otros no especificados', label: 'OTROS NO ESPECIFICADOS', id: 5},
 		{text: 'Alteración o falsificación', label: 'ALTERACIÓN O FALSIFICACIÓN', id: 6}
 	];
-	self.dateStart = '';
-	self.dateEnd = '';
+	var date = new Date();
+	const dateStart  = new Date(date.getFullYear(), date.getMonth(), 1);
+	const dateEnd  = new Date(date.getFullYear(), date.getMonth() +1 , 0);
+	self.dateStart = '0'+dateStart.getDate()+ ' / 0'+ dateStart.getMonth() + '/ ' + dateStart.getFullYear();
+	self.dateEnd = '0'+dateEnd.getDate()+ ' / 0'+ dateEnd.getMonth() + '/ ' + dateEnd.getFullYear();
+	self.yearStart = dateStart.getFullYear();
+	self.monthStart = '0'+dateStart.getDay()+ ' / 0'+ dateStart.getMonth();
 	self.avanzadControl = false;
 	self.chequeBank = '';
 	self.banks = BankService.getBanks();
@@ -70,7 +76,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 		name: '890765678943213'
 	}];
 
-	$scope.dummyDataTransfer = [{
+	$scope.dummyDataTransfer = [
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -81,7 +88,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -92,7 +100,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -103,7 +112,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -114,7 +124,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -125,7 +136,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -136,7 +148,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -147,7 +160,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -158,7 +172,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -169,7 +184,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			transferencia: '$400.000',
 			firmas: 3,
 			estado: 'P_AUT'
-		},{
+		},
+		{
 			selected: false,
 			plus: false,
 			plusData: [],
@@ -186,19 +202,20 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	switch($stateParams.id) {
 		case 'account': {
 			$scope.visibilityTabControl = 'ACCOUNT';
-			break;	
+			break;
 		}
 		case 'credit': {
 			$scope.visibilityTabControl = 'CREDIT';
-			break;	
+			break;
 		}
 	}
 
 	$scope.toggle = toggle;
 	$scope.checkDetail = checkDetail;
 	$scope.pagination = pagination;
+	$scope.updateVisible = updateVisible;
 	activate();
-	
+
 	function activate() {
 
 		$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
@@ -220,8 +237,25 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	}
 
 	function pagination(list) {
-			
+		const states = [
+			{
+				class: 'green',
+				text: 'PAGADO'
+			},
+			{
+				class: 'red',
+				text: 'PROTESTADO'
+			},
+			{
+				class: 'transparent',
+				text: 'Sin Información'
+			}
+		];
+
 		self[list + 'All'].forEach((item) => {
+			if (list === 'cheques') {
+				item.estado = states[getRandomIntInclusive(0,2)];
+			}
 			self[list].push(item);
 		});
 		self[list + 'Pagination'] = false;
@@ -250,9 +284,9 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 				}
 			}
 		});
-	  
+
 		modalInstance.result.then(function (response) {
-			
+
 			if (response != undefined  && response.success) {
 				console.log('asdasd');
 			}
@@ -272,7 +306,7 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 	function resetControls() {
 		self.chequeMotivo = '';
 		self.selectedCheques = [];
-		
+
 		self.lastMovement = [];
 		self.lastMovementAll = [];
 		self.interes = [];
@@ -296,8 +330,24 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 		return position;
 	}
 
+	function getRandomIntInclusive(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function updateVisible(value) {
+		if (value === 'CREDIT')
+		{
+			$scope.buttonCreditSubmit = true;
+		}
+		else{
+			$scope.buttonCreditSubmit = false;
+		}
+	}
+
 	$scope.$on('company::change', function(data) {
-		
+
 		$scope.loadAccounts = true;
 		$timeout(function(){
 			$scope.currentCompany = data.targetScope.currentCompany;
@@ -318,8 +368,8 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			self.lastMovementAll = dataCopy.account.lastMovement.splice($scope.itemPage, dataCopy.account.lastMovement.length);
 			self.lastMovementPagination = true;
 		}
-		self.lastMovement = dataCopy.account.lastMovement || [];	
-		
+		self.lastMovement = dataCopy.account.lastMovement || [];
+
 		if (dataCopy.account.interes.length > $scope.itemPage) {
 			self.interesAll = dataCopy.account.interes.splice($scope.itemPage, dataCopy.account.interes.length);
 			self.interesPagination = true;
@@ -342,6 +392,25 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 			self.chequesPagination = true;
 		}
 		self.cheques = dataCopy.credito.cheques || [];
+		const states = [
+			{
+				class: 'green',
+				text: 'PAGADO'
+			},
+			{
+				class: 'red',
+				text: 'PROTESTADO'
+			},
+			{
+				class: 'transparent',
+				text: 'Sin Información'
+			}
+		];
+		for (let i = 0; i < self.cheques.length; i++) {
+			const a = getRandomIntInclusive(0,2);
+			console.log(a);
+			self.cheques[i].estado = states[a];
+		}
 		$timeout(function(){
 			$scope.loadTabData = true;
 		}, 30);
