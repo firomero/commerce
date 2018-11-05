@@ -166,7 +166,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	// $scope.userForm = {
 	// 	utilFactura: false
 	// };
-	$scope.userList = [];
+	$scope.userList = JSON.parse(localStorage.getItem('userList')) || [];
 	// self.action = action;
 	// switch (self.action) {
 	// 	case 'NOMINA': {
@@ -223,6 +223,12 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	}
 
 	function done() {
+		$scope.userList.push({
+			"step1": $scope.stepData[0].data,
+			"step2": $scope.stepData[1].data,
+			"step3": $scope.stepData[2].data
+		});
+		localStorage.setItem('userList', JSON.stringify($scope.userList));
 		$uibModalInstance.close();
 	}
 
@@ -271,7 +277,6 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 			if (list[i].selected) count++;
 		}
 		$scope.stepData[2].data.checkAllRule = count === list.length ;
-
 	}
 
 	// function addUser(user) {

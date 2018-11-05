@@ -254,6 +254,7 @@ export default function LayoutController(userLogin, $scope, $mdSidenav, $locatio
     function logout() {
 
         localStorage.removeItem('userLogin');
+        localStorage.removeItem('userList');
 		$location.path('/login');
     }
 
