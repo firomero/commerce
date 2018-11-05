@@ -189,6 +189,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	$scope.check = check;
 	$scope.updateUserType = updateUserType;
 	$scope.updateRules = updateRules;
+	$scope.addUser = addUser;
 
 	activate();
 
@@ -223,12 +224,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	}
 
 	function done() {
-		$scope.userList.push({
-			"step1": $scope.stepData[0].data,
-			"step2": $scope.stepData[1].data,
-			"step3": $scope.stepData[2].data
-		});
-		localStorage.setItem('userList', JSON.stringify($scope.userList));
+		addUser();
 		$uibModalInstance.close();
 	}
 
@@ -277,6 +273,15 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 			if (list[i].selected) count++;
 		}
 		$scope.stepData[2].data.checkAllRule = count === list.length ;
+	}
+
+	function addUser(){
+		$scope.userList.push({
+			"step1": $scope.stepData[0].data,
+			"step2": $scope.stepData[1].data,
+			"step3": $scope.stepData[2].data
+		});
+		localStorage.setItem('userList', JSON.stringify($scope.userList));
 	}
 
 	// function addUser(user) {
