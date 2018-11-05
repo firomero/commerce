@@ -423,6 +423,7 @@ export default function InvestmentController($scope, $stateParams, userLogin, $t
 		$scope.loadTabData = false;
 
 		var dataCopy = Object.assign({}, data);
+		self.accountName = dataCopy.name || '69872702';
 		if (dataCopy.account.lastMovement.length > $scope.itemPage) {
 			self.lastMovementAll = dataCopy.account.lastMovement.splice($scope.itemPage, dataCopy.account.lastMovement.length);
 			self.lastMovementPagination = true;
