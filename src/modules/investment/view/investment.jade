@@ -32,8 +32,7 @@ section.bg-gray.content-container
 												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
 								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
-									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6.search BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;" ng-if="false") BUSQUEDA AVANZADA
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
 							div.row.m-0(ng-if="false")
 								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
@@ -101,7 +100,7 @@ section.bg-gray.content-container
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
 								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
-									div.col-lg-6.col-md-4.col-sm-3.pr-0.text Selecciona el año que quieres para ver tu cuenta 69872702
+									div.col-lg-6.col-md-4.col-sm-3.pr-0.text Selecciona el año que quieres para ver tu cuenta {{$ctrl.accountName}}
 									div.col-lg-3.col-md-3.col-sm-4.pr-0.year
 										form.input-form
 											div.form-text
@@ -169,7 +168,7 @@ section.bg-gray.content-container
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
 								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
-									div.col-lg-6.col-md-4.col-sm-3.pr-0.text Selecciona el año que quieres para ver tu cuenta 69872702
+									div.col-lg-6.col-md-4.col-sm-3.pr-0.text Selecciona el año que quieres para ver tu cuenta {{$ctrl.accountName}}
 									div.col-lg-3.col-md-3.col-sm-4.pr-0.year
 										form.input-form
 											div.form-text
