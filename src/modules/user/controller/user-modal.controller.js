@@ -98,7 +98,85 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	// ];
 	$scope.selectedStep = 1;
 	$scope.stepData = [
-		{step: 1, completed: false, data: {userType: {id: 1,name: 'APODERADO'}, copyFunction: 'NO'}},
+		{step: 1, completed: false, data: {
+			userType: {id: 1,name: 'APODERADO'}, 
+			copyFunction: 'NO',
+			users: [
+				{
+					id: 1, 
+					name: 'Andres Claudio',
+					permission: {
+						accountStorage: [
+							{id: 1,account: '3456789453'},
+							{id: 5,account: '129546870'},
+							{id: 6,account: '1209456789'}
+						],
+						moduleStorage: [
+							{id: 1,name: 'Seguridad'},
+							{id: 2,name: 'Créditos Comerciales'},
+							{id: 7,name: 'Perfilamiento'},
+							{id: 8,name: 'Mis Empresas'},
+							{id: 9,name: 'Contacto'},
+							{id: 10,name: 'Comex'}
+						],
+						moduleTransferStorage: [
+							{id: 1,name: 'Autorizador'},
+							{id: 3,name: 'Ingresador'},
+							{id: 4,name: 'Visador'},
+							{id: 2,name: 'Liberador'},
+						]
+					}
+				},
+				{
+					id: 2, 
+					name: 'Andres Claudio 1',
+					permission: {
+						accountStorage: [
+							{id: 1,account: '3456789453'},
+							{id: 5,account: '129546870'},
+							{id: 6,account: '1209456789'}
+						],
+						moduleStorage: [
+							{id: 1,name: 'Seguridad'},
+							{id: 2,name: 'Créditos Comerciales'},
+							{id: 7,name: 'Perfilamiento'},
+							{id: 8,name: 'Mis Empresas'},
+							{id: 9,name: 'Contacto'},
+							{id: 10,name: 'Comex'}
+						],
+						moduleTransferStorage: [
+							{id: 1,name: 'Autorizador'},
+							{id: 3,name: 'Ingresador'},
+							{id: 4,name: 'Visador'}
+						]
+					}
+				},
+				{
+					id: 3, 
+					name: 'Andres Claudio 2',
+					permission: {
+						accountStorage: [
+							{id: 1,account: '3456789453'},
+							{id: 5,account: '129546870'},
+							{id: 6,account: '1209456789'}
+						],
+						moduleStorage: [
+							{id: 1,name: 'Seguridad'},
+							{id: 2,name: 'Créditos Comerciales'},
+							{id: 7,name: 'Perfilamiento'},
+							{id: 8,name: 'Mis Empresas'},
+							{id: 9,name: 'Contacto'},
+							{id: 10,name: 'Comex'}
+						],
+						moduleTransferStorage: [
+							{id: 1,name: 'Autorizador'},
+							{id: 3,name: 'Ingresador'},
+							{id: 4,name: 'Visador'}
+						]
+					}
+				},
+			]
+		}},
 		{step: 2, completed: false, data: {
 			checkAllAccount: false,
 			accountStorage: [
@@ -241,6 +319,46 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 			$scope.saving = false;
 			$scope.stepData[$scope.selectedStep - 1 ].completed = true;
 			$scope.selectedStep++;
+
+			if ($scope.stepData[0].data.copyFunction == 'SI' && $scope.stepData[0].data.userSelect && $scope.selectedStep == 2) {
+
+				$scope.stepData[1].data.accountStorage.forEach(element => {
+					element.selected = false;
+				});
+				for (var i = 0; i < $scope.stepData[0].data.userSelect.permission.accountStorage.length; i++) {
+					for (var k = 0; k < $scope.stepData[1].data.accountStorage.length; k++) {
+						if ($scope.stepData[1].data.accountStorage[k].id == $scope.stepData[0].data.userSelect.permission.accountStorage[i].id) {
+							$scope.stepData[1].data.accountStorage[k].selected = true;
+							break;
+						}
+					}
+				}
+
+				$scope.stepData[1].data.moduleStorage.forEach(element => {
+					element.selected = false;
+				});
+				for (var i = 0; i < $scope.stepData[0].data.userSelect.permission.moduleStorage.length; i++) {
+					for (var k = 0; k < $scope.stepData[1].data.moduleStorage.length; k++) {
+						if ($scope.stepData[1].data.moduleStorage[k].id == $scope.stepData[0].data.userSelect.permission.moduleStorage[i].id) {
+							$scope.stepData[1].data.moduleStorage[k].selected = true;
+							break;
+						}
+					}
+				}
+
+				$scope.stepData[1].data.moduleTransferStorage.forEach(element => {
+					element.selected = false;
+				});
+				for (var i = 0; i < $scope.stepData[0].data.userSelect.permission.moduleTransferStorage.length; i++) {
+					for (var k = 0; k < $scope.stepData[1].data.moduleTransferStorage.length; k++) {
+						if ($scope.stepData[1].data.moduleTransferStorage[k].id == $scope.stepData[0].data.userSelect.permission.moduleTransferStorage[i].id) {
+							$scope.stepData[1].data.moduleTransferStorage[k].selected = true;
+							break;
+						}
+					}
+				}
+			}
+
 			WizardHandler.wizard().next();
 		}, 1000);
 	}
