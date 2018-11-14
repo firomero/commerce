@@ -115,16 +115,16 @@ div.menu-collapse
 							div.title
 								i.material-icons home
 								label Productos
-							span.link.mt-3 Crédito Comercial
-							span.link Depósito a plazo
-							span.link Forward
-							span.link Leasing
+							span.link.mt-3(ui-sref="app.product({id:'credito'})") Crédito Comercial
+							span.link(ui-sref="app.product({id:'deposito'})") Depósito a plazo
+							span.link(ui-sref="app.product({id:'forward'})")  Forward
+							span.link(ui-sref="app.product({id:'leasing'})")  Leasing
 
 						div.col-lg-3.pl-2.not-title.pt-3
-							span.link.mt-4-5 Factoring
-							span.link Mesa
-							span.link Boleta de Garantia
-							span.link Comex
+							span.link.mt-4-5(ui-sref="app.product({id:'factoring'})")  Factoring
+							span.link(ui-sref="app.product({id:'mesa'})")  Mesa
+							span.link(ui-sref="app.product({id:'boleta'})")  Boleta de Garantia
+							span.link(ui-sref="app.product({id:'comex'})")  Comex
 
 						div.col-lg-6.picture.product
 							div.text-container

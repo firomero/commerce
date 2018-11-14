@@ -83,6 +83,7 @@
 @import 'blocks/modals';
 @import 'blocks/account-list';
 @import 'blocks/user-profiler';
+@import 'blocks/product-profiler';
 @import 'blocks/flex-grid';
 @import 'blocks/table';
 @import 'blocks/tabs';
@@ -109,6 +110,7 @@
 @import 'blocks/views/regla-modal';
 @import 'blocks/views/sii-modal';
 @import 'blocks/views/users';
+@import 'blocks/views/product';
 
 .is-focused {
     border: 1px solid rgba(255, 255, 255, 0.3);
