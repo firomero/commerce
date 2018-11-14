@@ -1,0 +1,364 @@
+section.bg-gray.content-container
+	div.container.products
+		div.mt-4
+			product-profiler.bg-toolbar(list="[]]" title="Productos")
+		div.pos-r.account-movement(ng-if="existAccounts")
+			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
+				md-tab(label="CENTRO COMERCIAL" md-on-select="onTabChanges(0)")
+					md-content.poster
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="20%")
+										col(width="15%")
+										col(width="20%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="15%")
+									thead.thead
+										tr.tr
+											th.th Rut
+											th.th Nombres
+											th.th A. Paterno
+											th.th A. Materno
+											th.th Tipo Administrador
+											th.th Estado
+											th.th Telefono
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in []" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon		
+												span {{item.rut}}
+											td.td {{item.nombre}}
+											td.td {{item.padre}}
+											td.td {{item.madre}}
+											td.td
+												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td {{item.tel}}
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="7")
+												div.row.data-container
+													div.col-lg-12.pl-0
+														div.row
+															div.col-lg-4.adjust-type
+																form.input-form
+																	div.form-text
+																		label Tipo
+																	div.form-element
+																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off", ng-disabled="!onEdit")
+															div.col-lg-4.pl-0.pr-sm-0
+																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
+																	div.form-text
+																		label Mail
+																	div.form-element
+																		input(name="mail" type="text" ng-model="item.mail" ng-disabled="!onEdit" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
+																form.input-form
+																	div.form-text
+																		label Celular
+																	div.form-element
+																		input(name="movil" type="text" ng-model="item.tel" ng-disabled="!onEdit" autocomplete="off" mask="+99999-9999")
+																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
+
+														div.row.data-container
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Ingresado Por
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value Marcelo Rojas Arriagada
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Autorizado Por
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value Daniela Andrade
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Estado
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Reglas
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		ul.rules
+																			li.value (1A o 2B) y 1C
+
+																			li.value (1A o 2B) y 1C
+
+																			li.value (1A o 2B) y 1C
+
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Funciones
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		ul.rules.check
+																			li
+																				md-checkbox.md-primary Ingreso
+																			li
+																				md-checkbox.md-primary Visado
+																			li
+																				md-checkbox.md-primary Autorizaci&oacute;n
+																			li
+																				md-checkbox.md-primary Liberaci&oacute;n
+														div.row.inputs-container
+															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+																div.row
+																	div.col-lg-offset-5.col-lg-3.pl-0.pr-sm-0.sm-4-pr-0
+																		form.input-form
+																			div.form-text
+																				label Token
+																			div.form-element
+																				input(name="token" type="password" autocomplete="off" placeholder="********************")
+																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
+																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
+																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
+
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('administrador')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
+				md-tab(label="DEPOSITO A PLAZO" md-on-select="onTabChanges(1)")
+					md-content.poster
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="20%")
+										col(width="15%")
+										col(width="20%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="15%")
+									thead.thead
+										tr.tr
+											th.th Rut
+											th.th Nombres
+											th.th A. Paterno
+											th.th A. Materno
+											th.th Tipo Apoderado
+											th.th Estado
+											th.th Telefono
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in []" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon											
+												span {{item.rut}}
+											td.td {{item.nombre}}
+											td.td {{item.padre}}
+											td.td {{item.madre}}
+											td.td
+												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td {{item.tel}}
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="7")
+												div.row.data-container
+													div.col-lg-12.pl-0
+														div.row
+															div.col-lg-4.adjust-type
+																form.input-form
+																	div.form-text
+																		label Tipo
+																	div.form-element
+																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off" ng-disabled="!onEdit")
+															div.col-lg-4.pl-0.pr-sm-0
+																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
+																	div.form-text
+																		label Mail
+																	div.form-element
+																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" ng-disabled="!onEdit" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation )
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
+																form.input-form
+																	div.form-text
+																		label Celular
+																	div.form-element
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit" mask="+999999-9999")
+																	i.material-icons.md-inline-edit(ng-click="onEdit =!onEdit") edit
+
+														div.row.data-container
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Ingresado Por
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value Marcelo Rojas Arriagada
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Autorizado Por
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value Daniela Andrade
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Estado
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Reglas
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		ul.rules
+																			li.value (1A o 2B) y 1C
+
+																			li.value (1A o 2B) y 1C
+
+																			li.value (1A o 2B) y 1C
+
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Funciones
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		ul.rules.check
+																			li
+																				md-checkbox.md-primary Ingreso
+																			li
+																				md-checkbox.md-primary Visado
+																			li
+																				md-checkbox.md-primary Autorizaci&oacute;n
+																			li
+																				md-checkbox.md-primary Liberaci&oacute;n
+														div.row.inputs-container
+															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+																div.row
+																	div.col-lg-offset-5.col-lg-3.pl-0.pr-sm-0.sm-4-pr-0
+																		form.input-form
+																			div.form-text
+																				label Token
+																			div.form-element
+																				input(name="token" type="password" autocomplete="off" placeholder="********************")
+																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
+																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
+																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
+
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('apoderados')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
+				md-tab(label="FORWARD" md-on-select="onTabChanges(2)")
+				md-tab(label="LEASING" md-on-select="onTabChanges(3)")
+				md-tab(label="FACTORING" md-on-select="onTabChanges(4)")
+				md-tab(label="B.GARANTIA" md-on-select="onTabChanges(5)")
+				md-tab(label="COMEX" md-on-select="onTabChanges(6)")
+				md-tab(label="CONFIRMING" md-on-select="onTabChanges(7)")
+					md-content.poster
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="20%")
+										col(width="15%")
+										col(width="20%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="15%")
+									thead.thead
+										tr.tr
+											th.th Rut
+											th.th Nombres
+											th.th A. Paterno
+											th.th A. Materno
+											th.th Tipo Operador
+											th.th Estado
+											th.th Telefono
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in []" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												span {{item.rut}}
+											td.td {{item.nombre}}
+											td.td {{item.padre}}
+											td.td {{item.madre}}
+											td.td
+												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
+											td.td
+												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td {{item.tel}}
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="7")
+												div.row.data-container
+													div.col-lg-12.pl-0
+														div.row
+															div.col-lg-4.adjust-type
+																form.input-form
+																	div.form-text
+																		label Tipo
+																	div.form-element
+																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off", ng-disabled="!onEdit")
+															div.col-lg-4.pl-0.pr-sm-0
+																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
+																	div.form-text
+																		label Mail
+																	div.form-element
+																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" ng-disabled="!onEdit" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$" required mail-validation )
+															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
+																form.input-form
+																	div.form-text
+																		label Celular
+																	div.form-element
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit" mask="+999999-9999")
+																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
+
+														div.row.data-container
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Ingresado Por
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value Marcelo Rojas Arriagada
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Autorizado Por
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value Daniela Andrade
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Estado
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Reglas
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		ul.rules
+																			li.value (1A o 2B) y 1C
+
+																			li.value (1A o 2B) y 1C
+
+																			li.value (1A o 2B) y 1C
+
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Funciones
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		ul.rules.check
+																			li
+																				md-checkbox.md-primary Ingreso
+																			li
+																				md-checkbox.md-primary Visado
+																			li
+																				md-checkbox.md-primary Autorizaci&oacute;n
+																			li
+																				md-checkbox.md-primary Liberaci&oacute;n
+														div.row.inputs-container
+															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+																div.row
+																	div.col-lg-offset-5.col-lg-3.pl-0.pr-sm-0.sm-4-pr-0
+																		form.input-form
+																			div.form-text
+																				label Token
+																			div.form-element
+																				input(name="token" type="password" autocomplete="off" placeholder="********************")
+																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
+																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
+																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
+
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('operadores')") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
+
+

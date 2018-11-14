@@ -8,6 +8,7 @@ import './modules/dashboard/dashboard.module';
 import './modules/investment/investment.module';
 import './modules/transfer/transfer.module';
 import './modules/user/user.module';
+import './modules/product/product.module';
 // loading all module components
 
 const appModule = angular
@@ -28,7 +29,8 @@ const appModule = angular
 		'app.dashboard',
 		'app.investment',
 		'app.transfer',
-		'app.user'
+		'app.user',
+		'app.product'
 	]);
 
 export default appModule;

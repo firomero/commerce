@@ -29,6 +29,7 @@ import mailValidationDirective from './directives/mail-validation/mail-validatio
 import socialValidationDirective from './directives/social-validation/social-validation';
 import userProfilerDirective from './directives/user-profiler/user-profiler.directive';
 import investStatusDirective from './directives/invest-state/invest-state.directive';
+import productProfilerDirective from './directives/product-profiler/product-profiler.directive';
 
 const commonModule = angular.module('app.common', [
 	'ui.router'
@@ -66,6 +67,7 @@ commonModule.directive('mailValidation', mailValidationDirective);
 commonModule.directive('socialValidation', socialValidationDirective);
 commonModule.directive('userProfiler', userProfilerDirective);
 commonModule.directive('investStatus', investStatusDirective);
+commonModule.directive('productProfiler', productProfilerDirective);
 
 commonModule.controller('MessageConfirmController', MessageConfirmController);
 

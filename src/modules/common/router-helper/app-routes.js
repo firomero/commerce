@@ -41,6 +41,13 @@ export default [
 				url: 'user/:id',
 				controller: 'UserController',
 				template: require('../../user/view/user.jade')(),
-			}]
+			},
+			{
+				name: 'app.product',
+				url: 'product/:id',
+				controller: 'ProductController',
+				template: require('../../product/view/product.jade')(),
+			}
+		]
 	}
 ];
