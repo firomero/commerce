@@ -99,11 +99,11 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	$scope.selectedStep = 1;
 	$scope.stepData = [
 		{step: 1, completed: false, data: {
-			userType: {id: 1,name: 'APODERADO'}, 
+			userType: {id: 1,name: 'APODERADO'},
 			copyFunction: 'NO',
 			users: [
 				{
-					id: 1, 
+					id: 1,
 					name: 'Andres Claudio',
 					permission: {
 						accountStorage: [
@@ -128,7 +128,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 					}
 				},
 				{
-					id: 2, 
+					id: 2,
 					name: 'Andres Claudio 1',
 					permission: {
 						accountStorage: [
@@ -152,7 +152,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 					}
 				},
 				{
-					id: 3, 
+					id: 3,
 					name: 'Andres Claudio 2',
 					permission: {
 						accountStorage: [
@@ -263,6 +263,7 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	// $scope.changeTitle = changeTitle;
 	$scope.backStep = backStep;
 	$scope.setLoadingStep = setLoadingStep;
+	$scope.addAndContinue = addAndContinue;
 	$scope.checkAll = checkAll;
 	$scope.check = check;
 	$scope.updateUserType = updateUserType;
@@ -357,10 +358,34 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 						}
 					}
 				}
+				$scope.stepData[1].data.checkAllAccount = $scope.stepData[1].data.accountStorage.length === $scope.stepData[1].data.accountStorage.filter(function (f) {
+						return f.selected === true;
+					});
+				$scope.stepData[1].data.checkAllModule = $scope.stepData[1].data.moduleStorage.length === $scope.stepData[1].data.moduleStorage.filter(function (f) {
+						return f.selected === true;
+					});
+				$scope.stepData[1].data.checkAllTransferModule = $scope.stepData[1].data.moduleTransferStorage.length === $scope.stepData[1].data.moduleTransferStorage.filter(function (f) {
+						return f.selected === true;
+					});
 			}
 
 			WizardHandler.wizard().next();
 		}, 1000);
+	}
+
+	function addAndContinue() {
+		$scope.stepData[0].data.users.push(
+			{
+				id: $scope.stepData[0].data.users.length,
+				name: $scope.stepData[0].data.firstName,
+				permission: {
+					accountStorage: angular.copy($scope.stepData[1].data.accountStorage),
+					moduleStorage: angular.copy($scope.stepData[1].data.moduleStorage),
+					moduleTransferStorage: angular.copy($scope.stepData[1].data.moduleTransferStorage),
+				}
+			}
+		);
+		setLoadingStep();
 	}
 
 	function checkAll(list, controlValue, index) {
@@ -394,15 +419,29 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	}
 
 	function addUser(){
-		$scope.userList.push({
-			"step1": $scope.stepData[0].data,
-			"step2": $scope.stepData[1].data,
-			"step3": $scope.stepData[2].data
-		});
+		$scope.stepData[0].data.users.push(
+			{
+				id: $scope.stepData[0].data.users.length,
+				name: $scope.stepData[0].data.firstName,
+				permission: {
+					accountStorage: angular.copy($scope.stepData[1].data.accountStorage),
+					moduleStorage: angular.copy($scope.stepData[1].data.moduleStorage),
+					moduleTransferStorage: angular.copy($scope.stepData[1].data.moduleTransferStorage),
+				}
+			}
+		);
 		$scope.selectedStep = 1;
 		$scope.stepData[ 0 ].completed = false;
 		$scope.stepData[ 1 ].completed = false;
 		$scope.stepData[ 2 ].completed = false;
+		stepData[0].data.rut = "";
+		stepData[0].data.forma = "";
+		stepData[0].data.firstName = "";
+		stepData[0].data.lastName = "";
+		stepData[0].data.data.nac = "";
+		stepData[0].data.data.email = "";
+		stepData[0].data.data.phone = "";
+		WizardHandler.wizard().reset();
 		localStorage.setItem('userList', JSON.stringify($scope.userList));
 	}
 

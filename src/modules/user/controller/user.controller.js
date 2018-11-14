@@ -1,4 +1,4 @@
-export default function UserController($scope, userLogin) {
+export default function UserController($scope, userLogin, $uibModal) {
 	'ngInject';
 
 	let self = this;
@@ -76,6 +76,7 @@ export default function UserController($scope, userLogin) {
 
 	$scope.toggleUser = toggleUser;
 	$scope.onTabChanges = onTabChanges;
+	$scope.aceptar = aceptar;
 
 	function toggleUser(item, collection) {
 		const value = !item.plus;
@@ -147,6 +148,25 @@ export default function UserController($scope, userLogin) {
 		min = Math.ceil(min);
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function aceptar() {
+		const message = "TOAST de flujo realizado con Éxito, se debe considerar uno para, Éxito de transferencias, Autorizaciones, Visados, Creación de Usuarios, Reglas, Etc";
+		const instance = $uibModal.open({
+			ariaDescribedBy: 'modal-body',
+			template: require('../../common/components/message-confirm/message-confirm.jade')(),
+			controller: 'MessageConfirmController',
+			controllerAs: '$ctrl',
+			size: 'lg',
+			backdrop: 'static',
+			keyboard: false,
+			resolve: {
+				message: () => message,
+				textPrimaryAction: () => 'CERRAR',
+				textAction: () => undefined
+			},
+			windowClass: 'bottom-confirm finish'
+		});
 	}
 
 	function pagination(list) {

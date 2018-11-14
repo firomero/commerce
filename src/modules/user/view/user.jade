@@ -50,20 +50,20 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Tipo
 																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off")
+																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off", ng-disabled="!onEdit")
 															div.col-lg-4.pl-0.pr-sm-0
 																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
 																	div.form-text
 																		label Mail
 																	div.form-element
-																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
+																		input(name="mail" type="text" ng-model="item.mail" ng-disabled="!onEdit" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
 															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off")
-																	i.material-icons.md-inline-edit edit
+																		input(name="movil" type="text" ng-model="item.tel" ng-disabled="!onEdit" autocomplete="off" mask="+99999-9999")
+																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
 
 														div.row.data-container
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
@@ -117,7 +117,7 @@ section.bg-gray.content-container
 																			div.form-element
 																				input(name="token" type="password" autocomplete="off" placeholder="********************")
 																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
-																		button.button-success.sm.col-lg-5.col-md-6.mr-1 ACEPTAR
+																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
@@ -169,20 +169,20 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Tipo
 																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off")
+																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off" ng-disabled="!onEdit")
 															div.col-lg-4.pl-0.pr-sm-0
 																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
 																	div.form-text
 																		label Mail
 																	div.form-element
-																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
+																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" ng-disabled="!onEdit" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation )
 															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off")
-																	i.material-icons.md-inline-edit edit
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit" mask="+999999-9999")
+																	i.material-icons.md-inline-edit(ng-click="onEdit =!onEdit") edit
 
 														div.row.data-container
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
@@ -236,7 +236,7 @@ section.bg-gray.content-container
 																			div.form-element
 																				input(name="token" type="password" autocomplete="off" placeholder="********************")
 																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
-																		button.button-success.sm.col-lg-5.col-md-6.mr-1 ACEPTAR
+																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
@@ -288,20 +288,20 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Tipo
 																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off")
+																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off", ng-disabled="!onEdit")
 															div.col-lg-4.pl-0.pr-sm-0
 																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
 																	div.form-text
 																		label Mail
 																	div.form-element
-																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
+																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" ng-disabled="!onEdit" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation, )
 															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
 																form.input-form
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off")
-																	i.material-icons.md-inline-edit edit
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit" mask="+999999-9999")
+																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
 
 														div.row.data-container
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
@@ -355,7 +355,7 @@ section.bg-gray.content-container
 																			div.form-element
 																				input(name="token" type="password" autocomplete="off" placeholder="********************")
 																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
-																		button.button-success.sm.col-lg-5.col-md-6.mr-1 ACEPTAR
+																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
 																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
 
 								div.row.m-0.pt-1.pb-1
