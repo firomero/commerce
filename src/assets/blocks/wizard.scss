@@ -1,0 +1,70 @@
+.indicator-container {
+    
+    position: relative;
+    height: 60px;
+
+    .step-strip {
+
+        .strip {
+
+            height: 18px;
+            border-bottom: 1px solid $c-gray;
+            padding: 0px;
+        }
+
+        .strip.pending {
+            border-bottom-color: $c-blue-light;
+        }
+    }
+    .step-indicators {
+        
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+
+        span { display: block; text-align: center; }
+        
+        span.icon {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 50%;
+            margin: 0 auto;
+            font-size: 18px;
+
+            i {
+                line-height: 35px;
+            }
+        }
+
+        span.sub-title {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        div.indicator {
+            
+            span.icon {
+                color: rgba(255, 255, 255, 0.8);
+                background-color: $c-gray;               
+            }            
+
+            span.sub-title {
+                color: $c-gray;
+            }
+        }
+
+        div.indicator.pending {
+            
+            span.icon {
+                background-color: $c-blue-light;
+                color: $c-white;                
+            }            
+
+            span.sub-title {
+                color: $c-blue-light;
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+status {
+
+    .status-container {
+        position: relative;
+
+        div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        div.icon {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 5%;
+
+            span {
+                line-height: 20px;
+                color: $c-white;
+            }
+        }
+        div.icon.orage {
+            background-color: $c-orange;
+        }
+        div.icon.green {
+            background-color: $c-green;
+        }
+		div.icon.blue {
+            background-color: $c-blue;
+        }
+        div.icon.red { background-color: $c-red-plus; }
+        div.text { width: 70%; }
+    }
+}
+.invest-status-container {
+	.text {
+		span {
+			font-weight: 700;
+			padding-left: .6em;
+			padding-right: .6em;
+			border-radius: .3em;
+			&.red {
+				background-color: $c-red;
+				color: white;
+			}
+			&.green {
+				background-color: $c-green-firm;
+				color: white;
+			}
+			&.transparent {
+				font-weight: normal;
+			}
+		}
+	}
+}
+@media (max-width: 767px) { //col-xs
+	status {
+		.status-container {
+			div.text {
+				width: 70%;
+				white-space: pre-wrap;
+				margin-right: .8em;
+			}
+		}
+	}
+
+ }
+@media (min-width: 768px) and (max-width: 991px) {//sm
+	status {
+		.status-container {
+				margin-right: 1.3em;
+			div.text {
+				width: 64%;
+			}
+		}
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {//md
+	status {
+		.status-container {
+			padding-right: 1.6em;
+		}
+	}
+}

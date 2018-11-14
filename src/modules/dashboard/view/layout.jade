@@ -1,0 +1,394 @@
+//header star
+header
+	md-toolbar.md-hue-2
+		div.md-toolbar-tools
+			div.row.w-100.m-0
+				div.logo
+					div.column.mr-2.visible-md.visible-sm.visible-xs
+						a.pointer(ng-click="openToggle('left')")
+							i.material-icons.menu-icon dehaze
+					div.column.pt-15px
+						img(src="images/logoBanco100.png")
+				div.user-profile.visible-lg
+					div.column.mr-1-5
+						ul.links
+							li
+								a Ayuda
+							li
+								a FAQ
+							li
+								a Contacto
+
+					div.column.user-login
+						div.column.mr-15px
+							div.pt-15px
+								a.pointer(ng-click="openToggle('right')")
+									img.user-logo(src="images/user.png")
+						div.column.company-selector-container
+							label.user-fullname {{userLogin.fullName}}
+							md-menu
+								a.pointer.company-selector(ng-click="$mdMenu.open($event)")
+									span {{currentCompany.name}}
+									span
+										i.material-icons arrow_drop_down
+
+								md-menu-content(width="5")
+									md-menu-item(ng-repeat="item in userCompanies" ng-class="{'selected': item.nameID == currentCompany.nameID}")
+										a(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
+
+						div.column.account-selector(ng-if="currentCompany.accounts.length && activeAccountSelector")
+							md-menu
+								a.pointer(ng-click="$mdMenu.open($event)")
+									span Cuenta Nº {{currentAccount.name}}
+									span
+										i.material-icons arrow_drop_down
+
+					div.column.logout
+						a.pointer(ng-click="logout()")
+							i.material-icons exit_to_app
+								//user login end
+
+	//menu start
+	menu.visible-lg
+	//header end
+
+div(ui-view)
+
+//footer start
+div.bg-gray
+	div.container
+		div.row.footer.mt-4
+			div.col-lg-2.col-md-2.col-sm-2.col-xs-12.pl-3
+				img.footer-logo(src="images/footer.png")
+
+			div.col-lg-10.col-md-10.col-sm-10.col-xs-12.pl-0
+				p.m-0
+					a(href="#") Términos y Condiciones |
+					a(href="#") Política de Privacidad |
+					a(href="#") Trabaja con Nosotros |
+					a(href="#") Mapa del Sitio |
+					a(href="#") Mesa Central: +56 2 27871800. Infórmese sobre la garantía estatal de los depósitos en su Banco o en www.sbif.cl |
+					a(href="#") 2013 Banco Consorcio.
+				p.m-0 Todos los derechos reservados. Para una correcta visualización de este sitio recomendamos usar Chrome, Mozilla Firefox o Internet Explorer 9 o superior
+
+
+
+
+md-sidenav.md-sidenav-left.md-whiteframe-5dp(md-component-id="left" md-disable-backdrop md-whiteframe="4" perfect-scroll)
+
+	md-toolbar.md-hue-2
+		div.md-toolbar-tools
+			div.row.w-100.m-0
+
+				div.user-profile
+					div.user-login
+						div.column.mr-15px
+							div.pt-05
+								a.pointer(ng-click="openToggle('right')")
+									img.user-logo(src="images/user.png")
+						div.column.company-selector-container
+							label.user-fullname {{userLogin.fullName}}
+							div.mt-05
+								md-menu
+									a.pointer.company-selector(ng-click="$mdMenu.open($event)")
+										span {{currentCompany.name}}
+										span
+											i.material-icons arrow_drop_down
+
+									md-menu-content(width="5")
+										md-menu-item(ng-repeat="item in userCompanies" ng-class="{'selected': item.nameID == currentCompany.nameID}")
+											a.pointer(ng-click="$mdMenu.close();selectCompany(item);") {{item.name}}
+
+						div.logout.column.pull-right
+							a.pointer(ng-click="logout()")
+								i.material-icons exit_to_app
+							a.pointer(ng-click="closeToggle('left')")
+								i.material-icons close
+
+	div.menu-container
+		uib-accordion
+			div.panel-default(uib-accordion-group)
+				uib-accordion-heading
+					div.headder-menu
+						span.label.text-uppercase Inicio
+
+				ul.menu-list
+					li.grouping
+						i.material-icons.icon home
+						span.label Inicio
+					li.link
+						span.label
+							a(ui-sref="app.dashboard" ui-sref-active="active")(ng-click="closeToggle('left')") Resumen
+					li.link
+						span.label
+							a(ui-sref="app.investment({id:'account'})" ui-sref-active="active")(ng-click="closeToggle('left')") Saldo y Movimientos
+					li.link
+						span.label
+							a(ui-sref="app.investment({id:'credit'})" ui-sref-active="active")(ng-click="closeToggle('left')") Línea de Crédito
+
+				ul.menu-list
+					li.grouping
+						i.material-icons.icon person_add
+						span.label Perfilamiento
+					li.link(ng-click="newUser()")
+						span.label Crear Usuario
+					li.link(ng-click="createRule()")
+						span.label Crear Regla
+					li.link
+						span.label
+							a(ui-sref="app.user({id:'list'})" ui-sref-active="active")(ng-click="closeToggle('left')") Usuarios
+
+			div.panel-default(uib-accordion-group)
+				uib-accordion-heading
+					div.headder-menu
+						span.label.text-uppercase Transferencias
+
+				ul.menu-list
+					li.grouping
+						i.material-icons.icon home
+						span.label Transferencias
+					li.link
+						span.label
+							a(ui-sref="app.transfer({id:'resumen'})" ui-sref-active="active" ng-click="closeToggle('left')") Resumen
+					li.link
+						span.label
+							a(ui-sref="app.transfer({id:'historicas'})" ui-sref-active="active" ng-click="closeToggle('left')") Históricas
+					li.link
+						span.label
+							a.pointer(ng-click="newTransference('NEW_TRANSFER')") Transferir
+					li.link
+						span.label
+							a.pointer(ng-click="newTransference('NOMINA')") Crear Nómina
+
+				ul.menu-list
+					li.grouping
+						i.material-icons.icon people
+						span.label Destinatarios
+					li.link
+						span.label
+							a(ui-sref="app.transfer({id:'destinatarios'})" ui-sref-active="active" ng-click="closeToggle('left')") Lista de Destinatarios
+
+			div.panel-default(uib-accordion-group)
+				uib-accordion-heading
+					div.headder-menu
+						span.label.text-uppercase Productos
+
+				ul.menu-list
+					li.grouping
+						i.material-icons.icon home
+						span.label Productos
+					li.link
+						span.label Crédito Comercial
+					li.link
+						span.label Depósito a plazo
+					li.link
+						span.label Forward
+					li.link
+						span.label Leasing
+
+				ul.menu-list
+					li.link
+						span.label Factoring
+					li.link
+						span.label Mesa
+					li.link
+						span.label Boleta de Garantia
+					li.link
+						span.label Comex
+
+
+
+md-sidenav.md-sidenav-right.md-whiteframe-5dp(md-component-id="right" perfect-scroll)
+	div.p-2
+		div.row.text-center.pos-r
+			img.user-avatar(src="images/user.png")
+			i.material-icons.change-avatar photo_camera
+			h3.c-white {{userLogin.fullName}}
+
+		div.row.data.pl-2.pr-2.mt-5
+			div.pos-r
+				span
+					i.material-icons account_circle
+				span.title DATOS
+				span.pull-right(ng-click="toggleProfile('profile')")
+					i.material-icons.edit edit
+		div.row.data.pl-2.pr-2(ng-if="editProfile === false")
+			div.pl-4.mt-4
+				span.sub-title Tel&eacute;fono Celular
+			div.pl-4.mt-05
+				span.sub-title-value +56 9 1584599
+
+			div.pl-4.mt-2
+				span.sub-title Tel&eacute;fono Fijo
+			div.pl-4.mt-05
+				span.sub-title-value +56 2 1584599
+
+			div.pl-4.mt-2
+				span.sub-title Correo Electr&oacute;nico
+			div.pl-4.mt-05
+				span.sub-title-value jprojas@gmail.com
+
+			div.pl-4.mt-2
+				span.sub-title Direcci&oacute;n
+			div.pl-4.mt-05
+				span.sub-title-value Av SantaMaria 9200
+				br
+				span.sub-title-value Depto41 &nbsp;-Vitacura
+
+	div.p-2(ng-if="editProfile === true")
+		div.row.communication.pl-2.pr-2
+			div.pl-2.mt-0
+				span.sub-title Tel&eacute;fono Celular
+			div.pl-2.mt-0
+				md-input-container.input-form.cell
+					md-select.md-no-underline.md-select(ng-model="code")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in movilCodes") {{code}}
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="userMovil" mask="2 15845" placeholder="2 15845" class="ml-1")
+			div.pl-2.mt-2
+				span.sub-title Tel&eacute;fono Fijo
+			div.pl-2.mt-0
+				md-input-container.input-form.phone
+					md-select.md-no-underline.md-select(ng-model="fix")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in fixCodes") {{code}}
+				input.phone(name="rut" type="text" autocomplete="off" ng-model="userPhone" mask="2 158455678" placeholder="2 158455678" class="ml-1")
+			div.pl-2.mt-2
+				span Correo electr&oacute;nico
+			div.pl-2.mt-0
+				input.email(name="rut" type="email" autocomplete="off" ng-model="userMail" placeholder="jprojas@gmail.com" required)
+			div.pl-2.mt-2
+				span.city Ciudad
+				span.town Comuna
+			div.pl-2.mt-0
+				md-input-container.city.input-form
+					md-select.md-no-underline.md-select(ng-model="city")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in cities") {{code}}
+				md-input-container.town.input-form
+					md-select.md-no-underline.md-select(ng-model="town")
+						md-option.text-uppercase(ng-value="code" ng-repeat="code in towns") {{code}}
+			div.pl-2.mt-2
+				span Calle
+			div.pl-2.mt-0
+				input.street(name="rut" type="text" autocomplete="off" ng-model="userStreet" placeholder="Av. Santa Maria" )
+			div.pl-2.mt-2
+				span N&uacute;mero
+				span.casa Depto / Casa
+			div.pl-2.mt-0
+				input.numero(name="rut" type="number" autocomplete="off" ng-model="userHome"  placeholder="9200")
+				input.casa(name="rut" type="number" autocomplete="off" ng-model="userApto"  placeholder="41" class="ml-2")
+
+	md-divider.divider(ng-if="editProfile === true")
+	div.p-2(ng-if="editProfile === true")
+		div.row.communication.pl-2.pr-2
+			div.pl-2.mt-0
+				span.cabecera.token Confirmar
+				p Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',Nominas Lorem ipsum dolor set amet',
+			div.pl-2.mt-2
+				span.token.number Token
+			div.pl-2.mt-1
+				span.val J1
+				span.val C1
+				span.val E3
+			div.pl-2.mt-1
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+				input.casa.val(name="rut" type="password" autocomplete="off" ng-model="rut"  placeholder="***" class="ml-2")
+		div.row.mt-5
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right', 'save')") GUARDAR
+			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
+
+	md-divider.divider
+	div.p-2(ng-if="editToken === false")
+		div.row.pass.pl-2.pr-2
+			div.pos-r
+				span.mr-2
+					i.material-icons vpn_key
+				span.title CLAVES
+				span.pull-right(ng-click="toggleProfile('token')")
+					i.material-icons.edit create
+
+			div.pl-4.mt-4
+				span.sub-title Token
+			div.pl-4.mt-05
+				span.sub-title-value Habilitada
+
+			div.pl-4.mt-2
+				span.sub-title Preguntas Secretas
+			div.pl-4.mt-05
+				span.sub-title-value Habilitada
+	div.p-2(ng-if="editToken === true")
+		div.row.pass.pl-2.pr-2
+			div.pos-r
+				span.mr-2
+					i.material-icons vpn_key
+				span.title CLAVES
+				span.pull-right(ng-click="toggleProfile('token')")
+					i.material-icons.edit create
+			div.pl-4.mt-4
+				span Clave
+			div.pl-4
+				input.password(name="password" type="password" autocomplete="off" ng-model="userPassword" placeholder="**********" required)
+			div.pl-4.mt-2
+				span Repetir Clave
+			div.pl-4
+				input.password(name="password" type="password" autocomplete="off" ng-model="userRepeatPassword" placeholder="**********" required)
+			div.pl-4.mt-2
+				span Pregunta Secreta
+			div.pl-4
+				md-input-container.question.input-form
+					md-select.md-no-underline.md-select(ng-model="secretQuestion")
+						md-option.text-uppercase(ng-value="question" ng-repeat="question in secretQuestions") {{question}}
+			div.pl-4.mt-2
+				input.answer(name="answer" type="text" autocomplete="off" ng-model="answer"  required)
+		div.row.mt-5
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right', 'save')") GUARDAR
+			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
+	md-divider.divider
+	div.p-2(ng-if="editCom === true")
+		div.row.communication.pl-2.pr-2
+			div.pos-r
+				span.mr-2
+					i.material-icons markunread_mailbox
+				span.title COMUNICACIONES
+				span.pull-right(ng-click="toggleProfile('comm')")
+					i.material-icons.edit create
+
+			div.pl-4.mt-4
+				span Cartolas
+			div.pl-4.mt-05
+				md-checkbox.md-primary(value="com" ng-repeat="com in communications"  ng-model="com.selected" ng-change="changeCom(com, 'cartolaCom')") {{com.name}}
+			div.pl-4.mt-2
+				span Cuenta Empresa
+			div.pl-4.mt-05
+				md-checkbox.md-primary(value="com" ng-repeat="com in communicationsEnterprise" ng-model="com.selected" ng-change="changeCom(com, 'cartolaEnterprise')") {{com.name}}
+			div.pl-4.mt-2
+				span Cr&eacute;ditos
+			div.pl-4.mt-05
+				md-checkbox.md-primary(value="com" ng-repeat="com in communicationsCredits" ng-model="com.selected" ng-change="changeCom(com, 'cartolaCredit')") {{com.name}}
+
+		div.row.mt-5
+			button.button-success.col-lg-5.col-md-5.col-sm-5.col-xs-5.col-offset(ng-click="closeToggle('right', 'save')") GUARDAR
+			button.button-default.custom.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-1.col-sm-5.col-xs-offset-1.col-xs-5(ng-click="closeToggle('right')") CANCELAR
+	div.p-2(ng-if="editCom === false")
+		div.row.communication.pl-2.pr-2
+			div.pos-r
+				span.mr-2
+					i.material-icons markunread_mailbox
+				span.title COMUNICACIONES
+				span.pull-right(ng-click="toggleProfile('comm')")
+					i.material-icons.edit create
+
+			div.pl-4.mt-4
+				span.sub-title Cartolas
+			div.pl-4.mt-05
+				span.sub-title-value.repeater-hyphen(ng-repeat="com in cartolaCom") {{com.name}}
+
+			div.pl-4.mt-2
+				span.sub-title Cuenta Empresa
+			div.pl-4.mt-05
+				span.sub-title-value.repeater-hyphen(ng-repeat="com in cartolaEnterprise") {{com.name}}
+			div.pl-4.mt-2
+				span.sub-title Cr&eacute;ditos
+			div.pl-4.mt-05
+				span.sub-title-value.repeater-hyphen(ng-repeat="com in cartolaCredit") {{com.name}}
+		div.row.mt-5
+			button.button-success.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-offset-1.col-xs-10(ng-click="closeToggle('right')") CONTACTAR A EJECUTIVO

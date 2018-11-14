@@ -1,0 +1,116 @@
+header {
+
+    position: fixed;
+    z-index: 25;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    md-toolbar {
+        height: 80.94px;
+
+        .md-toolbar-tools {
+            height: 80.94px;
+            max-height: 100px;
+            background-color: $c-blue-toolbar;            
+        }
+
+        .logo {
+            // margin-top: 4rem;
+            float: left;
+
+            .menu-icon { line-height: 80px;cursor: pointer; }
+            img { height: 50px; }
+        }
+
+        .user-profile {
+            float: right;
+            max-height: 80.94px;
+            overflow: hidden;
+
+            .user-login {
+                
+                img.user-logo {
+                    border-radius: 50%;
+                    width: 50px;
+                }
+                .company-selector-container {
+    
+                    padding-top: 2.2rem;
+                    margin-right: 15px;
+    
+                    .user-fullname {
+                        text-transform: uppercase;
+                        margin-bottom: 0px;
+                        font-family: Roboto;
+                        font-size: 14px;
+                        font-weight: 700;
+                        letter-spacing: -0.39px;
+                        line-height: 19px;
+                    }
+
+                    md-menu { 
+                        display: block !important;
+                        cursor: pointer;
+                    }
+    
+                    .company-selector {
+    
+                        span:last-child {
+                            float: right;
+    
+                            i { font-size: 20px; }
+                        }
+    
+                        span:first-child {
+                            font-family: Roboto;
+                            font-size: 16px;
+                            font-weight: 400;
+                            letter-spacing: -0.34px;                      
+                        }
+                    }
+                }
+            }
+
+            .logout { 
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                
+                i { font-size: 20px;cursor: pointer; }
+            }
+        }
+
+        .links {
+            padding: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+
+            li {
+                list-style: none;
+                display: inline-block;
+                vertical-align: top;
+                padding: 0px 1rem;
+                font-family: Roboto;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: -0.34px;
+                line-height: 80px;
+            }
+        }       
+    }
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    header md-toolbar .logo .column:first-child { float: left; }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    header md-toolbar .logo .column:first-child { float: left; }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    header md-toolbar .logo .column:first-child { float: left; }
+}
+@media (min-width: 1200px) {//col-lg
+    header{}
+}

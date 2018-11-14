@@ -1,0 +1,335 @@
+.sii-modal {
+    .text{
+		letter-spacing: -.03px;
+		font-weight: 700;
+		color: #4a4a4a;
+		font-family: Roboto;
+		font-size: 13px;
+	}
+	.value{
+		letter-spacing: -.29px;
+		font-weight: 400;
+		color: #4a4a4a;
+		font-family: Roboto;
+		font-size: 13px;
+	}
+    // INPUT START
+    .input-form {
+        width: 100%;
+        height: 47px;
+        border-radius: 5px;
+        background-color: $c-gray-background-input;
+        display: -webkit-inline-box;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid $c-gray-border-input;
+        position: relative;
+
+        md-select { width: 100%; }
+
+		&.has-error {
+			color: $has-error-color;
+			box-shadow: 0 0 7px red;
+			border-color: $has-error-color;
+			&:focus {
+				border-color: red;
+				-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+				box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
+			}
+			.form-text {
+				label {
+					color: $has-error-fore-color;
+				}
+			}
+        }
+
+        .form-text i {
+            color: $sill-color;
+            font-size: 25px;
+            display: inline-block;
+            vertical-align: top;
+            line-height: 34px;
+        }
+
+        .form-text label {
+            font-size: 13px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            font-weight: 400;
+            letter-spacing: -0.36px;
+            line-height: 35px;
+            color: $c-white;
+            display: inline-block;
+            vertical-align: top;
+            font-family: Roboto;
+            margin-left: 1rem;
+            margin-bottom: 0px;
+          }
+
+          .form-element {
+            text-align: right;
+            width: 100%;
+            input {
+                width: 100%;
+                border: none;
+                background-color: transparent;
+                text-align: right;
+                color: $c-white;
+                font-size: 17px;
+                font-family: Roboto;
+                font-weight: 400;
+                letter-spacing: -0.41px;
+                line-height: 32px;
+
+                &::-webkit-input-placeholder { color: $c-white; }
+                &::-moz-placeholder { color: $c-white; }
+                &::-ms-input-placeholder { color: $c-white; }
+                &::-moz-placeholder { color: $c-white; }
+            }
+            input:focus {
+                outline-width: 0px !important;
+            }
+        }
+    }
+
+    .input-form.yellow {
+        background-color: $c-yellow-back-input;
+        border: 1px solid $c-yellow-border-input;
+
+    }
+
+    .placeholder-select {
+        opacity: 1;
+        border-radius: 0px;
+        background: none;
+        border: none;
+        position: absolute;
+        z-index: 3;
+        left: 5px;
+
+        label {
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            font-weight: 400;
+            letter-spacing: -0.36px;
+            line-height: 44px;
+            color: rgba(0, 0, 0, 0.8700000047683716);
+            display: inline-block;
+            vertical-align: top;
+            font-family: Roboto;
+            margin-left: .2rem;
+            margin-bottom: 0px;
+        }
+    }
+
+    .input-form .form-text {
+        opacity: 1;
+        border-radius: 0px;
+        background: none;
+        border: none;
+        position: absolute;
+    }
+
+    .input-form .form-text label {
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: 400;
+        letter-spacing: -0.36px;
+        line-height: 35px;
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        display: inline-block;
+        vertical-align: top;
+        font-family: Roboto;
+        margin-left: .2rem;
+        margin-bottom: 0px;
+    }
+
+    .input-form .form-element {
+        text-align: right;
+        width: 100%;
+        position: relative;
+    }
+
+    .input-form .form-element input {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        text-align: right;
+        color: $c-gray-txt-modal;
+        font-size: 13px;
+        font-family: Roboto;
+        font-weight: 400;
+        letter-spacing: -0.41px;
+        line-height: 32px;
+    }
+
+    .input-form .form-element input:focus {
+        outline-width: 0px !important;
+    }
+    // INPUT END
+    md-input-container.input-form {
+        margin-top: 0px
+    }
+    md-input-container.input-form.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
+        -webkit-transform: none;
+        transform: none;
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17px;
+    }
+    md-input-container.input-form:not([md-no-float]) .md-select-placeholder span:first-child {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-size: 12px;
+    }
+    .md-select-value>span {
+        text-align: right;
+    }
+    .md-select-value>span:not(.md-select-icon) .md-text {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17px;
+    }
+    md-switch { margin: 10px 0px; }
+
+    .padding-0 { padding: 0px; }
+    .padding-right-0 { padding-right: 0px; }
+    .padding-left-0 { padding-left: 0px; }
+    md-switch.md-checked.md-primary .md-thumb {
+        background-color: $c-green-firm;
+    }
+	.backem {
+		border-radius: 5px;
+		background-color: #ffffe5;
+		border: 1px solid #fbf065;
+		color: #4a4a4a;
+		md-input-container, .input-form {
+			background-color: #ffffe5;
+		}
+
+	}
+	.adjust-rut, .adjust-pass {
+		width: 45%;
+	}
+	.input-form.yellow {
+		background-color: $c-yellow-back-input;
+		border: 1px solid $c-yellow-border-input;
+
+	}
+	.placeholder-select {
+		opacity: 1;
+		border-radius: 0px;
+		background: none;
+		border: none;
+		position: absolute;
+		z-index: 3;
+		left: 5px;
+
+		label {
+			font-size: 12px;
+			font-weight: normal;
+			font-style: normal;
+			font-stretch: normal;
+			font-weight: 400;
+			letter-spacing: -0.36px;
+			line-height: 44px;
+			color: rgba(0, 0, 0, 0.8700000047683716);
+			display: inline-block;
+			vertical-align: top;
+			font-family: Roboto;
+			margin-left: .2rem;
+			margin-bottom: 0px;
+		}
+	}
+	.mt-minus-1 {
+		margin-top: -1.3em;
+	}
+	h4.text-center {
+		width: 80%;
+		margin-left: 3em;
+	}
+	.title {
+		h3 {
+			margin-right: 5em;
+		}
+	}
+
+}
+/*MEDIA SCREEN*/
+
+@media (max-width: 767px) {//col-xs
+    .sii-modal .padding-0 { padding: 0px 15px; }
+    .sii-modal .placeholder-select { left: 22px; }
+    .sii-modal .placeholder-select.refactor { left: 5px; }
+    .sii-modal .padding-right-0 { padding-right: 15px; }
+    .sii-modal .padding-left-0 { padding-left: 15px; }
+    .sii-modal .padding-rigth-xs-0 { padding-right: 0px; }
+    .sii-modal .center-xs { text-align: center; }
+    .sii-modal .destinatario md-radio-group {
+        display: block;
+        float: none;
+        text-align: center;
+        padding-top: 15px;
+    }
+    .sii-modal .radio-container md-radio-group md-radio-button:first-child {
+		width: 100%;
+		margin-left: -1.5em;
+		margin-right: 1.6em;
+	}
+    .sii-modal .radio-container md-radio-group {
+        display: block;
+        width: 170px;
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 0;
+		margin-bottom: .6em;
+    }
+    .sii-modal .radio-container md-radio-group md-radio-button {
+        display: inline;
+        width: 100%;
+    }
+    .sii-modal .radio-container md-radio-group md-radio-button:last-child {
+        float: none;
+        margin-right: 0px;
+        margin-top: 0px;
+    }
+}
+@media (max-width: 320px) and (min-height:258px ){
+	.sii-modal .radio-container md-radio-group md-radio-button:first-child {
+		width: 100%;
+		margin-left: -3.5em;
+		margin-right: 1.6em;
+	}
+
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .sii-modal .radio-container md-radio-group md-radio-button:last-child {
+
+        margin-right: 7em;
+
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+     .sii-modal .radio-container md-radio-group md-radio-button:last-child {
+
+        margin-right: 14em;
+
+    }
+
+}
+@media (min-width: 1200px) {//col-lg
+     .sii-modal .radio-container md-radio-group md-radio-button:last-child {
+
+        margin-right: 14em;
+
+    }
+
+}

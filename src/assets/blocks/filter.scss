@@ -1,0 +1,210 @@
+.filter {
+    .text {
+        font-size: 12px;
+        line-height: 50px;
+    }
+    .refactor-padding, .refactor-pl { padding-left: 0px;}
+
+    .radios {
+        min-height: 50px;
+        margin-bottom: 15px;
+    }
+
+    // INPUT START
+    .input-form {
+        height: 47px;
+        border-radius: 5px;
+        background-color: $c-gray-background-input;
+        display: -webkit-inline-box;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid $c-gray-border-input;
+        position: relative;
+    }
+
+    .input-form .form-text {
+        opacity: 1;
+        border-radius: 0px;
+        background: none;
+        border: none;
+        position: absolute;
+    }
+
+    .input-form .form-text i {
+        font-size: 25px;
+        display: inline-block;
+        vertical-align: top;
+        line-height: 40px;
+    }
+
+    .input-form .form-text label {
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: 400;
+        letter-spacing: -0.36px;
+        line-height: 35px;
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        display: inline-block;
+        vertical-align: top;
+        font-family: Roboto;
+        margin-left: .2rem;
+        margin-bottom: 0px;
+    }
+
+    .input-form .form-element {
+        text-align: right;
+        width: 100%;
+
+        input {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            text-align: right;
+            color: $c-black;
+            font-size: 14px;
+            font-family: Roboto;
+            font-weight: 400;
+            letter-spacing: -0.41px;
+            line-height: 35px;
+
+        }
+
+        &.custom-align input {
+            text-align: left;
+            padding-left: 40px;
+        }
+    }
+
+    .input-form .form-element input:focus {
+        outline-width: 0px !important;
+    }
+    // INPUT END
+
+    md-input-container.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
+        -webkit-transform: none;
+        transform: none;
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 17px;
+    }
+    md-input-container:not([md-no-float]) .md-select-placeholder span:first-child {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+        font-size: 12px;
+    }
+
+    md-input-container {
+       margin-top: 0px
+    }
+
+    .radio-storage { padding-left: 0px; }
+    .radio-container {
+
+        font-size: 12px;
+        padding: 0px;
+        min-height: 50px;
+        margin-bottom: 15px;
+
+        md-radio-button {
+            display: inline;
+            vertical-align: top;
+            margin-bottom: 0px;
+            margin-right: 2.5rem;
+            margin-top: 5px;
+        }
+    }
+
+    .refactor-all {
+        float: left;
+        line-height: 50px;
+    }
+
+    md-input-container.input-form.refactor {
+        width: 85% !important;
+        margin-left: 15px;
+    }
+
+    .last-filter {
+        padding: 0px 0px;
+    }
+}
+@media (max-width: 375px){
+    .filter {
+        .radio-container {
+			md-radio-button {
+                display: block;
+                margin-bottom: 1.2em;
+			}
+		}
+    }
+}
+@media (max-width: 767px) {//col-xs
+    .filter {
+        .text {
+            text-align: center;
+            line-height: 45px;
+        }
+        .input-form.refactor-bottom { margin-bottom: 0px; }
+        .refactor-padding {
+            padding-left: 15px;
+            padding-right: 0px;
+        }
+        .refactor-pl {
+            padding-left: 15px;
+        }
+        .radio-storage {
+            padding-left: 15px !important;
+            padding-bottom: 15px;
+        }
+        md-input-container.input-form.refactor {
+            width: 100% !important;
+            margin-left: 0px;
+        }
+        .last-filter {
+            padding-left: 15px;
+        }
+		.radio-container {
+			md-radio-button {
+				margin-right: .9rem;
+			}
+		}
+    }
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .filter {
+
+        .top { padding-right: 0px; }
+        .radio-storage { padding-left: 15px !important; }
+        .last-filter {
+            padding-left: 15px !important;
+            padding-bottom: 15px;
+        }
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    .filter {
+        .text {
+        font-size: 12px;
+        line-height: 5em;
+        letter-spacing: -0.5px
+    }
+
+        .avanced {
+            padding-right: 8px;
+        }
+        .radio-storage {
+            padding-left: 15px !important;
+            margin-top: -15px;
+        }
+    }
+ }
+@media (min-width: 1200px) {//col-lg
+
+	.refactor-padding, .refactor-pl {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}

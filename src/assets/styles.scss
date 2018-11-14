@@ -1,0 +1,175 @@
+// for loading font-awesome icons
+@font-face {
+    font-family: Roboto;
+    src: url('fonts/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: Roboto-Bold;
+    src: url('fonts/Roboto-Bold.ttf');
+}
+@font-face {
+    font-family: Roboto-Medium;
+    src: url('fonts/Roboto-Medium.ttf');
+}
+@font-face {
+    font-family: SFNSText;
+    src: url('fonts/San-Francisco-Regular.ttf');
+}
+@font-face {
+  font-family: HelveticaNeue;
+  src: url('fonts/HelveticaNeue.ttf');
+}
+// md-icons
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+	src: local('Material Icons'),
+	local('MaterialIcons-Regular'),
+	url('fonts/MaterialIcons-Regular.woff2') format('woff2'),
+	url('fonts/MaterialIcons-Regular.woff') format('woff'),
+	url('fonts/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+// md-icons
+
+/*===========================================
+========= Loading Bootstrap Styles ==========
+=============================================*/
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~angular-material/angular-material';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~md-steppers/dist/md-steppers.min.css';
+
+/*===========================================
+========= Loading Customize Styles ==========
+=============================================*/
+// loading blocks
+@import 'vars/colors';
+
+:focus {
+    outline: none;
+}
+
+// loading blocks
+@import 'blocks/button';
+@import 'blocks/extra-layout';
+@import 'blocks/modals';
+@import 'blocks/account-list';
+@import 'blocks/user-profiler';
+@import 'blocks/flex-grid';
+@import 'blocks/table';
+@import 'blocks/tabs';
+@import 'blocks/firm';
+@import 'blocks/status';
+@import 'blocks/aprove';
+@import 'blocks/input';
+@import 'blocks/account-ellipse';
+@import 'blocks/filter';
+@import 'blocks/wizard';
+
+@import 'blocks/menu';
+@import 'blocks/header';
+@import 'blocks/user-profile';
+@import 'blocks/layout';
+
+@import 'blocks/views/login';
+@import 'blocks/views/forgot';
+@import 'blocks/views/dashboard';
+@import 'blocks/views/investment';
+@import 'blocks/views/transfer';
+@import 'blocks/views/transfer-modal';
+@import 'blocks/views/user-modal';
+@import 'blocks/views/regla-modal';
+@import 'blocks/views/sii-modal';
+@import 'blocks/views/users';
+
+.is-focused {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+.is-focused-black {
+    border: 1px solid rgba(74, 74, 74, 0.1);
+    background-color: rgba(227, 227, 227, 0.4);
+    box-shadow: 0 0 10px rgba(74, 74, 74, 0.3);
+    outline: none;
+}
+.border-left { border-left: 1px solid #dddddd; }
+
+md-menu-content {
+
+    padding: 0px;
+
+    md-menu-item {
+
+        cursor: pointer;
+
+        a, a:hover {
+            color: $c-black;
+            text-decoration: none;
+        }
+    }
+
+    md-menu-item.selected {
+
+        background-color: $c-gray-light;
+    }
+}
+
+md-card { margin: 8px 0px; }
+
+md-backdrop.md-sidenav-backdrop {
+    height: 100% !important;
+    position: fixed !important;
+}
+
+.md-sidenav-right, .md-sidenav-left  { position: fixed; }
+.column { display: inline-block;vertical-align: top; }
+.md-select-menu-container {
+    z-index: 9999;
+
+    md-select-menu md-content md-option[selected] {
+        color: rgba(0, 0, 0, 0.8700000047683716);
+    }
+}
+/*MEDIA SCREEN*/
+@media (max-width: 767px) {//col-xs
+    .content-container {padding-top: 6rem;}
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .content-container {padding-top: 6rem;}
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    .content-container {padding-top: 6rem;}
+}
+@media (min-width: 1200px) {//col-lg
+    .content-container {padding-top: 14rem;}
+}

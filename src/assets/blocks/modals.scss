@@ -1,0 +1,440 @@
+$line-height-message: 25px;
+.modal.fullscreen {
+
+    .modal-dialog {
+        width: 100%;
+        margin: 0px auto;
+        position: absolute;
+        min-height: 100vh !important;
+        .modal-content {
+            height: 100%;
+            border-radius: 0px;
+            border: none;
+            min-height: 100vh !important;
+
+            .header {
+
+                height: 52px;
+
+                .logo {
+                    width: 159px;
+                    height: 52px;
+                    position: absolute;
+                    top: 10;
+                    left: 10;
+                }
+
+                .close {
+
+                    position: absolute;
+                    top: 25;
+                    right: 25;
+
+                    i {
+                        font-size: 34px;
+                    }
+                }
+            }
+
+            & .container > .title,
+            & .container > .sub-title {
+                text-align: center;
+                font-weight: 400;
+                font-family: Roboto;
+            }
+            & .container > .title {
+                font-size: 24px;
+                color: $c-black-table-header;
+                letter-spacing: -0.05px;
+            }
+            & .container > .sub-title {
+                color: rgba(0, 0, 0, 0.8700000047683716);
+                font-size: 18px;
+                letter-spacing: -0.03px;
+            }
+        }
+		.message {
+			line-height: 27px;
+		}
+    }
+}
+.two-action {
+	button.button-default-inv {
+		margin-top: -0.4em;
+		vertical-align: middle;
+	}
+	.message {
+		line-height: 2.5em !important;
+	}
+}
+.modal {
+
+    &.bottom-confirm {
+
+        .modal-dialog.modal-lg {
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            margin: 0px;
+
+            .modal-content {
+                border-radius: 0px;
+                padding: 2rem;
+                background-color: $c-green;
+                border: none;
+
+                .message {
+                    line-height: $line-height-message;
+                    color: $c-white;
+                }
+            }
+        }
+    }
+    &.bottom-danger {
+
+        .modal-dialog.modal-lg {
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            margin: 0px;
+
+            .modal-content {
+                border-radius: 0px;
+                padding: 2rem;
+                background-color: $c-red-remove;
+                border: none;
+
+                .message {
+                    line-height: $line-height-message;
+                    color: $c-white;
+                }
+            }
+        }
+    }
+    &.bottom-warning {
+
+        .modal-dialog.modal-lg {
+            width: 100%;
+            bottom: 0;
+            position: absolute;
+            margin: 0px;
+
+            .modal-content {
+                border-radius: 0px;
+                padding: 2rem;
+                background-color: $c-yellow-remove;
+                border: none;
+
+                .message {
+                    line-height: $line-height-message;
+                    color: $c-gray-txt-modal;
+                }
+            }
+        }
+    }
+}
+
+.firm-detail {
+    .modal-dialog {
+        .modal-content {
+            background-color: $c-black-table-header;
+            padding: 15px;
+
+            .modal-header { padding: 0px; }
+            .modal-header {
+                border-bottom: 1px solid #979797;
+                padding-bottom: 7px;
+
+                .modal-title {
+                    color: $c-white;
+                    font-family: Roboto;
+                    font-size: 13px;
+                    font-weight: 700;
+                    letter-spacing: -0.24px;
+                    line-height: 16px;
+                }
+            }
+
+            .modal-body {
+                padding: 10px 0px 5rem 0px;
+
+                span.text-notification {
+                    color: $c-gray-txt-modal;
+                    font-family: Roboto;
+                    font-size: 11px;
+                    font-weight: 400;
+                    letter-spacing: 0.39px;
+                    line-height: 22px;
+                    margin-bottom: 1rem;
+                }
+            }
+            .modal-footer {
+                padding-bottom: 0px;
+                padding-top: 10px;
+                border-top: 1px solid #979797;
+
+                &.no-border { border-top: none; }
+                span {
+                    color: $c-gray-txt-modal;
+                    font-family: Roboto;
+                    font-size: 11px;
+                    font-weight: 400;
+                    letter-spacing: 0.39px;
+                    line-height: 13px;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+    margin-top:10em;
+}
+
+.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message {
+    line-height: 17px;
+    b {
+        color: #62645D;
+    }
+
+   .input-form {
+        height: 47px;
+        border-radius: 5px;
+        background-color: #fafafa;
+        display: -webkit-inline-box;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ececec;
+        position: relative;
+        width: 70%;
+       .form-text {
+            opacity: 1;
+            border-radius: 0;
+            background: none;
+            border: none;
+            position: absolute;
+            label {
+                font-size: 12px;
+                font-style: normal;
+                font-stretch: normal;
+                font-weight: 400;
+                letter-spacing: -.36px;
+                line-height: 35px;
+                color: rgba(0,0,0,.87);
+                display: inline-block;
+                vertical-align: top;
+                font-family: Roboto;
+                margin-left: .2rem;
+                margin-bottom: 0;
+             }
+        }
+        .form-element {
+            text-align: right;
+            width: 100%;
+             input {
+                    width: 100%;
+                    border: none;
+                    background-color: transparent;
+                    text-align: right;
+                    color: rgba(74,74,74,.7);
+                    font-size: 12px;
+                    font-family: Roboto;
+                    font-weight: 400;
+                    letter-spacing: -.41px;
+                    line-height: 32px;
+                }
+        }
+    }
+}
+.modal.bottom-warning.authorize{
+    .button-default-inv {
+        background-color: transparent;
+        color: #62645D;
+        box-shadow: none;
+    }
+}
+
+input[type='number'] {
+	-moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+@media (max-width: 375px) {//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+	.two-action {
+		.button-default-inv {
+			margin-left: -2.6em;
+		}
+	}
+}
+@media (max-width: 374px) and (min-width: 320px) {//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+	.two-action {
+		.button-default-inv {
+			margin-left: -1.2em;
+		}
+	}
+}
+@media  (min-width: 376px) and (max-width: 764px){//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: -7px;
+		}
+		.two-action {
+			.button-default-inv {
+				margin-left: -3.7em;
+			}
+		}
+	}
+}
+
+@media (max-width: 766px) and (min-width: 765px){//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+}
+
+@media (max-width: 767px) {//col-xs
+
+    .modal.fullscreen {
+
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+
+            .modal-content {
+                height: 100%;
+            }
+        }
+    }
+
+    .modal.bottom-confirm .message label { line-height: 18px; }
+    .modal.bottom-confirm.finish .message label { line-height: 15px; }
+    .modal.bottom-danger.finish .message label { line-height: 15px; }
+	.modal {
+		 .button-default-inv {
+            height: 10px;
+            &.with-icon {
+                margin-left: -3em;
+                margin-top: -.2em;
+            }
+
+		}
+		.modal-content {
+			padding: 1rem;
+			.message {
+				line-height: 10px;
+				margin-bottom: .6em;
+				.input-form {
+					height: 35px;
+				}
+			}
+		}
+
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form{
+		height: 35px;
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form .form-text label {
+		line-height: 25px;
+	}
+	.modal.bottom-warning.authorize .modal-dialog.modal-lg .modal-content .message .input-form .form-element input {
+		line-height: 27px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+
+    .modal.fullscreen {
+
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+
+            .modal-content {
+                height: 100%;
+            }
+            label {
+                margin-top: .8em !important;
+            }
+        }
+    }
+	.col-sm-5.col-sm-5-less{
+		width: 39.666667%;
+	}
+
+    .modal.bottom-confirm .message label { line-height: 18px; }
+    .modal.bottom-confirm.finish .message label { line-height: $line-height-message; }
+    .modal-dialog {
+        label {
+            margin-top: .8em;
+            vertical-align: middle;
+            span.transfer {
+                margin-left: -.3em;
+            }
+        }
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+
+    .modal.fullscreen {
+
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+
+            .modal-content {
+                height: 100%;
+            }
+        }
+    }
+     .modal-dialog {
+        label {
+            margin-top: .8em;
+            vertical-align: middle;
+            span.transfer {
+                margin-left: -.3em;
+            }
+        }
+    }
+}
+@media (min-width: 1200px) {//col-lg
+
+    .modal.fullscreen {
+
+        .modal-dialog {
+            width: 100%;
+            margin: 0px auto;
+
+            .modal-content {
+                height: 100%;
+            }
+        }
+    }
+
+    .modal-dialog {
+        label {
+            vertical-align: middle;
+            &.pt-em, &.pt-emx {
+                margin-top: .8em;
+            }
+            &.pt-em {
+                 padding-top: .5em;
+            }
+            span.transfer {
+                margin-left: -.3em;
+            }
+        }
+    }
+}

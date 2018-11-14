@@ -1,0 +1,56 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\ASUS\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'rebuild',
+1 verbose cli   'node-sass' ]
+2 info using npm@2.15.9
+3 info using node@v9.3.0
+4 info readInstalled object
+5 verbose rebuild path, id [ 'D:\\Work\\Codechanic\\PROD\\Banca\\wsc-cbanca-angularjs\\node_modules\\node-sass',
+5 verbose rebuild   'node-sass@4.9.3' ]
+6 silly rebuild set [ 'D:\\Work\\Codechanic\\PROD\\Banca\\wsc-cbanca-angularjs\\node_modules\\node-sass' ]
+7 info build D:\Work\Codechanic\PROD\Banca\wsc-cbanca-angularjs\node_modules\node-sass
+8 info preinstall node-sass@4.9.3
+9 info linkStuff node-sass@4.9.3
+10 silly linkStuff node-sass@4.9.3 has D:\Work\Codechanic\PROD\Banca\wsc-cbanca-angularjs\node_modules as its parent node_modules
+11 verbose linkBins node-sass@4.9.3
+12 verbose link bins [ { 'node-sass': 'bin/node-sass' },
+12 verbose link bins   'D:\\Work\\Codechanic\\PROD\\Banca\\wsc-cbanca-angularjs\\node_modules\\.bin',
+12 verbose link bins   false ]
+13 verbose linkMans node-sass@4.9.3
+14 verbose rebuildBundles node-sass@4.9.3
+15 verbose rebuildBundles [ '.bin' ]
+16 info install node-sass@4.9.3
+17 verbose unsafe-perm in lifecycle true
+18 info postinstall node-sass@4.9.3
+19 verbose unsafe-perm in lifecycle true
+20 info node-sass@4.9.3 Failed to exec postinstall script
+21 verbose stack Error: node-sass@4.9.3 postinstall: `node scripts/build.js`
+21 verbose stack Exit status 1
+21 verbose stack     at EventEmitter.<anonymous> (C:\Users\ASUS\node_modules\npm\lib\utils\lifecycle.js:217:16)
+21 verbose stack     at EventEmitter.emit (events.js:159:13)
+21 verbose stack     at ChildProcess.<anonymous> (C:\Users\ASUS\node_modules\npm\lib\utils\spawn.js:24:14)
+21 verbose stack     at ChildProcess.emit (events.js:159:13)
+21 verbose stack     at maybeClose (internal/child_process.js:943:16)
+21 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
+22 verbose pkgid node-sass@4.9.3
+23 verbose cwd D:\Work\Codechanic\PROD\Banca\wsc-cbanca-angularjs
+24 error Windows_NT 10.0.10240
+25 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\ASUS\\node_modules\\npm\\bin\\npm-cli.js" "rebuild" "node-sass"
+26 error node v9.3.0
+27 error npm  v2.15.9
+28 error code ELIFECYCLE
+29 error node-sass@4.9.3 postinstall: `node scripts/build.js`
+29 error Exit status 1
+30 error Failed at the node-sass@4.9.3 postinstall script 'node scripts/build.js'.
+30 error This is most likely a problem with the node-sass package,
+30 error not with npm itself.
+30 error Tell the author that this fails on your system:
+30 error     node scripts/build.js
+30 error You can get information on how to open an issue for this project with:
+30 error     npm bugs node-sass
+30 error Or if that isn't available, you can get their info via:
+30 error
+30 error     npm owner ls node-sass
+30 error There is likely additional logging output above.
+31 verbose exit [ 1, true ]

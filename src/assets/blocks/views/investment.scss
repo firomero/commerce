@@ -1,0 +1,406 @@
+.investment {
+
+    account-list.bg-toolbar {
+        md-tabs-canvas md-pagination-wrapper {
+            right: 0;
+            left: auto !important;
+        }
+        md-tabs-wrapper { margin-left: 0px; }
+        .title { text-transform: none; }
+
+        .action-container {
+            bottom: -55px;
+        }
+    }
+
+    .radio-container-selector {
+
+        position: absolute;
+        top: 5px;
+        left: 2px;
+        z-index: 5;
+
+        md-radio-button {
+            display: inline-block;
+            vertical-align: top;
+            margin-bottom: 0px;
+        }
+        md-radio-button:first-child { margin-right: 3rem; }
+    }
+
+    .account-movement {
+
+        margin-top: -55px;
+
+        md-tabs.component {
+            md-tabs-wrapper {
+                margin-left: 30rem;
+            }
+        }
+    }
+
+
+    .arrow-container {
+
+        span:first-child {
+            float: left;
+            // padding-top: 7px;
+            margin-right: 25%;
+
+            i { font-size: 18px; }
+        }
+
+        &.up { color: $c-green; }
+        &.down { color: $c-red; }
+    }
+    .documents {
+        padding-right: 15rem !important;
+
+        .arrow-container-download {
+
+            a {
+                display: block;
+                color: $c-green;
+            }
+            a:hover { text-decoration: none; }
+            span:last-child {
+                float: right;
+                // padding-top: 7px;
+                margin-left: 3%;
+
+                i { font-size: 18px; }
+            }
+        }
+    }
+    .cheque-container {
+
+        .motive {
+            line-height: 50px;
+            padding-right: 0px;
+            color: $c-black-table-header;
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: -0.03px;
+        }
+
+        md-input-container { margin: 0px !important; }
+        md-input-container.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
+            -webkit-transform: none;
+            transform: none;
+            color: rgba(0, 0, 0, 0.8700000047683716);
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+        }
+        md-input-container:not([md-no-float]) .md-select-placeholder span:first-child {
+            color: rgba(0, 0, 0, 0.8700000047683716);
+        }
+    }
+
+    .input-form {
+        height: 50px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: $c-gray-background-input;
+        display: -webkit-inline-box;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid $c-gray-border-input;
+        position: relative;
+
+        md-select { width: 100%; }
+
+    }
+	.tipo {
+		margin-bottom: .5em;
+	}
+}
+
+
+.modal-check-detail {
+    .text, .value {
+        color: $c-black-table-header;
+        font-family: Roboto;
+        font-size: 13px;
+    }
+    .text { letter-spacing: -0.03px;font-weight: 700; }
+    .value { letter-spacing: -0.29px;font-weight: 400; }
+}
+.modal-check-detail-cheques {
+    ul {
+        margin-bottom: 0px;
+        li {list-style: none;}
+    }
+}
+.modal-check-detail-motivo {
+
+}
+
+/*MEDIA SCREEN*/
+@media (max-width: 500px) {
+    .investment account-list.bg-toolbar .action-container {
+        bottom: -50px!important;
+        right: -1px!important;
+    }
+    .investment .account-movement { margin-top: -30px; }
+    .investment .documents {
+        padding-right: 2rem!important;
+    }
+	.investment {
+		.filter {
+			.button-success.search {
+				float:right;
+			}
+		}
+	}
+}
+@media (min-width: 501px) and (max-width: 766px)  {
+    .investment .documents {
+        padding-right: 10rem!important;
+    }
+	.investment {
+		.filter {
+			.button-success.search {
+				float:right;
+			}
+		}
+	}
+}
+@media (max-width: 767px) {//col-xs
+    .investment .cheque-container {
+
+        padding-left: 0px;
+        padding-right: 0px;
+
+        & > div { padding: 0px; }
+        .motive { padding-left: 0px;font-size: 10px; }
+        .button-success { font-size: 11px; }
+    }
+    .investment .account-movement md-tabs.component md-tabs-wrapper {
+        width: 100% !important;
+        margin-left: 0px;
+    }
+    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }
+    .button-default.button-load.col-lg-2.col-md-2.col-sm-3.col-xs-5 {
+        margin-top: 5px;
+    }
+	.investment {
+		.filter {
+			.year {
+				margin-right: 0;
+				margin-left: 0;
+			}
+			.input-form {
+				.form-text {
+					label.rut.year {
+						margin-left: 23.5em;
+					}
+					label.rut.month {
+						margin-left: 23.5em;
+					}
+                }
+                label.rut.year, label.rut.month {
+                    margin-top: -1.9em;
+                    font-weight: normal;
+                }
+			}
+			.button-success.search {
+				float:right;
+			}
+		}
+	}
+}
+@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+    .investment .cheque-container {
+
+        padding-left: 0px;
+        padding-right: 0px;
+
+        & > div { padding: 0px; }
+    }
+    .investment .account-movement md-tabs.component md-tabs-wrapper {
+        width: 100% !important;
+        margin-left: 0px;
+    }
+    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }
+    .investment .documents {
+        padding-right: 10rem!important;
+    }
+     .col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-8.col-xs-12.adjust {
+        margin-left: 6%
+    }
+    .investment {
+        .radio-container.adjust {
+            margin-left: 1.5em;
+        }
+        .row {
+            div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0.check {
+            margin-left: -4em;
+            }
+            .col-lg-3.col-md-3.col-sm-4.col-xs-12.last-filter{
+                float: right;
+                margin-right: 5.5em;
+            }
+            .col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
+                margin-left: -1em;
+            }
+        }
+		.filter {
+			.year {
+				margin-right: .5em;
+				margin-left: -.5em;
+			}
+			.input-form {
+				.form-text {
+					label.rut.year {
+						margin-left: 12.5em;
+					}
+					label.rut.month {
+						margin-left: 13.5em;
+                    }
+                }
+                label.rut.year, label.rut.month {
+                    margin-top: -1.9em;
+                    font-weight: normal;
+                }
+			}
+			.button-success.search {
+				float:right;
+				margin-right: 1em;
+			}
+		}
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+    .investment .cheque-container {
+
+        padding-left: 0px;
+        padding-right: 0px;
+
+        & > div { padding: 0px; }
+    }
+    .investment .account-movement md-tabs.component md-tabs-wrapper {
+        width: 100% !important;
+        margin-left: 0px;
+    }
+    .investment .radio-container-selector { margin-bottom: 15px;position: relative; }
+    .col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-8.col-xs-12.adjust {
+        margin-left: 32%
+    }
+	.investment {
+		.row {
+			.col-md-9.col-md-9-less {
+				width: 57%;
+			}
+
+			.col-md-8.col-md-8-less {
+				width: 50%;
+			}
+
+			.col-md-4-less {
+				margin-left: 30%;
+			}
+
+			.pl-0 {
+				padding-left: 1em!important;
+			}
+
+			.col-lg-4.pl-0 {
+				padding-left: 1em!important;
+			}
+
+			.col-md-12.pl-0.pr-0 {
+				padding-left: 1em!important;
+			}
+        }
+        div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0.check {
+            margin-left: -4em;
+        }
+        div.col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
+            margin-left: 1.2em;
+        }
+		.filter {
+			.year {
+				margin-right: .5em;
+				margin-left: -.5em;
+			}
+			.input-form {
+				.form-text {
+					label.rut.year {
+						margin-left: 3.5em;
+					}
+					label.rut.month {
+						margin-left: 4.5em;
+                    }
+                }
+                input.yearStart {
+                    padding-right: 2em;
+                }
+                label.rut.year, label.rut.month {
+                    margin-top: -1.9em;
+                    font-weight: normal;
+                }
+			}
+
+			.button-success.search {
+				float:right;
+				margin-right: -11em;
+			}
+		}
+	}
+
+}
+
+@media (min-width: 1200px) {//col-lg
+    .investment .cheque-container {
+
+        padding-left: 0px;
+        padding-right: 0px;
+
+        & > div { padding: 0px; }
+    }
+    .col-lg-offset-3.col-lg-6.adjust {
+        margin-left: 32%
+    }
+	.row {
+		.col-lg-8.col-lg-8-less {
+			width: 64%;
+		}
+		.col-lg-4.col-lg-4-less {
+			width: 30%;
+        }
+        .col-md-offset-2.middle-offset {
+            margin-left: 0;
+        }
+        .text.refactor-all.visible-lg.visible-md.visible-sm {
+            margin-left: 0.6em
+        }
+	}
+	.investment {
+		.filter {
+			.year {
+				margin-right: .5em;
+				margin-left: -.5em;
+			}
+			.input-form {
+				.form-text {
+					label.rut.year {
+						margin-left: 8em;
+					}
+				 label.rut.month {
+					 margin-left: 9em;
+				 }
+				}
+				label.rut.year, label.rut.month {
+					margin-top: -1.9em;
+					font-weight: normal;
+				}
+			}
+			.button-success.search {
+				float:right;
+			}
+		}
+	}
+}
