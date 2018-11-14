@@ -322,6 +322,9 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 
 			if ($scope.stepData[0].data.copyFunction == 'SI' && $scope.stepData[0].data.userSelect && $scope.selectedStep == 2) {
 
+				$scope.stepData[1].data.accountStorage.forEach(element => {
+					element.selected = false;
+				});
 				for (var i = 0; i < $scope.stepData[0].data.userSelect.permission.accountStorage.length; i++) {
 					for (var k = 0; k < $scope.stepData[1].data.accountStorage.length; k++) {
 						if ($scope.stepData[1].data.accountStorage[k].id == $scope.stepData[0].data.userSelect.permission.accountStorage[i].id) {
@@ -331,6 +334,9 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 					}
 				}
 
+				$scope.stepData[1].data.moduleStorage.forEach(element => {
+					element.selected = false;
+				});
 				for (var i = 0; i < $scope.stepData[0].data.userSelect.permission.moduleStorage.length; i++) {
 					for (var k = 0; k < $scope.stepData[1].data.moduleStorage.length; k++) {
 						if ($scope.stepData[1].data.moduleStorage[k].id == $scope.stepData[0].data.userSelect.permission.moduleStorage[i].id) {
@@ -340,6 +346,9 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 					}
 				}
 
+				$scope.stepData[1].data.moduleTransferStorage.forEach(element => {
+					element.selected = false;
+				});
 				for (var i = 0; i < $scope.stepData[0].data.userSelect.permission.moduleTransferStorage.length; i++) {
 					for (var k = 0; k < $scope.stepData[1].data.moduleTransferStorage.length; k++) {
 						if ($scope.stepData[1].data.moduleTransferStorage[k].id == $scope.stepData[0].data.userSelect.permission.moduleTransferStorage[i].id) {
