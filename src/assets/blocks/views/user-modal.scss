@@ -10,12 +10,25 @@
     md-checkbox:not([disabled]).md-primary.md-checked .md-icon {
         background-color: $c-green-firm;
     }
+	.arreglado {}
+	.help {
+		font-size: 15px;
+		margin-left: 0.5em;
+		color: $c-gray-firm;
+	}
 	.text{
 		letter-spacing: -.03px;
 		font-weight: 700;
 		color: #4a4a4a;
 		font-family: Roboto;
-		font-size: 13px;
+		font-size: 14px;
+	}
+	.text2{
+		letter-spacing: -.03px;
+		font-weight: 400;
+		color: #4a4a4a;
+		font-family: Roboto;
+		font-size: 12px;
 	}
 	.value{
 		letter-spacing: -.29px;

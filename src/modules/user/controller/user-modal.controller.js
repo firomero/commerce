@@ -281,6 +281,10 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 			"step2": $scope.stepData[1].data,
 			"step3": $scope.stepData[2].data
 		});
+		$scope.selectedStep = 1;
+		$scope.stepData[ 0 ].completed = false;
+		$scope.stepData[ 1 ].completed = false;
+		$scope.stepData[ 2 ].completed = false;
 		localStorage.setItem('userList', JSON.stringify($scope.userList));
 	}
 

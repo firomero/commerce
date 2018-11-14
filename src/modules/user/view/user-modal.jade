@@ -171,8 +171,10 @@ div.container.user-modal
 
 						div.col-lg-offset-3.col-lg-3.col-md-offset-3.col-md-3.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1.mt-1
 
-							div.col-lg-8.col-md-6.col-sm-12.col-xs-6.pt-025.mb-1
-								label.text Todas los Modulos
+							div.col-lg-8.col-md-6.col-sm-4.col-xs-6.pt-025.mb-1
+								label.text Todos los Modulos
+								label.text2 Permisos de Consulta
+								i.material-icons.help help
 							div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
 								md-switch.md-primary(ng-model="stepData[1].data.checkAllModule", ng-change="checkAll(stepData[1].data.moduleStorage, 'checkAllModule', 1)")
 
@@ -180,10 +182,12 @@ div.container.user-modal
 								md-checkbox.md-primary(ng-change="check(stepData[1].data.moduleStorage, 'checkAllModule')" ng-model="module.selected") {{module.name}}
 
 
-						div.col-lg-3.col-md-3.col-sm-3.col-xs-12.padding-0.pos-r.mb-1.mt-1
+						div.col-lg-3.col-md-3.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1.mt-1
 
-							div.col-lg-9.col-md-6.col-sm-12.col-xs-6.pt-025.mb-1
+							div.col-lg-9.col-md-6.col-sm-5.col-xs-6.pt-025.mb-1
 								label.text Modulo Transferencias
+								label.text2 Permisos de Operación
+								i.material-icons.help help
 							div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
 								md-switch.md-primary(ng-model="stepData[1].data.checkAllTransferModule", ng-change="checkAll(stepData[1].data.moduleTransferStorage, 'checkAllTransferModule', 1)")
 
@@ -192,9 +196,10 @@ div.container.user-modal
 
 
 						div.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.detail-account
+							input.button-default.col-lg-5.col-md-3.col-sm-5.col-xs-5.col-lg-offset-6.col-sm-offset-6.col-xs-offset-8(type="submit" ng-click="addUser()" value="ADD USER" ng-if="!saving")
+
 							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 								button.button-default.col-lg-offset-1.col-lg-3.col-md-offset-1.col-md-3.col-sm-offset-2.col-sm-3.col-xs-6(wz-previous="backStep()") ATRAS
-								input.button-default.col-lg-3.col-md-3.col-sm-3.col-xs-6(type="submit" ng-click="addUser()" value="ADD USER" ng-if="!saving")
 								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
 								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
 									img(src="images/spinner.gif")
