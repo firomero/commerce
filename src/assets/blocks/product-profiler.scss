@@ -235,7 +235,13 @@ product-profiler.bg-toolbar {
 			margin-left: 0em;
 		}
 		.tag-value.aling1 {
-			margin-left: -2em;
+			margin-left: -2.5em;
+		}
+		.aling2 {
+			margin-left: -3.4em;
+		}
+		.col-xs-5.aling2 {
+			margin-left: -5.3em;
 		}
 	}
 	product-profiler md-tabs { margin-top: 1rem; }
@@ -251,6 +257,21 @@ product-profiler.bg-toolbar {
 	product-profiler md-tab-item { margin: 0 10px; }
 	product-profiler md-tabs-wrapper {  width: calc(100% - 20rem) !important; }
 	.border-left {margin-top: 2rem;border-left: none !important;}
+	product-profiler {
+		.aling2 {
+			margin-left: -3.4em;
+		}
+		.tag-value.aling {
+			margin-left: -5em;
+		}
+		.tag-value.aling1 {
+			margin-left: -2.5em;
+		}
+		.aling2 {
+			margin-left: -3.4em;
+		}
+
+	}
 
 }
 

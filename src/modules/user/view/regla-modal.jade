@@ -23,7 +23,7 @@ div.container.regla-modal
 							div.placeholder-select
 								label Producto
 							md-input-container.input-form.adjust-producto
-								md-select.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
+								md-select.corriente.md-no-underline(ng-model="stepData[0].data.userType" ng-model-options="{trackBy: '$value.id'}" ng-change="updateUserType(stepData[0].data.userType)")
 									md-option.text-uppercase(ng-value="type" ng-repeat="type in reglaTypes") {{type.name}}
 
 

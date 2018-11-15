@@ -1,8 +1,8 @@
 section.bg-gray.content-container
 	div.container.products
 		div.mt-4
-			product-profiler.bg-toolbar(list="[]" title="Productos {{existAccounts}}")
-		div.pos-r.account-movement
+			product-profiler.bg-toolbar(list="[]" title="Productos")
+		div.pos-r.account-movement(ng-if="loadTabData")
 			md-tabs.component.md-no-animation(md-dynamic-height ng-if="loadTabData" md-selected="selectedIndex")
 				md-tab(label="CREDITO COMERCIAL" md-on-select="onTabChanges(0)")
 					md-content.poster
@@ -37,34 +37,39 @@ section.bg-gray.content-container
 							div.table-responsive
 								table.table.custom
 									colgroup
-										col(width="20%")
+										col(width="13%")
 										col(width="15%")
-										col(width="20%")
-										col(width="10%")
-										col(width="10%")
-										col(width="10%")
 										col(width="15%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
 									thead.thead
 										tr.tr
-											th.th Rut
-											th.th Nombres
-											th.th A. Paterno
-											th.th A. Materno
-											th.th Tipo Administrador
-											th.th Estado
-											th.th Telefono
+											th.th.text-right Monto Carta de Cr&eacute;dito
+											th.th.text-right Estado
+											th.th.text-right Fec. Emisi&oacute;n
+											th.th.text-right Fec. Vencimiento
+											th.th.text-right Monto Contigencia
+											th.th.text-right Saldo Contingencia
+											th.th.text-right Moneda
+											th.th.text-right Nº de referencia
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in []" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
-												span {{item.rut}}
-											td.td {{item.nombre}}
-											td.td {{item.padre}}
-											td.td {{item.madre}}
-											td.td
-												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
-											td.td
-												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
-											td.td {{item.tel}}
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
+												span {{item.carta}}
+											td.td.text-right
+												invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td.text-right {{item.fecha}}
+											td.td.text-right {{item.vence}}
+											td.td.text-right {{item.contingencia}}
+											td.td.text-right {{item.saldo}}
+											td.td.text-right {{item.moneda}}
+											td.td.text-right {{item.ref}}
+
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
 											td.td(colspan="7")
 												div.row.data-container
