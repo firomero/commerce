@@ -16,9 +16,8 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
 	$scope.products = [];
-	const sections = ['credito','deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
-	$scope.stateSelectOptions = ["vigente", "en tramite"];
 	$scope.selectedStateOption = "";
+	const sections = ['credito','deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
 	const dateStart  = new Date(date.getFullYear(), date.getMonth(), 1);
 	const dateEnd  = new Date(date.getFullYear(), date.getMonth() +1 , 0);
@@ -49,7 +48,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			$scope.existAccounts = true;
 			self.accounts = $scope.currentCompany.accounts;
 		}
-		const states = [
+		$scope.states = [
 			{
 				class: 'green',
 				text: 'CANCELADO'
@@ -63,7 +62,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		for(let i = 0; i < 100; i++){
 			$scope.products.push({
 				carta: '$12323466',
-				estado: states[getRandomIntInclusive(0,1)],
+				estado: $scope.states[getRandomIntInclusive(0,1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
 				contingencia: '$452925',
@@ -126,6 +125,12 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 	function twoDigitPad(num) {
 		return num < 10 ? "0" + num : num;
+	}
+
+	function getRandomIntInclusive(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 
 	$scope.$on('company::change', function (data) {
