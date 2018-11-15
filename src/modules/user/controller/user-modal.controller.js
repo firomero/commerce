@@ -438,9 +438,9 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		$scope.stepData[0].data.forma = "";
 		$scope.stepData[0].data.firstName = "";
 		$scope.stepData[0].data.lastName = "";
-		$scope.stepData[0].data.data.nac = "";
-		$scope.stepData[0].data.data.email = "";
-		$scope.stepData[0].data.data.phone = "";
+		$scope.stepData[0].data.nac = "";
+		$scope.stepData[0].data.email = "";
+		$scope.stepData[0].data.phone = "";
 		WizardHandler.wizard().reset();
 		localStorage.setItem('userList', JSON.stringify($scope.userList));
 	}

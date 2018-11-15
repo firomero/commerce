@@ -50,7 +50,9 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Tipo
 																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off", ng-disabled="!onEdit")
+																		md-input-container.input-form
+																			md-select.md-no-underline(ng-model="item.tipo.icon" ng-model-options="{trackBy: '$value'}" placeholder="Tipo" ng-disabled="!onEdit")
+																				md-option.text-uppercase(ng-value="type" ng-repeat="type in types") {{type}}
 															div.col-lg-4.pl-0.pr-sm-0
 																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
 																	div.form-text
@@ -81,7 +83,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Estado
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																		md-switch.md-primary.adjust-pendiente(ng-model="item.aproved", ng-change="authorizeUser(item)") Pendiente a Autorizaci&oacute;n
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Reglas
@@ -165,11 +167,9 @@ section.bg-gray.content-container
 													div.col-lg-12.pl-0
 														div.row
 															div.col-lg-4.adjust-type
-																form.input-form
-																	div.form-text
-																		label Tipo
-																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off" ng-disabled="!onEdit")
+																md-input-container.input-form
+																	md-select.md-no-underline(ng-model="item.tipo.icon" ng-model-options="{trackBy: '$value'}" placeholder="Tipo" ng-disabled="!onEdit")
+																		md-option.text-uppercase(ng-value="type" ng-repeat="type in types") {{type}}
 															div.col-lg-4.pl-0.pr-sm-0
 																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
 																	div.form-text
@@ -200,7 +200,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Estado
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																		md-switch.md-primary.adjust-pendiente(ng-model="item.aproved", ng-change="authorizeUser(item)") Pendiente a Autorizaci&oacute;n
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Reglas
@@ -284,11 +284,9 @@ section.bg-gray.content-container
 													div.col-lg-12.pl-0
 														div.row
 															div.col-lg-4.adjust-type
-																form.input-form
-																	div.form-text
-																		label Tipo
-																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off", ng-disabled="!onEdit")
+																md-input-container.input-form
+																	md-select.md-no-underline(ng-model="item.tipo.icon" ng-model-options="{trackBy: '$value'}" placeholder="Tipo" ng-disabled="!onEdit")
+																		md-option.text-uppercase(ng-value="type" ng-repeat="type in types") {{type}}
 															div.col-lg-4.pl-0.pr-sm-0
 																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
 																	div.form-text
@@ -319,7 +317,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Estado
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																		md-switch.md-primary.adjust-pendiente(ng-model="item.aproved", ng-change="authorizeUser(item)") Pendiente a Autorizaci&oacute;n
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Reglas

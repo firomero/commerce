@@ -161,6 +161,14 @@
 	.pb-e8.pt-em,  .pt-em {
 		padding-top: .4em;
 	}
+	md-input-container.input-form {
+		margin: 0;
+		md-select[disabled] {
+			.md-select-value {
+				background-image: none;
+			}
+		}
+	}
 
 }
 

@@ -77,6 +77,7 @@ export default function UserController($scope, userLogin, $uibModal) {
 	$scope.toggleUser = toggleUser;
 	$scope.onTabChanges = onTabChanges;
 	$scope.aceptar = aceptar;
+	$scope.authorizeUser = authorizeUser;
 
 	function toggleUser(item, collection) {
 		const value = !item.plus;
@@ -175,6 +176,27 @@ export default function UserController($scope, userLogin, $uibModal) {
 			self[list].push(item);
 		});
 		self[list + 'Pagination'] = false;
+	}
+
+	function authorizeUser(item) {
+		if (item.aproved) {
+			var message = "TOAST de Flujo realizado con Exito, se debe considerar uno para, Exito de transferencias , Autorizaciones, Visados, Creación de Usuarios, Reglas ,Etc";
+			var confirmInstance = $uibModal.open({
+				ariaDescribedBy: 'modal-body',
+				template: require('../../common/components/message-confirm/message-confirm.jade')(),
+				controller: 'MessageConfirmController',
+				controllerAs: '$ctrl',
+				size: 'lg',
+				backdrop: 'static',
+				keyboard  : false,
+				resolve: {
+					message: () => message,
+					textPrimaryAction: () => undefined,
+					textAction: () => undefined
+				},
+				windowClass: 'bottom-confirm finish'
+			});
+		}
 	}
 
 	$scope.$on('company::change', function (data) {
