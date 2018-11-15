@@ -13,7 +13,8 @@ export default class UserService {
 			rut: '10.456.789-0',
 			password: '****************',
 			currentCompany: '',
-			companies: [{
+			companies: [
+				{
 				rol: 'APODERADO',
 				name: 'Kimberly Clark Chile S.A',
 				nameID: 'KIMBERLY',
@@ -18961,7 +18962,8 @@ export default class UserService {
 						}
 					}],
 				destinatario: ['Juan Perez', "Jane Garcia", "Armando Hart", "Jose Fernandez", "Marcelo Perez Ignacio Gonzalez"],
-			}, {
+			}, 
+			{
 				rol: 'OPERADOR',
 				name: 'Transbank S.A',
 				nameID: 'TRANSBANK',
@@ -27673,7 +27675,8 @@ export default class UserService {
 					}
 				}],
 				destinatario: ['Sold Perez', "Bob Garcia", "Henry Hart", "Yoshua Fernandez"],
-			}, {
+			}, 
+			{
 				rol: 'APODERADO',
 				name: 'Coca-Cola de Chicle S.A',
 				nameID: 'COCACOLA',

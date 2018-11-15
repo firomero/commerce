@@ -1,11 +1,11 @@
 section.bg-gray.content-container
 	div.container.investment
 		div.mt-4
-			account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="true" button-transfer-new="true" ng-if="!loadAccounts")
+			account-list.bg-toolbar(list="currentCompany.accounts" title="Monto Disponible" button-credit-submit="false" button-transfer-new="true" ng-if="!loadAccounts")
 
 		div.pos-r.account-movement(ng-if="existAccounts")
 			div.radio-container-selector
-				md-radio-group(ng-model="visibilityTabControl")
+				md-radio-group(ng-model="visibilityTabControl", ng-change="updateVisible(visibilityTabControl)")
 					md-radio-button.md-primary(value="ACCOUNT") Cuentas
 					md-radio-button.md-primary(value="CREDIT") Linea de Credito
 
@@ -21,7 +21,7 @@ section.bg-gray.content-container
 											div.form-text
 												i.material-icons.c-green event
 											div.form-element.custom-align
-												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999" ng-change="console.log(dateStart)")
 
 									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
 									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
@@ -31,12 +31,9 @@ section.bg-gray.content-container
 											div.form-element.custom-align
 												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
-								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
-
-
-							div.row.m-0(ng-if="$ctrl.avanzadControl")
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
+							div.row.m-0(ng-if="false")
 								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
 										form.input-form
@@ -98,11 +95,34 @@ section.bg-gray.content-container
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('lastMovement')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 
-				md-tab(label="CARTOLA INTERESES")
+				md-tab(label="CARTOLA INTERESES" ng-if="visibilityTabControl === 'CREDIT'")
 					md-content.poster
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
 								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+									div.col-lg-6.col-md-4.col-sm-3.pr-0.text Selecciona el año que quieres para ver tu cuenta {{$ctrl.accountName}}
+									div.col-lg-3.col-md-3.col-sm-4.pr-0.year
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input.yearStart(name="yearStart" type="text" autocomplete="off" ng-model="$ctrl.yearStart" placeholder=" _" mask="9999")
+												label.rut.year Año
+									div.col-lg-3.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="monthStart" type="text" autocomplete="off" ng-model="$ctrl.monthStart"  placeholder="_ " mask="99")
+												label.rut.month Mes
+
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="setAdvancedSearch(true);") BUSQUEDA AVANZADA
+
+
+							div.row.m-0(ng-if="$ctrl.avanzadControl")
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
 									div.col-lg-4.col-md-3.col-sm-4.pr-0
 										form.input-form
@@ -113,46 +133,15 @@ section.bg-gray.content-container
 
 									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
 									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
-										form.input-form
-											div.form-text
-												i.material-icons.c-green event
-											div.form-element.custom-align
-												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
-
-								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
-
-
-							div.row.m-0(ng-if="$ctrl.avanzadControl")
-								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
-									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-										form.input-form
-											div.form-text
-												label.rut Rut Destinatario
-											div.form-element
-												input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
-
-									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-										md-input-container.input-form
-											md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino")
-												md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
-
-									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-										md-input-container.input-form
-											md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino")
-												md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
+											form.input-form
+												div.form-text
+													i.material-icons.c-green event
+												div.form-element.custom-align
+													input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container.adjust
-										div.tipo Tipo
-										md-radio-group
-											md-radio-button.md-primary(value="ALL") Todas
-											md-radio-button.md-primary(value="TOP") Alto Monto
-											md-radio-button.md-primary(value="DOWN") Bajo Monto
-											md-radio-button.md-primary(value="EXTRA") Masivos
-
-									div.col-lg-12.col-md-12.col-sm-4.col-xs-12
+									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.mb-1
 										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
 										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
@@ -171,7 +160,6 @@ section.bg-gray.content-container
 											td.td {{item.saldo | currency}}
 											td.td {{item.tasa}}%
 											td.td {{item.interes | currency}}
-
 							div.row.m-0.pt-1.pb-1
 								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.interesPagination" ng-click="pagination('interes')") CARGAR M&Aacute;S
 								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.interesPagination") CARGAR M&Aacute;S
@@ -180,6 +168,28 @@ section.bg-gray.content-container
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
 								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+									div.col-lg-6.col-md-4.col-sm-3.pr-0.text Selecciona el año que quieres para ver tu cuenta {{$ctrl.accountName}}
+									div.col-lg-3.col-md-3.col-sm-4.pr-0.year
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input.yearStart(name="yearStart" type="text" autocomplete="off" ng-model="$ctrl.yearStart" placeholder=" _" mask="9999")
+												label.rut.year Año
+									div.col-lg-3.col-md-3.col-sm-4.refactor-padding.month
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="monthStart" type="text" autocomplete="off" ng-model="$ctrl.monthStart"  placeholder="_ " mask="99 ")
+												label.rut.month Mes
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6.search BUSCAR
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="setAdvancedSearch(true);" ng-if="false") BUSQUEDA AVANZADA
+
+
+							div.row.m-0(ng-if="false")
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar Movimientos desde el
 									div.col-lg-4.col-md-3.col-sm-4.pr-0
 										form.input-form
@@ -195,41 +205,9 @@ section.bg-gray.content-container
 												i.material-icons.c-green event
 											div.form-element.custom-align
 												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
-
-								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!$ctrl.avanzadControl")
-									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
-									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSQUEDA AVANZADA
-
-
-							div.row.m-0(ng-if="$ctrl.avanzadControl")
-								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
-									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-										form.input-form
-											div.form-text
-												label.rut Rut Destinatario
-											div.form-element
-												input(name="rut" type="text" autocomplete="off" ng-model="rut" mask="99.999.999-9")
-
-									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-										md-input-container.input-form
-											md-select.md-no-underline(ng-model="$ctrl.chequeBank" ng-model-options="{trackBy: '$value.id'}" placeholder="Banco Destino")
-												md-option.text-uppercase(ng-value="bank" ng-repeat="bank in $ctrl.banks") {{bank.name}}
-
-									div.col-lg-6.col-md-6.col-sm-4.col-xs-12.pr-0
-										md-input-container.input-form
-											md-select.md-no-underline(ng-model="$ctrl.chequeAccount" ng-model-options="{trackBy: '$value.name'}" placeholder="Cuenta Destino")
-												md-option.text-uppercase(ng-value="account" ng-repeat="account in $ctrl.accounts") {{account.name}}
-
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container.adjust
-										div.tipo Tipo
-										md-radio-group
-											md-radio-button.md-primary(value="ALL") Todas
-											md-radio-button.md-primary(value="TOP") Alto Monto
-											md-radio-button.md-primary(value="DOWN") Bajo Monto
-											md-radio-button.md-primary(value="EXTRA") Masivos
-
-									div.col-lg-12.col-md-12.col-sm-4.col-xs-12
+									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.mb-1
 										button.button-success.col-lg-offset-2.col-lg-6.col-md-offset-1.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") BUSCAR
 										button.button-default.col-lg-4.col-md-5.col-sm-6.col-xs-6(ng-click="$ctrl.avanzadControl = !$ctrl.avanzadControl;") CANCELAR
 
@@ -253,7 +231,6 @@ section.bg-gray.content-container
 														span Descargar
 														span
 															i.material-icons cloud_download
-
 							div.row.m-0.pt-1.pb-1
 								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.historicaPagination" ng-click="pagination('historica')") CARGAR M&Aacute;S
 								button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.historicaPagination") CARGAR M&Aacute;S
@@ -273,14 +250,14 @@ section.bg-gray.content-container
 									div.col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding
 										md-input-container.input-form.refactor-bottom
 											md-select.md-no-underline(ng-model="$ctrl.chequeChequeStart" ng-model-options="{trackBy: '$value.id'}")
-												md-option.text-uppercase(ng-value="cheque" ng-repeat="cheque in $ctrl.cheques") {{cheque.name}}
+												md-option.text-uppercase(ng-value="cheque" ng-repeat="cheque in $ctrl.cheques") {{cheque.cheque}}
 
 									div.visible-xs.col-xs-12.text-center.text Al
 									div.col-lg-3.col-md-3.col-sm-4.col-xs-12.last-filter
 										span.text.refactor-all.visible-lg.visible-md.visible-sm Al
 										md-input-container.input-form.refactor
 											md-select.md-no-underline(ng-model="$ctrl.chequeChequeEnd" ng-model-options="{trackBy: '$value.id'}")
-												md-option.text-uppercase(ng-value="cheque1" ng-repeat="cheque1 in $ctrl.cheques") {{cheque1.name}}
+												md-option.text-uppercase(ng-value="cheque1" ng-repeat="cheque1 in $ctrl.cheques") {{cheque1.cheque}}
 
 								div.col-lg-2.col-md-2.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
 									button.button-success.col-lg-offset-1.col-lg-11.col-md-offset-2.middle-offset.col-md-10.col-sm-offset-3.col-sm-6.col-xs-12 BUSCAR
@@ -290,13 +267,15 @@ section.bg-gray.content-container
 								table.table.custom
 									colgroup
 										col(width="5%")
-										col(width="35%")
-										col(width="30%")
-										col(width="30%")
+										col(width="10%")
+										col(width="20%")
+										col(width="20%")
+										col(width="20%")
 									thead.thead
 										tr.tr
 											th.th
 											th.th Número de Cheque
+											th.th Estado
 											th.th Fecha de Pago
 											th.th Monto
 									tbody.tbody
@@ -304,6 +283,8 @@ section.bg-gray.content-container
 											td.td.check(ng-disabled="item.completed" ng-class="{'disabled': item.completed}")
 												md-checkbox.md-primary(ng-click="toggle(item)" ng-model="item.selected")
 											td.td(ng-disabled="item.completed" ng-class="{'disabled': item.completed}") {{item.cheque}}
+											td.td
+												invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}") AA
 											td.td {{item.pago}}
 											td.td {{item.monto}}
 

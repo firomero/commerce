@@ -32,6 +32,27 @@ status {
         div.text { width: 70%; }
     }
 }
+.invest-status-container {
+	.text {
+		span {
+			font-weight: 700;
+			padding-left: .6em;
+			padding-right: .6em;
+			border-radius: .3em;
+			&.red {
+				background-color: $c-red;
+				color: white;
+			}
+			&.green {
+				background-color: $c-green-firm;
+				color: white;
+			}
+			&.transparent {
+				font-weight: normal;
+			}
+		}
+	}
+}
 @media (max-width: 767px) { //col-xs
 	status {
 		.status-container {

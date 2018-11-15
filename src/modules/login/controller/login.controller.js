@@ -1,4 +1,4 @@
-export default function LoginController($scope, $timeout, $location, $uibModal, WizardHandler, UserService, CompanyService) {
+export default function LoginController($scope, $timeout, $location, $uibModal, WizardHandler, UserService, CompanyService, $state) {
 	'ngInject';
 
 	$scope.saving = false;
@@ -6,6 +6,7 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 	$scope.setLoadingStep = setLoadingStep;
 	$scope.forgotPassword = forgotPassword;
 	$scope.finishedWizard = finishedWizard;
+	$scope.siiPayment = siiPayment;
 	$scope.reset = reset;
 	activate();
 
@@ -39,15 +40,16 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 			size: 'lg',
 			windowClass: 'fullscreen'
 		});
-	  
+
 		modalInstance.result.then(function (response) {
-			
+
 			if (response != undefined  && response.success) {
 				WizardHandler.wizard().reset();
 				$scope.reset();
 			}
 		});
 	}
+
 
 	function finishedWizard() {
 		$scope.model.currentCompany = $scope.object.currentCompany;
@@ -58,8 +60,30 @@ export default function LoginController($scope, $timeout, $location, $uibModal, 
 
 	function reset() {
 
-		activate()
+		activate();
 		$scope.saving = false;
 		$scope.showRut = 0;
+	}
+
+	 function siiPayment() {
+
+		var modalInstance = $uibModal.open({
+			animation: false,
+			ariaLabelledBy: 'modal-title',
+			ariaDescribedBy: 'modal-body',
+			template: require('../view/sii-modal.jade')(),
+			controller: 'SIIModalController',
+			controllerAs: '$ctrl',
+			size: 'lg',
+			windowClass: 'fullscreen'
+		});
+
+		modalInstance.result.then(function (response) {
+			if (response === 'transfer') {
+				$state.go('app.transfer', {id: 'resumen'});
+			} else{
+				siiPayment();
+			}
+		});
 	}
 }

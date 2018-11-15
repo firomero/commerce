@@ -1,10 +1,10 @@
 {
   "name": "bcempresa",
   "version": "1.0.0",
-  "description": "",
+  "description": "This repo contains `webpack`, `AngularJS`, `ES6`, `Jade` and `Bootstrap 3.3.7`starter kit.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --open --host=0.0.0.0",
+    "start": "webpack-dev-server --progress --open --host=localhost",
     "build": "webpack --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -34,7 +34,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.2.0",
+    "webpack": "^3.12.0",
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
@@ -58,5 +58,9 @@
     "ng-ui-knob": "^0.1.6",
     "perfect-scrollbar": "^1.4.0",
     "popper.js": "^1.14.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/wsc-cbanca-angularjs"
   }
 }

@@ -260,10 +260,28 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
+
 @media (max-width: 375px) {//col-xs-xs
 	.modal{
 		.button-default-inv {
 			margin-left: 0;
+		}
+	}
+	.two-action {
+		.button-default-inv {
+			margin-left: -2.6em;
+		}
+	}
+}
+@media (max-width: 374px) and (min-width: 320px) {//col-xs-xs
+	.modal{
+		.button-default-inv {
+			margin-left: 0;
+		}
+	}
+	.two-action {
+		.button-default-inv {
+			margin-left: -1.2em;
 		}
 	}
 }
@@ -271,6 +289,11 @@ input::-webkit-inner-spin-button {
 	.modal{
 		.button-default-inv {
 			margin-left: -7px;
+		}
+		.two-action {
+			.button-default-inv {
+				margin-left: -3.7em;
+			}
 		}
 	}
 }

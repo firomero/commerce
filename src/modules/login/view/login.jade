@@ -5,11 +5,13 @@ video.fullscreen(preload="auto" allowfullscreen="allowfullscreen" autoplay="auto
 div.backdrop
 div.container.login
   div.row
-
+    div.col-lg-12
+       h3.title-form.mb-3(ng-click="siiPayment()" )  BTN DE PAGO, SOLO DEMOSTRATIVO
+  div.row      
     div.col-lg-12
       img.logo(src="images/logoBanco100.png")
     div.col-lg-12.title.mt-2
-      h3 the all-new online banking experience is here.
+      h3 Tú Banco
 
     div.col-lg-12
       wizard(on-finish="finishedWizard()" hide-indicators="true")

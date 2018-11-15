@@ -19,6 +19,45 @@
   font-family: HelveticaNeue;
   src: url('fonts/HelveticaNeue.ttf');
 }
+// md-icons
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+	src: local('Material Icons'),
+	local('MaterialIcons-Regular'),
+	url('fonts/MaterialIcons-Regular.woff2') format('woff2'),
+	url('fonts/MaterialIcons-Regular.woff') format('woff'),
+	url('fonts/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;  /* Preferred icon size */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+// md-icons
 
 /*===========================================
 ========= Loading Bootstrap Styles ==========
@@ -67,6 +106,8 @@
 @import 'blocks/views/transfer';
 @import 'blocks/views/transfer-modal';
 @import 'blocks/views/user-modal';
+@import 'blocks/views/regla-modal';
+@import 'blocks/views/sii-modal';
 @import 'blocks/views/users';
 
 .is-focused {
