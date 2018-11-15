@@ -1,4 +1,4 @@
-export default function ProductController($scope, userLogin, $uibModal) {
+export default function ProductController($scope, userLogin, $stateParams) {
 	'ngInject';
 
 	let self = this;
@@ -7,6 +7,7 @@ export default function ProductController($scope, userLogin, $uibModal) {
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
 	$scope.products = [];
+	const sections = ['credito','deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	
 	$scope.onTabChanges = onTabChanges;
 
@@ -32,11 +33,21 @@ export default function ProductController($scope, userLogin, $uibModal) {
 			$scope.existAccounts = true;
 			self.accounts = $scope.currentCompany.accounts;
 		}
+		const states = [
+			{
+				class: 'green',
+				text: 'CANCELADO'
+			},
+			{
+				class: 'yellow',
+				text: 'VIGENTE'
+			}
+		];
 
-		for(let i = 0; i < 1000; i++){
+		for(let i = 0; i < 100; i++){
 			$scope.products.push({
 				carta: '$12323466',
-				estado: 'Vigente',
+				estado: states[getRandomIntInclusive(0,1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
 				contingencia: '$452925',
@@ -45,6 +56,7 @@ export default function ProductController($scope, userLogin, $uibModal) {
 				ref:'123456'
 			});
 		}
+		$scope.selectedIndex = sections.indexOf($stateParams.id);
 
 		$scope.loadTabData = true;
 	}

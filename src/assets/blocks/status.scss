@@ -47,6 +47,10 @@ status {
 				background-color: $c-green-firm;
 				color: white;
 			}
+			&.yellow {
+				background-color: $status-yellow;
+				color: white;
+			}
 			&.transparent {
 				font-weight: normal;
 			}
