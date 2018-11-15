@@ -434,13 +434,13 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 		$scope.stepData[ 0 ].completed = false;
 		$scope.stepData[ 1 ].completed = false;
 		$scope.stepData[ 2 ].completed = false;
-		stepData[0].data.rut = "";
-		stepData[0].data.forma = "";
-		stepData[0].data.firstName = "";
-		stepData[0].data.lastName = "";
-		stepData[0].data.data.nac = "";
-		stepData[0].data.data.email = "";
-		stepData[0].data.data.phone = "";
+		$scope.stepData[0].data.rut = "";
+		$scope.stepData[0].data.forma = "";
+		$scope.stepData[0].data.firstName = "";
+		$scope.stepData[0].data.lastName = "";
+		$scope.stepData[0].data.data.nac = "";
+		$scope.stepData[0].data.data.email = "";
+		$scope.stepData[0].data.data.phone = "";
 		WizardHandler.wizard().reset();
 		localStorage.setItem('userList', JSON.stringify($scope.userList));
 	}
