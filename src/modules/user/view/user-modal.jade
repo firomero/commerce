@@ -212,10 +212,10 @@ div.container.user-modal
 						div.col-lg-offset-3.col-lg-3.col-md-offset-3.col-md-3.col-sm-offset-1.col-sm-10.col-xs-12.padding-0.pos-r.mb-1.mt-1
 
 							div.col-lg-8.col-md-6.col-sm-4.col-xs-6.pt-025.mb-1
-								label.text Todos los Modulos
+								label.text Todos los M&oacute;dulos
 								label.text2 Permisos de Consulta
-									md-tooltip(md-direction="left" md-visible="true") Permisos de Consulta
-								i.material-icons.help(title="Permisos de Consulta") help
+								i.material-icons.help help
+									md-tooltip(md-direction="consult.direction" md-visible="consult.show" md-z-index="999999999") Permisos de Consulta
 							div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
 								md-switch.md-primary(ng-model="stepData[1].data.checkAllModule", ng-change="checkAll(stepData[1].data.moduleStorage, 'checkAllModule', 1)")
 
@@ -228,8 +228,8 @@ div.container.user-modal
 							div.col-lg-9.col-md-6.col-sm-5.col-xs-6.pt-025.mb-1
 								label.text Modulo Transferencias
 								label.text2 Permisos de Operación
-									md-tooltip Permisos de Operación
-								i.material-icons.help(title="Permisos de Operación") help
+								i.material-icons.help help
+									md-tooltip(md-direction="operation.direction" md-visible="operation.show" md-z-index="999999999") Permisos de Operación
 							div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
 								md-switch.md-primary(ng-model="stepData[1].data.checkAllTransferModule", ng-change="checkAll(stepData[1].data.moduleTransferStorage, 'checkAllTransferModule', 1)")
 
