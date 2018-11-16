@@ -183,7 +183,7 @@ div.container.user-modal
 
 							div.col-lg-offset-1.col-lg-10.col-md-offset-1.col-md-10.col-sm-offset-1.col-sm-10.col-xs-12.pt-2
 								button.button-default.col-lg-offset-1.col-lg-5.col-md-offset-1.col-md-5.col-sm-offset-2.col-sm-4.col-xs-6(ng-click="close()") CANCELAR
-								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="addAndContinue()" value="Siguiente" ng-if="!saving")
+								input.button-success.col-lg-5.col-md-5.col-sm-4.col-xs-6(type="submit" ng-click="setLoadingStep()" value="Siguiente" ng-if="!saving")
 								button.button-success.spinner-custom.col-lg-5.col-md-5.col-sm-4.col-xs-6(ng-if="saving")
 									img(src="images/spinner.gif")
 
@@ -214,7 +214,7 @@ div.container.user-modal
 							div.col-lg-8.col-md-6.col-sm-4.col-xs-6.pt-025.mb-1
 								label.text Todos los Modulos
 								label.text2 Permisos de Consulta
-									md-tooltip Permisos de Consulta
+									md-tooltip(md-direction="left" md-visible="true") Permisos de Consulta
 								i.material-icons.help(title="Permisos de Consulta") help
 							div.col-lg-3.col-md-6.col-sm-12.col-xs-6.pl-0.mb-1
 								md-switch.md-primary(ng-model="stepData[1].data.checkAllModule", ng-change="checkAll(stepData[1].data.moduleStorage, 'checkAllModule', 1)")

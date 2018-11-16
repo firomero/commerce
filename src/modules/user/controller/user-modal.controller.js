@@ -445,17 +445,17 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	}
 
 	function addUser(){
-		// $scope.stepData[0].data.users.push(
-		// 	{
-		// 		id: $scope.stepData[0].data.users.length,
-		// 		name: $scope.stepData[0].data.firstName,
-		// 		permission: {
-		// 			accountStorage: angular.copy($scope.stepData[1].data.accountStorage),
-		// 			moduleStorage: angular.copy($scope.stepData[1].data.moduleStorage),
-		// 			moduleTransferStorage: angular.copy($scope.stepData[1].data.moduleTransferStorage),
-		// 		}
-		// 	}
-		// );
+		$scope.stepData[0].data.users.push(
+			{
+				id: $scope.stepData[0].data.users.length,
+				name: $scope.stepData[0].data.firstName,
+				permission: {
+					accountStorage: angular.copy($scope.stepData[1].data.accountStorage),
+					moduleStorage: angular.copy($scope.stepData[1].data.moduleStorage),
+					moduleTransferStorage: angular.copy($scope.stepData[1].data.moduleTransferStorage),
+				}
+			}
+		);
 		$scope.selectedStep = 1;
 		$scope.stepData[ 0 ].completed = false;
 		$scope.stepData[ 1 ].completed = false;
