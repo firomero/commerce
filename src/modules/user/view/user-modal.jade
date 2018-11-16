@@ -168,11 +168,11 @@ div.container.user-modal
 										input(name="email" type="text" autocomplete="off" ng-model="stepData[0].data.email" placeholder="Ingresar" mail-validation)
 
 							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.pl-0.padding-rigth-xs-0.adjust-field1
-								div.input-form
+								div.input-form(ng-class="{'has-error': form.phone.$error.phone }")
 									div.form-text
 										label.rut Teléfono
 									div.form-element
-										input(name="phone" type="text" autocomplete="off" ng-model="stepData[0].data.phone" placeholder="Ingresar")
+										input(name="phone" type="text" autocomplete="off" ng-model="stepData[0].data.phone" placeholder="Ingresar" phone-validation)
 
 							div.col-lg-6.col-md-6.col-sm-6.col-xs-12.p-0.adjust-field2
 								div.placeholder-select

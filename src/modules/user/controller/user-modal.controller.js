@@ -175,6 +175,38 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 						]
 					}
 				},
+				{
+					id: 5,
+					name: 'Andres Claudio 5',
+					permission: {
+						accountStorage: [
+							{id: 1,account: '3456789453'},
+							{id: 2,account: '0987654321'},
+							{id: 3,account: '1234567890'},
+							{id: 4,account: '12056795633'},
+							{id: 5,account: '129546870'},
+							{id: 6,account: '1209456789'}
+						],
+						moduleStorage: [
+							{id: 1,name: 'Seguridad'},
+							{id: 2,name: 'Créditos Comerciales'},
+							{id: 3,name: 'Boletas de garantia'},
+							{id: 4,name: 'Deposito a Plazo Empresa'},
+							{id: 5,name: 'Factoring'},
+							{id: 6,name: 'Forward'},
+							{id: 7,name: 'Perfilamiento'},
+							{id: 8,name: 'Mis Empresas'},
+							{id: 9,name: 'Contacto'},
+							{id: 10,name: 'Comex'}
+						],
+						moduleTransferStorage: [
+							{id: 1,name: 'Autorizador'},
+							{id: 2,name: 'Liberador'},
+							{id: 3,name: 'Ingresador'},
+							{id: 4,name: 'Visador'}
+						]
+					}
+				}
 			]
 		}},
 		{step: 2, completed: false, data: {
@@ -358,15 +390,9 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 						}
 					}
 				}
-				$scope.stepData[1].data.checkAllAccount = $scope.stepData[1].data.accountStorage.length === $scope.stepData[1].data.accountStorage.filter(function (f) {
-						return f.selected === true;
-					});
-				$scope.stepData[1].data.checkAllModule = $scope.stepData[1].data.moduleStorage.length === $scope.stepData[1].data.moduleStorage.filter(function (f) {
-						return f.selected === true;
-					});
-				$scope.stepData[1].data.checkAllTransferModule = $scope.stepData[1].data.moduleTransferStorage.length === $scope.stepData[1].data.moduleTransferStorage.filter(function (f) {
-						return f.selected === true;
-					});
+				$scope.stepData[1].data.checkAllAccount = $scope.stepData[1].data.accountStorage.length === $scope.stepData[0].data.userSelect.permission.accountStorage.length;
+				$scope.stepData[1].data.checkAllModule = $scope.stepData[1].data.moduleStorage.length === $scope.stepData[0].data.userSelect.permission.moduleStorage.length;
+				$scope.stepData[1].data.checkAllTransferModule = $scope.stepData[0].data.userSelect.permission.moduleTransferStorage;
 			}
 
 			WizardHandler.wizard().next();
@@ -419,17 +445,17 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	}
 
 	function addUser(){
-		$scope.stepData[0].data.users.push(
-			{
-				id: $scope.stepData[0].data.users.length,
-				name: $scope.stepData[0].data.firstName,
-				permission: {
-					accountStorage: angular.copy($scope.stepData[1].data.accountStorage),
-					moduleStorage: angular.copy($scope.stepData[1].data.moduleStorage),
-					moduleTransferStorage: angular.copy($scope.stepData[1].data.moduleTransferStorage),
-				}
-			}
-		);
+		// $scope.stepData[0].data.users.push(
+		// 	{
+		// 		id: $scope.stepData[0].data.users.length,
+		// 		name: $scope.stepData[0].data.firstName,
+		// 		permission: {
+		// 			accountStorage: angular.copy($scope.stepData[1].data.accountStorage),
+		// 			moduleStorage: angular.copy($scope.stepData[1].data.moduleStorage),
+		// 			moduleTransferStorage: angular.copy($scope.stepData[1].data.moduleTransferStorage),
+		// 		}
+		// 	}
+		// );
 		$scope.selectedStep = 1;
 		$scope.stepData[ 0 ].completed = false;
 		$scope.stepData[ 1 ].completed = false;

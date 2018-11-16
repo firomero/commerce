@@ -60,11 +60,11 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" ng-disabled="!onEdit" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
 															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
-																form.input-form
+																form.input-form(ng-class="{'has-error': form.movil.$error.phone }" name="form")
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" ng-disabled="!onEdit" autocomplete="off" mask="+99999-9999")
+																		input(name="movil" type="text" ng-model="item.tel" ng-disabled="!onEdit" autocomplete="off"  phone-validation)
 																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
 
 														div.row.data-container
@@ -177,11 +177,11 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" ng-disabled="!onEdit" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation )
 															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
-																form.input-form
+																form.input-form(ng-class="{'has-error': form.movil.$error.phone }" name="form")
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit" mask="+999999-9999")
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit"  phone-validation)
 																	i.material-icons.md-inline-edit(ng-click="onEdit =!onEdit") edit
 
 														div.row.data-container
@@ -294,11 +294,11 @@ section.bg-gray.content-container
 																	div.form-element
 																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" ng-disabled="!onEdit" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation, )
 															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
-																form.input-form
+																form.input-form(ng-class="{'has-error': form.movil.$error.phone }" name="form")
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit" mask="+999999-9999")
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit"  phone-validation)
 																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
 
 														div.row.data-container
