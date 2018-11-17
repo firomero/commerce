@@ -69,7 +69,7 @@ section.bg-gray.content-container
 											td.td.text-right {{item.saldo}}
 											td.td.text-right {{item.moneda}}
 											td.td.text-right {{item.ref}}
-
+										//DETAIL
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
 											td.td(colspan="8")
 												div.row.data-container
@@ -151,7 +151,119 @@ section.bg-gray.content-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
 																div.pull-right
 																	a(href="#").exportar Exportar
+												div.row.data-container
+													div.col-lg-12
+														md-card
+															div.md-card-header Cuentas Por Cobrar
+																span &nbsp;&nbsp;&nbsp;Si
+															div.md-card-body
+																div.row.data-container
+																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Operaci&oacute;n
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Cuenta Por Cobrar
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Rut
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Nombre
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Fecha Vigencia
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Fecha Pago
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Fecha Contable
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Descripci&oacute;n
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value 3.49%
+																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Monto total
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Saldo
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Valor
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
 
+												div.row.data-container
+													div.col-lg-12
+														md-card.detail-table
+															div.table-responsive
+																table.table.custom
+																	colgroup
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																	thead.thead
+																		tr.tr
+																			th.th Cuota
+																			th.th Monto Cuota
+																			th.th Capital
+																			th.th Inter&eacute;s
+																			th.th Capital Reducido
+																			th.th Gasto Mora
+																			th.th Gasto Cobranza
+																			th.th Estado Cuota
+																			th.th Total a Pagar
+																			th.th Fecha Pago
+																			th.th Monto Recaudado
+																	tbody.tbody
+																		tr.tr.tr-container(ng-repeat="item in cuotes")
+																			td.td.plus-icon
+																				span {{item.numero}}
+																			td.td {{item.monto}}
+																			td.td {{item.capital}}
+																			td.td {{item.interes}}
+																			td.td {{item.capital_reducido}}
+																			td.td.text-right
+																				div {{item.gasto_mora.monto}}
+																				div {{item.gasto_mora.dias}}
+																			td.td {{item.gasto_cobranza}}
+																			td.td.text-center
+																				invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+																			td.td {{item.total}}
+																			td.td {{item.fecha}}
+																			td.td {{item.recaudado}}
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('administrador')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S

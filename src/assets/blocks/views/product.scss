@@ -181,7 +181,7 @@
 		padding-top: .4em;
 	}
 
-	.exportar{
+	.exportar {
 		color: #94bb20;
 		font-weight: 400;
 	}
@@ -191,6 +191,28 @@
 	}
 	md-slider-container > :last-child:not(md-slider) {
 		margin-left: 10px;
+	}
+
+	.md-card-header {
+		background-color: $c-green-firm;
+		color: white;
+		font-weight: bold;
+		padding: 7px;
+	}
+
+	.detail-table {
+		.thead {
+			background-color: $c-green-firm;
+			.th {
+				color: white;
+				font-weight: bold;
+			}
+		}
+		.tbody {
+			.tr {
+				border-bottom: solid $c-black-table-striped 1px;
+			}
+		}
 	}
 
 }
@@ -218,10 +240,6 @@
 			list-style: none;
 		}
 	}
-}
-
-.modal-check-detail-motivo {
-
 }
 
 /*MEDIA SCREEN*/
@@ -406,7 +424,7 @@
 			}
 
 			.pl-0 {
-				padding-left: 1em !important;
+				padding-left: 0 !important;
 			}
 
 			.col-lg-4.pl-0 {
