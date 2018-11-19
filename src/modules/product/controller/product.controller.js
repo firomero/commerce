@@ -85,6 +85,11 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			{ code: 'UF', description: 'UNIDAD DE FOMENTO'},
 		];
 
+		$scope.types = [
+			"COMPRA",
+			"VENTA",
+		];
+
 		for (let i = 0; i < 100; i++) {
 			$scope.products.push({
 				carta: '1.232.346,6',
@@ -97,7 +102,8 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				ref: '123456',
 				plazo: deadlines[getRandomIntInclusive(0, 3)],
 				tasa: '0,3%',
-				cliente: clients[getRandomIntInclusive(0, 3)]
+				cliente: clients[getRandomIntInclusive(0, 3)],
+				tipo: $scope.types[getRandomIntInclusive(0, 1)],
 			});
 		}
 
