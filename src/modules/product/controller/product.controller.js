@@ -21,6 +21,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.products = [];
 	$scope.cuotes = [];
 	$scope.selectedStateOption = "";
+	$scope.selectedTypeOption = "";
 	$scope.no = "";
 	const sections = ['credito', 'deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
@@ -74,23 +75,29 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			}
 		];
 
-		const plazos = [30, 90, 120, 150];
+		const deadlines = [30, 90, 120, 150];
 
-		const clientes = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
+		const clients = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
+
+		$scope.currencies = [
+			{ code: 'USD', description: 'DOLAR ESTADOUNIDENSE'},
+			{ code: 'CLP', description: 'PESO CHILENO'},
+			{ code: 'UF', description: 'UNIDAD DE FOMENTO'},
+		];
 
 		for (let i = 0; i < 100; i++) {
 			$scope.products.push({
-				carta: '$1.232.346,6',
+				carta: '1.232.346,6',
 				estado: $scope.states[getRandomIntInclusive(0, 1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
-				contingencia: ' $4.529,25',
-				saldo: '$4.529,25',
-				moneda: 'DOLAR ESTADOUNIDENSE',
+				contingencia: ' 4.529,25',
+				saldo: '4.529,25',
+				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
 				ref: '123456',
-				plazo: plazos[getRandomIntInclusive(0, 3)],
+				plazo: deadlines[getRandomIntInclusive(0, 3)],
 				tasa: '0,3%',
-				cliente: clientes[getRandomIntInclusive(0, 3)]
+				cliente: clients[getRandomIntInclusive(0, 3)]
 			});
 		}
 

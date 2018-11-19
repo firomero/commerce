@@ -67,7 +67,7 @@ section.bg-gray.content-container
 											td.td.text-right {{item.vence}}
 											td.td.text-right {{item.contingencia}}
 											td.td.text-right {{item.saldo}}
-											td.td.text-right {{item.moneda}}
+											td.td.text-right {{item.moneda.description}}
 											td.td.text-right {{item.ref}}
 										//DETAIL
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
@@ -99,7 +99,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Moneda
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value {{item.moneda}}
+																		span.value {{item.moneda.description}}
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Tasa Curse
@@ -342,7 +342,7 @@ section.bg-gray.content-container
 											td.td.text-right {{item.saldo}}
 											td.td.text-right {{item.carta}}
 											td.td.text-right {{item.vence}}
-											td.td.text-right {{item.moneda}}
+											td.td.text-right {{item.moneda.description}}
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
 											td.td(colspan="8")
 												div.row.data-container
@@ -378,7 +378,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Moneda
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.moneda}}
+																		span.value {{item.moneda.description}}
 
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 																div.row
@@ -419,6 +419,43 @@ section.bg-gray.content-container
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('apoderados')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 				md-tab(label="FORWARD" md-on-select="onTabChanges(2)")
+					md-content.poster
+						md-card.pt-15px.pos-r.filter
+							div.row.m-0
+								div.col-lg-5.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar desde el
+									div.col-lg-4.col-md-3.col-sm-4.pr-0
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999" ng-change="console.log(dateStart)")
+
+									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+								div.col-lg-2
+									div.col-lg-4.col-md-4.col-sm-3.pr-0.text Tipo
+									div.col-lg-8.col-md-3.col-sm-4.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="selectedTypeOption")
+												md-option.text-uppercase(ng-value="currency.code" ng-repeat="currency in currencies") {{currency.code}}
+								div.col-lg-3
+									div.col-lg-4.col-md-4.col-sm-3.pr-0.text
+										span N
+										sup o
+										span  &nbsp;Contrato
+									div.col-lg-8.col-md-3.col-sm-4.pr-0
+										md-input-container.input-form
+											div.form-element.custom-align
+												input(name="no" ng-model="no" type="number")
+
+								div.col-lg-2.col-md-2.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
 				md-tab(label="LEASING" md-on-select="onTabChanges(3)")
 				md-tab(label="FACTORING" md-on-select="onTabChanges(4)")
 				md-tab(label="B.GARANTIA" md-on-select="onTabChanges(5)")
