@@ -11,18 +11,23 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		"Sunday", "Monday", "Tuesday",
 		"Wednesday", "Thursday", "Friday", "Saturday"
 	];
-	$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
+	$scope.slider = {
+		value: Math.floor(Math.random() * 36)
+	};
+	$scope.currentCompany = {nameID: null, name: '', rol: '', accounts: []};
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
 	$scope.products = [];
+	$scope.cuotes = [];
 	$scope.selectedStateOption = "";
-	const sections = ['credito','deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
+	$scope.no = "";
+	const sections = ['credito', 'deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
-	const dateStart  = new Date(date.getFullYear(), date.getMonth(), 1);
-	const dateEnd  = new Date(date.getFullYear(), date.getMonth() +1 , 0);
-	self.dateStart = formatDate(dateStart,'dd/MM/yyyy' );
-	self.dateEnd = formatDate(dateEnd,'dd/MM/yyyy' );
+	const dateStart = new Date(date.getFullYear(), date.getMonth(), 1);
+	const dateEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+	self.dateStart = formatDate(dateStart, 'dd/MM/yyyy');
+	self.dateEnd = formatDate(dateEnd, 'dd/MM/yyyy');
 
 
 	$scope.onTabChanges = onTabChanges;
@@ -31,11 +36,11 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 	function activate() {
 
-		$scope.currentCompany = { nameID: null, name: '', rol: '', accounts: [] };
+		$scope.currentCompany = {nameID: null, name: '', rol: '', accounts: []};
 		$scope.currentCompany.nameID = userLogin.currentCompany;
-		for(var i = 0;i < userLogin.companies.length;i++) {
+		for (let i = 0; i < userLogin.companies.length; i++) {
 
-			if (userLogin.companies[i].nameID == $scope.currentCompany.nameID) {
+			if (userLogin.companies[i].nameID === $scope.currentCompany.nameID) {
 				$scope.currentCompany.rol = userLogin.companies[i].rol;
 				$scope.currentCompany.name = userLogin.companies[i].name;
 				$scope.currentCompany.accounts = userLogin.companies[i].accounts;
@@ -58,19 +63,56 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				text: 'VIGENTE'
 			}
 		];
+		$scope.cuoteStates = [
+			{
+				class: 'green',
+				text: 'PAGADA'
+			},
+			{
+				class: 'yellow',
+				text: 'PENDIENTE'
+			}
+		];
 
-		for(let i = 0; i < 100; i++){
+		const plazos = [30, 90, 120, 150];
+
+		const clientes = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
+
+		for (let i = 0; i < 100; i++) {
 			$scope.products.push({
-				carta: '$12323466',
-				estado: $scope.states[getRandomIntInclusive(0,1)],
+				carta: '$1.232.346,6',
+				estado: $scope.states[getRandomIntInclusive(0, 1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
-				contingencia: '$452925',
-				saldo: '$452925',
-				moneda: 'US',
-				ref:'123456'
+				contingencia: ' $4.529,25',
+				saldo: '$4.529,25',
+				moneda: 'DOLAR ESTADOUNIDENSE',
+				ref: '123456',
+				plazo: plazos[getRandomIntInclusive(0, 3)],
+				tasa: '0,3%',
+				cliente: clientes[getRandomIntInclusive(0, 3)]
 			});
 		}
+
+		for (let i = 0; i < 25; i++) {
+			$scope.cuotes.push({
+				numero: i + 1,
+				monto: '$1.232.346,6',
+				capital: '$1.232.346,6',
+				interes: '$1.232.346,6',
+				capital_reducido: '$1.232.346,6',
+				gasto_mora: {
+					monto: '$2.234.543',
+					dias: '0 Días'
+				},
+				gasto_cobranza: '$0.00',
+				estado: $scope.cuoteStates[getRandomIntInclusive(0, 1)],
+				total: '$1.232.346,6',
+				fecha: '22/11/2017',
+				recaudado: '$1.232.346,6',
+			});
+		}
+
 		$scope.selectedIndex = sections.indexOf($stateParams.id);
 
 		$scope.loadTabData = true;
@@ -81,7 +123,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 	}
 
-	function formatDate(date, patternStr){
+	function formatDate(date, patternStr) {
 		if (!patternStr) {
 			patternStr = 'dd/mm/yyyy';
 		}

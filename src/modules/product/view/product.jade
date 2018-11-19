@@ -69,204 +69,352 @@ section.bg-gray.content-container
 											td.td.text-right {{item.saldo}}
 											td.td.text-right {{item.moneda}}
 											td.td.text-right {{item.ref}}
-
+										//DETAIL
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
-											td.td(colspan="7")
+											td.td(colspan="8")
 												div.row.data-container
 													div.col-lg-12.pl-0
-														div.row
-															div.col-lg-4.adjust-type
-																form.input-form
-																	div.form-text
-																		label Tipo
-																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off", ng-disabled="!onEdit")
-															div.col-lg-4.pl-0.pr-sm-0
-																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
-																	div.form-text
-																		label Mail
-																	div.form-element
-																		input(name="mail" type="text" ng-model="item.mail" ng-disabled="!onEdit" autocomplete="off" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation)
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
-																form.input-form
-																	div.form-text
-																		label Celular
-																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" ng-disabled="!onEdit" autocomplete="off" mask="+99999-9999")
-																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
-
 														div.row.data-container
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Ingresado Por
+																		label.text N
+																			sup o
+																		label.text de Cr&eacute;dito Original
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value Marcelo Rojas Arriagada
+																		span.value 65345345453
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Autorizado Por
+																		label.text N
+																			sup o
+																		label.text de Cr&eacute;dito (&Uacute;ltimo Curse)
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value Daniela Andrade
+																		span.value 65345345740
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Estado
+																		label.text Monto Original
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																		span.value {{item.saldo}}
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Reglas
+																		label.text Moneda
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		ul.rules
-																			li.value (1A o 2B) y 1C
-
-																			li.value (1A o 2B) y 1C
-
-																			li.value (1A o 2B) y 1C
+																		span.value {{item.moneda}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Tasa Curse
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value 3.49%
 
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Funciones
+																		label.text Fecha de Emisi&oacute;n
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.fecha}}
+																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		ul.rules.check
-																			li
-																				md-checkbox.md-primary Ingreso
-																			li
-																				md-checkbox.md-primary Visado
-																			li
-																				md-checkbox.md-primary Autorizaci&oacute;n
-																			li
-																				md-checkbox.md-primary Liberaci&oacute;n
+																		label.text Fecha de Vencimiento
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.fecha}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text N
+																			sup o
+																		label.text de Cuotas
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		md-slider-container.smaller
+																			span.value {{slider.value}}
+																			md-slider(min="0" max="36" ng-model="slider.value" aria-label="green" ng-disabled="true" id="green-slider").md-accent
+																			span.value 36
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Fecha de Abono
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.fecha}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Monto Abono
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.saldo}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Gasto Nortario
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value $2.000.000
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Impuesto
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value $50.000
 														div.row.inputs-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-																div.row
-																	div.col-lg-offset-5.col-lg-3.pl-0.pr-sm-0.sm-4-pr-0
-																		form.input-form
-																			div.form-text
-																				label Token
-																			div.form-element
-																				input(name="token" type="password" autocomplete="off" placeholder="********************")
-																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
-																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
-																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
+																div.pull-right
+																	a(href="#").exportar Exportar
+												div.row.data-container
+													div.col-lg-12
+														md-card
+															div.md-card-header Cuentas Por Cobrar
+																span &nbsp;&nbsp;&nbsp;Si
+															div.md-card-body
+																div.row.data-container
+																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Operaci&oacute;n
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Cuenta Por Cobrar
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Rut
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Nombre
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Fecha Vigencia
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Fecha Pago
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Fecha Contable
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Descripci&oacute;n
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value 3.49%
+																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Monto total
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Saldo
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
+																		div.row
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																				label.text Valor
+																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																				span.value data
 
+												div.row.data-container
+													div.col-lg-12
+														md-card.detail-table
+															div.table-responsive
+																table.table.custom
+																	colgroup
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																		col
+																	thead.thead
+																		tr.tr
+																			th.th Cuota
+																			th.th Monto Cuota
+																			th.th Capital
+																			th.th Inter&eacute;s
+																			th.th Capital Reducido
+																			th.th Gasto Mora
+																			th.th Gasto Cobranza
+																			th.th Estado Cuota
+																			th.th Total a Pagar
+																			th.th Fecha Pago
+																			th.th Monto Recaudado
+																	tbody.tbody
+																		tr.tr.tr-container(ng-repeat="item in cuotes")
+																			td.td.plus-icon
+																				span {{item.numero}}
+																			td.td {{item.monto}}
+																			td.td {{item.capital}}
+																			td.td {{item.interes}}
+																			td.td {{item.capital_reducido}}
+																			td.td.text-right
+																				div {{item.gasto_mora.monto}}
+																				div {{item.gasto_mora.dias}}
+																			td.td {{item.gasto_cobranza}}
+																			td.td.text-center
+																				invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+																			td.td {{item.total}}
+																			td.td {{item.fecha}}
+																			td.td {{item.recaudado}}
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('administrador')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
 				md-tab(label="DEPOSITO A PLAZO" md-on-select="onTabChanges(1)")
 					md-content.poster
+						md-card.pt-15px.pos-r.filter
+							div.row.m-0
+								div.col-lg-5.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar desde el
+									div.col-lg-4.col-md-3.col-sm-4.pr-0
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999" ng-change="console.log(dateStart)")
+
+									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+								div.col-lg-2
+									div.col-lg-4.col-md-4.col-sm-3.pr-0.text Estado
+									div.col-lg-8.col-md-3.col-sm-4.pr-0
+										md-input-container.input-form
+											md-select.md-no-underline(ng-model="selectedStateOption")
+												md-option.text-uppercase(ng-value="state.text" ng-repeat="state in states") {{state.text}}
+								div.col-lg-2
+									div.col-lg-4.col-md-4.col-sm-3.pr-0.text
+										span N
+										sup o
+									div.col-lg-8.col-md-3.col-sm-4.pr-0
+										md-input-container.input-form
+											div.form-element.custom-align
+												input(name="no" ng-model="no" type="number")
+
+								div.col-lg-3.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
 								table.table.custom
 									colgroup
-										col(width="20%")
-										col(width="15%")
-										col(width="20%")
-										col(width="10%")
-										col(width="10%")
-										col(width="10%")
-										col(width="15%")
+										col
+										col
+										col
+										col
+										col
+										col
+										col
+										col
 									thead.thead
 										tr.tr
-											th.th Rut
-											th.th Nombres
-											th.th A. Paterno
-											th.th A. Materno
-											th.th Tipo Apoderado
-											th.th Estado
-											th.th Telefono
+											th.th.text-center
+												span N
+												sup o
+												span &nbsp;Dep
+											th.th.text-center Plazo (D&iacute;as)
+											th.th.text-center Tasa
+											th.th.text-center Estado
+											th.th.text-center Monto
+											th.th.text-center Monto Final
+											th.th.text-center Fech. Vencimiento
+											th.th.text-center Moneda
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in []" ng-class="{'odd': $index % 2 == 0}")
-											td.td.plus-icon											
-												span {{item.rut}}
-											td.td {{item.nombre}}
-											td.td {{item.padre}}
-											td.td {{item.madre}}
-											td.td
-												status(icon="{{item.tipo.icon}}" b-class="{{item.tipo.class}}" text="{{item.tipo.text}}")
-											td.td
-												status(icon="{{item.estado.icon}}" b-class="{{item.estado.class}}" text="{{item.estado.text}}")
-											td.td {{item.tel}}
+										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="item.plus = !item.plus") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="item.plus = !item.plus") remove
+												span {{item.ref}}
+											td.td.text-right {{item.plazo}}
+											td.td.text-right {{item.tasa}}
+											td.td.text-right
+												invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+											td.td.text-right {{item.saldo}}
+											td.td.text-right {{item.carta}}
+											td.td.text-right {{item.vence}}
+											td.td.text-right {{item.moneda}}
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
-											td.td(colspan="7")
+											td.td(colspan="8")
 												div.row.data-container
 													div.col-lg-12.pl-0
-														div.row
-															div.col-lg-4.adjust-type
-																form.input-form
-																	div.form-text
-																		label Tipo
-																	div.form-element
-																		input(name="contact" type="text" ng-model="item.tipo.icon" autocomplete="off" ng-disabled="!onEdit")
-															div.col-lg-4.pl-0.pr-sm-0
-																form.input-form(name="mailForm" ng-class="{'has-error': mailForm.mail.$error.mail }")
-																	div.form-text
-																		label Mail
-																	div.form-element
-																		input(name="mail" type="text" ng-model="item.mail" autocomplete="off" ng-disabled="!onEdit" auto-focus pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", required mail-validation )
-															div.col-lg-3.pl-0.pr-0.col-md-12.pr-sm-0.sm-4-pr-0.adjust-cel
-																form.input-form
-																	div.form-text
-																		label Celular
-																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit" mask="+999999-9999")
-																	i.material-icons.md-inline-edit(ng-click="onEdit =!onEdit") edit
-
 														div.row.data-container
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Ingresado Por
+																		label.text Nombre Cliente
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value Marcelo Rojas Arriagada
+																		span.value.client {{item.cliente}}
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Autorizado Por
+																		label.text Tipo
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value Daniela Andrade
+																		span.value Plazo Fijo {{item.plazo}} D&iacute;as
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Estado
+																		label.text Tasa Inter&eacute;s
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		md-switch.md-primary.adjust-pendiente Pendiente a Autorizaci&oacute;n
+																		span.value {{item.tasa}}
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Reglas
+																		label.text Tasa Per&iacute;odo
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.tasa}}
+																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		ul.rules
-																			li.value (1A o 2B) y 1C
-
-																			li.value (1A o 2B) y 1C
-
-																			li.value (1A o 2B) y 1C
+																		label.text Tasa Base
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.tasa}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Moneda
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.moneda}}
 
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Funciones
+																		label.text Fecha de Inversi&oacute;n
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.fecha}}
+																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		ul.rules.check
-																			li
-																				md-checkbox.md-primary Ingreso
-																			li
-																				md-checkbox.md-primary Visado
-																			li
-																				md-checkbox.md-primary Autorizaci&oacute;n
-																			li
-																				md-checkbox.md-primary Liberaci&oacute;n
+																		label.text Rut
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.fecha}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Fecha Vencimiento
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.fecha}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Monto Inicial
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.saldo}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Intereses
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value $2.000.000
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Monto Final
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.saldo}}
 														div.row.inputs-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-																div.row
-																	div.col-lg-offset-5.col-lg-3.pl-0.pr-sm-0.sm-4-pr-0
-																		form.input-form
-																			div.form-text
-																				label Token
-																			div.form-element
-																				input(name="token" type="password" autocomplete="off" placeholder="********************")
-																	div.col-lg-4.pl-0.pr-0.pb-e8.pt-em
-																		button.button-success.sm.col-lg-5.col-md-6.mr-1(ng-click="aceptar()") ACEPTAR
-																		button.button-blue.sm.col-lg-5.col-md-5 CANCELAR
-
+																div.pull-right
+																	a(href="#").exportar Exportar
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="$ctrl.lastMovementPagination" ng-click="pagination('apoderados')") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!$ctrl.lastMovementPagination") CARGAR M&Aacute;S
