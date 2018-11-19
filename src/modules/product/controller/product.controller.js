@@ -21,6 +21,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.products = [];
 	$scope.cuotes = [];
 	$scope.selectedStateOption = "";
+	$scope.no = "";
 	const sections = ['credito', 'deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
 	const dateStart = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -73,6 +74,10 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			}
 		];
 
+		const plazos = [30, 90, 120, 150];
+
+		const clientes = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
+
 		for (let i = 0; i < 100; i++) {
 			$scope.products.push({
 				carta: '$1.232.346,6',
@@ -82,7 +87,10 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				contingencia: ' $4.529,25',
 				saldo: '$4.529,25',
 				moneda: 'DOLAR ESTADOUNIDENSE',
-				ref: '123456'
+				ref: '123456',
+				plazo: plazos[getRandomIntInclusive(0, 3)],
+				tasa: '0,3%',
+				cliente: clientes[getRandomIntInclusive(0, 3)]
 			});
 		}
 
