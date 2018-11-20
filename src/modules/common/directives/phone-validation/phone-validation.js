@@ -7,7 +7,7 @@ export default function phoneValidationDirective() {
         link: link
     };
 
-    const PHONE_REGEXP = /^\+\d{2,3}\d{9,15}$/;
+    const PHONE_REGEXP = /^\+\d{2} \d{2} \d{5}-\d{4}$/;
 
     function link($scope, $element, $attrs, ctrl) {
         ctrl.$validators.phone = function (modelValue, viewValue) {
