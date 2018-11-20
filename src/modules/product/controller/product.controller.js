@@ -20,6 +20,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.existAccounts = false;
 	$scope.products = [];
 	$scope.cuotes = [];
+	$scope.assets = [];
 	$scope.selectedStateOption = "";
 	$scope.selectedTypeOption = "";
 	$scope.no = "";
@@ -64,6 +65,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				text: 'VIGENTE'
 			}
 		];
+
 		$scope.cuoteStates = [
 			{
 				class: 'green',
@@ -75,19 +77,52 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			}
 		];
 
+		$scope.rentStates = [
+			{
+				class: 'green',
+				text: 'CANCELADO'
+			},
+			{
+				class: 'yellow',
+				text: 'VIGENTE'
+			},
+			{
+				class: 'red',
+				text: 'MOROSO / 366 Días'
+			}
+		];
+
 		const deadlines = [30, 90, 120, 150];
 
 		const clients = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
 
 		$scope.currencies = [
-			{ code: 'USD', description: 'DOLAR ESTADOUNIDENSE'},
-			{ code: 'CLP', description: 'PESO CHILENO'},
-			{ code: 'UF', description: 'UNIDAD DE FOMENTO'},
+			{code: 'USD', description: 'DOLAR ESTADOUNIDENSE'},
+			{code: 'CLP', description: 'PESO CHILENO'},
+			{code: 'UF', description: 'UNIDAD DE FOMENTO'},
 		];
 
 		$scope.types = [
 			"COMPRA",
 			"VENTA",
+		];
+
+		$scope.insurances = [
+			"BANCO",
+			"CLIENTE",
+		];
+
+		$scope.randomBoolean = [
+			true,
+			false,
+		];
+
+		$scope.assetsDescription = [
+			'Sistema Eléctrico de Fuerza',
+			'Sistema XSX',
+			'Sistema Estéreo HF',
+			'Reproductor VCR',
+			'Inmobiliaria'
 		];
 
 		for (let i = 0; i < 100; i++) {
@@ -104,6 +139,9 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				tasa: '0,3%',
 				cliente: clients[getRandomIntInclusive(0, 3)],
 				tipo: $scope.types[getRandomIntInclusive(0, 1)],
+				seguro: $scope.insurances[getRandomIntInclusive(0, 1)],
+				rut: '9999999999-0',
+				anticipado: $scope.randomBoolean[getRandomIntInclusive(0, 1)],
 			});
 		}
 
@@ -123,6 +161,18 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				total: '$1.232.346,6',
 				fecha: '22/11/2017',
 				recaudado: '$1.232.346,6',
+				estado_renta: $scope.rentStates[getRandomIntInclusive(0, 2)]
+			});
+		}
+
+		for (let i = 0; i < 5; i++) {
+			$scope.assets.push({
+				cantidad: getRandomIntInclusive(1, 5),
+				descripcion: $scope.assetsDescription[i],
+				seguro: $scope.insurances[getRandomIntInclusive(0, 1)],
+				unitario: '$1.232.346,6',
+				total: '$1.232.346,6',
+				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
 			});
 		}
 

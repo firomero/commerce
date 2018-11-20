@@ -219,6 +219,44 @@
 		color: $c-green-firm !important;
 	}
 
+	div.icon {
+		width: 20px;
+		height: 20px;
+		text-align: center;
+		border-radius: 50%;
+		margin-right: 5%;
+
+		span {
+			line-height: 20px;
+			color: $c-white;
+		}
+	}
+
+	div.icon.red {
+		background-color: $c-red-plus;
+		color: white;
+	}
+
+	.download {
+
+		.arrow-container-download {
+			margin: 10px;
+
+			a {
+				display: block;
+				color: $c-green;
+			}
+			a:hover { text-decoration: none; }
+			span:last-child {
+				float: right;
+				// padding-top: 7px;
+				margin-left: 3%;
+
+				i { font-size: 18px; }
+			}
+		}
+	}
+
 }
 
 .modal-check-detail {
