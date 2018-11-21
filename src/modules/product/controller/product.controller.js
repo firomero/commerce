@@ -24,6 +24,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.selectedStateOption = "";
 	$scope.selectedTypeOption = "";
 	$scope.no = "";
+	$scope.showAdvancedSearch = false;
 	const sections = ['credito', 'deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
 	const dateStart = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -33,6 +34,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 
 	$scope.onTabChanges = onTabChanges;
+	$scope.toggleAdvancedSearch = toggleAdvancedSearch;
 
 	activate();
 
@@ -179,6 +181,11 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		$scope.selectedIndex = sections.indexOf($stateParams.id);
 
 		$scope.loadTabData = true;
+	}
+
+	function toggleAdvancedSearch() {
+		$scope.showAdvancedSearch = !$scope.showAdvancedSearch;
+		console.log($scope.showAdvancedSearch);
 	}
 
 	function onTabChanges(currentTabIndex) {

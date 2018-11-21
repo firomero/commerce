@@ -731,6 +731,78 @@ section.bg-gray.content-container
 																						invest-status(b-class="{{item.estado_renta.class}}" text="{{item.estado_renta.text}}")
 
 				md-tab(label="FACTORING" md-on-select="onTabChanges(4)")
+					md-content.poster
+						md-card.debt
+							div.row
+								div.col-lg-3.shrinked
+									div.row
+										span Deuda Total: 23 Documentos
+									div.row
+										div.price $500.503.00
+								div.col-lg-3.shrinked
+									div.row
+										span Deuda Vigente: 03 Documentos
+									div.row
+										div.price $100.200.123
+								div.col-lg-3.shrinked
+									div.row
+										span Deuda Morosa: 03 Documentos
+									div.row
+										div.price $400.960.789
+								div.col-lg-3.shrinked
+						md-card.pt-15px.pos-r.filter
+							div.row.m-0
+								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+									div.radio-container-advanced-search
+										md-radio-group(ng-model="visibilityTabControl", ng-change="updateVisible(visibilityTabControl)")
+											md-radio-button.md-primary(value="WALLET") Cartera
+											md-radio-button.md-primary(value="PAYMENTS") Pagos
+											md-radio-button.md-primary(value="FORWARDING") Liquidaci&oacuten de Anticipos
+											md-radio-button.md-primary(value="REMAININGS") Cartola de Excedentes
+
+								div.col-lg-4.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl(ng-if="!showAdvancedSearch")
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-6 BUSCAR
+									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="toggleAdvancedSearch()") BUSQUEDA AVANZADA
+
+
+							div.row.m-0(ng-if="showAdvancedSearch")
+								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
+									div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0
+										table.table.custom.advanced-search
+											tr.tr
+												td.td
+													ul.advanced-search-list
+														li
+															md-checkbox.md-primary Todos
+														li
+															md-checkbox.md-primary Facturas
+														li
+															md-checkbox.md-primary Pagar&eacute;s
+									div.col-lg-3.col-md-3col-sm-4.col-xs-12.pr-0
+										table.table.custom.advanced-search
+											tr.tr
+												td.td
+													ul.advanced-search-list
+														li
+															md-checkbox.md-primary Letras
+														li
+															md-checkbox.md-primary Otros Documentos
+									div.col-lg-3.col-md-3col-sm-4.col-xs-12.pr-0
+										table.table.custom.advanced-search
+											tr.tr
+												td.td
+													ul.advanced-search-list
+														li
+															md-checkbox.md-primary Vigentes
+														li
+															md-checkbox.md-primary Morosos
+
+								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
+									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container.adjust
+									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.advanced-search-footer-buttons
+										button.button-success.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-5.col-sm-6.col-xs-6.col-md-4-less(ng-click="showAdvancedSearch = !showAdvancedSearch;") BUSCAR
+										button.button-default.col-lg-3.col-md-3.col-sm-6.col-xs-6(ng-click="toggleAdvancedSearch()") CANCELAR
+
 				md-tab(label="B.GARANTIA" md-on-select="onTabChanges(5)")
 				md-tab(label="COMEX" md-on-select="onTabChanges(6)")
 				md-tab(label="CONFIRMING" md-on-select="onTabChanges(7)")
