@@ -25,6 +25,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.selectedTypeOption = "";
 	$scope.no = "";
 	$scope.showAdvancedSearch = false;
+	$scope.factoringTabVisibility = 'WALLET';
 	const sections = ['credito', 'deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
 	const dateStart = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -98,6 +99,31 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 		const clients = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
 
+		const randomBoolean = [
+			true,
+			false,
+		];
+
+		const assetsDescription = [
+			'Sistema Eléctrico de Fuerza',
+			'Sistema XSX',
+			'Sistema Estéreo HF',
+			'Reproductor VCR',
+			'Inmobiliaria'
+		];
+
+		const documentTypes = [
+			'Factura',
+			'Letra',
+			'Pagaré',
+		];
+
+		const debtors = [
+			{code: '096.792.430-k', description: 'EXPORTADORA SUBSOLE S.A.'},
+			{code: '094.732.130-k', description: 'SODIMAC S.A.'},
+			{code: '044.431.120-w', description: 'PRIMUS CAPITAL S.A.'},
+		];
+
 		$scope.currencies = [
 			{code: 'USD', description: 'DOLAR ESTADOUNIDENSE'},
 			{code: 'CLP', description: 'PESO CHILENO'},
@@ -112,19 +138,6 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		$scope.insurances = [
 			"BANCO",
 			"CLIENTE",
-		];
-
-		$scope.randomBoolean = [
-			true,
-			false,
-		];
-
-		$scope.assetsDescription = [
-			'Sistema Eléctrico de Fuerza',
-			'Sistema XSX',
-			'Sistema Estéreo HF',
-			'Reproductor VCR',
-			'Inmobiliaria'
 		];
 
 		for (let i = 0; i < 100; i++) {
@@ -143,7 +156,9 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				tipo: $scope.types[getRandomIntInclusive(0, 1)],
 				seguro: $scope.insurances[getRandomIntInclusive(0, 1)],
 				rut: '9999999999-0',
-				anticipado: $scope.randomBoolean[getRandomIntInclusive(0, 1)],
+				anticipado: randomBoolean[getRandomIntInclusive(0, 1)],
+				deudor: debtors[getRandomIntInclusive(0, 2)],
+				tipo_documento: documentTypes[getRandomIntInclusive(0, 1)],
 			});
 		}
 
@@ -170,7 +185,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		for (let i = 0; i < 5; i++) {
 			$scope.assets.push({
 				cantidad: getRandomIntInclusive(1, 5),
-				descripcion: $scope.assetsDescription[i],
+				descripcion: assetsDescription[i],
 				seguro: $scope.insurances[getRandomIntInclusive(0, 1)],
 				unitario: '$1.232.346,6',
 				total: '$1.232.346,6',

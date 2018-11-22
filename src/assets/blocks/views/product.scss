@@ -354,6 +354,12 @@
 		margin-bottom: 15px;
 	}
 
+	.table.custom {
+		td.green {
+			color: $c-green-firm;
+		}
+	}
+
 }
 
 .modal-check-detail {

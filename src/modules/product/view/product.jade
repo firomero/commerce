@@ -754,7 +754,7 @@ section.bg-gray.content-container
 							div.row.m-0
 								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
 									div.radio-container-advanced-search
-										md-radio-group(ng-model="visibilityTabControl", ng-change="updateVisible(visibilityTabControl)")
+										md-radio-group(ng-model="factoringTabVisibility")
 											md-radio-button.md-primary(value="WALLET") Cartera
 											md-radio-button.md-primary(value="PAYMENTS") Pagos
 											md-radio-button.md-primary(value="FORWARDING") Liquidaci&oacuten de Anticipos
@@ -765,7 +765,7 @@ section.bg-gray.content-container
 									button.button-default.col-lg-4.col-md-4.col-sm-4.col-xs-6(ng-click="toggleAdvancedSearch()") BUSQUEDA AVANZADA
 
 
-							div.row.m-0(ng-if="showAdvancedSearch")
+							div.row.m-0(ng-if="showAdvancedSearch && factoringTabVisibility === 'WALLET'")
 								div.col-lg-8.col-md-8.col-sm-12.col-xs-12.avanced.pl-0.col-lg-8-less.col-md-8-less
 									div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0
 										table.table.custom.advanced-search
@@ -802,6 +802,43 @@ section.bg-gray.content-container
 									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.advanced-search-footer-buttons
 										button.button-success.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-5.col-sm-6.col-xs-6.col-md-4-less(ng-click="showAdvancedSearch = !showAdvancedSearch;") BUSCAR
 										button.button-default.col-lg-3.col-md-3.col-sm-6.col-xs-6(ng-click="toggleAdvancedSearch()") CANCELAR
+
+						md-card.pt-15px.pl-15px.pr-15px.pos-r(ng-if="factoringTabVisibility === 'WALLET'")
+							div.table-responsive
+							table.table.custom
+								thead.thead
+									tr.tr
+										th.th.text-right Fecha Operaci&oacute;n
+										th.th.text-right
+											span N
+												sup o
+											span &nbsp; Op.
+										th.th.text-left Nombre Deudor
+										th.th.text-right
+											span N
+											sup o
+											span &nbsp; Doc.
+										th.th.text-left Tipo Doc.
+										th.th.text-right Moneda
+										th.th.text-right Monto Doc
+										th.th.text-right Saldo Insoluto
+										th.th.text-right Fecha Vencimiento
+										th.th.text-right Estado
+								tbody.tbody
+									tr.tr.tr-container(ng-repeat="item in products" ng-class="{'odd': $index % 2 == 0}")
+										td.td.text-right {{item.fecha}}
+										td.td.text-right {{item.ref}}
+										td.td.text-left.green
+											div {{item.deudor.code}}
+											div {{item.deudor.description}}
+										td.td.text-right {{item.ref}}
+										td.td.text-left {{item.tipo_documento}}
+										td.td.text-right {{item.moneda.code}}
+										td.td.text-right {{item.saldo}}
+										td.td.text-right {{item.saldo}}
+										td.td.text-right {{item.fecha}}
+										td.td.text-right
+											invest-status(b-class="red" text="MOROSO")
 
 				md-tab(label="B.GARANTIA" md-on-select="onTabChanges(5)")
 				md-tab(label="COMEX" md-on-select="onTabChanges(6)")
