@@ -6,14 +6,17 @@
 	md-content.md-default-theme, md-content {
 		background-color: initial;
 	}
+
 	user-profiler.bg-toolbar {
 		md-tabs-canvas md-pagination-wrapper {
 			right: 0;
 			left: auto !important;
 		}
+
 		md-tabs-wrapper {
 			margin-left: 0px;
 		}
+
 		.title {
 			text-transform: none;
 		}
@@ -35,6 +38,7 @@
 			vertical-align: top;
 			margin-bottom: 0px;
 		}
+
 		md-radio-button:first-child {
 			margin-right: 3rem;
 		}
@@ -66,10 +70,12 @@
 		&.up {
 			color: $c-green;
 		}
+
 		&.down {
 			color: $c-red;
 		}
 	}
+
 	.documents {
 		padding-right: 15rem !important;
 
@@ -79,9 +85,11 @@
 				display: block;
 				color: $c-green;
 			}
+
 			a:hover {
 				text-decoration: none;
 			}
+
 			span:last-child {
 				float: right;
 				// padding-top: 7px;
@@ -93,6 +101,7 @@
 			}
 		}
 	}
+
 	.cheque-container {
 
 		.motive {
@@ -108,6 +117,7 @@
 		md-input-container {
 			margin: 0px !important;
 		}
+
 		md-input-container.md-input-focused:not([md-no-float]) .md-select-placeholder span:first-child {
 			-webkit-transform: none;
 			transform: none;
@@ -117,6 +127,7 @@
 			font-weight: 400;
 			line-height: 17px;
 		}
+
 		md-input-container:not([md-no-float]) .md-select-placeholder span:first-child {
 			color: rgba(0, 0, 0, 0.8700000047683716);
 		}
@@ -132,18 +143,22 @@
 		margin-bottom: 15px;
 		border: 1px solid $c-gray-border-input;
 		position: relative;
+
 		md-select {
 			width: 100%;
 		}
+
 		&.has-error {
 			color: $has-error-color;
 			box-shadow: 0 0 7px red;
 			border-color: $has-error-color;
+
 			&:focus {
 				border-color: red;
 				-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
 				box-shadow: inset 0 0 1px rgba(0, 0, 0, .075), 0 0 6px red;
 			}
+
 			.form-text {
 				label {
 					color: $has-error-fore-color;
@@ -151,9 +166,11 @@
 			}
 		}
 	}
+
 	.tipo {
 		margin-bottom: .5em;
 	}
+
 	.md-inline-edit {
 		margin-left: 1em;
 		vertical-align: middle;
@@ -161,22 +178,28 @@
 		margin-top: .3em;
 		color: $c-gray-firm;
 	}
+
 	.rules {
 		list-style: none;
 		margin-left: -3em;
+
 		li {
 			margin-bottom: 1em;
 		}
+
 		&.check {
 			margin-left: -8em;
+
 			.md-primary:not(.md-checked) {
 				color: $c-gray-unchecked;
 			}
 		}
 	}
+
 	.pb-e8 {
 		padding-bottom: .8em;
 	}
+
 	.pb-e8.pt-em, .pt-em {
 		padding-top: .4em;
 	}
@@ -189,6 +212,7 @@
 	md-slider-container > :first-child:not(md-slider) {
 		margin-right: 10px;
 	}
+
 	md-slider-container > :last-child:not(md-slider) {
 		margin-left: 10px;
 	}
@@ -203,11 +227,13 @@
 	.detail-table {
 		.thead {
 			background-color: $c-green-firm;
+
 			.th {
 				color: white;
 				font-weight: bold;
 			}
 		}
+
 		.tbody {
 			.tr {
 				border-bottom: solid $c-black-table-striped 1px;
@@ -219,6 +245,121 @@
 		color: $c-green-firm !important;
 	}
 
+	div.icon {
+		width: 20px;
+		height: 20px;
+		text-align: center;
+		border-radius: 50%;
+		margin-right: 5%;
+
+		span {
+			line-height: 20px;
+			color: $c-white;
+		}
+	}
+
+	div.icon.red {
+		background-color: $c-red-plus;
+		color: white;
+	}
+
+	.download {
+
+		.arrow-container-download {
+			margin: 10px;
+
+			a {
+				display: block;
+				color: $c-green;
+			}
+
+			a:hover {
+				text-decoration: none;
+			}
+
+			span:last-child {
+				float: right;
+				// padding-top: 7px;
+				margin-left: 3%;
+
+				i {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+
+	.debt {
+		background-color: $c-green-firm;
+		color: white;
+
+		.shrinked {
+			margin-right: -5em;
+		}
+
+		.price {
+			font-family: Roboto;
+			font-size: 30px;
+			font-style: normal;
+			font-stretch: normal;
+			font-weight: 400;
+			letter-spacing: -0.09px;
+			line-height: 36px;
+		}
+
+		span, div {
+			padding: 3px;
+			margin-left: 6px;
+		}
+	}
+
+	.radio-container-advanced-search {
+		margin-bottom: 3em;
+
+		md-radio-button {
+			display: inline-block;
+			vertical-align: top;
+			margin-bottom: 0px;
+			margin-right: 3em;
+		}
+
+		md-radio-button:first-child {
+			margin-left: 3em;
+		}
+	}
+
+	.poster {
+		overflow: hidden;
+	}
+
+	.advanced-search-list {
+		list-style: none;
+		padding: 0 !important;
+
+		li {
+			margin-bottom: 8px;
+			font-size: 14px;
+		}
+	}
+
+	.table.custom.advanced-search {
+		margin-left: 2em;
+
+		.tr .td:last-child {
+			padding: 0 !important;
+		}
+	}
+
+	.advanced-search-footer-buttons {
+		margin-bottom: 15px;
+	}
+
+	.table.custom {
+		td.green {
+			color: $c-green-firm;
+		}
+	}
+
 }
 
 .modal-check-detail {
@@ -227,10 +368,12 @@
 		font-family: Roboto;
 		font-size: 13px;
 	}
+
 	.text {
 		letter-spacing: -0.03px;
 		font-weight: 700;
 	}
+
 	.value {
 		letter-spacing: -0.29px;
 		font-weight: 400;
@@ -240,6 +383,7 @@
 .modal-check-detail-cheques {
 	ul {
 		margin-bottom: 0px;
+
 		li {
 			list-style: none;
 		}
@@ -264,6 +408,7 @@
 
 			padding-left: 0em;
 		}
+
 		md-switch.adjust-pendiente {
 			.md-label {
 				margin-left: 3em;
@@ -294,10 +439,12 @@
 		& > div {
 			padding: 0px;
 		}
+
 		.motive {
 			padding-left: 0px;
 			font-size: 10px;
 		}
+
 		.button-success {
 			font-size: 11px;
 		}
@@ -322,11 +469,13 @@
 		md-tabs {
 			margin-top: 5em;
 		}
+
 		md-switch.adjust-pendiente {
 			.md-label {
 				margin-left: 3em;
 			}
 		}
+
 		.col-lg-4.pl-0.pr-0.pb-e8.pt-em {
 			float: right;
 			right: 1.3em;
@@ -362,21 +511,26 @@
 		.radio-container.adjust {
 			margin-left: 1.5em;
 		}
+
 		.account-movement {
 			margin-top: -16px;
 		}
+
 		.row {
 			div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0.check {
 				margin-left: -4em;
 			}
+
 			.col-lg-3.col-md-3.col-sm-4.col-xs-12.last-filter {
 				float: right;
 				margin-right: 5.5em;
 			}
+
 			.col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
 				margin-left: -1em;
 			}
 		}
+
 		.adjust-type {
 			width: 102%;
 		}
@@ -384,6 +538,7 @@
 		md-tabs {
 			margin-top: 5em;
 		}
+
 		md-switch.adjust-pendiente {
 			.md-label {
 				margin-left: 0;
@@ -439,21 +594,27 @@
 				padding-left: 1em !important;
 			}
 		}
+
 		.adjust-cel {
 			width: 98%;
 		}
+
 		.mt-5a {
 			margin-top: 5.7em;
 		}
+
 		div.col-lg-3.col-md-3.col-sm-4.col-xs-12.pr-0.check {
 			margin-left: -4em;
 		}
+
 		div.col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
 			margin-left: 1.2em;
 		}
+
 		md-tabs {
 			margin-top: 5em;
 		}
+
 		md-switch.adjust-pendiente {
 			.md-label {
 				margin-left: 3em;
@@ -480,12 +641,15 @@
 		.col-lg-8.col-lg-8-less {
 			width: 64%;
 		}
+
 		.col-lg-4.col-lg-4-less {
 			width: 30%;
 		}
+
 		.col-md-offset-2.middle-offset {
 			margin-left: 0;
 		}
+
 		.text.refactor-all.visible-lg.visible-md.visible-sm {
 			margin-left: 0.6em
 		}

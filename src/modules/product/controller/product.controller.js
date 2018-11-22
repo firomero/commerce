@@ -20,8 +20,12 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.existAccounts = false;
 	$scope.products = [];
 	$scope.cuotes = [];
+	$scope.assets = [];
 	$scope.selectedStateOption = "";
+	$scope.selectedTypeOption = "";
 	$scope.no = "";
+	$scope.showAdvancedSearch = false;
+	$scope.factoringTabVisibility = 'WALLET';
 	const sections = ['credito', 'deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
 	const dateStart = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -31,6 +35,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 
 	$scope.onTabChanges = onTabChanges;
+	$scope.toggleAdvancedSearch = toggleAdvancedSearch;
 
 	activate();
 
@@ -63,6 +68,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				text: 'VIGENTE'
 			}
 		];
+
 		$scope.cuoteStates = [
 			{
 				class: 'green',
@@ -74,23 +80,85 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			}
 		];
 
-		const plazos = [30, 90, 120, 150];
+		$scope.rentStates = [
+			{
+				class: 'green',
+				text: 'CANCELADO'
+			},
+			{
+				class: 'yellow',
+				text: 'VIGENTE'
+			},
+			{
+				class: 'red',
+				text: 'MOROSO / 366 Días'
+			}
+		];
 
-		const clientes = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
+		const deadlines = [30, 90, 120, 150];
+
+		const clients = ['SOUTH COMMERCE S.A.', 'COMPASS GROUP S.A.', 'ASES DED INV', 'EL BOSQUE PIP'];
+
+		const randomBoolean = [
+			true,
+			false,
+		];
+
+		const assetsDescription = [
+			'Sistema Eléctrico de Fuerza',
+			'Sistema XSX',
+			'Sistema Estéreo HF',
+			'Reproductor VCR',
+			'Inmobiliaria'
+		];
+
+		const documentTypes = [
+			'Factura',
+			'Letra',
+			'Pagaré',
+		];
+
+		const debtors = [
+			{code: '096.792.430-k', description: 'EXPORTADORA SUBSOLE S.A.'},
+			{code: '094.732.130-k', description: 'SODIMAC S.A.'},
+			{code: '044.431.120-w', description: 'PRIMUS CAPITAL S.A.'},
+		];
+
+		$scope.currencies = [
+			{code: 'USD', description: 'DOLAR ESTADOUNIDENSE'},
+			{code: 'CLP', description: 'PESO CHILENO'},
+			{code: 'UF', description: 'UNIDAD DE FOMENTO'},
+		];
+
+		$scope.types = [
+			"COMPRA",
+			"VENTA",
+		];
+
+		$scope.insurances = [
+			"BANCO",
+			"CLIENTE",
+		];
 
 		for (let i = 0; i < 100; i++) {
 			$scope.products.push({
-				carta: '$1.232.346,6',
+				carta: '1.232.346,6',
 				estado: $scope.states[getRandomIntInclusive(0, 1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
-				contingencia: ' $4.529,25',
-				saldo: '$4.529,25',
-				moneda: 'DOLAR ESTADOUNIDENSE',
+				contingencia: ' 4.529,25',
+				saldo: '4.529,25',
+				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
 				ref: '123456',
-				plazo: plazos[getRandomIntInclusive(0, 3)],
+				plazo: deadlines[getRandomIntInclusive(0, 3)],
 				tasa: '0,3%',
-				cliente: clientes[getRandomIntInclusive(0, 3)]
+				cliente: clients[getRandomIntInclusive(0, 3)],
+				tipo: $scope.types[getRandomIntInclusive(0, 1)],
+				seguro: $scope.insurances[getRandomIntInclusive(0, 1)],
+				rut: '9999999999-0',
+				anticipado: randomBoolean[getRandomIntInclusive(0, 1)],
+				deudor: debtors[getRandomIntInclusive(0, 2)],
+				tipo_documento: documentTypes[getRandomIntInclusive(0, 1)],
 			});
 		}
 
@@ -110,12 +178,29 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				total: '$1.232.346,6',
 				fecha: '22/11/2017',
 				recaudado: '$1.232.346,6',
+				estado_renta: $scope.rentStates[getRandomIntInclusive(0, 2)]
+			});
+		}
+
+		for (let i = 0; i < 5; i++) {
+			$scope.assets.push({
+				cantidad: getRandomIntInclusive(1, 5),
+				descripcion: assetsDescription[i],
+				seguro: $scope.insurances[getRandomIntInclusive(0, 1)],
+				unitario: '$1.232.346,6',
+				total: '$1.232.346,6',
+				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
 			});
 		}
 
 		$scope.selectedIndex = sections.indexOf($stateParams.id);
 
 		$scope.loadTabData = true;
+	}
+
+	function toggleAdvancedSearch() {
+		$scope.showAdvancedSearch = !$scope.showAdvancedSearch;
+		console.log($scope.showAdvancedSearch);
 	}
 
 	function onTabChanges(currentTabIndex) {
