@@ -19,6 +19,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
 	$scope.products = [];
+	$scope.quarter_products = [];
 	$scope.cuotes = [];
 	$scope.assets = [];
 	$scope.selectedStateOption = "";
@@ -32,6 +33,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	const dateEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 	self.dateStart = formatDate(dateStart, 'dd/MM/yyyy');
 	self.dateEnd = formatDate(dateEnd, 'dd/MM/yyyy');
+	self.rut = "";
 
 
 	$scope.onTabChanges = onTabChanges;
@@ -113,9 +115,10 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		];
 
 		const documentTypes = [
-			'Factura',
-			'Letra',
-			'Pagaré',
+			'LETRA',
+			'PAGARÉ',
+			'FACTURA',
+			'BOLETA',
 		];
 
 		const debtors = [
@@ -159,8 +162,12 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				anticipado: randomBoolean[getRandomIntInclusive(0, 1)],
 				deudor: debtors[getRandomIntInclusive(0, 2)],
 				tipo_documento: documentTypes[getRandomIntInclusive(0, 1)],
+				tipo_documento_pago: documentTypes[getRandomIntInclusive(2, 3)],
+				cantidad_documentos: getRandomIntInclusive(1, 55),
 			});
 		}
+
+		$scope.quarter_products = $scope.products.slice(0, $scope.products.length / 4);
 
 		for (let i = 0; i < 25; i++) {
 			$scope.cuotes.push({
