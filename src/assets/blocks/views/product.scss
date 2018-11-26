@@ -416,6 +416,42 @@
 		padding: 0 !important;
 	}
 
+	.progress-bar-max {
+		float: right;
+		position: absolute;
+		right: 10px;
+		top: 1px;
+	}
+
+	.progress {
+		height: 20px;
+		margin-bottom: 10px;
+		overflow: hidden;
+		background-color: #d7d7d7;
+		border-radius: 4px;
+		box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+
+		.progress-bar {
+			float: left;
+			width: 0;
+			height: 100%;
+			font-size: 12px;
+			line-height: 20px;
+			text-align: center;
+			background-color: $c-green;
+			box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+			transition: width .6s ease;
+
+			.progressbar-text {
+				padding-left: 10px;
+				white-space: nowrap;
+				color: white !important;
+				text-align: center;
+				float: left;
+			}
+		}
+	}
+
 }
 
 .modal-check-detail {
