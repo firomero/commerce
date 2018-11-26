@@ -1,5 +1,9 @@
 product-profiler {
 
+	.product-profiler-container {
+		margin-bottom: 1em;
+	}
+
 	.title {
 		display: inline;
 		position: absolute;
@@ -8,12 +12,20 @@ product-profiler {
 		font-size: 18px;
 		margin-top: -2.5em;
 	}
-	md-card { height: auto !important; }
+
+	md-card {
+		height: auto !important;
+	}
+
 	md-content {
 		overflow: initial;
 		min-height: 270px;
 	}
-	md-tab-content {min-height: 270px;}
+
+	md-tab-content {
+		min-height: 270px;
+	}
+
 	md-tab-content.md-active {
 		padding-bottom: 70px;
 	}
@@ -21,8 +33,10 @@ product-profiler {
 	md-tabs-wrapper {
 		margin-left: 25rem;
 	}
+
 	.aling2 {
 		margin-left: -2em;
+
 		&.offset {
 			margin-left: -3em;
 		}
@@ -30,7 +44,7 @@ product-profiler {
 
 	.action-container {
 		position: absolute;
-		right: -4!important;
+		right: -4 !important;
 		bottom: -57px;
 
 		.pagar {
@@ -38,20 +52,24 @@ product-profiler {
 			.md-fab.success {
 				margin-right: 5px;
 			}
+
 			.button-text.text-center {
 				max-width: 65px;
 			}
 		}
+
 		.credito {
 			.md-fab.success {
 				margin-right: 4px;
 			}
 		}
+
 		.transfer {
 			.md-fab.success {
 				margin-right: 5px;
 			}
 		}
+
 		.saldo {
 			.md-fab.success {
 				margin-right: 9px;
@@ -71,6 +89,7 @@ product-profiler {
 		font-weight: 400;
 		line-height: 17px;
 	}
+
 	div.price {
 		font-family: Roboto;
 		font-size: 30px;
@@ -81,6 +100,7 @@ product-profiler {
 		letter-spacing: -0.09px;
 		line-height: 36px;
 	}
+
 	div.price-green {
 		font-family: Roboto;
 		font-size: 30px;
@@ -90,6 +110,7 @@ product-profiler {
 		letter-spacing: -0.09px;
 		line-height: 36px;
 	}
+
 	span.tag {
 		display: flex;
 		flex-wrap: wrap;
@@ -119,35 +140,54 @@ product-profiler {
 		letter-spacing: -0.31px;
 		line-height: 16px;
 	}
+
 	.tag-value.aling {
 		margin-left: -5.6em;
 	}
 
 	.not-found {
-		img { height: 50px; }
-		h3 { margin-top: 15px; }
+		img {
+			height: 50px;
+		}
+
+		h3 {
+			margin-top: 15px;
+		}
 	}
 
 	.button-text {
 		max-width: 70px;
 	}
+
 	.green {
 		color: rgb(148, 187, 32);
 		margin-left: 0.3em;
 	}
+
 	#text {
 		fill: white !important;
 	}
 }
 
 product-profiler.bg-toolbar {
-	md-card {background-color: $c-blue-toolbar !important;}
-	md-card.not-found {background-color: $c-white !important;}
-	small.card-text, div.price, .tag-text, .tag-value {color: $c-white;}
-	.md-button.md-fab.success {background-color: $c-button-gray;}
+	md-card {
+		background-color: $c-blue-toolbar !important;
+	}
+
+	md-card.not-found {
+		background-color: $c-white !important;
+	}
+
+	small.card-text, div.price, .tag-text, .tag-value {
+		color: $c-white;
+	}
+
+	.md-button.md-fab.success {
+		background-color: $c-button-gray;
+	}
 }
 
-@media (max-width: 500px) {//col-xs
+@media (max-width: 500px) { //col-xs
 	product-profiler .action-container {
 		bottom: -50px !important;
 		right: -1px !important;
@@ -163,20 +203,24 @@ product-profiler.bg-toolbar {
 	}
 
 }
+
 /*MEDIA SCREEN*/
 @media (max-width: 320px) { //col-xs
 	.col-xs-4 {
 		width: 60.333333%;
 	}
 }
+
 @media (max-width: 375px) { //col-xs
-	product-profiler  {
+	product-profiler {
 		.tag-value.aling1 {
 			padding-left: 3em;
 		}
+
 		.tag-value.aling {
 			margin-left: -3.7em;
 		}
+
 		.tag-value.aling2 {
 			padding-left: 2em;
 		}
@@ -190,8 +234,9 @@ product-profiler.bg-toolbar {
 		}
 	}
 }
+
 @media (max-width: 425px) { //col-xs
-	product-profiler  {
+	product-profiler {
 		.tag-value.aling {
 			padding-left: 7.8em;
 		}
@@ -200,18 +245,27 @@ product-profiler.bg-toolbar {
 		margin-top: 6em;
 	}
 }
-@media (max-width: 767px) {//col-xs
+
+@media (max-width: 767px) { //col-xs
 	product-profiler md-tab-content {
 		min-height: 430px;
 	}
-	product-profiler md-tab-item { margin: 0 10px; }
-	product-profiler md-tab-item:first-child { margin-left: 0px; }
+	product-profiler md-tab-item {
+		margin: 0 10px;
+	}
+	product-profiler md-tab-item:first-child {
+		margin-left: 0px;
+	}
 	product-profiler md-tabs-wrapper {
 		width: 100% !important;
 		margin-left: 0px;
 	}
-	product-profiler .title { position: relative; }
-	product-profiler md-tabs { margin-top: 1rem; }
+	product-profiler .title {
+		position: relative;
+	}
+	product-profiler md-tabs {
+		margin-top: 1rem;
+	}
 	.border-left {
 		margin-top: 2rem;
 		padding-top: 2rem;
@@ -219,54 +273,80 @@ product-profiler.bg-toolbar {
 		border-top: 1px solid #ddd !important;
 	}
 }
-@media (min-width: 768px) and (max-width: 991px)  {//col-sm
+
+@media (min-width: 768px) and (max-width: 991px) { //col-sm
 	product-profiler md-tab-content {
 		min-height: 430px;
 	}
-	product-profiler md-tab-item { margin: 0 10px; }
-	product-profiler md-tab-item:first-child { margin-left: 0px; }
+	product-profiler md-tab-item {
+		margin: 0 10px;
+	}
+	product-profiler md-tab-item:first-child {
+		margin-left: 0px;
+	}
 	product-profiler md-tabs-wrapper {
 		width: 100% !important;
 		margin-left: 0px;
 	}
-	product-profiler .title { position: relative; }
-	product-profiler  {
+	product-profiler .title {
+		position: relative;
+	}
+	product-profiler {
 		.tag-value.aling {
 			margin-left: 0em;
 		}
+
 		.tag-value.aling1 {
 			margin-left: -2.5em;
 		}
+
 		.aling2 {
 			margin-left: -3.4em;
 		}
+
 		.col-xs-5.aling2 {
 			margin-left: -5.3em;
 		}
 	}
-	product-profiler md-tabs { margin-top: 1rem; }
-	.border-left {margin-top: 2rem;border-left: none !important;}
+	product-profiler md-tabs {
+		margin-top: 1rem;
+	}
+	.border-left {
+		margin-top: 2rem;
+		border-left: none !important;
+	}
 	.mt-5a {
 		margin-top: 6.5em;
 	}
 }
-@media (min-width: 992px) and (max-width: 1199px)  {//col-md
+
+@media (min-width: 992px) and (max-width: 1199px) { //col-md
 	product-profiler md-tab-content {
 		min-height: 400px;
 	}
-	product-profiler md-tab-item { margin: 0 10px; }
-	product-profiler md-tabs-wrapper {  width: calc(100% - 20rem) !important; }
-	.border-left {margin-top: 2rem;border-left: none !important;}
+	product-profiler md-tab-item {
+		margin: 0 10px;
+	}
+	product-profiler md-tabs-wrapper {
+		width: calc(100% - 20rem) !important;
+	}
+	.border-left {
+		margin-top: 2rem;
+		border-left: none !important;
+	}
 	product-profiler {
 		.aling2 {
 			margin-left: -3.4em;
 		}
+
 		.tag-value.aling {
 			margin-left: -5em;
 		}
+
 		.tag-value.aling1 {
 			margin-left: -2.5em;
 		}
+
 		.aling2 {
 			margin-left: -3.4em;
 		}
