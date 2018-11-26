@@ -129,12 +129,11 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text N
 																			sup o
-																		label.text de Cuotas
+																		label De Cuotas
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		md-slider-container.smaller
-																			span.value {{slider.value}}
-																			md-slider(min="0" max="36" ng-model="slider.value" aria-label="green" ng-disabled="true" id="green-slider").md-accent
-																			span.value 36
+																		div.progress-bar-max 36
+																		uib-progressbar(max="36" value="progressbar_value")
+																			div.progressbar-text {{progressbar_value}}
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Fecha de Abono
@@ -157,8 +156,16 @@ section.bg-gray.content-container
 																		span.value $50.000
 														div.row.inputs-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-																div.pull-right
-																	a(href="#").exportar Exportar
+																div.pull-right.menu-container
+																	md-menu(md-position-mode="target-right target")
+																		a(ng-click="openExportMenu($mdMenu, $event)").exportar Exportar
+																		md-menu-content
+																			md-menu-item
+																				md-button(style="text-align: center !important") PDF
+																			md-menu-item
+																				md-button(style="text-align: center !important") EXCEL
+																			md-menu-item
+																				md-button(style="text-align: center !important") TXT
 												div.row.data-container
 													div.col-lg-12
 														md-card
@@ -423,8 +430,16 @@ section.bg-gray.content-container
 																		span.value {{item.saldo}}
 														div.row.inputs-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-																div.pull-right
-																	a(href="#").exportar Exportar
+																div.pull-right.menu-container
+																	md-menu(md-position-mode="target-right target")
+																		a(ng-click="openExportMenu($mdMenu, $event)").exportar Exportar
+																		md-menu-content
+																			md-menu-item
+																				md-button(style="text-align: center !important") PDF
+																			md-menu-item
+																				md-button(style="text-align: center !important") EXCEL
+																			md-menu-item
+																				md-button(style="text-align: center !important") TXT
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="canPaginate" ng-click="paginate()") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!canPaginate") CARGAR M&Aacute;S
@@ -629,19 +644,14 @@ section.bg-gray.content-container
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text N
-																			sup o
-																		label.text de Cuotas
+																		label.text N&uacute;mero de Cuotas
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		md-slider-container.smaller
-																			span.value {{slider.value}}
-																			md-slider(min="0" max="36" ng-model="slider.value" aria-label="green" ng-disabled="true" id="green-slider1").md-accent
-																			span.value 36
+																		div.progress-bar-max 36
+																		uib-progressbar(max="36" value="progressbar_value")
+																			div.progressbar-text {{progressbar_value}}
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text N
-																			sup o
-																		label.text de Cuotas Morosas
+																		label.text N&uacute;mero  de Cuotas Morosas
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
 																		div.icon.red 3
 																div.row
@@ -656,8 +666,16 @@ section.bg-gray.content-container
 																		span.value {{item.saldo}}
 														div.row.inputs-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-																div.pull-right
-																	a(href="#").exportar Exportar
+																div.pull-right.menu-container
+																	md-menu(md-position-mode="target-right target")
+																		a(ng-click="openExportMenu($mdMenu, $event)").exportar Exportar
+																		md-menu-content
+																			md-menu-item
+																				md-button(style="text-align: center !important") PDF
+																			md-menu-item
+																				md-button(style="text-align: center !important") EXCEL
+																			md-menu-item
+																				md-button(style="text-align: center !important") TXT
 														div.row.data-container.custom-detail-table
 															div.col-lg-12.custom-detail-table
 																h4
@@ -1063,8 +1081,16 @@ section.bg-gray.content-container
 																			b $700.00
 														div.row.inputs-container
 															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-																div.pull-right
-																	a(href="#").exportar Exportar
+																div.pull-right.menu-container
+																	md-menu(md-position-mode="target-right target")
+																		a(ng-click="openExportMenu($mdMenu, $event)").exportar Exportar
+																		md-menu-content
+																			md-menu-item
+																				md-button(style="text-align: center !important") PDF
+																			md-menu-item
+																				md-button(style="text-align: center !important") EXCEL
+																			md-menu-item
+																				md-button(style="text-align: center !important") TXT
 												div.row.data-container
 													div.col-lg-12.pl-0
 														div.row.data-container
