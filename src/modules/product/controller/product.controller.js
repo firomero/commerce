@@ -11,9 +11,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		"Sunday", "Monday", "Tuesday",
 		"Wednesday", "Thursday", "Friday", "Saturday"
 	];
-	$scope.slider = {
-		value: Math.floor(Math.random() * 36)
-	};
+	$scope.progressbar_value = Math.floor(Math.random() * 36);
 	$scope.currentCompany = {nameID: null, name: '', rol: '', accounts: []};
 	$scope.loadAccounts = false;
 	$scope.loadTabData = false;
@@ -42,6 +40,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.toggleAdvancedSearch = toggleAdvancedSearch;
 	$scope.paginate = paginate;
 	$scope.toggleDetail = toggleDetail;
+	$scope.openExportMenu = openExportMenu;
 
 	activate();
 
@@ -214,7 +213,6 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 	function toggleAdvancedSearch() {
 		$scope.showAdvancedSearch = !$scope.showAdvancedSearch;
-		console.log($scope.showAdvancedSearch);
 	}
 
 	function onTabChanges(currentTabIndex) {
@@ -297,6 +295,10 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 		item.plus = value;
 	}
+
+	function openExportMenu($mdMenu, ev) {
+		$mdMenu.open(ev);
+	};
 
 	function resetData() {
 		$scope.products = [];
