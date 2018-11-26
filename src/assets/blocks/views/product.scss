@@ -251,6 +251,7 @@
 		text-align: center;
 		border-radius: 50%;
 		margin-right: 5%;
+		padding-top: 2px;
 
 		span {
 			line-height: 20px;
@@ -290,7 +291,7 @@
 	}
 
 	.debt {
-		background-color: $c-green-firm;
+		background-color: $c-green;
 		color: white;
 
 		.shrinked {
@@ -314,7 +315,8 @@
 	}
 
 	.radio-container-advanced-search {
-		margin-bottom: 3em;
+
+		margin-top: 1em;
 
 		md-radio-button {
 			display: inline-block;
@@ -328,6 +330,11 @@
 		}
 	}
 
+	.custom-advanced-search-row {
+
+		margin-top: 2em !important;
+	}
+
 	.poster {
 		overflow: hidden;
 	}
@@ -339,6 +346,15 @@
 		li {
 			margin-bottom: 8px;
 			font-size: 14px;
+			color: #4a4a4a !important;
+
+			md-checkbox {
+				opacity: .5;
+			}
+
+			md-checkbox.md-checked {
+				opacity: 1 !important;
+			}
 		}
 	}
 
@@ -365,7 +381,39 @@
 			.advanced-rut-input {
 				padding-left: 10px;
 			}
+
+			.custom-input {
+				text-align: right;
+				padding-left: 90px;
+			}
 		}
+	}
+
+	.placeholder-select {
+		opacity: 1;
+		border-radius: 0;
+		background: none;
+		border: none;
+		position: absolute;
+		z-index: 3;
+		left: 25px;
+	}
+
+	.md-select-value > span {
+		text-align: right;
+	}
+
+	.search {
+		width: 80%;
+	}
+
+	.custom-first-column {
+		display: inline-block;
+		float: right;
+	}
+
+	.custom-detail-table {
+		padding: 0 !important;
 	}
 
 }

@@ -19,6 +19,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.loadTabData = false;
 	$scope.existAccounts = false;
 	$scope.products = [];
+	$scope.productsAll = [];
 	$scope.quarter_products = [];
 	$scope.cuotes = [];
 	$scope.assets = [];
@@ -26,6 +27,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.selectedTypeOption = "";
 	$scope.no = "";
 	$scope.showAdvancedSearch = false;
+	$scope.canPaginate = true;
 	$scope.factoringTabVisibility = 'WALLET';
 	const sections = ['credito', 'deposito', 'forward', 'leasing', 'factoring', 'boleta', 'comex'];
 	const date = new Date();
@@ -38,6 +40,8 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 	$scope.onTabChanges = onTabChanges;
 	$scope.toggleAdvancedSearch = toggleAdvancedSearch;
+	$scope.paginate = paginate;
+	$scope.toggleDetail = toggleDetail;
 
 	activate();
 
@@ -143,16 +147,17 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			"CLIENTE",
 		];
 
-		for (let i = 0; i < 100; i++) {
-			$scope.products.push({
-				carta: '1.232.346,6',
+		for (let i = 0; i < 90; i++) {
+			$scope.productsAll.push({
+				plus: false,
+				carta: '1,232,346,6',
 				estado: $scope.states[getRandomIntInclusive(0, 1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
-				contingencia: ' 4.529,25',
-				saldo: '4.529,25',
+				contingencia: ' 4,529,25',
+				saldo: '4,529,25',
 				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
-				ref: '123456',
+				ref: '123456789',
 				plazo: deadlines[getRandomIntInclusive(0, 3)],
 				tasa: '0,3%',
 				cliente: clients[getRandomIntInclusive(0, 3)],
@@ -167,9 +172,11 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			});
 		}
 
+		paginate();
+
 		$scope.quarter_products = $scope.products.slice(0, $scope.products.length / 4);
 
-		for (let i = 0; i < 25; i++) {
+		for (let i = 0; i < 6; i++) {
 			$scope.cuotes.push({
 				numero: i + 1,
 				monto: '$1.232.346,6',
@@ -212,6 +219,8 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 	function onTabChanges(currentTabIndex) {
 		$scope.selectedIndex = currentTabIndex;
+
+		resetData();
 
 	}
 
@@ -265,6 +274,37 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		min = Math.ceil(min);
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function paginate() {
+		if ($scope.products.length < $scope.productsAll.length) {
+			const newLength = $scope.products.length === 0 ? 6 : $scope.products.length + 6;
+
+			for (let i = $scope.products.length; i < newLength; i++) {
+				$scope.products.push($scope.productsAll[i]);
+			}
+			if ($scope.products.length === $scope.productsAll.length)
+				$scope.canPaginate = false;
+		}
+	}
+
+	function toggleDetail(item) {
+		const value = !item.plus;
+
+		$scope.products.forEach(function (value) {
+			value.plus = false;
+		});
+
+		item.plus = value;
+	}
+
+	function resetData() {
+		$scope.products = [];
+		paginate();
+		$scope.products.forEach((item) => {
+			item.plus = false;
+		});
+		$scope.canPaginate = true;
 	}
 
 	$scope.$on('company::change', function (data) {
