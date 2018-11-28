@@ -76,7 +76,7 @@ section.bg-gray.content-container
 											td.td.text-right ${{item.contingencia}}
 											td.td.text-right ${{item.saldo}}
 											td.td.text-right {{item.moneda.description}}
-											td.td.text-right {{item.ref}}
+											td.td.text-right {{item.random_nueve}}
 										//DETAIL
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
 											td.td(colspan="8")
@@ -312,7 +312,7 @@ section.bg-gray.content-container
 											sup o
 									md-input-container.input-form
 										div.form-element.custom-align
-											input(name="no" ng-model="no" type="number")
+											input.custom-input(name="no" ng-model="no" type="number")
 
 								div.col-lg-2.col-md-2.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
@@ -346,7 +346,7 @@ section.bg-gray.content-container
 											td.td.plus-icon
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleDetail(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleDetail(item)") remove
-												span {{item.ref}}
+												span {{item.random_nueve}}
 											td.td.text-right {{item.plazo}}
 											td.td.text-right {{item.tasa}}
 											td.td.text-right
@@ -514,7 +514,7 @@ section.bg-gray.content-container
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.text-left {{item.tipo}}
-											td.td.text-right {{item.ref}}
+											td.td.text-right {{item.random_nueve}}
 											td.td.text-left {{item.fecha}}
 											td.td.text-left {{item.fecha}}
 											td.td.text-left 1 A&ntilde;o
@@ -566,6 +566,13 @@ section.bg-gray.content-container
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
 								table.table.custom
+									colgroup
+										col(width="17%")
+										col
+										col(width="25%")
+										col
+										col
+										col
 									thead.thead
 										tr.tr
 											th.th.text-right
@@ -589,8 +596,8 @@ section.bg-gray.content-container
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleDetail(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleDetail(item)") remove
 												div.custom-first-column
-													span {{item.ref}}
-											td.td.text-right ${{item.saldo}}
+													span {{item.random_seis}}
+											td.td.text-right $500.000.000.000
 											td.td.text-center {{item.moneda.code}}
 											td.td.text-left ${{item.saldo}}
 											td.td.text-left {{item.seguro}}
@@ -692,12 +699,12 @@ section.bg-gray.content-container
 																				col
 																			thead.thead
 																				tr.tr
-																					th.th Cantidad
-																					th.th Descripci&oacute;n
-																					th.th Tipo Seguro
-																					th.th.text-center Valor Unitario
-																					th.th.text-center Valor Total
-																					th.th Moneda
+																					th.th.middle-header Cantidad
+																					th.th.middle-header Descripci&oacute;n
+																					th.th.middle-header Tipo Seguro
+																					th.th.text-center.middle-header Valor Unitario
+																					th.th.text-center.middle-header Valor Total
+																					th.th.middled-header Moneda
 																			tbody.tbody
 																				tr.tr.tr-container(ng-repeat="item in assets")
 																					td.td {{item.cantidad}}
@@ -922,11 +929,11 @@ section.bg-gray.content-container
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.text-right {{item.fecha}}
-											td.td.text-right {{item.ref}}
+											td.td.text-right {{item.random_nueve}}
 											td.td.text-left.green
 												div {{item.deudor.code}}
 												div {{item.deudor.description}}
-											td.td.text-right {{item.ref}}
+											td.td.text-right {{item.random_nueve}}
 											td.td.text-left {{item.tipo_documento}}
 											td.td.text-right {{item.moneda.code}}
 											td.td.text-right {{item.saldo}}
@@ -974,8 +981,8 @@ section.bg-gray.content-container
 											td.td.text-left.green
 												div {{item.deudor.code}}
 												div {{item.deudor.description}}
-											td.td {{item.ref}}
-											td.td {{item.ref}}
+											td.td {{item.random_nueve}}
+											td.td {{item.random_nueve}}
 											td.td {{item.tipo_documento}}
 											td.td {{item.moneda.code}}
 											td.td {{item.saldo}}
@@ -1019,7 +1026,7 @@ section.bg-gray.content-container
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleDetail(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleDetail(item)") remove
 												div.text-right
-													span 12345
+													span {{item.random_cinco}}
 											td.td.text-center {{item.fecha}}
 											td.td.text-center {{item.tipo_documento_pago}}
 											td.td.text-right {{item.cantidad_documentos}}
@@ -1150,7 +1157,7 @@ section.bg-gray.content-container
 																			td.td.text-left.green
 																				div {{item.deudor.code}}
 																				div {{item.deudor.description}}
-																			td.td 123456
+																			td.td {{item.random_seis}}
 																			td.td {{item.fecha}}
 																			td.td 12 Meses
 																			td.td ${{item.saldo}}
@@ -1211,6 +1218,156 @@ section.bg-gray.content-container
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!canPaginate") CARGAR M&Aacute;S
 
 				md-tab(label="B.GARANTIA" md-on-select="onTabChanges(5)")
+					md-content.poster
+						md-card.pt-15px.pos-r.filter
+							div.row.m-0
+								div.col-lg-5.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar desde el
+									div.col-lg-4.col-md-3.col-sm-4.pr-0
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999" ng-change="console.log(dateStart)")
+
+									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+								div.col-lg-3
+									div.placeholder-select
+										span.text Beneficiario
+									md-input-container.input-form
+										md-select.md-no-underline(ng-model="selectedBeneficiaryOption")
+											md-option.text-uppercase(ng-value="beneficiary" ng-repeat="beneficiary in beneficiaries") {{beneficiary}}
+								div.col-lg-2
+									div.placeholder-select
+										span.text N
+											sup o
+											span &nbsp;Boleta
+									md-input-container.input-form
+										div.form-element.custom-align
+											input.custom-input(name="no" ng-model="no" type="number")
+
+
+								div.col-lg-2.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									thead.thead
+										tr.tr
+											th.th.text-center
+												b
+													span N
+													sup o
+													span &nbsp; Boleta
+											th.th.text-center
+												b Fecha Curse
+											th.th.text-left
+												b Beneficiario
+											th.th.text-right
+												b Tasa
+											th.th.text-right
+												b Monto
+											th.th.text-center
+												b Fecha Vencimiento
+											th.th.text-center
+												b Moneda
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
+											td.td.plus-icon
+												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleDetail(item)") add
+												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleDetail(item)") remove
+												div.custom-first-column
+													span {{item.random_seis}}
+											td.td.text-center ${{item.fecha}}
+											td.td.text-left.green {{item.beneficiario}}
+											td.td.text-right 12.00%
+											td.td.text-right 3.000.000
+											td.td.text-center {{item.fecha}}
+											td.td.text-center {{item.moneda.code}}
+										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
+											td.td(colspan="8")
+												div.row.data-container
+													div.col-lg-12.pl-0
+														div.row.data-container
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6div.row
+																div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																	label.text Estado
+																div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																	invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Fecha Vencimiento
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value.client {{item.fecha}}
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Rut Beneficiario
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value {{item.rut}}
+															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Tipo de Boleta
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		span.value Efectivo (o pagar&eeacute;)
+																div.row
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																		label.text Glosa
+																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																		span.value Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu ante sed metus posuere sollicitudin ut eget ligula. Pellentesque feugiat ullamcorper ligula vel tristique.
+														div.row.inputs-container
+															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+																div.pull-right.menu-container
+																	md-menu(md-position-mode="target-right target")
+																		a(ng-click="openExportMenu($mdMenu, $event)").exportar Exportar
+																		md-menu-content
+																			md-menu-item
+																				md-button(style="text-align: center !important") PDF
+																			md-menu-item
+																				md-button(style="text-align: center !important") EXCEL
+																			md-menu-item
+																				md-button(style="text-align: center !important") TXT
+														div.row.data-container.custom-detail-table.no-padding
+															div.col-lg-12.no-padding
+																h4
+																	b DETALLE CUOTAS
+																md-card.detail-table
+																	div.table-responsive
+																		table.table.custom
+																			colgroup
+																				col(width="13%")
+																				col
+																				col
+																				col(width="18%")
+																				col
+																				col
+																			thead.thead
+																				tr.tr
+																					th.th.text-left.middle-header
+																						span N
+																							sup o
+																					th.th.text-left.middle-header Fecha Vencimiento
+																					th.th.text-right.middle-header Monto a Pagar
+																					th.th.text-center.middle-header Estado Cuota
+																					th.th.text-right.middle-header Monto Recaudaci&oacute;n
+																					th.th.text-center.middle-header Feha de Pago
+																			tbody.tbody
+																				tr.tr.tr-container(ng-repeat="item in cuotes")
+																					td.td.text-left {{item.numero}}
+																					td.td.text-left {{item.fecha}}
+																					td.td.text-right UF 32.000
+																					td.td.text-center {{item.estado.text}}
+																					td.td.text-right 40.000.000
+																					td.td.text-center {{item.fecha}}
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="canPaginate" ng-click="paginate()") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!canPaginate") CARGAR M&Aacute;S
 				md-tab(label="COMEX" md-on-select="onTabChanges(6)")
 				md-tab(label="CONFIRMING" md-on-select="onTabChanges(7)")
 					md-content.poster
