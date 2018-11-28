@@ -21,8 +21,10 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.quarter_products = [];
 	$scope.cuotes = [];
 	$scope.assets = [];
+	$scope.moneys = [];
 	$scope.selectedStateOption = "";
 	$scope.selectedTypeOption = "";
+	$scope.selectedMoneyOption = "";
 	$scope.no = "";
 	$scope.showAdvancedSearch = false;
 	$scope.canPaginate = true;
@@ -72,6 +74,11 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				class: 'yellow',
 				text: 'VIGENTE'
 			}
+		];
+
+		$scope.moneys = [
+			'Nacional',
+			'Extranjera'
 		];
 
 		$scope.cuoteStates = [
@@ -173,7 +180,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 		paginate();
 
-		$scope.quarter_products = $scope.products.slice(0, $scope.products.length / 4);
+		$scope.quarter_products = $scope.products.slice(0, $scope.products.length);
 
 		for (let i = 0; i < 6; i++) {
 			$scope.cuotes.push({
