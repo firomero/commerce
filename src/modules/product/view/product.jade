@@ -167,7 +167,7 @@ section.bg-gray.content-container
 																			md-menu-item
 																				md-button(style="text-align: center !important") TXT
 												div.row.data-container
-													div.col-lg-12
+													div.col-lg-12.no-padding
 														md-card
 															div.md-card-header Cuentas Por Cobrar
 																span &nbsp;&nbsp;&nbsp;Si
@@ -233,7 +233,7 @@ section.bg-gray.content-container
 																				span.value data
 
 												div.row.data-container
-													div.col-lg-12
+													div.col-lg-12.no-padding
 														md-card.detail-table
 															div.table-responsive
 																table.table.custom
@@ -677,7 +677,7 @@ section.bg-gray.content-container
 																			md-menu-item
 																				md-button(style="text-align: center !important") TXT
 														div.row.data-container.custom-detail-table
-															div.col-lg-12.custom-detail-table
+															div.col-lg-12.no-padding
 																h4
 																	b BIENES
 																md-card.detail-table
@@ -707,7 +707,7 @@ section.bg-gray.content-container
 																					td.td.text-center {{item.total}}
 																					td.td.text-left {{item.moneda.code}}
 														div.row.data-container.custom-detail-table
-															div.col-lg-12.custom-detail-table
+															div.col-lg-12.no-padding
 																h4
 																	b RENTAS
 																md-card.detail-table
@@ -848,12 +848,40 @@ section.bg-gray.content-container
 											div.form-element.custom-align
 												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
 								div.col-lg-3
-									div.col-lg-5
-										div.text.inline Rut {{(showAdvancedSearch && factoringTabVisibility === 'PAYMENTS') ? 'Deudor' : 'Cliente'}}
-									div.col-lg-7
+									div.placeholder-select
+										span.text Rut {{(showAdvancedSearch && factoringTabVisibility === 'PAYMENTS') ? 'Deudor' : 'Cliente'}}
+									form.input-form
+										div.form-element.custom-align
+											input.custom-input(name="rut" type="text" autocomplete="on" ng-model="$ctrl.rut" placeholder="Ingrese" mask="999.999.999-*")
+								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
+									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container.adjust
+									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.advanced-search-footer-buttons
+										button.button-success.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-5.col-sm-6.col-xs-6.col-md-4-less(ng-click="showAdvancedSearch = !showAdvancedSearch;") BUSCAR
+										button.button-default.col-lg-3.col-md-3.col-sm-6.col-xs-6(ng-click="toggleAdvancedSearch()") CANCELAR
+
+							div.row.m-0.custom-advanced-search-row(ng-if="(showAdvancedSearch && factoringTabVisibility === 'REMAININGS')")
+								div.col-lg-5.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar desde el
+									div.col-lg-4.col-md-3.col-sm-4.pr-0
 										form.input-form
+											div.form-text
+												i.material-icons.c-green event
 											div.form-element.custom-align
-												input.advanced-rut-input(name="rut" type="text" autocomplete="on" ng-model="$ctrl.rut" placeholder="Ingrese" mask="999.999.999-*")
+												input(name="dateStart" type="text" autocomplete="off" ng-model="$ctrl.dateStart" placeholder="_ / _ / _" mask="99 / 99 / 9999" ng-change="console.log(dateStart)")
+
+									div.col-lg-1.col-md-1.col-sm-1.pl-0.pr-0.text-center.text Al
+									div.col-lg-4.col-md-3.col-sm-4.refactor-padding
+										form.input-form
+											div.form-text
+												i.material-icons.c-green event
+											div.form-element.custom-align
+												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
+								div.col-lg-3
+									div.placeholder-select
+										span.text Moneda
+									md-input-container.input-form
+										md-select.md-no-underline(ng-model="selectedMoneyOption")
+											md-option.text-uppercase(ng-value="money" ng-repeat="money in moneys") {{money}}
 								div.col-lg-4.col-md-4.col-sm-12.col-xs-12.pl-0.radio-storage
 									div.col-lg-12.col-md-12.col-sm-7.col-xs-12.radio-container.adjust
 									div.col-lg-12.col-md-12.col-sm-4.col-xs-12.advanced-search-footer-buttons
@@ -964,6 +992,12 @@ section.bg-gray.content-container
 						md-card.pt-15px.pl-15px.pr-15px.pos-r(ng-if="factoringTabVisibility === 'FORWARDING'")
 							div.table-responsive
 								table.table.custom
+									colgroup
+										col(width="20%")
+										col(width="20%")
+										col(width="20%")
+										col(width="20%")
+										col(width="20%")
 									thead.thead
 										tr.tr
 											th.th.text-right
@@ -972,8 +1006,8 @@ section.bg-gray.content-container
 														sup o
 													span &nbsp; Operaci&oacute;n
 											th.th.text-center
-												b Fecha Operaci&oacute;n
-											th.th.text-left
+												b Fecha Op.
+											th.th.text-center
 												b Tipo Documento
 											th.th.text-right
 												b Cantidad de Documentos
@@ -984,11 +1018,12 @@ section.bg-gray.content-container
 											td.td.plus-icon
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleDetail(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleDetail(item)") remove
-												span {{item.ref}}
+												div.text-right
+													span 12345
 											td.td.text-center {{item.fecha}}
-											td.td.text-left {{item.tipo_documento_pago}}
+											td.td.text-center {{item.tipo_documento_pago}}
 											td.td.text-right {{item.cantidad_documentos}}
-											td.td.text-right {{item.saldo}}
+											td.td.text-right $70.000.000
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
 											td.td(colspan="5")
 												div.row.data-container
@@ -999,18 +1034,18 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Monto Financiado
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value {{item.saldo}}}}
+																		span.value $500.000.000
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text % de Financiamiento
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		span.value
-																			b 50
+																			b 50%
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Diferencia de Precio
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.saldo}}
+																		span.value $123.456.000
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Tipo de Cambio
@@ -1030,7 +1065,7 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Comisi&oacute;n IVA
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value $7000.000
+																		span.value $700.000
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Cantidad Documentos
@@ -1052,12 +1087,12 @@ section.bg-gray.content-container
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Gastos Notificaci&oacute;n
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value {{item.saldo}}
+																		span.value %500.000.000
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Gastos Operaci&oacute;n
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.saldo}}
+																		span.value $123.456.000
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
 																		label.text Pago Documentos
@@ -1092,39 +1127,85 @@ section.bg-gray.content-container
 																			md-menu-item
 																				md-button(style="text-align: center !important") TXT
 												div.row.data-container
-													div.col-lg-12.pl-0
-														div.row.data-container
-															div.col-lg-12
-																md-card.detail-table
-																	div.table-responsive
-																		table.table.custom
-																			thead.thead
-																				tr.tr
-																					th.th.text-left Rut y Nombre Deudor
-																					th.th.text-right
-																						span N
-																						sup o
-																						span &nbsp;Documento
-																					th.th.text-left Fecha Vencimiento
-																					th.th Plazo
-																					th.th Monto
-																					th.th Financiado
-																					th.th Efectivo
-																					th.th No Financiado
-																					th.th Diferencia de Precio
-																			tbody.tbody
-																				tr.tr.tr-container(ng-repeat="item in quarter_products")
-																					td.td.text-left.green
-																						div {{item.deudor.code}}
-																						div {{item.deudor.description}}
-																					td.td {{item.ref}}
-																					td.td {{item.fecha}}
-																					td.td 12 Meses
-																					td.td {{item.saldo}}
-																					td.td {{item.saldo}}
-																					td.td {{item.saldo}}
-																					td.td {{item.saldo}}
-																					td.td $2,108
+													div.col-lg-12.no-padding
+														md-card.detail-table
+															div.table-responsive
+																table.table.custom
+																	thead.thead
+																		tr.tr
+																			th.th.text-left Rut y Nombre Deudor
+																			th.th.text-right
+																				span N
+																				sup o
+																				span &nbsp;Documento
+																			th.th.text-left Fecha Vencimiento
+																			th.th.text-center Plazo
+																			th.th.text-right Monto
+																			th.th.text-right Financiado
+																			th.th.text-right Efectivo
+																			th.th.text-right No Financiado
+																			th.th.text-right Diferencia de Precio
+																	tbody.tbody
+																		tr.tr.tr-container(ng-repeat="item in quarter_products")
+																			td.td.text-left.green
+																				div {{item.deudor.code}}
+																				div {{item.deudor.description}}
+																			td.td 123456
+																			td.td {{item.fecha}}
+																			td.td 12 Meses
+																			td.td ${{item.saldo}}
+																			td.td ${{item.saldo}}
+																			td.td ${{item.saldo}}
+																			td.td ${{item.saldo}}
+																			td.td.text-right $2,108
+								div.row.m-0.pt-1.pb-1
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="canPaginate" ng-click="paginate()") CARGAR M&Aacute;S
+									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!canPaginate") CARGAR M&Aacute;S
+
+						md-card.pt-15px.pl-15px.pr-15px.pos-r(ng-if="factoringTabVisibility === 'REMAININGS'")
+							div.table-responsive
+								table.table.custom
+									thead.thead
+										tr.tr
+											th.th.text-left
+												b Fecha
+											th.th.text-left
+												b Tipo Operaci&oacute;n
+											th.th.text-left
+												b Cargo
+											th.th.text-left
+												b Abono
+											th.th.text-left
+												b Saldo
+											th.th.text-left
+												b Moneda
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat="item in products" ng-class="{'odd': $index % 2 == 0}")
+											td.td.text-left {{item.fecha}}
+											td.td.text-left Interes Mora por Documento 227712
+											td.td.text-left $700.000.000
+											td.td.text-left $700.000.000
+											td.td.text-left $700.000.000
+											td.td.text-center {{item.moneda.code}}
+										tr.tr.tr-container.odd
+											td.td(colspan="6")
+												div.row
+													div.footer-block
+														div Total Abono
+														h3.footer-header $87.503.000
+													div.footer-block
+														div Total Cargo
+														h3.footer-header $36.200.123
+													div.footer-block
+														div Total Saldo
+														h3.footer-header $50.960.789
+													div.footer-block
+														div Saldo Anterior Acumulado
+														h3.footer-header $-960.789
+													div.footer-block
+														div Nuevo Saldo Acumulado
+														h3.footer-header $50.960.789
+
 								div.row.m-0.pt-1.pb-1
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="canPaginate" ng-click="paginate()") CARGAR M&Aacute;S
 									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!canPaginate") CARGAR M&Aacute;S

@@ -412,10 +412,6 @@
 		float: right;
 	}
 
-	.custom-detail-table {
-		padding: 0 !important;
-	}
-
 	.progress-bar-max {
 		float: right;
 		position: absolute;
@@ -450,6 +446,24 @@
 				float: left;
 			}
 		}
+	}
+
+	.no-padding {
+		padding: 0 !important;
+	}
+
+	.footer-header {
+		margin-top: 10px !important;
+	}
+
+	.footer-block {
+		width: 20%;
+		float: left;
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		display: block;
 	}
 
 }
