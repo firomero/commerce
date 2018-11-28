@@ -22,9 +22,11 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.cuotes = [];
 	$scope.assets = [];
 	$scope.moneys = [];
+	$scope.beneficiaries = [];
 	$scope.selectedStateOption = "";
 	$scope.selectedTypeOption = "";
 	$scope.selectedMoneyOption = "";
+	$scope.selectedBeneficiaryOption = "";
 	$scope.no = "";
 	$scope.showAdvancedSearch = false;
 	$scope.canPaginate = true;
@@ -153,6 +155,12 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			"CLIENTE",
 		];
 
+		$scope.beneficiaries = [
+			"Juan Pérez Pérez",
+			"Pedro Martínez",
+			"Pablo Toledo",
+		];
+
 		for (let i = 0; i < 90; i++) {
 			$scope.productsAll.push({
 				plus: false,
@@ -163,7 +171,6 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				contingencia: ' 4,529,25',
 				saldo: '4,529,25',
 				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
-				ref: '123456789',
 				plazo: deadlines[getRandomIntInclusive(0, 3)],
 				tasa: '0,3%',
 				cliente: clients[getRandomIntInclusive(0, 3)],
@@ -175,6 +182,10 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				tipo_documento: documentTypes[getRandomIntInclusive(0, 1)],
 				tipo_documento_pago: documentTypes[getRandomIntInclusive(2, 3)],
 				cantidad_documentos: getRandomIntInclusive(1, 55),
+				random_cinco: Math.floor(10000 + Math.random() * 90000),
+				random_seis: Math.floor(100000 + Math.random() * 900000),
+				random_nueve: Math.floor(100000000 + Math.random() * 900000000),
+				beneficiario: $scope.beneficiaries[getRandomIntInclusive(0, 2)],
 			});
 		}
 
