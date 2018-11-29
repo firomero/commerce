@@ -38,6 +38,8 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	self.dateStart = formatDate(dateStart, 'dd/MM/yyyy');
 	self.dateEnd = formatDate(dateEnd, 'dd/MM/yyyy');
 	self.rut = "";
+	self.username = "";
+	self.passsword = "";
 
 
 	$scope.onTabChanges = onTabChanges;
