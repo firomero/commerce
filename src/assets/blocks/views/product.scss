@@ -469,6 +469,42 @@
 	.middle-header {
 		vertical-align: middle !important;
 	}
+
+	.spaced {
+		letter-spacing: -0.03px;
+		padding-top: 1em;
+		margin-bottom: 2em;
+	}
+
+	.login-box {
+		padding-top: 1em;
+		padding-right: 4em;
+		padding-left: 4em;
+		padding-bottom: 4em;
+
+		.red-parenthesis {
+			text-align: center;
+			color: $c-red;
+			font-weight: bold;
+			margin-bottom: 1em;
+		}
+
+		.placeholder-login {
+			opacity: 1;
+			border-radius: 0;
+			background: none;
+			border: none;
+			position: absolute;
+			z-index: 3;
+			left: 45px;
+			bottom: -2px;
+		}
+
+		.confirming-button {
+			width: 100%;
+			margin: 0 !important;
+		}
+	}
 }
 
 .modal-check-detail {
