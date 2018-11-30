@@ -567,7 +567,7 @@ section.bg-gray.content-container
 							div.table-responsive
 								table.table.custom
 									colgroup
-										col(width="17%")
+										col(width="14%")
 										col
 										col(width="25%")
 										col
@@ -704,7 +704,7 @@ section.bg-gray.content-container
 																					th.th.middle-header Tipo Seguro
 																					th.th.text-center.middle-header Valor Unitario
 																					th.th.text-center.middle-header Valor Total
-																					th.th.middled-header Moneda
+																					th.th.middled-header.middle-header Moneda
 																			tbody.tbody
 																				tr.tr.tr-container(ng-repeat="item in assets")
 																					td.td {{item.cantidad}}
@@ -732,17 +732,17 @@ section.bg-gray.content-container
 																				col(width="18%")
 																			thead.thead
 																				tr.tr
-																					th.th
+																					th.th.middle-header
 																						span N
 																						sup o
-																					th.th Fecha Vencimiento
-																					th.th Valor Rentas Neto
-																					th.th D&iacute;as Mora
-																					th.th Intereses Mora
-																					th.th Gastos Cobranza
-																					th.th Renta Bruta
-																					th.th.text-center Factura
-																					th.th.text-center Estado
+																					th.th.middle-header Fecha Vencimiento
+																					th.th.middle-header Valor Rentas Neto
+																					th.th.middle-header D&iacute;as Mora
+																					th.th.middle-header Intereses Mora
+																					th.th.middle-header Gastos Cobranza
+																					th.th.middle-header Renta Bruta
+																					th.th.text-center.middle-header Factura
+																					th.th.text-center.middle-header Estado
 																			tbody.tbody
 																				tr.tr.tr-container(ng-repeat="item in cuotes")
 																					td.td {{item.numero}}
@@ -936,8 +936,8 @@ section.bg-gray.content-container
 											td.td.text-right {{item.random_nueve}}
 											td.td.text-left {{item.tipo_documento}}
 											td.td.text-right {{item.moneda.code}}
-											td.td.text-right {{item.saldo}}
-											td.td.text-right {{item.saldo}}
+											td.td.text-right ${{item.saldo}}
+											td.td.text-right ${{item.saldo}}
 											td.td.text-right {{item.fecha}}
 											td.td.text-right
 												invest-status(b-class="red" text="MOROSO")
