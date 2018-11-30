@@ -1,0 +1,21 @@
+.product-modal {
+	overflow: hidden;
+
+	.products-grid {
+
+		padding-left: 10%;
+		padding-right: 10%;
+
+		.title {
+
+			.h3 {
+				text-align: center;
+			}
+		}
+
+		.table-row {
+			display: flex;
+			align-items: flex-end;
+		}
+	}
+}

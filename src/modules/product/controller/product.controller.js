@@ -318,7 +318,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 
 	function openExportMenu($mdMenu, ev) {
 		$mdMenu.open(ev);
-	};
+	}
 
 	function resetData() {
 		$scope.products = [];
