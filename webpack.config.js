@@ -83,6 +83,10 @@ const config = {
 			to: 'images/carousel',
 			flatten: true
 		},{
+			from: 'src/assets/images/icons/*.*',
+			to: 'images/icons',
+			flatten: true
+		},{
 			from: 'src/assets/images/*.*',
 			to: 'images/',
 			flatten: true
