@@ -22,6 +22,17 @@ export default function ProductController($scope, userLogin, $stateParams) {
 	$scope.cuotes = [];
 	$scope.assets = [];
 	$scope.moneys = [];
+	$scope.comex = {
+		creditLetter: {
+			items: []
+		},
+		pae: {
+			items: []
+		},
+		financial: {
+			items: []
+		}
+	};
 	$scope.beneficiaries = [];
 	$scope.selectedStateOption = "";
 	$scope.selectedTypeOption = "";
@@ -201,6 +212,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				monto: '$1.232.346,6',
 				capital: '$1.232.346,6',
 				interes: '$1.232.346,6',
+				saldo: '$1.232.346,6',
 				capital_reducido: '$1.232.346,6',
 				gasto_mora: {
 					monto: '$2.234.543',
@@ -211,7 +223,38 @@ export default function ProductController($scope, userLogin, $stateParams) {
 				total: '$1.232.346,6',
 				fecha: '22/11/2017',
 				recaudado: '$1.232.346,6',
-				estado_renta: $scope.rentStates[getRandomIntInclusive(0, 2)]
+				estado_renta: $scope.rentStates[getRandomIntInclusive(0, 2)],
+				financiamiento: Math.floor(100000000 + Math.random() * 900000000)
+			});
+
+			$scope.comex.creditLetter.items.push({
+				letter:'$1.232.346,6',
+				status: $scope.rentStates[getRandomIntInclusive(0, 1)],
+				fecha: '22/11/2017',
+				vence: '22/11/2017',
+				monto: '$1.232.346,6',
+				saldo: '$1.232.346,6',
+				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
+				referencia: Math.floor(100000000 + Math.random() * 900000000)
+			});
+
+			$scope.comex.pae.items.push({
+				credit: Math.floor(100000000 + Math.random() * 900000000),
+				status: $scope.rentStates[getRandomIntInclusive(0, 1)],
+				fecha: '22/11/2017',
+				vence: '22/11/2017',
+				monto: '$1.232.346,6',
+				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
+				tasa: 'FIJA'
+			});
+			$scope.comex.financial.items.push({
+				credit: Math.floor(100000000 + Math.random() * 900000000),
+				status: $scope.rentStates[getRandomIntInclusive(0, 1)],
+				fecha: '22/11/2017',
+				vence: '22/11/2017',
+				monto: '$1.232.346,6',
+				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
+				tasa: 'FIJA'
 			});
 		}
 
