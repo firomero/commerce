@@ -277,6 +277,14 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 	// 	utilFactura: false
 	// };
 	$scope.userList = JSON.parse(localStorage.getItem('userList')) || [];
+	$scope.operation = {
+		show: false,
+		direction: ''
+	};
+	$scope.cosult = {
+		show: false,
+		direction: ''
+	};
 	// self.action = action;
 	// switch (self.action) {
 	// 	case 'NOMINA': {
@@ -291,7 +299,6 @@ export default function UserModalController($scope, $timeout, $uibModal, $uibMod
 
 	$scope.done = done;
 	$scope.close = close;
-	// $scope.addUser = addUser;
 	// $scope.changeTitle = changeTitle;
 	$scope.backStep = backStep;
 	$scope.setLoadingStep = setLoadingStep;

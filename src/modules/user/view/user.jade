@@ -64,7 +64,7 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" ng-disabled="!onEdit" autocomplete="off"  phone-validation)
+																		input(name="movil" type="text" ng-model="item.tel" ng-disabled="!onEdit" autocomplete="off" phone-validation mask="+99 99 9?9999-9999" restrict="reject")
 																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
 
 														div.row.data-container
@@ -181,7 +181,7 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit"  phone-validation)
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit"  phone-validation mask="+99 99 9?9999-9999" restrict="reject")
 																	i.material-icons.md-inline-edit(ng-click="onEdit =!onEdit") edit
 
 														div.row.data-container
@@ -298,7 +298,7 @@ section.bg-gray.content-container
 																	div.form-text
 																		label Celular
 																	div.form-element
-																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit"  phone-validation)
+																		input(name="movil" type="text" ng-model="item.tel" autocomplete="off" ng-disabled="!onEdit"  phone-validation mask="+99 99 9?9999-9999" restrict="reject")
 																	i.material-icons.md-inline-edit(ng-click="onEdit=!onEdit") edit
 
 														div.row.data-container

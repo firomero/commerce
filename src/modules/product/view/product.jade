@@ -1392,27 +1392,28 @@ section.bg-gray.content-container
 									div.placeholder-select
 										span.text N
 											sup o
-											span &nbsp; de Cr&eacute;dito
+											normal &nbsp; de Crédito
 									md-input-container.input-form
-										md-select.md-no-underline(ng-model="selectedBeneficiaryOption")
-											md-option.text-uppercase(ng-value="beneficiary" ng-repeat="beneficiary in beneficiaries" placeholder="Todos") {{beneficiary}}
+										md-select.md-no-underline(ng-model="selectedStateOption")
+											md-option.text-uppercase(ng-value="state.text" ng-repeat="state in states") {{state.text}}
 								div.col-lg-2
 									div.placeholder-select
 										span.text N
 											sup o
-											span &nbsp; referencia
-									form.input-form
+											normal &nbsp; de Referencia
+									md-input-container.input-form
 										div.form-element.custom-align
-											input.custom-input(name="no" ng-model="no" type="number" placeholder="Ingresar")
+											input.custom-input(name="no" ng-model="no" type="number")
 
-								div.col-lg-2.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
+								div.col-lg-2.col-md-2.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
+						span.black-point Carta de Crédito
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
 								table.table.custom
 									colgroup
-										col(width="13%")
-										col(width="15%")
+										col(width="11%")
+										col(width="10%")
 										col(width="15%")
 										col(width="10%")
 										col(width="10%")
@@ -1422,233 +1423,333 @@ section.bg-gray.content-container
 									thead.thead
 										tr.tr
 											th.th.text-right
-												b Nº de Cr&eacute;dito
+												b
+													span N
+													sup o
+													span &nbsp; Carta de Crédito
 											th.th.text-right
 												b Estado
+												b
 											th.th.text-right
-												b Fec. Emisi&oacute;n
+												b Fec. Emisión
 											th.th.text-right
 												b Fec. Vencimiento
 											th.th.text-right
-												b Monto Contigencia
+												b Monto Contingencia
 											th.th.text-right
-												b Saldo Contingencia
+												b Saldo Contigencia
 											th.th.text-right
 												b Moneda
 											th.th.text-right
-												b Nº de referencia
+												b
+													span N
+													sup o
+													span &nbsp; de Referencia
 									tbody.tbody
-										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
+										tr.tr.tr-container(ng-repeat-start="item in comex.creditLetter.items" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleDetail(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleDetail(item)") remove
-												span ${{item.carta}}
+												span {{item.letter}}
 											td.td.text-right
-												invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+												invest-status(b-class="{{item.status.class}}" text="{{item.status.text}}")
 											td.td.text-right {{item.fecha}}
 											td.td.text-right {{item.vence}}
-											td.td.text-right ${{item.contingencia}}
-											td.td.text-right ${{item.saldo}}
-											td.td.text-right {{item.moneda.description}}
-											td.td.text-right {{item.random_nueve}}
-										//DETAIL
+											td.td.text-right {{item.saldo}}
+											td.td.text-right {{item.monto}}
+											td.td.text-right {{item.moneda.code}}
+											td.td.text-right {{item.referencia}}
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
-											td.td(colspan="8")
-												div.row.data-container
-													div.col-lg-12.pl-0
-														div.row.data-container
-															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text N
-																			sup o
-																		label.text de Cr&eacute;dito Original
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value 65345345453
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text N
-																			sup o
-																		label.text de Cr&eacute;dito (&Uacute;ltimo Curse)
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value 65345345740
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Monto Original
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.saldo}}
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Moneda
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		span.value {{item.moneda.description}}
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Tasa Curse
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value 3.49%
+																					td.td(colspan="8")
+																						div.row.data-container
+																							div.col-lg-12.pl-0
+																								div.row.data-container
+																									div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text N
+																													sup o
+																												label.text de Cr&eacute;dito Original
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												span.value 65345345453
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text N
+																													sup o
+																												label.text de Cr&eacute;dito (&Uacute;ltimo Curse)
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												span.value 65345345740
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Monto Original
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value {{item.saldo}}
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Moneda
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												span.value {{item.moneda.description}}
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Tasa Curse
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value 3.49%
 
-															div.col-lg-6.col-md-6.col-sm-6.col-xs-6
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Fecha de Emisi&oacute;n
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.fecha}}
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Fecha de Vencimiento
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.fecha}}
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text N
-																			sup o
-																		label De Cuotas
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		div.progress-bar-max 36
-																		uib-progressbar(max="36" value="progressbar_value")
-																			div.progressbar-text {{progressbar_value}}
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Fecha de Abono
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.fecha}}
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Monto Abono
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value {{item.saldo}}
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Gasto Nortario
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value $2.000.000
-																div.row
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																		label.text Impuesto
-																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																		span.value $50.000
-														div.row.inputs-container
-															div.col-lg-12.col-md-12.col-sm-12.col-xs-12
-																div.pull-right.menu-container
-																	md-menu(md-position-mode="target-right target")
-																		a(ng-click="openExportMenu($mdMenu, $event)").exportar Exportar
-																		md-menu-content
-																			md-menu-item
-																				md-button(style="text-align: center !important") PDF
-																			md-menu-item
-																				md-button(style="text-align: center !important") EXCEL
-																			md-menu-item
-																				md-button(style="text-align: center !important") TXT
-												div.row.data-container
-													div.col-lg-12.no-padding
-														md-card
-															div.md-card-header Cuentas Por Cobrar
-																span &nbsp;&nbsp;&nbsp;Si
-															div.md-card-body
-																div.row.data-container
-																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Operaci&oacute;n
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Cuenta Por Cobrar
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Rut
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Nombre
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Fecha Vigencia
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Fecha Pago
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Fecha Contable
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Descripci&oacute;n
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value 3.49%
-																	div.col-lg-4.col-md-4.col-sm-4.col-xs-4
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Monto total
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Saldo
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
-																		div.row
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
-																				label.text Valor
-																			div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
-																				span.value data
+																									div.col-lg-6.col-md-6.col-sm-6.col-xs-6
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Fecha de Emisi&oacute;n
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value {{item.fecha}}
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Fecha de Vencimiento
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value {{item.fecha}}
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text N
+																													sup o
+																												label De Cuotas
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												div.progress-bar-max 36
+																												uib-progressbar(max="36" value="progressbar_value")
+																													div.progressbar-text {{progressbar_value}}
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Fecha de Abono
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value {{item.fecha}}
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Monto Abono
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value {{item.saldo}}
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Gasto Nortario
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value $2.000.000
+																										div.row
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																												label.text Impuesto
+																											div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																												span.value $50.000
+																								div.row.inputs-container
+																									div.col-lg-12.col-md-12.col-sm-12.col-xs-12
+																										div.pull-right.menu-container
+																											md-menu(md-position-mode="target-right target")
+																												a(ng-click="openExportMenu($mdMenu, $event)").exportar Exportar
+																												md-menu-content
+																													md-menu-item
+																														md-button(style="text-align: center !important") PDF
+																													md-menu-item
+																														md-button(style="text-align: center !important") EXCEL
+																													md-menu-item
+																														md-button(style="text-align: center !important") TXT
+																						div.row.data-container
+																							div.col-lg-12.no-padding
+																								md-card
+																									div.md-card-header Cuentas Por Cobrar
+																										span.unmargin &nbsp;&nbsp;&nbsp;Si
+																									div.md-card-body
+																										div.row.data-container
+																											div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Operaci&oacute;n
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Cuenta Por Cobrar
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Rut
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Nombre
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																											div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Fecha Vigencia
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Fecha Pago
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Fecha Contable
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Descripci&oacute;n
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value 3.49%
+																											div.col-lg-4.col-md-4.col-sm-4.col-xs-4
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Monto total
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Saldo
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
+																												div.row
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																														label.text Valor
+																													div.col-lg-6.col-md-6.col-sm-12.col-xs-6.pl-0
+																														span.value data
 
-												div.row.data-container
-													div.col-lg-12.no-padding
-														h3 Carta Cr&eacute;dito
-														md-card.detail-table
-															div.table-responsive
-																table.table.custom
-																	thead.thead
-																		tr.tr
-																			th.th.middle-header
-																				b Financiamiento
-																			th.th.middle-header
-																				b Capital
-																			th.th.middle-header
-																				b Inter&eacute;s
-																			th.th.middle-header
-																				b Saldo
-																			th.th.middle-header
-																				b Mora
-																			th.th.middle-header
-																				b Estado Cuota
-																			th.th.middle-header
-																				b Total a Pagar
-																			th.th.middle-header
-																				b Fecha Pago
-																			th.th.middle-header
-																				b Monto Recaudado
-																	tbody.tbody
-																		tr.tr.tr-container(ng-repeat="item in cuotes")
-																			td.td {{item.numero}}
-																			td.td ${{item.capital}}
-																			td.td {{item.interes}}
-																			td.td {{item.monto}}
-																			td.td.text-right
-																				div {{item.gasto_mora.monto}}
-																				div {{item.gasto_mora.dias}}
-																			td.td.text-center
-																				invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
-																			td.td {{item.total}}
-																			td.td {{item.fecha}}
-																			td.td {{item.recaudado}}
-								div.row.m-0.pt-1.pb-1
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6(ng-if="canPaginate" ng-click="paginate()") CARGAR M&Aacute;S
-									button.button-default.button-load.col-lg-offset-5.col-lg-2.col-md-offset-5.col-md-2.col-sm-offset-4.col-sm-4.col-xs-offset-4.col-xs-6.disabled(ng-if="!canPaginate") CARGAR M&Aacute;S
+																						div.row.data-container
+																							div.col-lg-12.no-padding
+																								md-card.detail-table
+																									div.table-responsive
+																										table.table.custom
+																											colgroup
+																												col(width="11%")
+																												col(width="10%")
+																												col(width="15%")
+																												col(width="10%")
+																												col(width="10%")
+																												col(width="8%")
+																												col(width="8%")
+																												col(width="8%")
+																												col(width="10%")
+																											thead.thead
+																												tr.tr
+																													th.th
+																														b Financiamiento
+																													th.th
+																														b Capital
+																													th.th
+																														b Inter&eacute;s
+																													th.th
+																														b Saldo
+																													th.th
+																														b Mora
+																													th.th.text-left
+																														b Estado
+																														br
+																														span Cuota
+																													th.th.text-right
+																														b Total
+																														br
+																														span a Pagar
+																													th.th.text-right
+																														b Fecha Pago
+																													th.th.text-right
+																														b Monto Recaudado
+																											tbody.tbody
+																												tr.tr.tr-container(ng-repeat="item in cuotes")
+																													td.td {{item.financiamiento}}
+																													td.td {{item.capital}}
+																													td.td {{item.interes}}
+																													td.td {{item.saldo}}
+																													td.td.text-right
+																														div {{item.gasto_mora.monto}}
+																														div {{item.gasto_mora.dias}}
+																													td.td.text-center
+																														invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
+																													td.td {{item.total}}
+																													td.td {{item.fecha}}
+																													td.td {{item.recaudado}}
+						span.black-point PAE
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="11%")
+										col(width="10%")
+										col(width="15%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+									thead.thead
+										tr.tr
+											th.th.text-right
+												b
+													span N
+													sup o
+													span &nbsp; Del Crédito
+											th.th.text-right
+												b Estado
+												b
+											th.th.text-right
+												b Fec. Emisión
+											th.th.text-right
+												b Fec. Vencimiento
+											th.th.text-right
+												b Monto Original
+											th.th.text-right
+												b Moneda
+											th.th.text-right
+												b Tasa
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat="item in comex.pae.items" ng-class="{'odd': $index % 2 == 0}")
+											td.td.text-right {{item.credit}}
+											td.td.text-right
+												invest-status(b-class="{{item.status.class}}" text="{{item.status.text}}")
+											td.td.text-right {{item.fecha}}
+											td.td.text-right {{item.vence}}
+											td.td.text-right {{item.monto}}
+											td.td.text-right {{item.moneda.code}}
+											td.td.text-right {{item.tasa}}
+						span.black-point Financiamiento Contado
+						md-card.pt-15px.pl-15px.pr-15px.pos-r
+							div.table-responsive
+								table.table.custom
+									colgroup
+										col(width="11%")
+										col(width="10%")
+										col(width="15%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+										col(width="10%")
+									thead.thead
+										tr.tr
+											th.th.text-right
+												b
+													span N
+													sup o
+													span &nbsp; Del Crédito
+											th.th.text-right
+												b Estado
+												b
+											th.th.text-right
+												b Fec. Emisión
+											th.th.text-right
+												b Fec. Vencimiento
+											th.th.text-right
+												b Monto Original
+											th.th.text-right
+												b Moneda
+											th.th.text-right
+												b Tasa
+									tbody.tbody
+										tr.tr.tr-container(ng-repeat="item in comex.financial.items" ng-class="{'odd': $index % 2 == 0}")
+											td.td.text-right {{item.credit}}
+											td.td.text-right
+												invest-status(b-class="{{item.status.class}}" text="{{item.status.text}}")
+											td.td.text-right {{item.fecha}}
+											td.td.text-right {{item.vence}}
+											td.td.text-right {{item.monto}}
+											td.td.text-right {{item.moneda.code}}
+											td.td.text-right {{item.tasa}}
 				md-tab(label="CONFIRMING" md-on-select="onTabChanges(7)")
 					md-content.poster
 						h4 Confirming
@@ -1662,7 +1763,7 @@ section.bg-gray.content-container
 								div.col-lg-1
 								div.col-lg-5.filter.login-box
 									div.row
-										div.col-lg-12.red-parenthesis
+										div.col-lg-12.red-parenthesis.hidden
 											span (CASO DE NO PODER IR SIN LOGUEARSE)
 									div.row
 										div.col-lg-12

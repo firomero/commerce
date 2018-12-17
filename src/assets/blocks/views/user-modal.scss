@@ -21,6 +21,7 @@
 		font-size: 15px;
 		margin-left: 0.5em;
 		color: $c-gray-firm;
+		cursor: hand;
 	}
 	.text{
 		letter-spacing: -.03px;
@@ -333,6 +334,17 @@
 	}
 	.mt-em {
 		margin-bottom:.7em;
+	}
+	span.text-tooltip {
+		text-align: right;
+		margin-top: 12px;
+		margin-bottom: 12px;
+		margin-left: 8px;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 1.2em;
+		position: relative;
+		z-index: 1;
 	}
 }
 
