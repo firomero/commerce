@@ -34,6 +34,7 @@ export default function ProductController($scope, userLogin, $stateParams) {
 		}
 	};
 	$scope.beneficiaries = [];
+	$scope.credits = [];
 	$scope.selectedStateOption = "";
 	$scope.selectedTypeOption = "";
 	$scope.selectedMoneyOption = "";
@@ -174,6 +175,10 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			"Pablo Toledo",
 		];
 
+		for (let i = 0; i < 10; i++) {
+			$scope.credits.push(Math.floor(100000000 + Math.random() * 900000000));
+		}
+
 		for (let i = 0; i < 90; i++) {
 			$scope.productsAll.push({
 				plus: false,
@@ -228,31 +233,32 @@ export default function ProductController($scope, userLogin, $stateParams) {
 			});
 
 			$scope.comex.creditLetter.items.push({
-				letter:'$1.232.346,6',
+				letter:'$1,232,346,6',
 				status: $scope.rentStates[getRandomIntInclusive(0, 1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
-				monto: '$1.232.346,6',
-				saldo: '$1.232.346,6',
+				monto: '$1,232,346,6',
+				saldo: '$1,232.346,6',
 				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
 				referencia: Math.floor(100000000 + Math.random() * 900000000)
 			});
 
 			$scope.comex.pae.items.push({
-				credit: Math.floor(100000000 + Math.random() * 900000000),
+				credit: $scope.credits[getRandomIntInclusive(0, 9)],
 				status: $scope.rentStates[getRandomIntInclusive(0, 1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
-				monto: '$1.232.346,6',
+				monto: '$1,232,346,6',
 				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
 				tasa: 'FIJA'
 			});
+
 			$scope.comex.financial.items.push({
-				credit: Math.floor(100000000 + Math.random() * 900000000),
+				credit: $scope.credits[getRandomIntInclusive(0, 9)],
 				status: $scope.rentStates[getRandomIntInclusive(0, 1)],
 				fecha: '22/11/2017',
 				vence: '22/11/2017',
-				monto: '$1.232.346,6',
+				monto: '$1,232,346,6',
 				moneda: $scope.currencies[getRandomIntInclusive(0, 1)],
 				tasa: 'FIJA'
 			});
