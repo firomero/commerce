@@ -8,7 +8,7 @@ section.bg-gray.content-container
 					md-content.poster
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
-								div.col-lg-6.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+								div.col-lg-6.inputs-filter-container
 									div.col-lg-3.col-md-4.col-sm-3.pr-0.text Buscar desde el
 									div.col-lg-4.col-md-3.col-sm-4.pr-0
 										form.input-form
@@ -24,22 +24,22 @@ section.bg-gray.content-container
 												i.material-icons.c-green event
 											div.form-element.custom-align
 												input(name="dateEnd" type="text" autocomplete="off" ng-model="$ctrl.dateEnd" placeholder="_ / _ / _" mask="99 / 99 / 9999")
-								div.col-lg-3
+								div.col-lg-3.status-filter-container
 									div.placeholder-select
 										span.text Estado
 									md-input-container.input-form
 										md-select.md-no-underline(ng-model="selectedStateOption")
 											md-option.text-uppercase(ng-value="state.text" ng-repeat="state in states") {{state.text}}
 
-								div.col-lg-3.col-md-3.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
-									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12 BUSCAR
+								div.col-lg-3.search-filter-container
+									button.button-success.col-xs-12 BUSCAR
 						md-card.pt-15px.pl-15px.pr-15px.pos-r
 							div.table-responsive
 								table.table.custom
 									colgroup
 										col(width="13%")
-										col(width="15%")
-										col(width="15%")
+										col(width="10%")
+										col(width="10%")
 										col(width="10%")
 										col(width="10%")
 										col(width="10%")
@@ -47,35 +47,27 @@ section.bg-gray.content-container
 										col(width="10%")
 									thead.thead
 										tr.tr
-											th.th.text-right
-												b Monto Carta de Cr&eacute;dito
-											th.th.text-right
-												b Estado
-											th.th.text-right
-												b Fec. Emisi&oacute;n
-											th.th.text-right
-												b Fec. Vencimiento
-											th.th.text-right
-												b Monto Contigencia
-											th.th.text-right
-												b Saldo Contingencia
-											th.th.text-right
-												b Moneda
-											th.th.text-right
-												b Nº de referencia
+											th.th.text-right Monto Carta de Cr&eacute;dito
+											th.th.text-left Estado
+											th.th.text-right Fec. Emisi&oacute;n
+											th.th.text-right Fec. Vencimiento
+											th.th.text-right Monto Contigencia
+											th.th.text-right Saldo Contingencia
+											th.th.text-right Moneda
+											th.th.text-right Nº de referencia
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
 												i.material-icons.add.mr-2(ng-if="!item.plus" ng-click="toggleDetail(item)") add
 												i.material-icons.remove.mr-2(ng-if="item.plus" ng-click="toggleDetail(item)") remove
 												span ${{item.carta}}
-											td.td.text-right
+											td.td.text-left
 												invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
 											td.td.text-right {{item.fecha}}
 											td.td.text-right {{item.vence}}
 											td.td.text-right ${{item.contingencia}}
 											td.td.text-right ${{item.saldo}}
-											td.td.text-right {{item.moneda.description}}
+											td.td.text-right {{item.moneda.code}}
 											td.td.text-right {{item.random_nueve}}
 										//DETAIL
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
@@ -272,7 +264,7 @@ section.bg-gray.content-container
 																				div {{item.gasto_mora.monto}}
 																				div {{item.gasto_mora.dias}}
 																			td.td {{item.gasto_cobranza}}
-																			td.td.text-center
+																			td.td.text-left
 																				invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
 																			td.td {{item.total}}
 																			td.td {{item.fecha}}
@@ -322,25 +314,16 @@ section.bg-gray.content-container
 									thead.thead
 										tr.tr
 											th.th.text-center
-												b
-													span N
-													sup o
-													span &nbsp;Dep
-											th.th.text-center
-												b Plazo (D&iacute;as)
-											th.th.text-center
-												b Tasa
-											th.th.text-center
-												b Estado
-												b
-											th.th.text-center
-												b Monto
-											th.th.text-center
-												b Monto Final
-											th.th.text-center
-												b Fech. Vencimiento
-											th.th.text-center
-												b Moneda
+												span N
+												sup o
+												span &nbsp;Dep
+											th.th.text-center Plazo (D&iacute;as)
+											th.th.text-center Tasa
+											th.th.text-center Estado
+											th.th.text-center Monto
+											th.th.text-center Monto Final
+											th.th.text-center Fech. Vencimiento
+											th.th.text-center Moneda
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
@@ -486,31 +469,19 @@ section.bg-gray.content-container
 								table.table.custom
 									thead.thead
 										tr.tr
-											th.th.text-left
-												b Tipo
+											th.th.text-left Tipo
 											th.th.text-right
-												b
-													span N
-													sup o
-													span &nbsp;Contrato
-											th.th.text-left
-												b Fecha Operaci&oacute;n
-											th.th.text-left
-												b Fecha Vencimiento
-											th.th.text-left
-												b Plazo
-											th.th.text-left
-												b Plazo Residual
-											th.th.text-left
-												b Moneda Origen
-											th.th.text-right
-												b Monto Origen
-											th.th.text-right
-												b Precio
-											th.th.text-left
-												b Moneda CNV
-											th.th.text-center
-												b Monto CNV
+												span N
+												sup o
+												span &nbsp;Contrato
+											th.th.text-left Fecha Operaci&oacute;n
+											th.th.text-left Fecha Vencimiento
+											th.th.text-left Plazo
+											th.th.text-left Plazo Moneda Origen
+											th.th.text-right Monto Origen
+											th.th.text-right Precio
+											th.th.text-left Moneda CNV
+											th.th.text-center Monto CNV
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.text-left {{item.tipo}}
@@ -576,20 +547,14 @@ section.bg-gray.content-container
 									thead.thead
 										tr.tr
 											th.th.text-right
-												b
-													span N
-													sup o
-													span &nbsp;Contrato
-											th.th.text-right
-												b Monto Op
-											th.th.text-center
-												b Moneda
-											th.th.text-left
-												b Valor Renta
-											th.th.text-left
-												b Seguro
-											th.th.text-left
-												b Fecha Curse
+												span N
+												sup o
+												span &nbsp;Contrato
+											th.th.text-right Monto Op
+											th.th.text-center Moneda
+											th.th.text-left Valor Renta
+											th.th.text-left Seguro
+											th.th.text-left Fecha Curse
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
@@ -900,32 +865,22 @@ section.bg-gray.content-container
 								table.table.custom
 									thead.thead
 										tr.tr
+											th.th.text-right Fecha Operaci&oacute;n
 											th.th.text-right
-												b Fecha Operaci&oacute;n
-											th.th.text-right
-												b
-													span N
-														sup o
-													span &nbsp; Op.
-											th.th.text-left
-												b Nombre Deudor
-											th.th.text-right
-												b
-													span N
+												span N
 													sup o
-													span &nbsp; Doc.
-											th.th.text-left
-												b Tipo Doc.
+												span &nbsp; Op.
+											th.th.text-left Nombre Deudor
 											th.th.text-right
-												b Moneda
-											th.th.text-right
-												b Monto Doc
-											th.th.text-right
-												b Saldo Insoluto
-											th.th.text-right
-												b Fecha Vencimiento
-											th.th.text-right
-												b Estado
+												span N
+												sup o
+												span &nbsp; Doc.
+											th.th.text-left Tipo Doc.
+											th.th.text-right Moneda
+											th.th.text-right Monto Doc
+											th.th.text-right Saldo Insoluto
+											th.th.text-right Fecha Vencimiento
+											th.th.text-right Estado
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.text-right {{item.fecha}}
@@ -1261,22 +1216,15 @@ section.bg-gray.content-container
 									thead.thead
 										tr.tr
 											th.th.text-center
-												b
-													span N
-													sup o
-													span &nbsp; Boleta
-											th.th.text-center
-												b Fecha Curse
-											th.th.text-left
-												b Beneficiario
-											th.th.text-right
-												b Tasa
-											th.th.text-right
-												b Monto
-											th.th.text-center
-												b Fecha Vencimiento
-											th.th.text-center
-												b Moneda
+												span N
+												sup o
+												span &nbsp; Boleta
+											th.th.text-center Fecha Curse
+											th.th.text-left Beneficiario
+											th.th.text-right Tasa
+											th.th.text-right Monto
+											th.th.text-center Fecha Vencimiento
+											th.th.text-center Moneda
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat-start="item in products" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon
@@ -1425,28 +1373,19 @@ section.bg-gray.content-container
 									thead.thead
 										tr.tr
 											th.th.text-right.middle-header
-												b
-													span N
-													sup o
-													span &nbsp; Carta de Crédito
+												span N
+												sup o
+												span &nbsp; Carta de Crédito
+											th.th.text-right.middle-header Estado
+											th.th.text-right.middle-header Fec. Emisión
+											th.th.text-right.middle-header Fec. Vencimiento
+											th.th.text-right.middle-header Monto Contingencia
+											th.th.text-right.middle-header Saldo Contigencia
+											th.th.text-right.middle-header Moneda
 											th.th.text-right.middle-header
-												b Estado
-												b
-											th.th.text-right.middle-header
-												b Fec. Emisión
-											th.th.text-right.middle-header
-												b Fec. Vencimiento
-											th.th.text-right.middle-header
-												b Monto Contingencia
-											th.th.text-right.middle-header
-												b Saldo Contigencia
-											th.th.text-right.middle-header
-												b Moneda
-											th.th.text-right.middle-header
-												b
-													span N
-													sup o
-													span &nbsp; de Referencia
+												span N
+												sup o
+												span &nbsp; de Referencia
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat-start="item in comex.creditLetter.items" ng-class="{'odd': $index % 2 == 0}")
 											td.td.plus-icon

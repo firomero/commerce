@@ -5,12 +5,8 @@ product-profiler {
 	}
 
 	.title {
-		display: inline;
-		position: absolute;
-		top: 5px;
-		left: 2px;
+		display: block;
 		font-size: 18px;
-		margin-top: -2.5em;
 	}
 
 	md-card {
@@ -206,12 +202,20 @@ product-profiler.bg-toolbar {
 
 /*MEDIA SCREEN*/
 @media (max-width: 320px) { //col-xs
+
+	.pb-3.pt-15px.pos-r._md {
+		margin-bottom: 4em !important;
+	}
 	.col-xs-4 {
 		width: 60.333333%;
 	}
 }
 
 @media (max-width: 375px) { //col-xs
+
+	.pb-3.pt-15px.pos-r._md {
+		margin-bottom: 4em !important;
+	}
 	product-profiler {
 		.tag-value.aling1 {
 			padding-left: 3em;
@@ -236,6 +240,10 @@ product-profiler.bg-toolbar {
 }
 
 @media (max-width: 425px) { //col-xs
+
+	.pb-3.pt-15px.pos-r._md {
+		margin-bottom: 4em !important;
+	}
 	product-profiler {
 		.tag-value.aling {
 			padding-left: 7.8em;
@@ -247,6 +255,10 @@ product-profiler.bg-toolbar {
 }
 
 @media (max-width: 767px) { //col-xs
+
+	.pb-3.pt-15px.pos-r._md {
+		margin-bottom: 4em !important;
+	}
 	product-profiler md-tab-content {
 		min-height: 430px;
 	}
@@ -275,6 +287,10 @@ product-profiler.bg-toolbar {
 }
 
 @media (min-width: 768px) and (max-width: 991px) { //col-sm
+
+	.pb-3.pt-15px.pos-r._md {
+		margin-bottom: 4em !important;
+	}
 	product-profiler md-tab-content {
 		min-height: 430px;
 	}
@@ -321,6 +337,10 @@ product-profiler.bg-toolbar {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) { //col-md
+
+	.pb-3.pt-15px.pos-r._md {
+		margin-bottom: 4em !important;
+	}
 	product-profiler md-tab-content {
 		min-height: 400px;
 	}
