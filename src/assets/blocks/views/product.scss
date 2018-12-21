@@ -3,6 +3,13 @@
 	//md-tabs.component md-tab-item.md-active {
 	//	opacity: .5;
 	//}
+	.table.custom .tr .td:first-child {
+		padding-left: 0;
+	}
+	.td.text-right.half {
+		width: 10%;
+	}
+
 	md-content.md-default-theme, md-content {
 		background-color: initial;
 	}
@@ -603,6 +610,23 @@
 				margin-left: 3em;
 			}
 		}
+
+		.radio-container-advanced-search {
+			md-radio-button {
+				margin-left: 3em;
+				margin-bottom: 4%;
+				&:nth-child(2) {
+				margin-right: 43%;
+			     }
+			}
+		}
+		.row {
+			.d-table.margin-side-3{
+				margin-left: -1.5%;
+				margin-right: 1.5%;
+			}
+		}
+
 	}
 }
 
@@ -640,6 +664,12 @@
 		md-switch.adjust-pendiente {
 			.md-label {
 				margin-left: 3em;
+			}
+		}
+		.row {
+			.d-table.margin-side-3{
+				margin-left: -1.5%;
+				margin-right: 1.5%;
 			}
 		}
 	}
@@ -716,6 +746,9 @@
 	.col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-8.col-xs-12.adjust {
 		margin-left: 6%
 	}
+	.col-lg-8.col-md-10.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less {
+		width: 102%;
+	}
 	.products {
 		.status-filter-container {
 			width: 45%;
@@ -786,6 +819,9 @@
 
 			.col-lg-3.col-md-3.col-sm-4.col-xs-12.refactor-padding {
 				margin-left: -1em;
+			}
+			.d-table.margin-side-3, .d-table.margin-left-3 {
+				margin-left: -6%;
 			}
 		}
 
@@ -891,6 +927,10 @@
 			.col-md-12.pl-0.pr-0 {
 				padding-left: 1em !important;
 			}
+			.d-table.margin-side-3{
+				margin-left: -4%;
+				margin-right: 4%;
+			}
 		}
 
 		.adjust-cel {
@@ -950,6 +990,10 @@
 
 		.text.refactor-all.visible-lg.visible-md.visible-sm {
 			margin-left: 0.6em
+		}
+		.d-table.margin-side-3{
+			margin-left: -3%;
+			margin-right: 3%;
 		}
 	}
 }

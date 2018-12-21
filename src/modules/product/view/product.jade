@@ -332,12 +332,12 @@ section.bg-gray.content-container
 												span {{item.random_nueve}}
 											td.td.text-right {{item.plazo}}
 											td.td.text-right {{item.tasa}}
-											td.td.text-right
+											td.td.text-left
 												invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
 											td.td.text-right ${{item.saldo}}
 											td.td.text-right ${{item.carta}}
 											td.td.text-right {{item.vence}}
-											td.td.text-right {{item.moneda.description}}
+											td.td.text-right {{item.moneda.code}}
 										tr.tr.plus-data(ng-repeat-end="" ng-if="item.plus")
 											td.td(colspan="8")
 												div.row.data-container
@@ -458,8 +458,8 @@ section.bg-gray.content-container
 											sup o
 										span.text &nbsp;Contrato
 									md-input-container.input-form
-										div.form-element.custom-align
-											input.custom-input(name="no" ng-model="no" type="number")
+										md-select.md-no-underline(ng-model="selectedStateOption")
+											md-option.text-uppercase(ng-value="currency" ng-repeat="product in products") {{product.random_nueve}}
 
 								div.col-lg-2.col-md-2.col-sm-12.col-xs-12.pb-15px.top.refactor-pl
 									button.button-success.col-lg-offset-2.col-lg-6.col-md-6.col-sm-offset-2.col-sm-4.col-xs-12.search BUSCAR
@@ -751,7 +751,7 @@ section.bg-gray.content-container
 								div.col-lg-3.shrinked
 						md-card.pt-15px.pos-r.filter
 							div.row.m-0
-								div.col-lg-8.col-md-9.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
+								div.col-lg-8.col-md-10.col-sm-12.col-xs-12.pl-0.top.col-lg-8-less.col-md-9-less
 									div.radio-container-advanced-search
 										md-radio-group(ng-model="factoringTabVisibility")
 											md-radio-button.md-primary(value="WALLET") Cartera
@@ -883,7 +883,7 @@ section.bg-gray.content-container
 											th.th.text-right Estado
 									tbody.tbody
 										tr.tr.tr-container(ng-repeat="item in products" ng-class="{'odd': $index % 2 == 0}")
-											td.td.text-right {{item.fecha}}
+											td.td.text-right.half {{item.fecha}}
 											td.td.text-right {{item.random_nueve}}
 											td.td.text-left.green
 												div {{item.deudor.code}}
@@ -1244,9 +1244,9 @@ section.bg-gray.content-container
 													div.col-lg-12.pl-0
 														div.row.data-container
 															div.col-lg-6.col-md-6.col-sm-6.col-xs-6div.row
-																div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table.margin-side-3
 																	label.text Estado
-																div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
+																div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table.margin-left-3
 																	invest-status(b-class="{{item.estado.class}}" text="{{item.estado.text}}")
 																div.row
 																	div.col-lg-6.col-md-6.col-sm-12.col-xs-6.d-table
